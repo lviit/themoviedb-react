@@ -1,0 +1,50 @@
+$boxcolor: #fff;
+$fontcolor: #000;
+$bgcolor: #C6C2B1;
+$bgalt: #ddd;
+
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans:300,400,500,700');
+
+body {
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: 300;
+  background: $bgcolor;
+}
+
+h1, h2, h3 {
+  font-weight: 700;
+  line-height: 1em;
+}
+
+h1 {
+  margin: 0.5em;
+  text-align: center;
+  font-size: 64px;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: 40px;
+  margin: 0 0 0.5em 0;
+}
+
+p {
+  font-size: 18px;
+  line-height: 25px;
+}
+
+.resultList {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.movie {
+  flex: 25%;
+  margin: 10px;
+  padding: 10px;
+  position: relative;
+  overflow: hidden;
+  background: $boxcolor;
+  color: $fontcolor;
+}
+
