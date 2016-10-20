@@ -8,8 +8,22 @@ let BUILD_DIR = path.resolve(__dirname, 'public');
 let APP_DIR = path.resolve(__dirname, 'src/js');
 
 module.exports = {
-  entry: APP_DIR + '/main.js',
-  output: { path: BUILD_DIR, filename: 'bundle.js' },
+  entry: {
+    app: APP_DIR + '/main.js',
+    vendor: [
+      'react',
+      'react-dom',
+      'react-addons-css-transition-group',
+      'axios'
+    ]
+  },
+  output: {
+    path: BUILD_DIR,
+    filename: 'bundle.js'
+  },
+  plugins: [
+    new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js'),
+  ],
   module: {
     loaders: [
       {
@@ -20,13 +34,13 @@ module.exports = {
           presets: ['es2015', 'react']
         }
       },
-			{
-				test:   /\.css$/,
-				loader: "style-loader!css-loader!postcss-loader"
-			}
+      {
+        test:   /\.css$/,
+        loader: "style-loader!css-loader!postcss-loader"
+      }
     ]
   },
-	postcss: function () {
-			return [precss, autoprefixer];
-	}
+  postcss: function () {
+      return [precss, autoprefixer];
+  }
 };
