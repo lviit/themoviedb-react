@@ -42,5 +42,9 @@ module.exports = {
   },
   postcss: function () {
       return [precss, autoprefixer];
+  },
+  devServer: {
+    inline:true,
+    contentBase: './public'
   }
 };

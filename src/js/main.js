@@ -1,2 +1,2 @@
-import Search from './movies.jsx';
+import Movies from './movies.jsx';
 
