@@ -18,75 +18,121 @@ webpackJsonp([0],{
 
 	'use strict';
 
-	var React = __webpack_require__(2);
-	var ReactDOM = __webpack_require__(35);
-	var ReactCSSTransitionGroup = __webpack_require__(173);
-	var axios = __webpack_require__(180);
-	var css = __webpack_require__(202);
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-	var MovieList = React.createClass({
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(35);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	var _reactAddonsCssTransitionGroup = __webpack_require__(173);
+
+	var _reactAddonsCssTransitionGroup2 = _interopRequireDefault(_reactAddonsCssTransitionGroup);
+
+	var _axios = __webpack_require__(180);
+
+	var _axios2 = _interopRequireDefault(_axios);
+
+	var _style = __webpack_require__(202);
+
+	var _style2 = _interopRequireDefault(_style);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var baseUrl = 'https://api.themoviedb.org/3/';
+	var apiKey = 'dc4a1a30e13042657cc4081b0a16bf8f';
+
+	var MovieList = _react2.default.createClass({
 	  displayName: 'MovieList',
 
+	  getConfig: function getConfig() {
+	    var url = baseUrl + 'configuration?api_key=' + apiKey;
+	    _axios2.default.get(url).then(function (data) {
+	      this.setState({ config: data });
+	    }.bind(this)).catch(function (error) {
+	      console.log(error);
+	    }.bind(this));
+	  },
 	  getMovies: function getMovies() {
 	    var apiKey = 'dc4a1a30e13042657cc4081b0a16bf8f';
-	    var url = 'https://api.themoviedb.org/3/discover/movie?primary_release_year=2010&sort_by=vote_average.desc&api_key=' + apiKey;
-	    axios.get(url).then(function (data) {
+	    var url = baseUrl + 'discover/movie?primary_release_year=2010&sort_by=vote_average.desc&api_key=' + apiKey;
+	    _axios2.default.get(url).then(function (data) {
 	      this.setState({ data: data.data });
 	    }.bind(this)).catch(function (error) {
 	      console.log(error);
 	    }.bind(this));
 	  },
 	  getInitialState: function getInitialState() {
-	    return { data: [] };
+	    return { config: [], data: [] };
 	  },
 	  componentDidMount: function componentDidMount() {
+	    this.getConfig();
 	    this.getMovies();
 	  },
 	  render: function render() {
-	    return React.createElement(
+	    return _react2.default.createElement(
 	      'div',
 	      { className: 'movies' },
-	      React.createElement(
+	      _react2.default.createElement(
 	        'h1',
 	        null,
 	        'Movies'
 	      ),
-	      React.createElement(ResultList, { data: this.state.data })
+	      _react2.default.createElement(ResultList, { data: this.state.data, config: this.state.config })
 	    );
 	  }
 	});
 
-	var ResultList = React.createClass({
+	var ResultList = _react2.default.createClass({
 	  displayName: 'ResultList',
 
 	  render: function render() {
-	    if (this.props.data.results) {
-	      var resultNodes = this.props.data.results.map(function (result) {
-	        return React.createElement(
-	          'div',
-	          { className: 'movie', key: result.id },
-	          React.createElement(
-	            'h2',
-	            { className: 'movie--title' },
-	            result.title
-	          ),
-	          React.createElement(
+	    var _this = this;
+
+	    if (this.props.data.results && this.props.config.data) {
+	      var _ret = function () {
+	        var imageBaseUrl = _this.props.config.data.images.secure_base_url;
+	        var fileSize = _this.props.config.data.images.backdrop_sizes[0];
+
+	        var resultNodes = _this.props.data.results.map(function (result) {
+	          return _react2.default.createElement(
 	            'div',
-	            { className: 'movie--overview' },
-	            result.overview
+	            { className: 'movie', key: result.id },
+	            _react2.default.createElement('img', { className: 'movie--image', src: imageBaseUrl + fileSize + result.poster_path }),
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'movie--info' },
+	              _react2.default.createElement(
+	                'h2',
+	                { className: 'movie--title' },
+	                result.title
+	              ),
+	              _react2.default.createElement(
+	                'div',
+	                { className: 'movie--overview' },
+	                result.overview
+	              )
+	            )
+	          );
+	        });
+	        return {
+	          v: _react2.default.createElement(
+	            'div',
+	            { className: 'resultList' },
+	            resultNodes
 	          )
-	        );
-	      });
-	      return React.createElement(
-	        'div',
-	        { className: 'resultList' },
-	        resultNodes
-	      );
+	        };
+	      }();
+
+	      if ((typeof _ret === 'undefined' ? 'undefined' : _typeof(_ret)) === "object") return _ret.v;
 	    } else {
-	      return React.createElement(
+	      return _react2.default.createElement(
 	        'div',
 	        { className: 'resultList' },
-	        React.createElement(
+	        _react2.default.createElement(
 	          'p',
 	          null,
 	          'No Movies :('
@@ -96,7 +142,7 @@ webpackJsonp([0],{
 	  }
 	});
 
-	ReactDOM.render(React.createElement(MovieList, null), document.getElementById('content'));
+	_reactDom2.default.render(_react2.default.createElement(MovieList, null), document.getElementById('content'));
 
 /***/ },
 
@@ -135,7 +181,7 @@ webpackJsonp([0],{
 	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Fira+Sans:300,400,500,700);", ""]);
 
 	// module
-	exports.push([module.id, "body {\n  font-family: 'Fira Sans', sans-serif;\n  font-weight: 300;\n  background: #C6C2B1;\n}\n\nh1, h2, h3 {\n  font-weight: 700;\n  line-height: 1em;\n}\n\nh1 {\n  margin: 0.5em;\n  text-align: center;\n  font-size: 64px;\n  text-transform: uppercase;\n}\n\nh2 {\n  font-size: 40px;\n  margin: 0 0 0.5em 0;\n}\n\np {\n  font-size: 18px;\n  line-height: 25px;\n}\n\n.resultList {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n}\n\n.movie {\n  -webkit-box-flex: 25%;\n      -ms-flex: 25%;\n          flex: 25%;\n  margin: 10px;\n  padding: 10px;\n  position: relative;\n  overflow: hidden;\n  background: #fff;\n  color: #000;\n}\n\n", ""]);
+	exports.push([module.id, "* {\n  box-sizing: border-box;\n}\n\nbody {\n  font-family: 'Fira Sans', sans-serif;\n  font-weight: 300;\n  background: #C6C2B1;\n}\n\nh1, h2, h3 {\n  font-weight: 700;\n  line-height: 1em;\n}\n\nh1 {\n  margin: 0.5em;\n  text-align: center;\n  font-size: 64px;\n  text-transform: uppercase;\n}\n\nh2 {\n  font-size: 40px;\n  margin: 0 0 0.5em 0;\n}\n\np {\n  font-size: 18px;\n  line-height: 25px;\n}\n\n.resultList {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n}\n\n.movie {\n  -webkit-box-flex: 33%;\n      -ms-flex: 33%;\n          flex: 33%;\n  margin: 10px;\n  position: relative;\n  overflow: hidden;\n  background: #eeeeee;\n  color: #000;\n}\n\n.movie--image {\n  float: right;\n  width: 30%;\n}\n\n.movie--info {\n  padding: 20px;\n  float: left;\n  width: 70%;\n}\n\n", ""]);
 
 	// exports
 

@@ -3,12 +3,17 @@ $fontcolor: #000;
 $bgcolor: #C6C2B1;
 $bgalt: #ddd;
 
-@import url('https://fonts.googleapis.com/css?family=Fira+Sans:300,400,500,700');
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700');
+
+* {
+  box-sizing: border-box;
+}
 
 body {
-  font-family: 'Fira Sans', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-weight: 300;
   background: $bgcolor;
+  margin: 0;
 }
 
 h1, h2, h3 {
@@ -29,8 +34,32 @@ h2 {
 }
 
 p {
-  font-size: 18px;
   line-height: 25px;
+}
+
+.navigation {
+  background: $bgalt;
+  text-align: center;
+  margin: 0;
+  .navigation--link {
+    font-size: 30px;
+    display: inline;
+    a {
+      padding: 10px;
+      display: inline-block;
+      font-weight: 700;
+      text-decoration: none;
+      text-transform: uppercase;
+      color: $fontcolor;
+      &.active {
+        background: $boxcolor;
+      }
+    }
+  }
+}
+
+.movies {
+  clear: both;
 }
 
 .resultList {
@@ -39,12 +68,22 @@ p {
 }
 
 .movie {
-  flex: 25%;
+  flex: 33%;
   margin: 10px;
-  padding: 10px;
   position: relative;
   overflow: hidden;
   background: $boxcolor;
   color: $fontcolor;
+}
+
+.movie--image {
+  float: right;
+  width: 30%;
+}
+
+.movie--info {
+  padding: 20px;
+  float: left;
+  width: 70%;
 }
 
