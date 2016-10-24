@@ -45,7 +45,7 @@ module.exports = {
       return [precss, autoprefixer];
   },
   devServer: {
-    inline:true,
+    inline: true,
     contentBase: './public'
   }
 };

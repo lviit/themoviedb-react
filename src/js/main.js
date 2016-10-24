@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route, IndexRoute, Link, IndexLink, hashHistory} from 'react-router';
+import {Router, Route, IndexRoute, IndexLink, hashHistory} from 'react-router';
 import MovieList from './movies.jsx';
+import MovieFullView from './moviefullview.jsx';
 
 const TestRoute = () => <h1>Just testing the router.</h1>
 const NotFound = () => <h1>404.. Whoops, page not found!</h1>
@@ -27,6 +28,7 @@ let App = React.createClass({
         <Route path='/' component={Container}>
           <IndexRoute component={MovieList} />
           <Route path='/test' component={TestRoute} />
+          <Route path='movie/*' component={MovieFullView} />
           <Route path='*' component={NotFound} />
         </Route>
       </Router>

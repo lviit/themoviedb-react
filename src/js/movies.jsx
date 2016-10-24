@@ -1,13 +1,25 @@
-let React = require('react');
-let ReactDOM = require('react-dom');
-let ReactCSSTransitionGroup = require('react-addons-css-transition-group');
-let axios = require('axios');
-let css = require('../css/style.css');
+import React from 'react';
+import { Link } from 'react-router';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import axios from 'axios';
+import css from '../css/style.css';
+
+let baseUrl = 'https://api.themoviedb.org/3/';
+let apiKey = 'dc4a1a30e13042657cc4081b0a16bf8f';
 
 let MovieList = React.createClass({
+  getConfig: function() {
+     let url = baseUrl + 'configuration?api_key=' + apiKey;
+     axios.get(url)
+    .then(function (data) {
+      this.setState({config: data});
+    }.bind(this))
+    .catch(function (error) {
+      console.log(error);
+    }.bind(this));   
+  },
   getMovies: function() {
-    let apiKey = 'dc4a1a30e13042657cc4081b0a16bf8f';
-    let url = 'https://api.themoviedb.org/3/discover/movie?primary_release_year=2010&sort_by=vote_average.desc&api_key='  + apiKey;
+    let url = baseUrl + 'discover/movie?primary_release_year=2010&sort_by=vote_average.desc&api_key='  + apiKey;
     axios.get(url)
     .then(function (data) {
       this.setState({data: data.data});
@@ -17,16 +29,17 @@ let MovieList = React.createClass({
     }.bind(this));
   },
   getInitialState: function() {
-    return {data: []};
+    return {config: [], data: []};
   },
   componentDidMount: function() {
+    this.getConfig();
     this.getMovies();
   },
   render: function() {
     return (
       <div className="movies">
         <h1>Movies</h1>
-        <ResultList data={this.state.data} />
+        <ResultList data={this.state.data} config={this.state.config} />
       </div>
     );
   }
@@ -34,12 +47,20 @@ let MovieList = React.createClass({
 
 let ResultList = React.createClass({
   render: function() {
-    if (this.props.data.results) {
+    if (this.props.data.results && this.props.config.data) {
+      let imageBaseUrl = this.props.config.data.images.secure_base_url;
+      let fileSize = this.props.config.data.images.backdrop_sizes[0];
+
       let resultNodes = this.props.data.results.map(function(result) {
+        var path = '/movie/' + result.id;
         return (
           <div className="movie" key={result.id}>
-            <h2 className="movie--title">{result.title}</h2>
-            <div className="movie--overview">{result.overview}</div>
+            <img className="movie--image" src={imageBaseUrl + fileSize + result.poster_path}></img>
+            <div className="movie--info">
+              <h2 className="movie--title">{result.title}</h2>
+              <p className="movie--overview">{result.overview}</p>
+              <Link className="movie--link" to={path}>Read more</Link>
+            </div>
           </div>
         );
       }); 
@@ -59,16 +80,7 @@ let ResultList = React.createClass({
   }
 });
 
-ReactDOM.render(
-  <MovieList />,
-  document.getElementById('content')
-);
-
-
-
-
-
-
+export default MovieList
 
 
 
