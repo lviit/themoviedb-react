@@ -29,7 +29,7 @@ h1 {
 }
 
 h2 {
-  font-size: 40px;
+  font-size: 30px;
   margin: 0 0 0.5em 0;
 }
 
@@ -58,33 +58,33 @@ p {
   }
 }
 
-.movies {
-  clear: both;
-}
-
 .resultList {
-  display: flex;
-  flex-wrap: wrap;
+  column-count: 5;
+  column-gap: 0;
 }
 
 .movie {
-  flex: 33%;
-  margin: 10px;
   position: relative;
   overflow: hidden;
   background: $boxcolor;
   color: $fontcolor;
-}
-
-.movie--image {
-  float: right;
-  width: 30%;
+  overflow: hidden;
+  &:hover {
+    .movie--info {
+      transform: translateY(0);
+    }
+  }
 }
 
 .movie--info {
+  transition: transform 0.5s cubic-bezier(0.15, 1, 0.33, 1);
+  background: rgba(255,255,255, 0.8);
+  position: absolute;
+  bottom: 0;
   padding: 20px;
-  float: left;
-  width: 70%;
+  width: 100%;
+  transform: translateY(100%);
+
 }
 
 .page-wrapper {

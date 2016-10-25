@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+import TextTruncate from 'react-text-truncate';
 import axios from 'axios';
 import css from '../css/style.css';
 
@@ -57,7 +58,7 @@ let ResultList = React.createClass({
             <img className="movie--image" src={imageBaseUrl + fileSize + result.poster_path}></img>
             <div className="movie--info">
               <h2 className="movie--title">{result.title}</h2>
-              <p className="movie--overview">{result.overview}</p>
+              <TextTruncate containerClassName="movie--overview" line={3} truncateText="…" text={result.overview} />
               <Link className="movie--link" to={path}>Read more</Link>
             </div>
           </div>
