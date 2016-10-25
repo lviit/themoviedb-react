@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Router, Route, IndexRoute, IndexLink, hashHistory} from 'react-router';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import MovieList from './movies.jsx';
 import MovieFullView from './moviefullview.jsx';
 
@@ -17,7 +18,11 @@ const Nav = () => (
 const Container = (props) => (
   <div>
     <Nav />
-    {props.children}
+    <ReactCSSTransitionGroup transitionName="pageSlider" transitionEnterTimeout={800} transitionLeaveTimeout={800}>
+      <div className="page-wrapper" key={props.location.pathname}>
+        {props.children}
+      </div>
+    </ReactCSSTransitionGroup>
   </div>
 )
 

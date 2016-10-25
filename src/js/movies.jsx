@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import axios from 'axios';
 import css from '../css/style.css';
 

@@ -87,3 +87,22 @@ p {
   width: 70%;
 }
 
+.page-wrapper {
+  transition: transform 0.8s cubic-bezier(0.15, 1, 0.33, 1);
+}
+
+.pageSlider-enter {
+  transform: translateX(100%);
+}
+
+.pageSlider-enter.pageSlider-enter-active {
+  transform: translateX(0);
+}
+
+.pageSlider-leave {
+  transform: translateX(0);
+}
+
+.pageSlider-leave.pageSlider-leave-active {
+  transform: translateX(-100%);
+}
