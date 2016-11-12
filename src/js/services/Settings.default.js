@@ -1,4 +1,4 @@
-//Add apikey and copy this to settings.js
+//Add apikey and copy this to Settings.js
 //const apiKey = '';
 const baseUrl = 'https://api.themoviedb.org/3/';
 const configUrl = baseUrl + 'configuration?api_key=' + apiKey;

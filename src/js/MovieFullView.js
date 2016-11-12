@@ -1,9 +1,9 @@
 import React from 'react';
 import css from '../css/style.css';
-import apiConnect from './services/apiConnect';
-import ResultList from './components/ResultList';
+import apiConnect from './services/ApiConnect';
+import FullView from './components/FullView';
 
-class MovieList extends React.Component {
+class MovieFullView extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -17,7 +17,7 @@ class MovieList extends React.Component {
         config,
       });
     });
-    apiConnect.getMovies().then(data => {
+    apiConnect.getMovieFullview(this.props.params.splat).then(data => {
       this.setState({
         data,
       });
@@ -25,12 +25,11 @@ class MovieList extends React.Component {
   }
   render() {
     return (
-      <div className="movies">
-        <h1>Movies</h1>
-        <ResultList data={this.state.data} config={this.state.config} />
+      <div className="movie--fullview">
+        <FullView data={this.state.data} config={this.state.config} />
       </div>
     );
   }
 };
 
-export default MovieList
+export default MovieFullView
