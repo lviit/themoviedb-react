@@ -9,7 +9,7 @@ let APP_DIR = path.resolve(__dirname, 'src/js');
 
 module.exports = {
   entry: {
-    app: APP_DIR + '/main.js',
+    app: APP_DIR + '/Main.js',
     vendor: [
       'react',
       'react-dom',

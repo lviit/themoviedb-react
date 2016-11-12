@@ -1,9 +1,9 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import {Router, Route, IndexRoute, IndexLink, hashHistory} from 'react-router';
+import { render } from 'react-dom';
+import { Router, Route, IndexRoute, IndexLink, hashHistory } from 'react-router';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
-import MovieList from './movies.jsx';
-import MovieFullView from './moviefullview.jsx';
+import MovieList from './Movies';
+import MovieFullView from './Moviefullview';
 
 const TestRoute = () => <h1>Just testing the router.</h1>
 const NotFound = () => <h1>404.. Whoops, page not found!</h1>
@@ -13,7 +13,7 @@ const Nav = () => (
     <li className="navigation--link"><IndexLink activeClassName="active" to='/'>Home</IndexLink></li>
     <li className="navigation--link"><IndexLink activeClassName="active" to='/test'>Test</IndexLink></li>
   </ul>
-)
+);
 
 const Container = (props) => (
   <div>
@@ -24,24 +24,20 @@ const Container = (props) => (
       </div>
     </ReactCSSTransitionGroup>
   </div>
-)
+);
 
-let App = React.createClass({
-  render: function() {
-    return (
-      <Router history={hashHistory}>
-        <Route path='/' component={Container}>
-          <IndexRoute component={MovieList} />
-          <Route path='/test' component={TestRoute} />
-          <Route path='movie/*' component={MovieFullView} />
-          <Route path='*' component={NotFound} />
-        </Route>
-      </Router>
-    );
-  }
-});
+const App = () => (
+  <Router history={hashHistory}>
+    <Route path='/' component={Container}>
+      <IndexRoute component={MovieList} />
+      <Route path='/test' component={TestRoute} />
+      <Route path='movie/*' component={MovieFullView} />
+      <Route path='*' component={NotFound} />
+    </Route>
+  </Router>
+);
 
-ReactDOM.render(
+render(
   <App />,
   document.getElementById('content')
 );
