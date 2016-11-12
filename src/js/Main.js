@@ -4,6 +4,7 @@ import { Router, Route, IndexRoute, IndexLink, hashHistory } from 'react-router'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import MovieList from './Movies';
 import MovieFullView from './Moviefullview';
+import BackButton from './components/BackButton';
 
 const TestRoute = () => <h1>Just testing the router.</h1>
 const NotFound = () => <h1>404.. Whoops, page not found!</h1>
@@ -18,6 +19,7 @@ const Nav = () => (
 const Container = (props) => (
   <div>
     <Nav />
+    <BackButton goBack={props.history.goBack} />
     <ReactCSSTransitionGroup transitionName="pageSlider" transitionEnterTimeout={800} transitionLeaveTimeout={800}>
       <div className="page-wrapper" key={props.location.pathname}>
         {props.children}
