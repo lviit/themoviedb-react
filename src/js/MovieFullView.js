@@ -13,20 +13,18 @@ class MovieFullView extends React.Component {
   }
   componentWillMount() {
     apiConnect.getConfig().then(config => {
-      this.setState({
-        config,
-      });
-    });
-    apiConnect.getMovieFullview(this.props.params.splat).then(data => {
-      this.setState({
-        data,
+      apiConnect.getMovieFullview(this.props.params.splat).then(data => {
+        this.setState({
+          config,
+          data,
+        });
       });
     });
   }
   render() {
     return (
       <div className="movie--fullview">
-        <FullView data={this.state.data} config={this.state.config} />
+        {this.state.config.images && <FullView data={this.state.data} config={this.state.config} />}
       </div>
     );
   }

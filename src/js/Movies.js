@@ -13,13 +13,11 @@ class MovieList extends React.Component {
   }
   componentWillMount() {
     apiConnect.getConfig().then(config => {
-      this.setState({
-        config,
-      });
-    });
-    apiConnect.getMovies().then(data => {
-      this.setState({
-        data,
+      apiConnect.getMovies().then(data => {
+        this.setState({
+          config,
+          data,
+        });
       });
     });
   }
@@ -27,7 +25,7 @@ class MovieList extends React.Component {
     return (
       <div className="movies">
         <h1>Movies</h1>
-        <ResultList data={this.state.data} config={this.state.config} />
+        {this.state.config.images && <ResultList data={this.state.data} config={this.state.config} />}
       </div>
     );
   }
