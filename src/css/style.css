@@ -59,11 +59,12 @@ p {
 }
 
 .resultList {
-  column-count: 5;
+  column-count: 4;
   column-gap: 0;
 }
 
 .movie {
+  backface-visibility: hidden;
   position: relative;
   overflow: hidden;
   background: $boxcolor;
@@ -86,6 +87,16 @@ p {
   transform: translateY(100%);
 
 }
+
+.movie--image {
+  width: 100%;
+}
+
+.movie--image__full {
+  max-width: 100%;
+}
+
+
 
 .page-wrapper {
   transition: transform 0.8s cubic-bezier(0.15, 1, 0.33, 1);

@@ -1,39 +1,27 @@
 import React from 'react';
 import { Link } from 'react-router';
 import TextTruncate from 'react-text-truncate';
-import axios from 'axios';
 import css from '../css/style.css';
-
-let baseUrl = 'https://api.themoviedb.org/3/';
-let apiKey = 'dc4a1a30e13042657cc4081b0a16bf8f';
+import apiConnect from './services/apiConnect';
 
 let MovieList = React.createClass({
-  getConfig: function() {
-     let url = baseUrl + 'configuration?api_key=' + apiKey;
-     axios.get(url)
-    .then(function (data) {
-      this.setState({config: data});
-    }.bind(this))
-    .catch(function (error) {
-      console.log(error);
-    }.bind(this));   
-  },
-  getMovies: function() {
-    let url = baseUrl + 'discover/movie?primary_release_year=2010&sort_by=vote_average.desc&api_key='  + apiKey;
-    axios.get(url)
-    .then(function (data) {
-      this.setState({data: data.data});
-    }.bind(this))
-    .catch(function (error) {
-      console.log(error);
-    }.bind(this));
-  },
   getInitialState: function() {
-    return {config: [], data: []};
+    return {
+      config: [],
+      data: [],
+    };
   },
-  componentDidMount: function() {
-    this.getConfig();
-    this.getMovies();
+  componentWillMount: function() {
+    apiConnect.getConfig().then(config => {
+      this.setState({
+        config,
+      });
+    });
+    apiConnect.getMovies().then(data => {
+      this.setState({
+        data,
+      });
+    });
   },
   render: function() {
     return (
@@ -47,9 +35,9 @@ let MovieList = React.createClass({
 
 let ResultList = React.createClass({
   render: function() {
-    if (this.props.data.results && this.props.config.data) {
-      let imageBaseUrl = this.props.config.data.images.secure_base_url;
-      let fileSize = this.props.config.data.images.backdrop_sizes[0];
+    if (this.props.data.results && this.props.config.images) {
+      let imageBaseUrl = this.props.config.images.secure_base_url;
+      let fileSize = this.props.config.images.backdrop_sizes[0];
 
       let resultNodes = this.props.data.results.map(function(result) {
         var path = '/movie/' + result.id;
@@ -63,7 +51,7 @@ let ResultList = React.createClass({
             </div>
           </div>
         );
-      }); 
+      });
       return (
         <div className="resultList">
           {resultNodes}
@@ -75,18 +63,9 @@ let ResultList = React.createClass({
         <div className="resultList">
           <p>No Movies :(</p>
         </div>
-      );    
+      );
     }
   }
 });
 
 export default MovieList
-
-
-
-
-
-
-
-
-
