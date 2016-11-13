@@ -23,7 +23,7 @@ class MovieFullView extends React.Component {
   }
   render() {
     return (
-      <div className="movie--fullview">
+      <div className="movie__full">
         {this.state.config.images && <FullView data={this.state.data} config={this.state.config} />}
       </div>
     );

@@ -9,9 +9,12 @@ class FullView extends React.Component {
   }
 
   render() {
-    let imageBaseUrl = this.props.config.images.secure_base_url;
-    let fileSize = this.props.config.images.backdrop_sizes[3];
-    let movie = this.props.data;
+    const imageBaseUrl = this.props.config.images.secure_base_url;
+    const fileSize = this.props.config.images.backdrop_sizes[3];
+    const { title, tagline, overview, release_date, backdrop_path, homepage, genres, vote_average } = this.props.data;
+    const genreList = genres.map(genre => {
+      return <div className="genre" key={genre.id}>{genre.name}</div>
+    });
 
     return (
       <div>
@@ -20,12 +23,20 @@ class FullView extends React.Component {
           <img onLoad={ e => this.setState({ img_loader: false })}
             onError={ e => this.setState({ img_loader: false })}
             className="movie--image__full"
-            src={imageBaseUrl + fileSize + movie.backdrop_path}
+            src={imageBaseUrl + fileSize + backdrop_path}
           />
         </div>
-        <h1>{movie.title}</h1>
-        <h3>{movie.tagline}</h3>
-        <p>{movie.overview}</p>
+        <div className="container">
+          <h1 className="movie--title__full">{title}</h1>
+          <h2 className="movie--tagline__full">{tagline}</h2>
+          <div className="movie--info__full">
+            <div>{genreList}</div>
+            <div>{release_date}</div>
+            <div>{homepage}</div>
+            <div>{vote_average}</div>
+            <p>{overview}</p>
+          </div>
+        </div>
       </div>
     );
   }

@@ -16,6 +16,7 @@ module.exports = {
       'react-router',
       'react-addons-css-transition-group',
       'react-text-truncate',
+      'classnames',
       'axios'
     ]
   },
@@ -39,6 +40,10 @@ module.exports = {
       {
         test:   /\.css$/,
         loader: "style-loader!css-loader!postcss-loader"
+      },
+      {
+        test: /\.(eot|svg|ttf|woff|woff2)$/,
+        loader: 'file-loader?name=public/fonts/[name].[ext]'
       }
     ]
   },

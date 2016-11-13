@@ -1,12 +1,27 @@
 $boxcolor: #fff;
 $fontcolor: #000;
 $bgcolor: #C6C2B1;
+//$bgcolor: #282828;
 $bgalt: #ddd;
 
 @import url('https://fonts.googleapis.com/css?family=Lato:300,400,700');
 
-* {
-  box-sizing: border-box;
+html {
+  -moz-box-sizing: border-box;
+       box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+embed,
+img,
+object,
+video {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
 }
 
 body {
@@ -24,8 +39,7 @@ h1, h2, h3 {
 h1 {
   margin: 0.5em;
   text-align: center;
-  font-size: 64px;
-  text-transform: uppercase;
+  font-size: 40px;
 }
 
 h2 {
@@ -35,6 +49,12 @@ h2 {
 
 p {
   line-height: 25px;
+}
+
+.container {
+  width: 60em;
+  margin: 0 auto;
+  overflow: hidden;
 }
 
 .navigation {
@@ -58,8 +78,16 @@ p {
   }
 }
 
+.back-button {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  padding: 10px;
+  font-size: 36px;
+}
+
 .resultList {
-  column-count: 4;
+  column-count: 5;
   column-gap: 0;
 }
 
@@ -77,6 +105,10 @@ p {
   }
 }
 
+.movie__full {
+  position: relative;
+}
+
 .movie--info {
   transition: transform 0.5s cubic-bezier(0.15, 1, 0.33, 1);
   background: rgba(255,255,255, 0.8);
@@ -88,13 +120,30 @@ p {
 
 }
 
-.movie--image {
-  width: 100%;
+.movie--title__full {
+  font-size: 80px;
+  margin-top: 170px;
+  text-shadow: 0 0 15px #000;
+  position: relative;
+  color: #fff;
+}
+
+.movie--tagline__full {
+  position: relative;
+  color: #fff;
+  text-shadow: 0 0 15px #000;
+  text-align: center;
+}
+
+.movie--info__full {
+  background: rgba(255,255,255, 0.9);
+  position: relative;
+  padding: 2em;
+  margin-top: 150px;
 }
 
 .image-load-container {
-  position: relative;
-  min-height: 500px;
+  position: absolute;
   background-color: #ccc;
 }
 
@@ -124,41 +173,4 @@ p {
 
 .pageSlider-leave.pageSlider-leave-active {
   transform: translateX(-100%);
-}
-
-.loader,
-.loader:after {
-  border-radius: 50%;
-  width: 10em;
-  height: 10em;
-}
-.loader {
-  margin: 60px auto;
-  font-size: 10px;
-  position: absolute;
-  left: 47%;
-  top: 35%;
-  text-indent: -9999em;
-  border-top: 1.1em solid rgba(255, 255, 255, 0.2);
-  border-right: 1.1em solid rgba(255, 255, 255, 0.2);
-  border-bottom: 1.1em solid rgba(255, 255, 255, 0.2);
-  border-left: 1.1em solid #ffffff;
-  transform: translateZ(0);
-  animation: load8 1.1s infinite linear;
-}
-@-webkit-keyframes load8 {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-@keyframes load8 {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
 }
