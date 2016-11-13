@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import TextTruncate from 'react-text-truncate';
+import MovieListCss from '../../css/movie--list.css';
 
 const ResultList = (props) => {
   let imageBaseUrl = props.config.images.secure_base_url;

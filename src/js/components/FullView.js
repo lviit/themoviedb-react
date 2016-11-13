@@ -1,5 +1,6 @@
 import React from 'react';
 import css from '../../css/material-icons.css';
+import MovieFullCss from '../../css/movie--full.css';
 import GenreList from './GenreList';
 
 class FullView extends React.Component {

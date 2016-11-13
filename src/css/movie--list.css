@@ -1,0 +1,29 @@
+.resultList {
+  column-count: 5;
+  column-gap: 0;
+}
+
+.movie {
+  backface-visibility: hidden;
+  position: relative;
+  overflow: hidden;
+  background: $boxcolor;
+  color: $fontcolor;
+  overflow: hidden;
+  &:hover {
+    .movie--info {
+      transform: translateY(0);
+    }
+  }
+}
+
+.movie--info {
+  transition: transform 0.5s cubic-bezier(0.15, 1, 0.33, 1);
+  background: rgba(255,255,255, 0.8);
+  position: absolute;
+  bottom: 0;
+  padding: 20px;
+  width: 100%;
+  transform: translateY(100%);
+
+}

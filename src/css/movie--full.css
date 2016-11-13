@@ -1,0 +1,55 @@
+.movie__full {
+  position: relative;
+}
+
+.movie--title__full {
+  font-size: 80px;
+  margin-top: 170px;
+  text-shadow: 0 0 15px #000;
+  position: relative;
+  color: #fff;
+}
+
+.movie--tagline__full {
+  position: relative;
+  color: #fff;
+  text-shadow: 0 0 15px #000;
+  text-align: center;
+}
+
+.movie--info__full {
+  background: rgba(255,255,255, 0.9);
+  position: relative;
+  padding: 2em;
+  margin-top: 150px;
+}
+
+.image-load-container {
+  position: absolute;
+  background-color: #ccc;
+}
+
+.movie--image__full {
+  max-width: 100%;
+  opacity: 0
+  &.img__loaded {
+    opacity: 1;
+  }
+}
+
+.movie--score__full {
+  top: 1em;
+  right: 1em;
+  position: absolute;
+  .score-icon {
+    font-size: 100px;
+  }
+  .score {
+    position: absolute;
+    font-weight: 400;
+    color: #fff;
+    font-size: 20px;
+    top: 39px;
+    left: 36px;
+  }
+}
