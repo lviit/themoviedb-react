@@ -1,5 +1,7 @@
 import React from 'react';
+import Classnames from 'classnames';
 import css from '../../css/material-icons.css';
+import loadercss from '../../css/loader.css';
 import MovieFullCss from '../../css/movie--full.css';
 import GenreList from './GenreList';
 import Details from './Details';
@@ -8,7 +10,7 @@ class FullView extends React.Component {
   constructor() {
     super();
     this.state = {
-      img_loader: true,
+      img_loaded: false,
     }
   }
 
@@ -17,13 +19,18 @@ class FullView extends React.Component {
     const fileSize = this.props.config.images.backdrop_sizes[3];
     const { title, tagline, overview, backdrop_path, genres, vote_average} = this.props.data;
 
+    let classes = Classnames({
+      'movie--image__full': true,
+      'img__loaded': this.state.img_loaded,
+    });
+
     return (
       <div>
         <div className="image-load-container">
-          {this.state.img_loader && <div className="loader"></div>}
-          <img onLoad={ e => this.setState({ img_loader: false })}
-            onError={ e => this.setState({ img_loader: false })}
-            className="movie--image__full"
+          {!this.state.img_loaded && <div className="loader"></div>}
+          <img onLoad={ e => this.setState({ img_loaded: true })}
+            onError={ e => this.setState({ img_loaded: true })}
+            className={classes}
             src={imageBaseUrl + fileSize + backdrop_path}
           />
         </div>

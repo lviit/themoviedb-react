@@ -30,8 +30,9 @@
 }
 
 .movie--image__full {
+  transition: opacity 0.5s;
   max-width: 100%;
-  opacity: 0
+  opacity: 0;
   &.img__loaded {
     opacity: 1;
   }
