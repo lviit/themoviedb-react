@@ -2,7 +2,7 @@ $boxcolor: #fff;
 $fontcolor: #000;
 $bgcolor: #C6C2B1;
 //$bgcolor: #282828;
-$bgalt: #ddd;
+$bgalt: #515151;
 
 @import url('https://fonts.googleapis.com/css?family=Lato:300,400,700');
 
@@ -57,6 +57,16 @@ p {
   overflow: hidden;
 }
 
+.section {
+  background-color: $bgalt;
+  color: #fff;
+  h2 {
+    text-align: center;
+    font-size: 50px;
+    margin: 1em 0 0.5em 0;
+  }
+}
+
 .header {
   position: relative;
   background: $bgalt;
@@ -75,9 +85,10 @@ p {
       font-weight: 700;
       text-decoration: none;
       text-transform: uppercase;
-      color: $fontcolor;
+      color: #fff;
       &.active {
         background: $boxcolor;
+        color: $fontcolor;
       }
     }
   }

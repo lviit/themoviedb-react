@@ -1,0 +1,20 @@
+.reviews {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 -2em;
+}
+
+.review {
+  padding: 2em;
+  flex-basis: 27%;
+}
+
+.review--author {
+  text-align: center;
+  font-size: 25px;
+}
+
+.review--content {
+
+}
