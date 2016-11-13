@@ -1,4 +1,6 @@
 import React from 'react';
+import css from '../../css/material-icons.css';
+import GenreList from './GenreList';
 
 class FullView extends React.Component {
   constructor() {
@@ -12,9 +14,7 @@ class FullView extends React.Component {
     const imageBaseUrl = this.props.config.images.secure_base_url;
     const fileSize = this.props.config.images.backdrop_sizes[3];
     const { title, tagline, overview, release_date, backdrop_path, homepage, genres, vote_average } = this.props.data;
-    const genreList = genres.map(genre => {
-      return <div className="genre" key={genre.id}>{genre.name}</div>
-    });
+
 
     return (
       <div>
@@ -30,10 +30,13 @@ class FullView extends React.Component {
           <h1 className="movie--title__full">{title}</h1>
           <h2 className="movie--tagline__full">{tagline}</h2>
           <div className="movie--info__full">
-            <div>{genreList}</div>
+            <GenreList genres={genres} />
             <div>{release_date}</div>
             <div>{homepage}</div>
-            <div>{vote_average}</div>
+            <div className="movie--score__full">
+              <i className="material-icons score-icon">star</i>
+              <span className="score">{vote_average}</span>
+            </div>
             <p>{overview}</p>
           </div>
         </div>

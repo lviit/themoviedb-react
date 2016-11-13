@@ -120,6 +120,23 @@ p {
 
 }
 
+.movie--score__full {
+  top: 1em;
+  right: 1em;
+  position: absolute;
+  .score-icon {
+    font-size: 100px;
+  }
+  .score {
+    position: absolute;
+    font-weight: 400;
+    color: #fff;
+    font-size: 20px;
+    top: 39px;
+    left: 36px;
+  }
+}
+
 .movie--title__full {
   font-size: 80px;
   margin-top: 170px;
