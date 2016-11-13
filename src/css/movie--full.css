@@ -37,6 +37,14 @@
   }
 }
 
+.movie--overview__full {
+  width: 50%;
+  font-size: 20px;
+  p {
+    line-height: 30px;
+  }
+}
+
 .movie--score__full {
   top: 1em;
   right: 1em;
