@@ -14,8 +14,7 @@ const ResultList = (props) => {
         <img className="movie--image" src={imageBaseUrl + fileSize + result.poster_path}></img>
         <div className="movie--info">
           <h2 className="movie--title">{result.title}</h2>
-          <TextTruncate containerClassName="movie--overview" line={3} truncateText="…" text={result.overview} />
-          <Link className="movie--link" to={path}>Read more</Link>
+          <Link className="movie--link" to={path}><i className="material-icons">arrow_forward</i></Link>
         </div>
       </div>
     );

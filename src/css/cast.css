@@ -1,0 +1,32 @@
+.cast {
+  display: flex;
+  margin: 2em 0;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: space-around;
+}
+
+.cast-member {
+  flex-basis: 31%;
+  margin-bottom: 2em;
+  display: flex;
+  justify-content: space-between;
+  background: #fff;
+}
+
+.cast-member--info {
+  padding: 1em;
+}
+
+.cast-member--name {
+  font-weight: 400;
+  margin-bottom: 0.5em;
+}
+
+.cast-member--character {
+
+}
+
+.cast-member--image {
+  height: 100px;
+}

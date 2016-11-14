@@ -25,5 +25,11 @@ export default {
       .get(settings.baseUrl + 'movie/' + id + '/reviews?api_key=' + settings.apiKey)
       .then(res => res.data)
       .catch(error => console.log(error));
+  },
+  getCredits: (id) => {
+    return axios
+      .get(settings.baseUrl + 'movie/' + id + '/credits?api_key=' + settings.apiKey)
+      .then(res => res.data)
+      .catch(error => console.log(error));
   }
 }

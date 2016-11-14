@@ -22,8 +22,20 @@
   background: rgba(255,255,255, 0.8);
   position: absolute;
   bottom: 0;
-  padding: 20px;
+  padding: 18px;
   width: 100%;
   transform: translateY(100%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
+}
+
+.movie--link {
+  font-size: 25px;
+}
+
+h2.movie--title {
+  font-size: 25px;
+  margin: 0;
 }

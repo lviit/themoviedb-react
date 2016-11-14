@@ -1,13 +1,12 @@
 .reviews {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  margin: 0 -2em;
+  justify-content: space-between;
 }
 
 .review {
-  padding: 2em;
-  flex-basis: 27%;
+  padding: 2em 0;
+  flex-basis: 28%;
 }
 
 .review--author {
