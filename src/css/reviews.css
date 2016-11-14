@@ -5,15 +5,15 @@
 }
 
 .review {
-  padding: 2em 0;
   flex-basis: 28%;
 }
 
 .review--author {
   text-align: center;
+  margin-bottom: 0.5em;
   font-size: 25px;
 }
 
 .review--content {
-
+  text-align: center;
 }

@@ -1,5 +1,15 @@
-.movie__full {
-  position: relative;
+.image-load-container {
+  position: absolute;
+  background-color: #ccc;
+}
+
+.movie--image__full {
+  transition: opacity 0.5s;
+  max-width: 100%;
+  opacity: 0;
+  &.img__loaded {
+    opacity: 1;
+  }
 }
 
 .movie--title__full {
@@ -22,34 +32,33 @@
   position: relative;
   padding: 2em;
   margin-top: 150px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
-.image-load-container {
-  position: absolute;
-  background-color: #ccc;
+.movie--genres {
+  flex-basis: 88%;
 }
 
-.movie--image__full {
-  transition: opacity 0.5s;
-  max-width: 100%;
-  opacity: 0;
-  &.img__loaded {
-    opacity: 1;
-  }
+.movie--details {
+  flex-basis: 30%;
+  align-self: center;
 }
 
 .movie--overview__full {
-  width: 50%;
   font-size: 20px;
+  flex-basis: 60%;
   p {
     line-height: 30px;
+    margin-top: 1em;
   }
 }
 
 .movie--score__full {
-  top: 1em;
-  right: 1em;
   position: absolute;
+  right: 0.5em;
+  top: 0.5em;
   .score-icon {
     font-size: 100px;
   }

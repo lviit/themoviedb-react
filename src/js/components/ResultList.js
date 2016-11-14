@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router';
-import TextTruncate from 'react-text-truncate';
 import MovieListCss from '../../css/movie--list.css';
 
 const ResultList = (props) => {

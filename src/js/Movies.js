@@ -23,7 +23,7 @@ class MovieList extends React.Component {
   }
   render() {
     return (
-      <div className="movies">
+      <div className="movies container">
         <h1>Movies</h1>
         {this.state.config.images && <ResultList data={this.state.data} config={this.state.config} />}
       </div>
