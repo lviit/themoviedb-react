@@ -1,5 +1,4 @@
 import React from 'react';
-import css from '../css/style.css';
 import apiConnect from './services/ApiConnect';
 import ResultList from './components/ResultList';
 

@@ -13,7 +13,7 @@ const Reviews = (props) => {
 
   return (
     <div className="container">
-      <h2>Reviews</h2>
+      <h2 className="section--title">Reviews</h2>
       <div className="reviews">
         {reviews}
       </div>

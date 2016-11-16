@@ -7,7 +7,7 @@ const Similar = (props) => {
 
   return (
     <div className="container">
-      <h2>You might also like</h2>
+      <h2 className="section--title">You might also like</h2>
       <div className="similar">
         {props.config.images && <ResultList data={props.data} config={props.config} />}
       </div>

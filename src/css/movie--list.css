@@ -7,7 +7,6 @@
   flex-basis: 25%;
   position: relative;
   overflow: hidden;
-  background: $boxcolor;
   color: $fontcolor;
   overflow: hidden;
   &:hover {

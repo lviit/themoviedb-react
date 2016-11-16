@@ -1,0 +1,32 @@
+.navigation {
+  text-align: center;
+  margin: 0;
+  .navigation--link {
+    font-size: 30px;
+    display: inline;
+    a {
+      padding: 10px;
+      display: inline-block;
+      font-weight: 700;
+      text-decoration: none;
+      text-transform: uppercase;
+      color: #fff;
+      &.active {
+        background: $boxcolor;
+        color: $fontcolor;
+      }
+    }
+  }
+}
+
+.back-button {
+  position: absolute;
+  cursor: pointer;
+  color: #fff;
+  padding: 10px;
+  font-size: 36px;
+}
+
+.search {
+
+}
