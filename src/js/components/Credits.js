@@ -6,15 +6,13 @@ const Credits = (props) => {
   const cast = props.data.cast.slice(0, castSize).map(castMember => {
 
     const imageBaseUrl = props.config.images.secure_base_url;
-    const fileSize = props.config.images.profile_sizes[1];
+    const fileSize = 'w264_and_h264_bestv2';
 
     return (
       <div className="cast-member" key={castMember.id}>
-        <div className="cast-member--info">
-          <div className="cast-member--name">{castMember.name}</div>
-          <div className="cast-member--character">{castMember.character}</div>
-        </div>
         <img className="cast-member--image" src={imageBaseUrl + fileSize + castMember.profile_path} />
+        <div className="cast-member--name">{castMember.name}</div>
+        <div className="cast-member--character">{castMember.character}</div>
       </div>
     );
   });

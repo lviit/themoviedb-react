@@ -7,28 +7,21 @@
 }
 
 .cast-member {
-  flex-basis: 31%;
+  flex-basis: 13%;
   margin-bottom: 2em;
-  display: flex;
-  justify-content: space-between;
-  background: #fff;
-  box-shadow: 0px 0px 2px #ccc;
-}
-
-.cast-member--info {
-  padding: 1em 1.5em;
-  align-self: center;
+  text-align: center;
 }
 
 .cast-member--name {
   font-weight: 400;
-  margin-bottom: 0.5em;
+  margin: 0.5em 0;
 }
 
 .cast-member--character {
-
+  font-size: 14px;
 }
 
 .cast-member--image {
-  height: 100px;
+  border-radius: 50%;
+  border: 3px solid #fff;
 }
