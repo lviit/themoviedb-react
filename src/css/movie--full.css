@@ -67,7 +67,9 @@
     font-weight: 400;
     color: #fff;
     font-size: 20px;
+    text-align: center;
+    width: 100%;
     top: 39px;
-    left: 36px;
+    left: 0;
   }
 }

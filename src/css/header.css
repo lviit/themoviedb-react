@@ -1,11 +1,26 @@
+@import 'variables.css';
+
+.header {
+  position: relative;
+  background: $bgalt;
+  z-index: 100;
+}
+
 .navigation {
+  display: flex;
+  justify-content: space-between;
+  line-height: 60px;
+  color: #fff;
+}
+
+.menu {
+  font-size: 30px;
   text-align: center;
   margin: 0;
-  .navigation--link {
-    font-size: 30px;
+  .menu--link {
     display: inline;
     a {
-      padding: 10px;
+      padding: 0 15px;
       display: inline-block;
       font-weight: 700;
       text-decoration: none;
@@ -20,13 +35,12 @@
 }
 
 .back-button {
-  position: absolute;
   cursor: pointer;
   color: #fff;
-  padding: 10px;
   font-size: 36px;
 }
 
 .search {
-
+  font-size: 30px;
+  cursor: pointer;
 }

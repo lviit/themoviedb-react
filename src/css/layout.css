@@ -33,12 +33,6 @@ body {
   background-color: $bgcolor;
 }
 
-.header {
-  position: relative;
-  background: $bgalt;
-  z-index: 100;
-}
-
 .footer {
   text-align: center;
   margin-top: 2em;
