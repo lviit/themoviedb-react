@@ -12,10 +12,12 @@ const Reviews = (props) => {
   ));
 
   return (
-    <div className="container">
-      <h2 className="section--title">Reviews</h2>
-      <div className="reviews">
-        {reviews}
+    <div className="section section__dark">
+      <div className="container">
+        <h2 className="section--title">Reviews</h2>
+        <div className="reviews">
+          {reviews}
+        </div>
       </div>
     </div>
   );

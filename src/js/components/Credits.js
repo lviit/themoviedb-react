@@ -16,10 +16,12 @@ const Credits = (props) => {
     );
   });
   return (
-    <div className="container">
-      <h2 className="section--title">Cast</h2>
-      <div className="cast">
-        {cast}
+    <div className="section section__light">
+      <div className="container">
+        <h2 className="section--title">Cast</h2>
+        <div className="cast">
+          {cast}
+        </div>
       </div>
     </div>
   );
