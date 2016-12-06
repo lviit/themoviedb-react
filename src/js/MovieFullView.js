@@ -13,29 +13,31 @@ class MovieFullView extends React.Component {
       data: [],
     }
   }
+
   componentWillMount() {
     apiConnect.getConfig().then(config => {
-      apiConnect.getMovieFullview(this.props.params.splat).then(data => {
-        apiConnect.getReviews(this.props.params.splat).then(reviews => {
-          apiConnect.getCredits(this.props.params.splat).then(credits => {
-            apiConnect.getSimilar(this.props.params.splat).then(similar => {
-              this.setState({
-                config,
-                data,
-                reviews,
-                credits,
-                similar
-              });
-            });
-          });
-        });
-      });
+      this.setState({ config });
+    });
+    apiConnect.getMovieFullview(this.props.params.splat).then(data => {
+      this.setState({data});
+    });
+    apiConnect.getReviews(this.props.params.splat).then(reviews => {
+      this.setState({reviews});
+    });
+
+    apiConnect.getCredits(this.props.params.splat).then(credits => {
+      this.setState({credits});
+    });
+
+    apiConnect.getSimilar(this.props.params.splat).then(similar => {
+      this.setState({similar});
     });
   }
+
   render() {
     return (
       <div className="movie__full">
-        {this.state.config.images && <FullView data={this.state.data} config={this.state.config} />}
+        {this.state.config.images && this.state.data.id && <FullView data={this.state.data} config={this.state.config} />}
         <div className="section section__light">
           {this.state.credits && <Credits data={this.state.credits} config={this.state.config} />}
         </div>

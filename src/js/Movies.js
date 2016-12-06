@@ -10,21 +10,21 @@ class MovieList extends React.Component {
       data: [],
     }
   }
+
   componentWillMount() {
     apiConnect.getConfig().then(config => {
-      apiConnect.getMovies().then(data => {
-        this.setState({
-          config,
-          data,
-        });
-      });
+      this.setState({ config });
+    });
+    apiConnect.getMovies().then(data => {
+      this.setState({ data });
     });
   }
+
   render() {
     return (
       <div className="movies container">
         <h1>Movies</h1>
-        {this.state.config.images && <ResultList data={this.state.data} config={this.state.config} />}
+        {this.state.config.images && this.state.data.results && <ResultList data={this.state.data} config={this.state.config} />}
       </div>
     );
   }
