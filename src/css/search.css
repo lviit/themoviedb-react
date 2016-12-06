@@ -16,3 +16,50 @@
   padding: 1em;
   font-size: 20px;
 }
+
+.search--results {
+  background: #fff;
+  position: absolute;
+}
+
+.search--result {
+  border-bottom: 1px solid #eee;
+  padding: 1em;
+  transition: all 0.3s;
+}
+
+.search--result-enter {
+  padding: 0 1em;
+  opacity: 0;
+}
+
+.search--result-enter-active {
+  padding: 1em;
+  opacity: 1;
+}
+
+.search--result-leave {
+  padding: 1em;
+  opacity: 1;
+}
+
+.search--result-leave-active {
+  padding: 0 1em;
+  opacity: 0;
+}
+
+.search--results-enter {
+  transform: translateY(-100%);
+}
+
+.search--results-enter-active {
+  transform: translateY(0);
+}
+
+.search--results-leave {
+  transform: translateY(0);
+}
+
+.search--results-leave-active {
+  transform: translateY(-100%);
+}

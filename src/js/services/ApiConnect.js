@@ -37,5 +37,11 @@ export default {
       .get(settings.baseUrl + 'movie/' + id + '/similar?api_key=' + settings.apiKey)
       .then(res => res.data)
       .catch(error => console.log(error));
+  },
+  Search: (query) => {
+    return axios
+      .get(settings.baseUrl + 'search/movie?api_key=' + settings.apiKey + '&query=' + query)
+      .then(res => res.data)
+      .catch(error => console.log(error));
   }
 }
