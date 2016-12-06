@@ -39,14 +39,13 @@ class FullView extends React.Component {
           <h2 className="movie--tagline__full">{tagline}</h2>
           <div className="movie--info__full">
             <GenreList genres={genres} />
-            <div className="movie--score__full">
-              <i className="material-icons score-icon">star</i>
-              <span className="score">{vote_average}</span>
-            </div>
             <div className="movie--overview__full">
               <p>{overview}</p>
             </div>
             <Details details={this.props.data}/>
+            <div className="movie--score__full">
+              <span className="score">{vote_average}</span>
+            </div>
           </div>
         </div>
       </div>

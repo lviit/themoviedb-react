@@ -38,16 +38,18 @@
 }
 
 .movie--genres {
-  flex-basis: 88%;
+  width: 100%;
 }
 
 .movie--details {
-  flex-basis: 30%;
+  flex-basis: 25%;
+  padding-right: 1.5em;
   align-self: center;
 }
 
 .movie--overview__full {
   font-size: 20px;
+  padding-right: 1.5em;
   flex-basis: 60%;
   p {
     line-height: 30px;
@@ -56,20 +58,16 @@
 }
 
 .movie--score__full {
-  position: absolute;
-  right: 0.5em;
-  top: 0.5em;
-  .score-icon {
-    font-size: 100px;
-  }
+  flex-basis: 14%;
+  align-self: center;
   .score {
-    position: absolute;
+    background: #000;
+    text-align: center;
+    display: block;
+    padding: 30px;
+    border-radius: 50%;
     font-weight: 400;
     color: #fff;
-    font-size: 20px;
-    text-align: center;
-    width: 100%;
-    top: 39px;
-    left: 0;
+    font-size: 50px;
   }
 }

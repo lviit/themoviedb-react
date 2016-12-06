@@ -27,11 +27,9 @@ class MovieFullView extends React.Component {
     apiConnect.getReviews(this.props.params.splat).then(reviews => {
       this.setState({reviews});
     });
-
     apiConnect.getCredits(this.props.params.splat).then(credits => {
       this.setState({credits});
     });
-
     apiConnect.getSimilar(this.props.params.splat).then(similar => {
       this.setState({similar});
     });
