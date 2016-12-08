@@ -25,7 +25,7 @@ class Header extends React.Component {
             <BackButton goBack={this.props.history.goBack} />
             <ul className="menu">
               <li className="menu--link"><IndexLink activeClassName="active" to='/'>Home</IndexLink></li>
-              <li className="menu--link"><IndexLink activeClassName="active" to='/test'>Test</IndexLink></li>
+              <li className="menu--link"><IndexLink activeClassName="active" to='/about'>About</IndexLink></li>
             </ul>
             <Search toggleSearchBox={this.toggleSearchBox}/>
           </div>

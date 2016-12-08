@@ -5,20 +5,13 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import MovieList from './Movies';
 import MovieFullView from './Moviefullview';
 import Header from './components/Header';
+import Footer from './components/Footer';
 import variablesCSS from '../css/variables.css';
 import commonCSS from '../css/common.css';
 import layoutCSS from '../css/layout.css';
 
-const TestRoute = () => <h1>Just testing the router.</h1>
+const About = () => <h1>This product uses the TMDb API but is not endorsed or certified by TMDb.</h1>
 const NotFound = () => <h1>404.. Whoops, page not found!</h1>
-
-const Footer = () => (
-  <div className="footer section section__dark">
-    <div className="container">
-      <a href="https://github.com/lviit/themoviedb-react/">https://github.com/lviit/themoviedb-react/</a>
-    </div>
-  </div>
-);
 
 class Container extends React.Component  {
   constructor() {
@@ -52,7 +45,7 @@ const App = () => (
   <Router history={hashHistory}>
     <Route path='/' component={Container}>
       <IndexRoute component={MovieList} />
-      <Route path='/test' component={TestRoute} />
+      <Route path='/about' component={About} />
       <Route path='movie/*' component={MovieFullView} />
       <Route path='*' component={NotFound} />
     </Route>
