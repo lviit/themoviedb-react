@@ -42,8 +42,12 @@ module.exports = {
         loader: "style-loader!css-loader!postcss-loader"
       },
       {
-        test: /\.(jpg|png|eot|svg|ttf|woff|woff2)$/,
+        test: /\.(eot|svg|ttf|woff|woff2)$/,
         loader: 'file-loader?name=public/fonts/[name].[ext]'
+      },
+      {
+        test: /\.(jpg|png)$/,
+        loader: 'url?limit=25000'
       }
     ]
   },
