@@ -21,6 +21,11 @@ class SearchBox extends React.Component {
     });
   }
 
+  submit(e) {
+    console.log('submit');
+    console.log(e);
+  }
+
   render() {
     let searchBoxClasses = Classnames({
       'searchbox': true,
@@ -30,7 +35,9 @@ class SearchBox extends React.Component {
     return (
       <div className={searchBoxClasses}>
         <div className="container">
-          <input className="searchbox--input" type="text" onChange={this.query}/>
+          <form onSubmit={this.submit}>
+            <input className="searchbox--input" type="text" onChange={this.query} />
+          </form>
           {this.state.searchResults && <SearchResults results={this.state.searchResults} />}
         </div>
       </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import apiConnect from './services/ApiConnect';
+import Hero from './components/Hero';
 import ResultList from './components/ResultList';
 
 class MovieList extends React.Component {
@@ -22,9 +23,11 @@ class MovieList extends React.Component {
 
   render() {
     return (
-      <div className="movies container">
-        <h1>Movies</h1>
-        {this.state.config.images && this.state.data.results && <ResultList data={this.state.data} config={this.state.config} />}
+      <div className="page">
+        {this.state.config.images && this.state.data.results && <Hero data={this.state.data} config={this.state.config} />}
+        <div className="movies container">
+          {this.state.config.images && this.state.data.results && <ResultList data={this.state.data} config={this.state.config} />}
+        </div>
       </div>
     );
   }

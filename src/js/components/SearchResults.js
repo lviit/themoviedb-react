@@ -3,7 +3,6 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { Link } from 'react-router';
 
 const SearchResults = (props) => {
-      console.log(props);
 
   const results = props.results.results.map(results => {
     var path = '/movie/' + results.id;

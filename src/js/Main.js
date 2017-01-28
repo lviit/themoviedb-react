@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
-import MovieList from './Movies';
+import FrontPage from './FrontPage';
 import MovieFullView from './Moviefullview';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -44,7 +44,7 @@ class Container extends React.Component  {
 const App = () => (
   <Router history={hashHistory}>
     <Route path='/' component={Container}>
-      <IndexRoute component={MovieList} />
+      <IndexRoute component={FrontPage} />
       <Route path='/about' component={About} />
       <Route path='movie/*' component={MovieFullView} />
       <Route path='*' component={NotFound} />

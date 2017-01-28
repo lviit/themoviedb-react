@@ -37,7 +37,7 @@ class MovieFullView extends React.Component {
 
   render() {
     return (
-      <div className="movie__full">
+      <div className="page movie__full">
         {this.state.config.images && this.state.data.id && <FullView data={this.state.data} config={this.state.config} />}
         {this.state.credits.id && <Credits data={this.state.credits} config={this.state.config} />}
         {this.state.reviews.total_results > 0 && <Reviews data={this.state.reviews} />}
