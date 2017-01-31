@@ -1,5 +1,6 @@
-.hero {
+.container {
 	position: relative;
+	overflow: hidden;
 	margin-bottom: 4em;
 	color: white;
 	a {
@@ -7,28 +8,24 @@
 	}
 }
 
-.movie--hero {
-	display: inline-block;
-}
-
-.movie--hero__image {
+.image {
 
 }
 
-.movie--hero__title {
+.title {
 	font-size: 60px;
 }
 
-.movie--hero__overview {
+.overview {
 	font-size: 20px;
 	margin-bottom: 1em;
 }
 
-.movie--hero__link {
+.link {
 	font-size: 20px;
 }
 
-.movie--hero__info {
+.info {
 	transition: opacity 0.5s, transform 0.3s ease-in-out;
 	transition-delay: 0.5s;
 	transform: translateX(-50px);
@@ -39,46 +36,3 @@
 	padding: 2em;
 	background: rgba(0, 0, 0, 0.5);
 }
-
-.slick-arrow {
-	position: absolute;
-	z-index: 999;
-	top: 40%;
-	cursor: pointer;
-	font-size: 80px;
-	&.slick-prev {
-		left: 0;
-	}
-	&.slick-next {
-		right: 0;
-	}
-}
-
-.slick-dots {
-	text-align: center;
-	position: absolute;
-	bottom: 1em;
-	width: 100%;
-	li {
-		display: inline;
-		button {
-			height: 12px;
-			cursor: pointer;
-			width: 12px;
-			border-radius: 12px;
-			border: none;
-			font-size: 0;
-			margin: 10px;
-			background-color: white;
-		}
-	}
-}
-
-
-.movie--hero.slick-active {
-	.movie--hero__info {
-		transform: translateX(0);
-		opacity: 1;
-	}
-}
-

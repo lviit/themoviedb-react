@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "axios": "^0.14.0",
+    "postcss-nested": "^1.0.0",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-slick": "^0.14.5",

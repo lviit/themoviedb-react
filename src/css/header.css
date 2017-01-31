@@ -2,7 +2,7 @@
 
 .header {
   position: relative;
-  background: $bgalt;
+  background: black;
   z-index: 100;
 }
 
@@ -17,24 +17,25 @@
   font-size: 30px;
   text-align: center;
   margin: 0;
-  .menu--link {
-    display: inline;
-    a {
-      padding: 0 15px;
-      display: inline-block;
-      font-weight: 700;
-      text-decoration: none;
-      text-transform: uppercase;
-      color: #fff;
-      &.active {
-        background: $boxcolor;
-        color: $fontcolor;
-      }
+}
+
+.menulink {
+  display: inline;
+  a {
+    padding: 0 15px;
+    display: inline-block;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #fff;
+    &.active {
+      background: $boxcolor;
+      color: $fontcolor;
     }
   }
 }
 
-.back-button {
+.back {
   cursor: pointer;
   color: #fff;
   font-size: 36px;

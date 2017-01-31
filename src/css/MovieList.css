@@ -1,4 +1,4 @@
-.resultList {
+.container {
   display: flex;
   flex-wrap: wrap;
 }
@@ -16,7 +16,7 @@
   }
 }
 
-.movie--info {
+.info {
   transition: transform 0.5s cubic-bezier(0.15, 1, 0.33, 1);
   background: rgba(255,255,255, 0.8);
   position: absolute;
@@ -30,11 +30,11 @@
 
 }
 
-.movie--link {
+.link {
   font-size: 25px;
 }
 
-h2.movie--title {
+.title {
   font-size: 25px;
   margin: 0;
 }

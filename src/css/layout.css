@@ -1,12 +1,10 @@
-@import 'variables.css';
-
 body {
   background: $bgcolor;
   margin: 0;
 }
 
-.container {
-  width: 60em;
+:global .container {
+  max-width: 60em;
   margin: 0 auto;
   overflow: hidden;
 }

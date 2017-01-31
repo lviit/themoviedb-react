@@ -1,5 +1,5 @@
 import React from 'react';
-import ResultList from './ResultList';
+import MovieList from './MovieList';
 
 const Similar = (props) => {
   const NumResults = 4;
