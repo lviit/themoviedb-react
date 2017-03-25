@@ -1,5 +1,5 @@
 import React from 'react';
-import css from '../../css/cast.pcss';
+import Styles from '../../css/cast.pcss';
 
 const Credits = (props) => {
   const castSize = 6;
@@ -8,10 +8,10 @@ const Credits = (props) => {
 
   const cast = props.data.cast.slice(0, castSize).map(castMember => {
     return (
-      <div className="cast-member" key={castMember.id}>
-        <img className="cast-member--image" src={imageBaseUrl + fileSize + castMember.profile_path} />
-        <div className="cast-member--name">{castMember.name}</div>
-        <div className="cast-member--character">{castMember.character}</div>
+      <div className={Styles.item} key={castMember.id}>
+        <img className={Styles.image} src={imageBaseUrl + fileSize + castMember.profile_path} />
+        <div className={Styles.name}>{castMember.name}</div>
+        <div className={Styles.character}>{castMember.character}</div>
       </div>
     );
   });
@@ -19,7 +19,7 @@ const Credits = (props) => {
     <div className="section section__light">
       <div className="container">
         <h2 className="section--title">Cast</h2>
-        <div className="cast">
+        <div className={Styles.container}>
           {cast}
         </div>
       </div>

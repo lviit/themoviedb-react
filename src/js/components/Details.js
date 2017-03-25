@@ -1,25 +1,25 @@
 import React from 'react';
-import css from '../../css/details.pcss'
+import Styles from '../../css/details.pcss'
 
 const Details = (props) => {
   const {release_date, revenue, budget, runtime} = props.details;
 
   return(
     <div className="movie--details">
-      <div className="details--item">
-        <label className="details--label">Release Date:</label>
+      <div className={Styles.item}>
+        <label className={Styles.label}>Release Date:</label>
         {release_date}
       </div>
-      <div className="details--item">
-        <label className="details--label">Revenue:</label>
+      <div className={Styles.item}>
+        <label className={Styles.label}>Revenue:</label>
         {revenue}
       </div>
-      <div className="details--item">
-        <label className="details--label">Budget:</label>
+      <div className={Styles.item}>
+        <label className={Styles.label}>Budget:</label>
         {budget}
       </div>
-      <div className="details--item">
-        <label className="details--label">Runtime:</label>
+      <div className={Styles.item}>
+        <label className={Styles.label}>Runtime:</label>
         {runtime}
       </div>
     </div>
