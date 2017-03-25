@@ -1,3 +1,6 @@
+@value colors: './colors.pcss';
+@value fontcolor from colors;
+
 .container {
   display: flex;
   flex-wrap: wrap;
@@ -7,7 +10,7 @@
   flex-basis: 25%;
   position: relative;
   overflow: hidden;
-  color: $fontcolor;
+  color: fontcolor;
   overflow: hidden;
   &:hover {
     .info {
@@ -32,6 +35,7 @@
 
 .link {
   font-size: 25px;
+  color: fontcolor;
 }
 
 .title {

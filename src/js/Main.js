@@ -6,7 +6,6 @@ import FrontPage from './FrontPage';
 import MovieFullView from './Moviefullview';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import variablesCSS from '../css/variables.pcss';
 import commonCSS from '../css/common.pcss';
 import layoutCSS from '../css/layout.pcss';
 

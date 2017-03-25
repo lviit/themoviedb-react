@@ -1,7 +1,9 @@
 :global {
-  @import 'variables.pcss';
+  @value colors: './colors.pcss';
+  @value bgcolor, bgalt from colors;
+
   body {
-    background: $bgcolor;
+    background: bgcolor;
     margin: 0;
   }
 
@@ -22,7 +24,7 @@
   }
 
   .section__dark {
-    background-color: $bgalt;
+    background-color: bgalt;
     color: #fff;
     a {
       color: #fff;
@@ -30,7 +32,7 @@
   }
 
   .section__light {
-    background-color: $bgcolor;
+    background-color: bgcolor;
   }
 
   .footer {

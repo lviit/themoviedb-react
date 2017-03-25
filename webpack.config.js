@@ -3,6 +3,7 @@ let webpack = require('webpack');
 let path = require('path');
 let precss = require('precss');
 let autoprefixer = require('autoprefixer');
+let values = require('postcss-modules-values');
 let postcssnested = require('postcss-nested');
 
 let BUILD_DIR = path.resolve(__dirname, 'public');
@@ -65,7 +66,7 @@ module.exports = {
     ]
   },
   postcss: function () {
-      return [precss, autoprefixer];
+      return [precss, values, autoprefixer];
   },
   devServer: {
     inline: true,
