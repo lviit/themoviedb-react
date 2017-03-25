@@ -8,7 +8,7 @@ const GenreList = (props) => {
   });
 
   return (
-    <div className="movie--genres">
+    <div className={Styles.container}>
       {genres}
     </div>
   );

@@ -1,6 +1,6 @@
 import React from 'react';
 import apiConnect from './services/ApiConnect';
-import FullView from './components/FullView';
+import FullView from './components/MovieFull';
 import Reviews from './components/Reviews';
 import Credits from './components/Credits';
 import Similar from './components/Similar';

@@ -1,6 +1,9 @@
+@value colors: './colors.pcss';
+@value boxcolor, fontcolor, bgalt from colors;
+
 .header {
   position: relative;
-  background: black;
+  background: bgalt;
   z-index: 100;
 }
 
@@ -27,8 +30,8 @@
     text-transform: uppercase;
     color: #fff;
     &.active {
-      background: $boxcolor;
-      color: $fontcolor;
+      background: boxcolor;
+      color: fontcolor;
     }
   }
 }

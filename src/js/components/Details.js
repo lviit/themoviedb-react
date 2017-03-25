@@ -5,7 +5,7 @@ const Details = (props) => {
   const {release_date, revenue, budget, runtime} = props.details;
 
   return(
-    <div className="movie--details">
+    <div className={Styles.container}>
       <div className={Styles.item}>
         <label className={Styles.label}>Release Date:</label>
         {release_date}

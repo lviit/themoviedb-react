@@ -1,19 +1,18 @@
-
-.image-load-container {
+.imagecontainer {
   position: absolute;
   background-color: #ccc;
 }
 
-.movie--image__full {
+.image {
   transition: opacity 0.5s;
   max-width: 100%;
   opacity: 0;
-  &.img__loaded {
+  &.loaded {
     opacity: 1;
   }
 }
 
-.movie--title__full {
+.title {
   font-size: 80px;
   margin-top: 170px;
   text-shadow: 0 0 15px #000;
@@ -21,14 +20,14 @@
   color: #fff;
 }
 
-.movie--tagline__full {
+.tagline {
   position: relative;
   color: #fff;
   text-shadow: 0 0 15px #000;
   text-align: center;
 }
 
-.movie--info__full {
+.info {
   background: rgba(255,255,255, 1);
   position: relative;
   padding: 2em;
@@ -38,17 +37,7 @@
   justify-content: space-between;
 }
 
-.movie--genres {
-  width: 100%;
-}
-
-.movie--details {
-  flex-basis: 25%;
-  padding-right: 1.5em;
-  align-self: center;
-}
-
-.movie--overview__full {
+.overview {
   font-size: 20px;
   padding-right: 1.5em;
   flex-basis: 60%;
@@ -58,10 +47,10 @@
   }
 }
 
-.movie--score__full {
+.score {
   flex-basis: 14%;
   align-self: center;
-  .score {
+  span {
     background: #000;
     text-align: center;
     display: block;
