@@ -1,5 +1,5 @@
 import React from 'react';
-import css from '../../css/details.css'
+import css from '../../css/details.pcss'
 
 const Details = (props) => {
   const {release_date, revenue, budget, runtime} = props.details;

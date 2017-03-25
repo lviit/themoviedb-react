@@ -2,7 +2,7 @@ import React from 'react';
 import Classnames from 'Classnames';
 import apiConnect from '../services/ApiConnect';
 import SearchResults from './SearchResults';
-import css from '../../css/search.css';
+import css from '../../css/search.pcss';
 
 class SearchBox extends React.Component {
   constructor() {

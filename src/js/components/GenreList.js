@@ -1,5 +1,5 @@
 import React from 'react';
-import css from '../../css/genres.css';
+import css from '../../css/genres.pcss';
 
 const GenreList = (props) => {
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import TextTruncate from 'react-text-truncate';
-import css from '../../css/reviews.css';
+import css from '../../css/reviews.pcss';
 
 const Reviews = (props) => {
   const NumReviews = 3;

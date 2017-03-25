@@ -3,7 +3,7 @@ import { IndexLink } from 'react-router';
 import BackButton from './BackButton';
 import Search from './Search';
 import SearchBox from './SearchBox';
-import Styles from '../../css/header.css';
+import Styles from '../../css/header.pcss';
 
 class Header extends React.Component {
   constructor() {

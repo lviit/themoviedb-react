@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
-import Styles from '../../css/MovieList.css';
+import Styles from '../../css/MovieList.pcss';
 
 const MovieList = (props) => {
   let imageBaseUrl = props.config.images.secure_base_url;

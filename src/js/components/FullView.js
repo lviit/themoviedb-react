@@ -1,8 +1,8 @@
 import React from 'react';
 import Classnames from 'classnames';
-import css from '../../css/material-icons.css';
-import loadercss from '../../css/loader.css';
-import MovieFullCss from '../../css/movie--full.css';
+import css from '../../css/material-icons.pcss';
+import loadercss from '../../css/loader.pcss';
+import MovieFullCss from '../../css/movie--full.pcss';
 import GenreList from './GenreList';
 import Details from './Details';
 

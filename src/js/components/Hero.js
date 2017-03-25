@@ -2,8 +2,8 @@ import React from 'react';
 var Slider = require('react-slick');
 import TextTruncate from 'react-text-truncate';
 import { Link } from 'react-router';
-import SlickStyles from '../../css/slick.css';
-import Styles from '../../css/movie--hero.css';
+import SlickStyles from '../../css/slick.pcss';
+import Styles from '../../css/movie--hero.pcss';
 
 //var HeroPrevArrow = (props) => <i {...this.props} class="material-icons">chevron_left</i>
 //var HeroNextArrow = (props) => <i {...this.props} class="material-icons">chevron_right</i>

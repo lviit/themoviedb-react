@@ -1,5 +1,5 @@
 import React from 'react';
-import css from '../../css/cast.css';
+import css from '../../css/cast.pcss';
 
 const Credits = (props) => {
   const castSize = 6;

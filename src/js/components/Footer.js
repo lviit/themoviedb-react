@@ -1,5 +1,5 @@
 import React from 'react';
-import Styles from '../../css/footer.css';
+import Styles from '../../css/footer.pcss';
 
 const tmdbLogo = require('../../img/408x161-powered-by-rectangle-blue.png');
 const Footer = () => (

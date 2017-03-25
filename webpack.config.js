@@ -39,11 +39,11 @@ module.exports = {
         }
       },
       {
-        test:   /\.css$/,
+        test:   /\.pcss$/,
         loader: "style-loader"
       },
       {
-        test:   /\.css$/,
+        test:   /\.pcss$/,
         loader: "css-loader",
         query: {
           modules: true,
@@ -51,7 +51,7 @@ module.exports = {
         }
       },
       {
-        test:   /\.css$/,
+        test:   /\.pcss$/,
         loader: "postcss-loader"
       },
       {
