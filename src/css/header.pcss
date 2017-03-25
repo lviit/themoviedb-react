@@ -1,0 +1,37 @@
+@value colors: './colors.pcss';
+@value boxcolor, fontcolor, bgalt from colors;
+
+.header {
+  position: relative;
+  background: bgalt;
+  z-index: 100;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  line-height: 60px;
+  color: #fff;
+}
+
+.menu {
+  font-size: 30px;
+  text-align: center;
+  margin: 0;
+}
+
+.menulink {
+  display: inline;
+  a {
+    padding: 0 15px;
+    display: inline-block;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #fff;
+    &.active {
+      background: boxcolor;
+      color: fontcolor;
+    }
+  }
+}

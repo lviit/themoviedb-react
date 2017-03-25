@@ -1,5 +1,5 @@
 import React from 'react';
-import ResultList from './ResultList';
+import MovieList from './MovieList';
 
 const Similar = (props) => {
   const NumResults = 4;
@@ -7,11 +7,9 @@ const Similar = (props) => {
 
   return (
     <div className="section section__light">
+      <h2 className="section--title">You might also like</h2>
       <div className="container">
-        <h2 className="section--title">You might also like</h2>
-        <div className="similar">
-          {props.config.images && <ResultList data={props.data} config={props.config} />}
-        </div>
+        {props.config.images && <MovieList data={props.data} config={props.config} />}
       </div>
     </div>
   );

@@ -6,9 +6,8 @@ import FrontPage from './FrontPage';
 import MovieFullView from './Moviefullview';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import variablesCSS from '../css/variables.css';
-import commonCSS from '../css/common.css';
-import layoutCSS from '../css/layout.css';
+import commonCSS from '../css/common.pcss';
+import layoutCSS from '../css/layout.pcss';
 
 const About = () => <h1>This product uses the TMDb API but is not endorsed or certified by TMDb.</h1>
 const NotFound = () => <h1>404.. Whoops, page not found!</h1>

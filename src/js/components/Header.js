@@ -1,9 +1,9 @@
 import React from 'react';
 import { IndexLink } from 'react-router';
 import BackButton from './BackButton';
-import Search from './Search';
+import SearchButton from './SearchButton';
 import SearchBox from './SearchBox';
-import css from '../../css/header.css';
+import Styles from '../../css/header.pcss';
 
 class Header extends React.Component {
   constructor() {
@@ -20,14 +20,14 @@ class Header extends React.Component {
 
     return (
       <div className="header-container">
-        <div className="header">
-          <div className="container navigation">
+        <div className={Styles.header}>
+          <div className={Styles.navigation}>
             <BackButton goBack={this.props.history.goBack} />
-            <ul className="menu">
-              <li className="menu--link"><IndexLink activeClassName="active" to='/'>Home</IndexLink></li>
-              <li className="menu--link"><IndexLink activeClassName="active" to='/about'>About</IndexLink></li>
+            <ul className={Styles.menu}>
+              <li className={Styles.menulink}><IndexLink activeClassName="active" to='/'>Home</IndexLink></li>
+              <li className={Styles.menulink}><IndexLink activeClassName="active" to='/about'>About</IndexLink></li>
             </ul>
-            <Search toggleSearchBox={this.toggleSearchBox}/>
+            <SearchButton toggleSearchBox={this.toggleSearchBox}/>
           </div>
         </div>
         <SearchBox collapsed={this.state.toggleSearchBox}/>

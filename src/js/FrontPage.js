@@ -1,9 +1,9 @@
 import React from 'react';
 import apiConnect from './services/ApiConnect';
 import Hero from './components/Hero';
-import ResultList from './components/ResultList';
+import MovieList from './components/MovieList';
 
-class MovieList extends React.Component {
+class Front extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -26,11 +26,11 @@ class MovieList extends React.Component {
       <div className="page">
         {this.state.config.images && this.state.data.results && <Hero data={this.state.data} config={this.state.config} />}
         <div className="movies container">
-          {this.state.config.images && this.state.data.results && <ResultList data={this.state.data} config={this.state.config} />}
+          {this.state.config.images && this.state.data.results && <MovieList data={this.state.data} config={this.state.config} />}
         </div>
       </div>
     );
   }
 };
 
-export default MovieList
+export default Front

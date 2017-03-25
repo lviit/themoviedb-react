@@ -3,6 +3,8 @@ let webpack = require('webpack');
 let path = require('path');
 let precss = require('precss');
 let autoprefixer = require('autoprefixer');
+let values = require('postcss-modules-values');
+let postcssnested = require('postcss-nested');
 
 let BUILD_DIR = path.resolve(__dirname, 'public');
 let APP_DIR = path.resolve(__dirname, 'src/js');
@@ -38,8 +40,20 @@ module.exports = {
         }
       },
       {
-        test:   /\.css$/,
-        loader: "style-loader!css-loader!postcss-loader"
+        test:   /\.pcss$/,
+        loader: "style-loader"
+      },
+      {
+        test:   /\.pcss$/,
+        loader: "css-loader",
+        query: {
+          modules: true,
+          localIdentName: '[name]__[local]___[hash:base64:5]'
+        }
+      },
+      {
+        test:   /\.pcss$/,
+        loader: "postcss-loader"
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2)$/,
@@ -52,7 +66,7 @@ module.exports = {
     ]
   },
   postcss: function () {
-      return [precss, autoprefixer];
+      return [precss, values, autoprefixer];
   },
   devServer: {
     inline: true,

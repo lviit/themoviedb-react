@@ -1,8 +1,8 @@
 import React from 'react';
 import Classnames from 'classnames';
-import css from '../../css/material-icons.css';
-import loadercss from '../../css/loader.css';
-import MovieFullCss from '../../css/movie--full.css';
+import css from '../../css/material-icons.pcss';
+import loadercss from '../../css/loader.pcss';
+import Styles from '../../css/MovieFull.pcss';
 import GenreList from './GenreList';
 import Details from './Details';
 
@@ -19,32 +19,32 @@ class FullView extends React.Component {
     const fileSize = this.props.config.images.backdrop_sizes[3];
     const { title, tagline, overview, backdrop_path, genres, vote_average} = this.props.data;
 
-    let classes = Classnames({
-      'movie--image__full': true,
-      'img__loaded': this.state.img_loaded,
+    let imageClasses = Classnames({
+      [Styles.image]: true,
+      [Styles.loaded]: this.state.img_loaded,
     });
 
     return (
       <div>
-        <div className="image-load-container">
+        <div className={Styles.imagecontainer}>
           {!this.state.img_loaded && <div className="loader"></div>}
           <img onLoad={ e => this.setState({ img_loaded: true })}
             onError={ e => this.setState({ img_loaded: true })}
-            className={classes}
+            className={imageClasses}
             src={imageBaseUrl + fileSize + backdrop_path}
           />
         </div>
         <div className="container">
-          <h1 className="movie--title__full">{title}</h1>
-          <h2 className="movie--tagline__full">{tagline}</h2>
-          <div className="movie--info__full">
+          <h1 className={Styles.title}>{title}</h1>
+          <h2 className={Styles.tagline}>{tagline}</h2>
+          <div className={Styles.info}>
             <GenreList genres={genres} />
-            <div className="movie--overview__full">
+            <div className={Styles.overview}>
               <p>{overview}</p>
             </div>
             <Details details={this.props.data}/>
-            <div className="movie--score__full">
-              <span className="score">{vote_average}</span>
+            <div className={Styles.score}>
+              <span>{vote_average}</span>
             </div>
           </div>
         </div>

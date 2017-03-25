@@ -1,6 +1,7 @@
 import React from 'react';
-import css from '../../css/material-icons.css';
+import materialIcons from '../../css/material-icons.pcss';
+import Styles from '../../css/BackButton.pcss';
 
-const BackButton = (props) => <i className="material-icons back-button" onClick={props.goBack}>arrow_back</i>
+const BackButton = (props) => <i className={Styles.button + ' material-icons'} onClick={props.goBack}>arrow_back</i>
 
 export default BackButton
