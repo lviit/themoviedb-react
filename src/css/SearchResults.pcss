@@ -1,3 +1,5 @@
+@value colors: './colors.pcss';
+@value fontcolor from colors;
 
 .container {
   background: #fff;
@@ -8,7 +10,19 @@
 .result {
   border-bottom: 1px solid #eee;
   padding: 1em;
+  display: flex;
+  text-decoration: none;
+  color: fontcolor;
   transition: all 0.3s;
+}
+
+.title {
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.date {
+  margin-left: 1em;
 }
 
 .search--result-enter {
