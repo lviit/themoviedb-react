@@ -6,10 +6,10 @@ import GenreList from './GenreList';
 import { Link } from 'react-router';
 
 const SearchResults = (props) => {
-  //console.log(props.genres);
+  const imageBaseUrl = props.config.images.secure_base_url;
+  const fileSize = props.config.images.logo_sizes[0];
 
   const results = props.results.results.map(result => {
-    //console.log(result);
     const path = '/movie/' + result.id;
     const date = new Date(result.release_date);
     const year = date.getFullYear();
@@ -24,9 +24,15 @@ const SearchResults = (props) => {
     return (
       <ReactCSSTransitionGroup transitionName="search--result" transitionEnterTimeout={300} transitionLeaveTimeout={300}>
         <Link to={path} className={Styles.result} key={result.id}>
-          <span className={Styles.title}>{result.title}</span>
-          <span className={Styles.date}>{`(${year})`}</span>
-          <GenreList genres={genres} />
+          <img src={imageBaseUrl + fileSize + result.poster_path}></img>
+          <div className={Styles.infocontainer}>
+            <span className={Styles.title}>{result.title}</span>
+            <span className={Styles.date}>{`(${year})`}</span>
+            <span className={Styles.genres}>
+              <GenreList genres={genres} compact={true} />
+            </span>
+            <span className={Styles.overview}>{result.overview}</span>
+          </div>
         </Link>
       </ReactCSSTransitionGroup>
     );

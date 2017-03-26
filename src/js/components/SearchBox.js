@@ -14,10 +14,9 @@ class SearchBox extends React.Component {
   }
 
   componentWillMount() {
-    /*
     apiConnect.getConfig().then(config => {
       this.setState({ config });
-    }); */
+    });
     apiConnect.getGenres().then(genres => {
       this.setState({ genres });
     });
@@ -48,7 +47,7 @@ class SearchBox extends React.Component {
           <form onSubmit={this.submit}>
             <input className={Styles.input} type="text" onChange={this.query} />
           </form>
-          {this.state.searchResults && this.state.genres && <SearchResults results={this.state.searchResults} genres={this.state.genres} />}
+          {this.state.searchResults && this.state.genres && this.state.config && <SearchResults results={this.state.searchResults} genres={this.state.genres} config={this.state.config} />}
         </div>
       </div>
     );

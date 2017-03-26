@@ -9,11 +9,17 @@
 
 .result {
   border-bottom: 1px solid #eee;
-  padding: 1em;
   display: flex;
   text-decoration: none;
   color: fontcolor;
   transition: all 0.3s;
+}
+
+.infocontainer {
+  padding: 0.7em;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
 }
 
 .title {
@@ -21,8 +27,17 @@
   font-size: 16px;
 }
 
-.date {
-  margin-left: 1em;
+.date,
+.genres {
+  margin-left: 0.5em;
+}
+
+.overview {
+  flex-basis: 100%;
+  text-overflow: ellipsis;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .search--result-enter {

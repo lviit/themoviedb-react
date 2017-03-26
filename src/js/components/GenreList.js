@@ -1,4 +1,5 @@
 import React from 'react';
+import Classnames from 'Classnames';
 import Styles from '../../css/genres.pcss';
 
 const GenreList = (props) => {
@@ -7,8 +8,13 @@ const GenreList = (props) => {
     return <div className={Styles.genre +  ` genre-${genre.id}`} key={genre.id}>{genre.name}</div>
   });
 
+  const containerClasses = Classnames({
+    [Styles.container]: true,
+    [Styles.compact]: props.compact,
+  });
+
   return (
-    <div className={Styles.container}>
+    <div className={containerClasses}>
       {genres}
     </div>
   );
