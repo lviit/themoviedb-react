@@ -17,7 +17,6 @@ class Header extends React.Component {
     this.setState({ toggleSearchBox: this.state.toggleSearchBox ? false : true });
   }
   render() {
-
     return (
       <div className="header-container">
         <div className={Styles.header}>
@@ -30,7 +29,7 @@ class Header extends React.Component {
             <SearchButton toggleSearchBox={this.toggleSearchBox}/>
           </div>
         </div>
-        <SearchBox collapsed={this.state.toggleSearchBox}/>
+        <SearchBox collapsed={this.state.toggleSearchBox} toggleSearchBox={this.toggleSearchBox}/>
       </div>
     );
   }

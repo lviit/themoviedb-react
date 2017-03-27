@@ -10,11 +10,9 @@ class SearchBox extends React.Component {
   constructor() {
     super();
     this.handleChange = this.handleChange.bind(this);
-    this.hideResults = this.hideResults.bind(this);
     this.callAjax = debounce(300, this.callAjax);
     this.state = {
       searchResults: '',
-      collapsed: false,
     }
   }
 
@@ -40,25 +38,8 @@ class SearchBox extends React.Component {
     });
   }
 
-  hideResults(e) {
-    this.setState({
-      //collapsed: false
-    });
-  }
-
-  componentWillReceiveProps (nextProps) {
-    console.log('will receive props');
-    console.log(nextProps.collapsed);
-    this.setState({
-      collapsed: nextProps.collapsed,
-    });
-  }
-
-  handleClickOutside() {
-    console.log('click outside!');
-    this.setState({
-      collapsed: false
-    });
+  handleClickOutside(e, a) {
+    this.props.collapsed && this.props.toggleSearchBox();
   }
 
   submit(e) {
@@ -67,14 +48,11 @@ class SearchBox extends React.Component {
   }
 
   render() {
-
-    if (this.state.collapsed) {
-      this.textInput.focus();
-    }
+    this.props.collapsed && this.textInput.focus();
 
     let searchBoxClasses = Classnames({
       [Styles.searchbox]: true,
-      [Styles.collapsed]: this.state.collapsed,
+      [Styles.collapsed]: this.props.collapsed,
     });
 
     return (
@@ -86,10 +64,9 @@ class SearchBox extends React.Component {
               className={Styles.input}
               type="text"
               onChange={this.handleChange}
-              onBlur={this.hideResults}
               ref={(input) => { this.textInput = input; }} />
           </form>
-          {this.state.searchResults && this.state.genres && this.state.config && <SearchResults results={this.state.searchResults} genres={this.state.genres} config={this.state.config} collapsed={this.state.collapsed} />}
+          {this.state.searchResults && this.state.genres && this.state.config && <SearchResults results={this.state.searchResults} genres={this.state.genres} config={this.state.config} collapsed={this.props.collapsed} />}
         </div>
       </div>
     );
