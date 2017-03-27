@@ -1,10 +1,18 @@
 @value colors: './colors.pcss';
-@value fontcolor from colors;
+@value fontcolor, greylight from colors;
 
 .container {
   background: #fff;
   position: absolute;
   width: 100%;
+  max-height: 70vh;
+  overflow-y: scroll !important;
+  transition: all 0.3s;
+  transform: translateY(-100%);
+}
+
+.collapsed {
+  transform: translateY(0);
 }
 
 .result {
@@ -12,7 +20,14 @@
   display: flex;
   text-decoration: none;
   color: fontcolor;
-  transition: all 0.3s;
+  transition: all 0.2s;
+  width: 104%;
+  overflow: hidden;
+  &:hover {
+    background: greylight;
+    color: white;
+    width: 100%;
+  }
 }
 
 .infocontainer {
@@ -34,44 +49,34 @@
 
 .overview {
   flex-basis: 100%;
+  font-size: 14px;
   text-overflow: ellipsis;
   display: block;
   white-space: nowrap;
   overflow: hidden;
 }
 
-.search--result-enter {
-  padding: 0 1em;
-  opacity: 0;
+.icon {
+  margin-left: auto;
+  align-self: center;
+  margin-right: 0.2em;
+  font-size: 30px;
 }
 
-.search--result-enter-active {
-  padding: 1em;
-  opacity: 1;
-}
+:global {
+  .searchresult-enter {
+    height: 0;
+  }
 
-.search--result-leave {
-  padding: 1em;
-  opacity: 1;
-}
+  .searchresult-enter-active {
+    height: 70px;
+  }
 
-.search--result-leave-active {
-  padding: 0 1em;
-  opacity: 0;
-}
+  .searchresult-leave {
+    height: 70px;
+  }
 
-.search--results-enter {
-  transform: translateY(-100%);
-}
-
-.search--results-enter-active {
-  transform: translateY(0);
-}
-
-.search--results-leave {
-  transform: translateY(0);
-}
-
-.search--results-leave-active {
-  transform: translateY(-100%);
+  .searchresult-leave-active {
+    height: 0;
+  }
 }

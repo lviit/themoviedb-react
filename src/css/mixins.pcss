@@ -1,0 +1,23 @@
+@value colors: './colors.pcss';
+@value boxcolor, bgalt from colors;
+
+@define-mixin scrollbar() {
+  overflow-y: scroll;
+  // For Google Chrome
+  &::-webkit-scrollbar {
+    width:  0.5em;
+    height: 0.5em;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: boxcolor;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: bgalt;
+  }
+
+  // For Internet Explorer
+  scrollbar-face-color: boxcolor;
+  scrollbar-track-color: bgalt;
+}
