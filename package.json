@@ -12,9 +12,11 @@
     "postcss-modules-values": "^1.2.2",
     "postcss-nested": "^1.0.0",
     "react": "^15.3.2",
+    "react-click-outside": "^2.2.0",
     "react-dom": "^15.3.2",
     "react-slick": "^0.14.5",
-    "slick-carousel": "^1.6.0"
+    "slick-carousel": "^1.6.0",
+    "throttle-debounce": "^1.0.1"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.6",

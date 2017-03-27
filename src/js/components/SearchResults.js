@@ -9,40 +9,43 @@ const SearchResults = (props) => {
   const imageBaseUrl = props.config.images.secure_base_url;
   const fileSize = props.config.images.logo_sizes[0];
 
+  let containerClasses = classNames({
+    [Styles.container]: true,
+    [Styles.collapsed]: props.collapsed,
+    'container': true,
+  });
+
   const results = props.results.results.map(result => {
     const path = '/movie/' + result.id;
     const date = new Date(result.release_date);
     const year = date.getFullYear();
 
-    const genres = result.genre_ids.map(genre_id => {
-      const genreName = props.genres.filter(function(genre) {
+    const genres = props.genres.filter(genre => {
+      const match = result.genre_ids.filter(genre_id => {
         return genre_id === genre.id;
       });
-      return genreName[0];
+      return match[0] === genre.id;
     });
 
     return (
-      <ReactCSSTransitionGroup transitionName="search--result" transitionEnterTimeout={300} transitionLeaveTimeout={300}>
-        <Link to={path} className={Styles.result} key={result.id}>
-          <img src={imageBaseUrl + fileSize + result.poster_path}></img>
-          <div className={Styles.infocontainer}>
-            <span className={Styles.title}>{result.title}</span>
-            <span className={Styles.date}>{`(${year})`}</span>
-            <span className={Styles.genres}>
-              <GenreList genres={genres} compact={true} />
-            </span>
-            <span className={Styles.overview}>{result.overview}</span>
-          </div>
-        </Link>
-      </ReactCSSTransitionGroup>
+      <Link to={path} className={Styles.result} key={result.id}>
+        <img src={imageBaseUrl + fileSize + result.poster_path}></img>
+        <div className={Styles.infocontainer}>
+          <span className={Styles.title}>{result.title}</span>
+          <span className={Styles.date}>{`(${year})`}</span>
+          <span className={Styles.genres}>
+            {genres && <GenreList genres={genres} compact={true} />}
+          </span>
+          <span className={Styles.overview}>{result.overview}</span>
+        </div>
+        <i className={`${Styles.icon} material-icons`}>arrow_forward</i>
+      </Link>
     );
   });
 
   return (
-    <ReactCSSTransitionGroup transitionName="search--results" transitionEnterTimeout={30000} transitionLeaveTimeout={30000}>
-      <div className={`${Styles.container} container`}>
-        {results}
-      </div>
+    <ReactCSSTransitionGroup className={containerClasses} transitionName="searchresult" transitionEnterTimeout={300} transitionLeaveTimeout={300}>
+      {results}
     </ReactCSSTransitionGroup>
   );
 };
