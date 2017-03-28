@@ -1,5 +1,4 @@
 import React from 'react';
-import classNames from 'Classnames';
 import Styles from '../../css/SearchResults.pcss';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import GenreList from './GenreList';
@@ -8,12 +7,6 @@ import { Link } from 'react-router';
 const SearchResults = (props) => {
   const imageBaseUrl = props.config.images.secure_base_url;
   const fileSize = props.config.images.logo_sizes[0];
-
-  let containerClasses = classNames({
-    [Styles.container]: true,
-    [Styles.collapsed]: props.collapsed,
-    'container': true,
-  });
 
   const results = props.results.results.map(result => {
     const path = '/movie/' + result.id;
@@ -44,7 +37,7 @@ const SearchResults = (props) => {
   });
 
   return (
-    <ReactCSSTransitionGroup className={containerClasses} transitionName="searchresult" transitionEnterTimeout={300} transitionLeaveTimeout={300}>
+    <ReactCSSTransitionGroup transitionName="searchresult" transitionEnterTimeout={300} transitionLeaveTimeout={300}>
       {results}
     </ReactCSSTransitionGroup>
   );

@@ -12,7 +12,7 @@ class SearchBox extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.callAjax = debounce(300, this.callAjax);
     this.state = {
-      searchResults: '',
+      searchResults: null,
     }
   }
 
@@ -54,6 +54,13 @@ class SearchBox extends React.Component {
       [Styles.collapsed]: this.props.collapsed,
     });
 
+    let resultContainerClasses = Classnames({
+      [Styles.resultcontainer]: true,
+      [Styles.noresults]: !this.state.searchResults,
+      [Styles.collapsed]: this.props.collapsed,
+      'container': true,
+    });
+
     return (
       <div className={searchBoxClasses}>
         <div className="container">
@@ -65,13 +72,14 @@ class SearchBox extends React.Component {
               onChange={this.handleChange}
               ref={(input) => { this.textInput = input; }} />
           </form>
-          {this.state.searchResults && this.state.genres && this.state.config &&
-            <SearchResults
-              results={this.state.searchResults}
-              genres={this.state.genres}
-              config={this.state.config}
-              toggleSearchBox={this.props.toggleSearchBox}
-              collapsed={this.props.collapsed} />}
+          <div className={resultContainerClasses}>
+            {this.state.searchResults && this.state.genres && this.state.config &&
+              <SearchResults
+                results={this.state.searchResults}
+                genres={this.state.genres}
+                config={this.state.config}
+                toggleSearchBox={this.props.toggleSearchBox}/>}
+          </div>
         </div>
       </div>
     );
