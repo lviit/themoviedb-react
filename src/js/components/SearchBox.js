@@ -30,7 +30,6 @@ class SearchBox extends React.Component {
   }
 
   callAjax(value) {
-        console.log(value);
     apiConnect.Search(value).then(searchResults => {
       this.setState({
         searchResults,
@@ -66,7 +65,13 @@ class SearchBox extends React.Component {
               onChange={this.handleChange}
               ref={(input) => { this.textInput = input; }} />
           </form>
-          {this.state.searchResults && this.state.genres && this.state.config && <SearchResults results={this.state.searchResults} genres={this.state.genres} config={this.state.config} collapsed={this.props.collapsed} />}
+          {this.state.searchResults && this.state.genres && this.state.config &&
+            <SearchResults
+              results={this.state.searchResults}
+              genres={this.state.genres}
+              config={this.state.config}
+              toggleSearchBox={this.props.toggleSearchBox}
+              collapsed={this.props.collapsed} />}
         </div>
       </div>
     );

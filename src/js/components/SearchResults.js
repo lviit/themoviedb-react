@@ -28,7 +28,7 @@ const SearchResults = (props) => {
     });
 
     return (
-      <Link to={path} className={Styles.result} key={result.id}>
+      <Link to={path} className={Styles.result} key={result.id}     onClick={props.toggleSearchBox.bind(this)}>
         <img src={imageBaseUrl + fileSize + result.poster_path}></img>
         <div className={Styles.infocontainer}>
           <span className={Styles.title}>{result.title}</span>
