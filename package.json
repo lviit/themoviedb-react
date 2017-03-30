@@ -1,17 +1,11 @@
 {
   "scripts": {
-    "lint": "eslint src"
+    "lint": "eslint --ext .js --ext .jsx src"
   },
   "dependencies": {
     "axios": "^0.14.0",
     "classnames": "^2.2.5",
-    "eslint": "^3.18.0",
-    "eslint-config-airbnb": "^14.1.0",
-    "eslint-plugin-import": "^2.2.0",
-    "eslint-plugin-jsx-a11y": "^4.0.0",
-    "eslint-plugin-react": "^6.10.3",
-    "postcss-modules-values": "^1.2.2",
-    "postcss-nested": "^1.0.0",
+    "material-design-icons": "^3.0.1",
     "react": "^15.3.2",
     "react-addons-css-transition-group": "^15.3.2",
     "react-click-outside": "^2.2.0",
@@ -29,9 +23,15 @@
     "babel-preset-es2015": "^6.14.0",
     "babel-preset-react": "^6.11.1",
     "css-loader": "^0.25.0",
+    "eslint": "^3.18.0",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.10.3",
     "file-loader": "^0.9.0",
-    "material-design-icons": "^3.0.1",
     "postcss-loader": "^0.13.0",
+    "postcss-modules-values": "^1.2.2",
+    "postcss-nested": "^1.0.0",
     "precss": "^1.4.0",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",

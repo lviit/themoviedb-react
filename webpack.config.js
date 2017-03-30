@@ -5,13 +5,14 @@ let precss = require('precss');
 let autoprefixer = require('autoprefixer');
 let values = require('postcss-modules-values');
 let postcssnested = require('postcss-nested');
+let postcssmixins = require('postcss-mixins');
 
 let BUILD_DIR = path.resolve(__dirname, 'public');
 let APP_DIR = path.resolve(__dirname, 'src/js');
 
 module.exports = {
   entry: {
-    app: APP_DIR + '/Main.js',
+    app: APP_DIR + '/Main.jsx',
     vendor: [
       'react',
       'react-dom',
@@ -29,10 +30,13 @@ module.exports = {
   plugins: [
     new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js'),
   ],
+  resolve: {
+    extensions: ['', '.js', '.jsx']
+  },
   module: {
     loaders: [
       {
-        test: /.js?$/,
+        test: /.jsx?$/,
         loader: 'babel-loader',
         include: APP_DIR,
         query: {
