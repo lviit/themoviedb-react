@@ -27,4 +27,4 @@ Similar.propTypes = {
 };
 
 
-export default Similar
+export default Similar;

@@ -21,7 +21,7 @@ const Reviews = (props) => {
       </div>
     </div>
   );
-}
+};
 
 Reviews.propTypes = {
   data: React.PropTypes.shape({
@@ -29,4 +29,4 @@ Reviews.propTypes = {
   }),
 };
 
-export default Reviews
+export default Reviews;

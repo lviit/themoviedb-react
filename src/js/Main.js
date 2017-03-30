@@ -8,6 +8,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import commonCSS from '../css/common.pcss';
 import layoutCSS from '../css/layout.pcss';
+import materialiconsCSS from '../css/material-icons.pcss';
 
 const About = () => <h1>This product uses the TMDb API but is not endorsed or certified by TMDb.</h1>;
 const NotFound = () => <h1>404.. Whoops, page not found!</h1>;

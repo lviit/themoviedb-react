@@ -1,32 +1,26 @@
 import React from 'react';
-var Slider = require('react-slick');
 import TextTruncate from 'react-text-truncate';
 import { Link } from 'react-router';
+import Slider from 'react-slick';
 import SlickStyles from '../../css/slick.pcss';
 import Styles from '../../css/movie--hero.pcss';
 
-//var HeroPrevArrow = (props) => <i {...this.props} class="material-icons">chevron_left</i>
-//var HeroNextArrow = (props) => <i {...this.props} class="material-icons">chevron_right</i>
+// var HeroPrevArrow = (props) => <i {...this.props} class="material-icons">chevron_left</i>
+// var HeroNextArrow = (props) => <i {...this.props} class="material-icons">chevron_right</i>
 
-var HeroNextArrow = React.createClass({
+const HeroNextArrow = React.createClass({
   render: function() {
-    return <i {...this.props} className="slick-arrow slick-next material-icons">chevron_right</i>
-  }
+    return <i {...this.props} className="slick-arrow slick-next material-icons">chevron_right</i>;
+  },
 });
 
-var HeroPrevArrow = React.createClass({
+const HeroPrevArrow = React.createClass({
   render: function() {
-    return (
-      <i {...this.props} className="slick-arrow slick-prev material-icons">chevron_left</i>
-    );
-  }
+    return <i {...this.props} className="slick-arrow slick-prev material-icons">chevron_left</i>;
+  },
 });
 
 class Hero extends React.Component {
-  constructor() {
-    super();
-  }
-
   render() {
     const sliderSettings = {
       dots: true,
@@ -37,7 +31,7 @@ class Hero extends React.Component {
       slidesToShow: 1,
       slidesToScroll: 1,
       nextArrow: <HeroNextArrow />,
-      prevArrow: <HeroPrevArrow />
+      prevArrow: <HeroPrevArrow />,
     };
 
     const imageBaseUrl = this.props.config.images.secure_base_url;
@@ -50,11 +44,11 @@ class Hero extends React.Component {
           <div className={Styles.info}>
             <h2 className={Styles.title}>{result.title}</h2>
             <p className={Styles.overview}><TextTruncate containerClassName={Styles.overview} line={3} truncateText="…" text={result.overview} /></p>
-            <Link className={Styles.link} to={'/movie/' + result.id}>Read more</Link>
+            <Link className={Styles.link} to={`/movie/ ${result.id}`}>Read more</Link>
           </div>
         </div>
-        <img className={Styles.image} src={imageBaseUrl + fileSize + result.backdrop_path}></img>
-      </div>
+        <img className={Styles.image} src={imageBaseUrl + fileSize + result.backdrop_path} alt="" />
+      </div>,
     );
 
     return (
@@ -77,4 +71,4 @@ Hero.propTypes = {
   }),
 };
 
-export default Hero
+export default Hero;

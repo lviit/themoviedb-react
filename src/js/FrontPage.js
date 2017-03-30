@@ -33,4 +33,4 @@ class Front extends React.Component {
   }
 };
 
-export default Front
+export default Front;

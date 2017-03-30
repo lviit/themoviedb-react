@@ -1,6 +1,5 @@
 import React from 'react';
 import Classnames from 'classnames';
-import css from '../../css/material-icons.pcss';
 import loadercss from '../../css/loader.pcss';
 import Styles from '../../css/MovieFull.pcss';
 import GenreList from './GenreList';
@@ -11,15 +10,15 @@ class FullView extends React.Component {
     super();
     this.state = {
       img_loaded: false,
-    }
+    };
   }
 
   render() {
     const imageBaseUrl = this.props.config.images.secure_base_url;
     const fileSize = this.props.config.images.backdrop_sizes[3];
-    const { title, tagline, overview, backdrop_path, genres, vote_average} = this.props.data;
+    const { title, tagline, overview, backdrop_path, genres, vote_average } = this.props.data;
 
-    let imageClasses = Classnames({
+    const imageClasses = Classnames({
       [Styles.image]: true,
       [Styles.loaded]: this.state.img_loaded,
     });
@@ -27,11 +26,17 @@ class FullView extends React.Component {
     return (
       <div>
         <div className={Styles.imagecontainer}>
-          {!this.state.img_loaded && <div className="loader"></div>}
-          <img onLoad={ e => this.setState({ img_loaded: true })}
-            onError={ e => this.setState({ img_loaded: true })}
+          {!this.state.img_loaded && <div className="loader" />}
+          <img
+            onLoad={() => this.setState({
+              img_loaded: true,
+            })}
+            onError={() => this.setState({
+              img_loaded: true,
+            })}
             className={imageClasses}
             src={imageBaseUrl + fileSize + backdrop_path}
+            alt=""
           />
         </div>
         <div className="container">
@@ -42,7 +47,7 @@ class FullView extends React.Component {
             <div className={Styles.overview}>
               <p>{overview}</p>
             </div>
-            <Details details={this.props.data}/>
+            <Details details={this.props.data} />
             <div className={Styles.score}>
               <span>{vote_average}</span>
             </div>
@@ -51,7 +56,7 @@ class FullView extends React.Component {
       </div>
     );
   }
-};
+}
 
 FullView.propTypes = {
   data: React.PropTypes.shape({

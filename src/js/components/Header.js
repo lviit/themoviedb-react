@@ -11,9 +11,9 @@ class Header extends React.Component {
     this.toggleSearchBox = this.toggleSearchBox.bind(this);
     this.state = {
       toggleSearchBox: false,
-    }
+    };
   }
-  toggleSearchBox(event) {
+  toggleSearchBox() {
     this.setState({ toggleSearchBox: this.state.toggleSearchBox ? false : true });
   }
   render() {
@@ -23,16 +23,16 @@ class Header extends React.Component {
           <div className={Styles.navigation}>
             <BackButton goBack={this.props.history.goBack} />
             <ul className={Styles.menu}>
-              <li className={Styles.menulink}><IndexLink activeClassName="active" to='/'>Home</IndexLink></li>
-              <li className={Styles.menulink}><IndexLink activeClassName="active" to='/about'>About</IndexLink></li>
+              <li className={Styles.menulink}><IndexLink activeClassName="active" to="/">Home</IndexLink></li>
+              <li className={Styles.menulink}><IndexLink activeClassName="active" to="/about">About</IndexLink></li>
             </ul>
-            <SearchButton toggleSearchBox={this.toggleSearchBox}/>
+            <SearchButton toggleSearchBox={this.toggleSearchBox} />
           </div>
         </div>
-        <SearchBox collapsed={this.state.toggleSearchBox} toggleSearchBox={this.toggleSearchBox}/>
+        <SearchBox collapsed={this.state.toggleSearchBox} toggleSearchBox={this.toggleSearchBox} />
       </div>
     );
   }
 }
 
-export default Header
+export default Header;

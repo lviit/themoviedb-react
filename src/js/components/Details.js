@@ -1,10 +1,10 @@
 import React from 'react';
-import Styles from '../../css/details.pcss'
+import Styles from '../../css/details.pcss';
 
 const Details = (props) => {
-  const {release_date, revenue, budget, runtime} = props.details;
+  const { release_date, revenue, budget, runtime } = props.details;
 
-  return(
+  return (
     <div className={Styles.container}>
       <div className={Styles.item}>
         <label className={Styles.label}>Release Date:</label>
@@ -26,4 +26,4 @@ const Details = (props) => {
   );
 };
 
-export default Details
+export default Details;

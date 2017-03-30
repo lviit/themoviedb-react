@@ -3,14 +3,14 @@ import { Link } from 'react-router';
 import Styles from '../../css/MovieList.pcss';
 
 const MovieList = (props) => {
-  let imageBaseUrl = props.config.images.secure_base_url;
-  let fileSize = props.config.images.backdrop_sizes[0];
+  const imageBaseUrl = props.config.images.secure_base_url;
+  const fileSize = props.config.images.backdrop_sizes[0];
 
-  let resultNodes = props.data.results.map(function(result) {
-    var path = '/movie/' + result.id;
+  const resultNodes = props.data.results.map((result) => {
+    const path = `/movie/ ${result.id}`;
     return (
       <div className={Styles.movie} key={result.id}>
-        <img src={imageBaseUrl + fileSize + result.poster_path}></img>
+        <img src={imageBaseUrl + fileSize + result.poster_path} alt="" />
         <div className={Styles.info}>
           <h2 className={Styles.title}>{result.title}</h2>
           <Link className={Styles.link} to={path}><i className="material-icons">arrow_forward</i></Link>
@@ -37,4 +37,4 @@ MovieList.propTypes = {
   }),
 };
 
-export default MovieList
+export default MovieList;
