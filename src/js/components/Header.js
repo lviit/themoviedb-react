@@ -13,7 +13,7 @@ class Header extends React.Component {
       toggleSearchBox: false,
     }
   }
-  toggleSearchBox() {
+  toggleSearchBox(event) {
     this.setState({ toggleSearchBox: this.state.toggleSearchBox ? false : true });
   }
   render() {

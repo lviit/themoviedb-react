@@ -21,7 +21,12 @@ const Reviews = (props) => {
       </div>
     </div>
   );
-
 }
+
+Reviews.propTypes = {
+  data: React.PropTypes.shape({
+    results: React.PropTypes.array,
+  }),
+};
 
 export default Reviews

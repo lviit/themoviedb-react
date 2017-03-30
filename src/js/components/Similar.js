@@ -15,4 +15,16 @@ const Similar = (props) => {
   );
 }
 
+Similar.propTypes = {
+  data: React.PropTypes.shape({
+    results: React.PropTypes.array,
+  }),
+  config: React.PropTypes.shape({
+    images: React.PropTypes.shape({
+      secure_base_url: React.PropTypes.string,
+    }),
+  }),
+};
+
+
 export default Similar

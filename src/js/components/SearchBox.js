@@ -37,7 +37,7 @@ class SearchBox extends React.Component {
     });
   }
 
-  handleClickOutside(e, a) {
+  handleClickOutside(e) {
     this.props.collapsed && this.props.toggleSearchBox();
   }
 
@@ -85,5 +85,10 @@ class SearchBox extends React.Component {
     );
   }
 }
+
+SearchBox.propTypes = {
+  toggleSearchBox: React.PropTypes.func,
+  collapsed: React.PropTypes.bool,
+};
 
 export default enhanceWithClickOutside(SearchBox)

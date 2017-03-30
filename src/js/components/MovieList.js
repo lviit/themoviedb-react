@@ -25,4 +25,16 @@ const MovieList = (props) => {
   );
 };
 
+MovieList.propTypes = {
+  data: React.PropTypes.shape({
+    results: React.PropTypes.array,
+  }),
+  config: React.PropTypes.shape({
+    images: React.PropTypes.shape({
+      backdrop_sizes: React.PropTypes.array,
+      secure_base_url: React.PropTypes.string,
+    }),
+  }),
+};
+
 export default MovieList

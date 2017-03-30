@@ -43,4 +43,16 @@ const SearchResults = (props) => {
   );
 };
 
+SearchResults.propTypes = {
+  toggleSearchBox: React.PropTypes.func,
+  results: React.PropTypes.shape({
+    results: React.PropTypes.array,
+  }),
+  config: React.PropTypes.shape({
+    images: React.PropTypes.shape({
+      secure_base_url: React.PropTypes.string,
+    }),
+  }),
+};
+
 export default SearchResults

@@ -53,4 +53,21 @@ class FullView extends React.Component {
   }
 };
 
+FullView.propTypes = {
+  data: React.PropTypes.shape({
+    title: React.PropTypes.string,
+    tagline: React.PropTypes.string,
+    overview: React.PropTypes.string,
+    backdrop_path: React.PropTypes.string,
+    genres: React.PropTypes.array,
+    vote_average: React.PropTypes.number,
+  }),
+  config: React.PropTypes.shape({
+    images: React.PropTypes.shape({
+      backdrop_sizes: React.PropTypes.array,
+      secure_base_url: React.PropTypes.string,
+    }),
+  }),
+};
+
 export default FullView;
