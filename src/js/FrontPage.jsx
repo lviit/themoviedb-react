@@ -9,7 +9,7 @@ class Front extends React.Component {
     this.state = {
       config: [],
       data: [],
-    }
+    };
   }
 
   componentWillMount() {
@@ -31,6 +31,6 @@ class Front extends React.Component {
       </div>
     );
   }
-};
+}
 
 export default Front;

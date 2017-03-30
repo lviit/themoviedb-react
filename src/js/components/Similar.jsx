@@ -13,7 +13,7 @@ const Similar = (props) => {
       </div>
     </div>
   );
-}
+};
 
 Similar.propTypes = {
   data: React.PropTypes.shape({

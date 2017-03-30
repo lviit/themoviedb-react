@@ -2,8 +2,8 @@ import React from 'react';
 import TextTruncate from 'react-text-truncate';
 import { Link } from 'react-router';
 import Slider from 'react-slick';
-import SlickStyles from '../../css/slick.pcss';
 import Styles from '../../css/movie--hero.pcss';
+import '../../css/slick.pcss';
 
 // var HeroPrevArrow = (props) => <i {...this.props} class="material-icons">chevron_left</i>
 // var HeroNextArrow = (props) => <i {...this.props} class="material-icons">chevron_right</i>

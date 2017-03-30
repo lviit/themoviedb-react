@@ -1,3 +1,5 @@
+/* global document */
+
 import React from 'react';
 import { render } from 'react-dom';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
@@ -6,9 +8,10 @@ import FrontPage from './FrontPage';
 import MovieFullView from './MovieFullView';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import commonCSS from '../css/common.pcss';
-import layoutCSS from '../css/layout.pcss';
-import materialiconsCSS from '../css/material-icons.pcss';
+import '../css/common.pcss';
+import '../css/layout.pcss';
+import '../css/material-icons.pcss';
+import '../css/loader.pcss';
 
 const About = () => <h1>This product uses the TMDb API but is not endorsed or certified by TMDb.</h1>;
 const NotFound = () => <h1>404.. Whoops, page not found!</h1>;
@@ -39,8 +42,8 @@ const Container = (props) => {
 };
 
 Container.propTypes = {
-  history: React.PropTypes.object,
-  children: React.PropTypes.object,
+  history: React.PropTypes.object, // eslint-disable-line react/forbid-prop-types
+  children: React.PropTypes.object, // eslint-disable-line react/forbid-prop-types
   location: React.PropTypes.shape({
     pathname: React.PropTypes.string,
   }),

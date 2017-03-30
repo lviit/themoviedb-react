@@ -6,7 +6,7 @@ const Credits = (props) => {
   const imageBaseUrl = props.config.images.secure_base_url;
   const fileSize = 'w264_and_h264_bestv2';
 
-  const cast = props.data.cast.slice(0, castSize).map((castMember) =>
+  const cast = props.data.cast.slice(0, castSize).map(castMember =>
     <div className={Styles.item} key={castMember.id}>
       <img className={Styles.image} src={imageBaseUrl + fileSize + castMember.profile_path} alt="" />
       <div className={Styles.name}>{castMember.name}</div>

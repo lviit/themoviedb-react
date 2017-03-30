@@ -1,6 +1,5 @@
 import React from 'react';
 import Classnames from 'classnames';
-import loadercss from '../../css/loader.pcss';
 import Styles from '../../css/MovieFull.pcss';
 import GenreList from './GenreList';
 import Details from './Details';
