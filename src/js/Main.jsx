@@ -13,8 +13,10 @@ import '../css/layout.pcss';
 import '../css/material-icons.pcss';
 import '../css/loader.pcss';
 
-const About = () => <h1>This product uses the TMDb API but is not endorsed or certified by TMDb.</h1>;
-const NotFound = () => <h1>404.. Whoops, page not found!</h1>;
+const About = () =>
+  <h1>This product uses the TMDb API but is not endorsed or certified by TMDb.</h1>;
+const NotFound = () =>
+  <h1>404.. Whoops, page not found!</h1>;
 
 const Container = (props) => {
   /*

@@ -18,4 +18,14 @@ const GenreList = (props) => {
   );
 };
 
+GenreList.propTypes = {
+  genres: React.PropTypes.arrayOf(React.PropTypes.object),
+  compact: React.PropTypes.bool,
+};
+
+GenreList.defaultProps = {
+  genres: [],
+  compact: false,
+};
+
 export default GenreList;

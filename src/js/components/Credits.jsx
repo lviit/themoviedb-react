@@ -8,7 +8,11 @@ const Credits = (props) => {
 
   const cast = props.data.cast.slice(0, castSize).map(castMember =>
     <div className={Styles.item} key={castMember.id}>
-      <img className={Styles.image} src={imageBaseUrl + fileSize + castMember.profile_path} alt="" />
+      <img
+        className={Styles.image}
+        src={imageBaseUrl + fileSize + castMember.profile_path}
+        alt=""
+      />
       <div className={Styles.name}>{castMember.name}</div>
       <div className={Styles.character}>{castMember.character}</div>
     </div>,
@@ -34,6 +38,11 @@ Credits.propTypes = {
       secure_base_url: React.PropTypes.string,
     }),
   }),
+};
+
+Credits.defaultProps = {
+  data: [],
+  config: {},
 };
 
 export default Credits;

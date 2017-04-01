@@ -74,4 +74,9 @@ FullView.propTypes = {
   }),
 };
 
+FullView.defaultProps = {
+  data: [],
+  config: {},
+};
+
 export default FullView;

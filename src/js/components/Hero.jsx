@@ -43,7 +43,14 @@ class Hero extends React.Component {
         <div className="container">
           <div className={Styles.info}>
             <h2 className={Styles.title}>{result.title}</h2>
-            <p className={Styles.overview}><TextTruncate containerClassName={Styles.overview} line={3} truncateText="…" text={result.overview} /></p>
+            <p className={Styles.overview}>
+              <TextTruncate
+                containerClassName={Styles.overview}
+                line={3}
+                truncateText="…"
+                text={result.overview}
+              />
+            </p>
             <Link className={Styles.link} to={`/movie/ ${result.id}`}>Read more</Link>
           </div>
         </div>

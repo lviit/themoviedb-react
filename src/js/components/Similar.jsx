@@ -26,5 +26,10 @@ Similar.propTypes = {
   }),
 };
 
+Similar.defaultProps = {
+  data: [],
+  config: {},
+};
+
 
 export default Similar;

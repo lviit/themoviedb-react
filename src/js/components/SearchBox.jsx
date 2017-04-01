@@ -83,4 +83,9 @@ SearchBox.propTypes = {
   collapsed: React.PropTypes.bool,
 };
 
+SearchBox.defaultProps = {
+  collapsed: false,
+  toggleSearchBox: () => null,
+};
+
 export default enhanceWithClickOutside(SearchBox);

@@ -7,4 +7,8 @@ Search.propTypes = {
   toggleSearchBox: React.PropTypes.func,
 };
 
+Search.defaultProps = {
+  toggleSearchBox: () => null,
+};
+
 export default Search;

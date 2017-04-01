@@ -26,4 +26,17 @@ const Details = (props) => {
   );
 };
 
+Details.propTypes = {
+  details: React.PropTypes.shape({
+    release_date: React.PropTypes.string,
+    revenue: React.PropTypes.number,
+    budget: React.PropTypes.number,
+    runtime: React.PropTypes.number,
+  }),
+};
+
+Details.defaultProps = {
+  details: {},
+};
+
 export default Details;

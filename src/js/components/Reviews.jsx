@@ -7,7 +7,14 @@ const Reviews = (props) => {
   const reviews = props.data.results.slice(0, NumReviews).map(review => (
     <div className={Styles.item} key={review.id}>
       <h3 className={Styles.author}> {review.author}</h3>
-      <p><TextTruncate containerClassName={Styles.content} line={10} truncateText="…" text={review.content} /></p>
+      <p>
+        <TextTruncate
+          containerClassName={Styles.content}
+          line={10}
+          truncateText="…"
+          text={review.content}
+        />
+      </p>
     </div>
   ));
 
@@ -27,6 +34,10 @@ Reviews.propTypes = {
   data: React.PropTypes.shape({
     results: React.PropTypes.array,
   }),
+};
+
+Reviews.defaultProps = {
+  data: [],
 };
 
 export default Reviews;

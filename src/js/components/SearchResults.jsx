@@ -19,7 +19,12 @@ const SearchResults = (props) => {
     });
 
     return (
-      <Link to={path} className={Styles.result} key={result.id} onClick={props.toggleSearchBox.bind(this)}>
+      <Link
+        to={path}
+        className={Styles.result}
+        key={result.id}
+        onClick={props.toggleSearchBox.bind(this)}
+      >
         <img src={imageBaseUrl + fileSize + result.poster_path} alt="" />
         <div className={Styles.infocontainer}>
           <span className={Styles.title}>{result.title}</span>
@@ -35,7 +40,11 @@ const SearchResults = (props) => {
   });
 
   return (
-    <ReactCSSTransitionGroup transitionName="searchresult" transitionEnterTimeout={300} transitionLeaveTimeout={300}>
+    <ReactCSSTransitionGroup
+      transitionName="searchresult"
+      transitionEnterTimeout={300}
+      transitionLeaveTimeout={300}
+    >
       {results}
     </ReactCSSTransitionGroup>
   );
@@ -52,6 +61,12 @@ SearchResults.propTypes = {
       logo_sizes: React.PropTypes.array,
     }),
   }),
+};
+
+SearchResults.defaultProps = {
+  results: [],
+  config: {},
+  toggleSearchBox: () => null,
 };
 
 export default SearchResults;

@@ -13,7 +13,9 @@ const MovieList = (props) => {
         <img src={imageBaseUrl + fileSize + result.poster_path} alt="" />
         <div className={Styles.info}>
           <h2 className={Styles.title}>{result.title}</h2>
-          <Link className={Styles.link} to={path}><i className="material-icons">arrow_forward</i></Link>
+          <Link className={Styles.link} to={path}>
+            <i className="material-icons">arrow_forward</i>
+          </Link>
         </div>
       </div>
     );
@@ -35,6 +37,11 @@ MovieList.propTypes = {
       secure_base_url: React.PropTypes.string,
     }),
   }),
+};
+
+MovieList.defaultProps = {
+  data: [],
+  config: {},
 };
 
 export default MovieList;

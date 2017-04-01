@@ -7,4 +7,8 @@ BackButton.propTypes = {
   goBack: React.PropTypes.func,
 };
 
+BackButton.defaultProps = {
+  goBack: () => null,
+};
+
 export default BackButton;
