@@ -6,7 +6,7 @@ const MovieList = (props) => {
   const imageBaseUrl = props.config.images.secure_base_url;
   const fileSize = props.config.images.backdrop_sizes[0];
 
-  const resultNodes = props.data.results.map((result) => {
+  const resultNodes = props.data.map((result) => {
     const path = `/movie/ ${result.id}`;
     return (
       <div className={Styles.movie} key={result.id}>
@@ -28,9 +28,7 @@ const MovieList = (props) => {
 };
 
 MovieList.propTypes = {
-  data: React.PropTypes.shape({
-    results: React.PropTypes.array,
-  }),
+  data: React.PropTypes.arrayOf(React.PropTypes.object),
   config: React.PropTypes.shape({
     images: React.PropTypes.shape({
       backdrop_sizes: React.PropTypes.array,

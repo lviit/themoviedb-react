@@ -2,24 +2,24 @@ import React from 'react';
 import Styles from '../../css/details.pcss';
 
 const Details = (props) => {
-  const { release_date, revenue, budget, runtime } = props.details;
+  const { release_date: releaseDate, revenue, budget, runtime } = props.details;
 
   return (
     <div className={Styles.container}>
       <div className={Styles.item}>
-        <label className={Styles.label}>Release Date:</label>
-        {release_date}
+        <span className={Styles.label}>Release Date:</span>
+        {releaseDate}
       </div>
       <div className={Styles.item}>
-        <label className={Styles.label}>Revenue:</label>
+        <span className={Styles.label}>Revenue:</span>
         {revenue}
       </div>
       <div className={Styles.item}>
-        <label className={Styles.label}>Budget:</label>
+        <span className={Styles.label}>Budget:</span>
         {budget}
       </div>
       <div className={Styles.item}>
-        <label className={Styles.label}>Runtime:</label>
+        <span className={Styles.label}>Runtime:</span>
         {runtime}
       </div>
     </div>

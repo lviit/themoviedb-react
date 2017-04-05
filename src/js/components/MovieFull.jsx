@@ -15,7 +15,13 @@ class FullView extends React.Component {
   render() {
     const imageBaseUrl = this.props.config.images.secure_base_url;
     const fileSize = this.props.config.images.backdrop_sizes[3];
-    const { title, tagline, overview, backdrop_path, genres, vote_average } = this.props.data;
+    const {
+      title,
+      tagline,
+      overview,
+      backdrop_path: backdropPath,
+      vote_average: voteAverage,
+      genres } = this.props.data;
 
     const imageClasses = Classnames({
       [Styles.image]: true,
@@ -34,7 +40,7 @@ class FullView extends React.Component {
               img_loaded: true,
             })}
             className={imageClasses}
-            src={imageBaseUrl + fileSize + backdrop_path}
+            src={imageBaseUrl + fileSize + backdropPath}
             alt=""
           />
         </div>
@@ -48,7 +54,7 @@ class FullView extends React.Component {
             </div>
             <Details details={this.props.data} />
             <div className={Styles.score}>
-              <span>{vote_average}</span>
+              <span>{voteAverage}</span>
             </div>
           </div>
         </div>

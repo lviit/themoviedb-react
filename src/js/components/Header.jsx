@@ -1,7 +1,5 @@
 import React from 'react';
 import { IndexLink } from 'react-router';
-import BackButton from './BackButton';
-import SearchButton from './SearchButton';
 import SearchBox from './SearchBox';
 import Styles from '../../css/header.pcss';
 
@@ -14,14 +12,14 @@ class Header extends React.Component {
     };
   }
   toggleSearchBox() {
-    this.setState({ toggleSearchBox: this.state.toggleSearchBox ? false : true });
+    this.setState({ toggleSearchBox: this.state.toggleSearchBox === false });
   }
   render() {
     return (
       <div className="header-container">
         <div className={Styles.header}>
           <div className={Styles.navigation}>
-            <BackButton goBack={this.props.history.goBack} />
+            <button className={`${Styles.button} material-icons`} onClick={this.props.history.goBack}>arrow_back</button>
             <ul className={Styles.menu}>
               <li className={Styles.menulink}>
                 <IndexLink activeClassName="active" to="/">Home</IndexLink>
@@ -30,7 +28,7 @@ class Header extends React.Component {
                 <IndexLink activeClassName="active" to="/about">About</IndexLink>
               </li>
             </ul>
-            <SearchButton toggleSearchBox={this.toggleSearchBox} />
+            <button className={`${Styles.button} material-icons`} onClick={this.toggleSearchBox}>search</button>
           </div>
         </div>
         <SearchBox collapsed={this.state.toggleSearchBox} toggleSearchBox={this.toggleSearchBox} />

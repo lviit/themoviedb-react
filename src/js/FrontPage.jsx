@@ -24,7 +24,7 @@ class Front extends React.Component {
           <Hero data={this.state.data} config={this.state.config} />}
         <div className="movies container">
           {this.state.config.images && this.state.data.results &&
-            <MovieList data={this.state.data} config={this.state.config} />}
+            <MovieList data={this.state.data.results} config={this.state.config} />}
         </div>
       </div>
     );

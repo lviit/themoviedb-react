@@ -33,10 +33,6 @@ class SearchBox extends React.Component {
     this.props.collapsed && this.props.toggleSearchBox();
   }
 
-  submit() {
-    // maybe search should have submit? :D
-  }
-
   render() {
     this.props.collapsed && this.textInput.focus();
 
@@ -55,13 +51,14 @@ class SearchBox extends React.Component {
     return (
       <div className={searchBoxClasses}>
         <div className="container">
-          <form onSubmit={this.submit}>
+          <form>
             <input
               placeholder="Search for movie..."
               className={Styles.input}
               type="text"
               onChange={this.handleChange}
-              ref={(input) => { this.textInput = input; }} />
+              ref={(input) => { this.textInput = input; }}
+            />
           </form>
           <div className={resultContainerClasses}>
             {this.state.searchResults && this.state.genres && this.state.config &&
