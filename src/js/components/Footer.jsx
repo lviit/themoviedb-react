@@ -1,7 +1,7 @@
 import React from 'react';
 import Styles from '../../css/footer.pcss';
 
-const tmdbLogo = require('../../img/408x161-powered-by-rectangle-blue.png');
+const tmdbLogo = require('../../img/408x161-powered-by-rectangle-green.png');
 
 const Footer = () => (
   <div className="footer section section__dark">

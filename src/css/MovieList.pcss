@@ -8,20 +8,28 @@
 
 .movie {
   flex-basis: 25%;
+  background: #000;
   position: relative;
   overflow: hidden;
   color: fontcolor;
   overflow: hidden;
+  img {
+    transition: transform 0.5s cubic-bezier(0.15, 1, 0.33, 1);
+  }
   &:hover {
     .info {
       transform: translateY(0);
+    }
+    img {
+      opacity: 0.5;
+      transform: scale(1.15);
     }
   }
 }
 
 .info {
   transition: transform 0.5s cubic-bezier(0.15, 1, 0.33, 1);
-  background: rgba(255,255,255, 0.8);
+  color: #fff;
   position: absolute;
   bottom: 0;
   padding: 18px;
@@ -29,16 +37,12 @@
   transform: translateY(100%);
   display: flex;
   align-items: center;
+  text-align: center;
   justify-content: space-between;
-
 }
 
-.link {
-  font-size: 25px;
-  color: fontcolor;
-}
 
 .title {
   font-size: 25px;
-  margin: 0;
+  margin: 0 auto;
 }

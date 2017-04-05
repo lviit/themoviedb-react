@@ -8,13 +8,16 @@
   transform: translateY(-100%);
   transition: transform 0.3s cubic-bezier(0.15, 1, 0.33, 1);
   background: bgaltlight;
-  padding: 1em;
 }
 
 .input {
   width: 100%;
-  padding: 1em;
-  font-size: 20px;
+  padding: 15px;
+  font-size: 18px;
+  &::placeholder {
+    font-style: italic;
+    font-weight: 300;
+  }
 }
 
 .resultcontainer {

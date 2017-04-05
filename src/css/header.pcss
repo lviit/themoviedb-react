@@ -2,7 +2,9 @@
 @value boxcolor, fontcolor, bgalt from colors;
 
 .header {
-  position: relative;
+  position: fixed;
+  width: 100%;
+  top: 0;
   background: bgalt;
   z-index: 100;
 }
@@ -10,12 +12,11 @@
 .navigation {
   display: flex;
   justify-content: space-between;
-  line-height: 60px;
-  color: #fff;
+  line-height: 50px;
+  font-size: 28px;
 }
 
 .menu {
-  font-size: 30px;
   text-align: center;
   margin: 0;
 }
@@ -25,7 +26,7 @@
   a {
     padding: 0 15px;
     display: inline-block;
-    font-weight: 700;
+    font-weight: 600;
     text-decoration: none;
     text-transform: uppercase;
     color: #fff;
@@ -42,5 +43,5 @@
   border: none;
   outline: none;
   color: #fff;
-  font-size: 36px;
+  font-size: 28px;
 }

@@ -9,15 +9,12 @@ const MovieList = (props) => {
   const resultNodes = props.data.map((result) => {
     const path = `/movie/ ${result.id}`;
     return (
-      <div className={Styles.movie} key={result.id}>
+      <Link className={Styles.movie} key={result.id} to={path}>
         <img src={imageBaseUrl + fileSize + result.poster_path} alt="" />
         <div className={Styles.info}>
-          <h2 className={Styles.title}>{result.title}</h2>
-          <Link className={Styles.link} to={path}>
-            <i className="material-icons">arrow_forward</i>
-          </Link>
+          <h3 className={Styles.title}>{result.title}</h3>
         </div>
-      </div>
+      </Link>
     );
   });
   return (
