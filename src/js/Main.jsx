@@ -29,15 +29,9 @@ const Container = (props) => {
   return (
     <div>
       <Header history={props.history} />
-      <ReactCSSTransitionGroup
-        transitionName={segment === 'root' ? 'pageSlider' : 'pageSlider'}
-        transitionEnterTimeout={800}
-        transitionLeaveTimeout={800}
-      >
         <div className="page-wrapper" key={props.location.pathname}>
           {props.children}
         </div>
-      </ReactCSSTransitionGroup>
       <Footer />
     </div>
   );
