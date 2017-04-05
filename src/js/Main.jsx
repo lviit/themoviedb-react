@@ -3,7 +3,6 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import FrontPage from './FrontPage';
 import MovieFullView from './MovieFullView';
 import Header from './components/Header';
@@ -18,24 +17,15 @@ const About = () =>
 const NotFound = () =>
   <h1>404.. Whoops, page not found!</h1>;
 
-const Container = (props) => {
-  /*
-  static contextTypes() {
-    router: React.PropTypes.object.isRequired
-  } */
-  const path = props.location.pathname;
-  const segment = path.split('/')[2] || 'root';
-  // console.log(this.context);
-  return (
-    <div>
-      <Header history={props.history} />
-        <div className="page-wrapper" key={props.location.pathname}>
-          {props.children}
-        </div>
-      <Footer />
+const Container = props => (
+  <div>
+    <Header history={props.history} />
+    <div className="page-wrapper" key={props.location.pathname}>
+      {props.children}
     </div>
-  );
-};
+    <Footer />
+  </div>
+);
 
 Container.propTypes = {
   history: React.PropTypes.object, // eslint-disable-line react/forbid-prop-types
