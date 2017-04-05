@@ -5,6 +5,7 @@
   "dependencies": {
     "axios": "^0.14.0",
     "classnames": "^2.2.5",
+    "compression-webpack-plugin": "^0.3.2",
     "material-design-icons": "^3.0.1",
     "react": "^15.3.2",
     "react-addons-css-transition-group": "^15.3.2",

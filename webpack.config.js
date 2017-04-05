@@ -1,5 +1,6 @@
 'use strict';
 let webpack = require('webpack');
+let compressionPlugin = require('compression-webpack-plugin');
 let path = require('path');
 let precss = require('precss');
 let autoprefixer = require('autoprefixer');
@@ -29,6 +30,13 @@ module.exports = {
   },
   plugins: [
     new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js'),
+    new compressionPlugin({
+      asset: "[path].gz[query]",
+      algorithm: "gzip",
+      test: /\.js$|\.css$|\.html$/,
+      threshold: 10240,
+      minRatio: 0.8
+    })
   ],
   resolve: {
     extensions: ['', '.js', '.jsx']
@@ -74,6 +82,7 @@ module.exports = {
   },
   devServer: {
     inline: true,
+    compress: true,
     contentBase: './public'
   }
 };
