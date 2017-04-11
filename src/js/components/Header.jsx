@@ -22,7 +22,7 @@ class Header extends React.Component {
             <button className={`${Styles.button} material-icons`} onClick={this.props.history.goBack}>arrow_back</button>
             <ul className={Styles.menu}>
               <li className={Styles.menulink}>
-                <IndexLink activeClassName="active" to="/">Home</IndexLink>
+                <IndexLink activeClassName="active" to="/">Latest</IndexLink>
               </li>
               <li className={Styles.menulink}>
                 <IndexLink activeClassName="active" to="/about">About</IndexLink>

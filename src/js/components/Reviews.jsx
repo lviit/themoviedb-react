@@ -1,6 +1,7 @@
 import React from 'react';
 import TextTruncate from 'react-text-truncate';
 import Styles from '../../css/reviews.pcss';
+import Section from './Section';
 
 const Reviews = (props) => {
   const NumReviews = 3;
@@ -18,16 +19,9 @@ const Reviews = (props) => {
     </div>
   ));
 
-  return (
-    <div className="section section__dark">
-      <div className="container">
-        <h2 className="section--title">Reviews</h2>
-        <div className={Styles.container}>
-          {reviews}
-        </div>
-      </div>
-    </div>
-  );
+  const content = <div className={Styles.container}>{reviews}</div>;
+
+  return <Section dark title="Reviews" content={content} />;
 };
 
 Reviews.propTypes = {

@@ -1,18 +1,13 @@
 import React from 'react';
 import MovieList from './MovieList';
+import Section from './Section';
 
 const Similar = (props) => {
   const NumResults = 4;
   const results = props.data.results.slice(0, NumResults);
+  const content = props.config.images && <MovieList data={results} config={props.config} />;
 
-  return (
-    <div className="section section__light">
-      <h2 className="section--title">You might also like</h2>
-      <div className="container">
-        {props.config.images && <MovieList data={results} config={props.config} />}
-      </div>
-    </div>
-  );
+  return <Section title="You might also like" content={content} />;
 };
 
 Similar.propTypes = {

@@ -1,5 +1,6 @@
 import React from 'react';
 import Styles from '../../css/cast.pcss';
+import Section from './Section';
 
 const Credits = (props) => {
   const castSize = 6;
@@ -17,16 +18,9 @@ const Credits = (props) => {
       <div className={Styles.character}>{castMember.character}</div>
     </div>,
   );
-  return (
-    <div className="section section__light">
-      <div className="container">
-        <h2 className="section--title">Cast</h2>
-        <div className={Styles.container}>
-          {cast}
-        </div>
-      </div>
-    </div>
-  );
+
+  const content = <div className={Styles.container}>{cast}</div>;
+  return <Section title="Cast" content={content} />;
 };
 
 Credits.propTypes = {
