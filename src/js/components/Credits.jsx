@@ -1,27 +1,34 @@
 import React from 'react';
 import Styles from '../../css/cast.pcss';
 import Section from './Section';
+import ScrollReveal from '../ScrollReveal';
 
-const Credits = (props) => {
-  const castSize = 6;
-  const imageBaseUrl = props.config.images.secure_base_url;
-  const fileSize = 'w264_and_h264_bestv2';
+class Credits extends React.Component {
+  componentDidMount() {
+    ScrollReveal.reveal(`.${Styles.item}`, 50);
+  }
 
-  const cast = props.data.cast.slice(0, castSize).map(castMember =>
-    <div className={Styles.item} key={castMember.id}>
-      <img
-        className={Styles.image}
-        src={imageBaseUrl + fileSize + castMember.profile_path}
-        alt=""
-      />
-      <div className={Styles.name}>{castMember.name}</div>
-      <div className={Styles.character}>{castMember.character}</div>
-    </div>,
-  );
+  render() {
+    const castSize = 6;
+    const imageBaseUrl = this.props.config.images.secure_base_url;
+    const fileSize = 'w264_and_h264_bestv2';
 
-  const content = <div className={Styles.container}>{cast}</div>;
-  return <Section title="Cast" content={content} />;
-};
+    const cast = this.props.data.cast.slice(0, castSize).map(castMember =>
+      <div className={Styles.item} key={castMember.id}>
+        <img
+          className={Styles.image}
+          src={imageBaseUrl + fileSize + castMember.profile_path}
+          alt=""
+        />
+        <div className={Styles.name}>{castMember.name}</div>
+        <div className={Styles.character}>{castMember.character}</div>
+      </div>,
+    );
+
+    const content = <div className={Styles.container}>{cast}</div>;
+    return <Section title="Cast" content={content} />;
+  }
+}
 
 Credits.propTypes = {
   data: React.PropTypes.shape({

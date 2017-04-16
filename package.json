@@ -7,6 +7,7 @@
     "classnames": "^2.2.5",
     "compression-webpack-plugin": "^0.3.2",
     "material-design-icons": "^3.0.1",
+    "normalize.css": "^6.0.0",
     "react": "^15.3.2",
     "react-addons-css-transition-group": "^15.3.2",
     "react-click-outside": "^2.2.0",
@@ -14,6 +15,7 @@
     "react-router": "^2.8.1",
     "react-slick": "^0.14.5",
     "react-text-truncate": "^0.8.3",
+    "scrollreveal": "^3.3.5",
     "slick-carousel": "^1.6.0",
     "throttle-debounce": "^1.0.1"
   },
