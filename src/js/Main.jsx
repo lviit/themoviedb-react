@@ -8,6 +8,7 @@ import MovieFullView from './MovieFullView';
 import GenresPage from './components/GenresPage';
 import Header from './components/Header';
 import Footer from './components/Footer';
+// import 'normalize.css';
 import '../css/common.pcss';
 import '../css/layout.pcss';
 import '../css/material-icons.pcss';

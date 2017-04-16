@@ -23,7 +23,7 @@ const SearchResults = (props) => {
         to={path}
         className={Styles.result}
         key={result.id}
-        onClick={props.toggleSearchBox.bind(this)}
+        onClick={() => props.toggleSearchBox()}
       >
         <img src={imageBaseUrl + fileSize + result.poster_path} alt="" />
         <div className={Styles.infocontainer}>
@@ -51,7 +51,7 @@ const SearchResults = (props) => {
 };
 
 SearchResults.propTypes = {
-  toggleSearchBox: React.PropTypes.func,
+  genres: React.PropTypes.arrayOf(React.PropTypes.object),
   results: React.PropTypes.shape({
     results: React.PropTypes.array,
   }),
@@ -64,9 +64,9 @@ SearchResults.propTypes = {
 };
 
 SearchResults.defaultProps = {
+  genres: [],
   results: [],
   config: {},
-  toggleSearchBox: () => null,
 };
 
 export default SearchResults;

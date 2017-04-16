@@ -24,7 +24,7 @@ class GenresPage extends React.Component {
 
   filterByGenre(id, genreName) {
     apiConnect.SearchByGenre(id).then(movies => this.setState({ movies }));
-    this.setState({ genreName: genreName });
+    this.setState({ genreName });
   }
 
   render() {

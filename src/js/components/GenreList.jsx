@@ -4,7 +4,7 @@ import Styles from '../../css/genres.pcss';
 
 const GenreList = (props) => {
   const genres = props.genres.map(genre =>
-    <div className={`${Styles.genre} genre-${genre.id}`} key={genre.id} onClick={() => props.filterByGenre(genre.id, genre.name)}>{genre.name}</div>);
+    <button className={`${Styles.genre} genre-${genre.id}`} key={genre.id} onClick={() => props.filterByGenre(genre.id, genre.name)}>{genre.name}</button>);
 
   const containerClasses = Classnames({
     [Styles.container]: true,
