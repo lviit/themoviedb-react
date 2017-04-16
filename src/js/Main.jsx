@@ -5,6 +5,7 @@ import { render } from 'react-dom';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import FrontPage from './FrontPage';
 import MovieFullView from './MovieFullView';
+import GenresPage from './components/GenresPage';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import '../css/common.pcss';
@@ -42,6 +43,7 @@ const App = () => (
       <IndexRoute component={FrontPage} />
       <Route path="/about" component={About} />
       <Route path="movie/*" component={MovieFullView} />
+      <Route path="genres" component={GenresPage} />
       <Route path="*" component={NotFound} />
     </Route>
   </Router>

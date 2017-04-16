@@ -43,4 +43,9 @@ export default {
     .get(`${settings.baseUrl}search/movie?api_key=${settings.apiKey}&query=${query}`)
     .then(res => res.data)
     .catch(error => console.log(error)),
+
+  SearchByGenre: genre => axios
+    .get(`${settings.baseUrl}discover/movie?api_key=${settings.apiKey}&with_genres=${genre}`)
+    .then(res => res.data)
+    .catch(error => console.log(error)),
 };

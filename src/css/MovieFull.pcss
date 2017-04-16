@@ -1,12 +1,17 @@
 .imagecontainer {
   position: absolute;
   background-color: #ccc;
+  max-height: 40em;
+  overflow: hidden;
+  width: 100%;
 }
 
 .image {
   transition: opacity 0.5s;
   max-width: 100%;
   opacity: 0;
+  display: block;
+  margin: 0 auto;
   &.loaded {
     opacity: 1;
   }
