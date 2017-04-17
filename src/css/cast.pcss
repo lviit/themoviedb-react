@@ -1,3 +1,6 @@
+@value colors: './colors.pcss';
+@value greylight from colors;
+
 .container {
   display: flex;
   margin: 2em 0;
@@ -24,4 +27,16 @@
 .image {
   border-radius: 50%;
   border: 3px solid #fff;
+}
+
+.noimage {
+  border-radius: 50%;
+  background: greylight;
+  color: #fff;
+  border: 3px solid #fff;
+  font-size: 100px;
+  line-height: 117px;
+  height: 125px;
+  width: 125px;
+
 }

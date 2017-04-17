@@ -15,11 +15,13 @@ class Credits extends React.Component {
 
     const cast = this.props.credits.cast.slice(0, castSize).map(castMember =>
       <div className={Styles.item} key={castMember.id}>
-        <img
-          className={Styles.image}
-          src={imageBaseUrl + fileSize + castMember.profile_path}
-          alt=""
-        />
+        { castMember.profile_path ?
+          <img
+            className={Styles.image}
+            src={imageBaseUrl + fileSize + castMember.profile_path}
+            alt=""
+          /> :
+          <div className={`${Styles.noimage} material-icons`}>person</div>}
         <div className={Styles.name}>{castMember.name}</div>
         <div className={Styles.character}>{castMember.character}</div>
       </div>,
