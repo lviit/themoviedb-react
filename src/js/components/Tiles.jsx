@@ -1,0 +1,62 @@
+import React from 'react';
+import { Link } from 'react-router';
+var Packery = require('react-packery-component')(React);
+import TextTruncate from 'react-text-truncate';
+import ScrollReveal from '../ScrollReveal';
+import Styles from '../../css/Tiles.pcss';
+
+class Tiles extends React.Component {
+  componentDidMount() {
+    ScrollReveal.reveal(`.${Styles.movie}`, 50);
+  }
+  render() {
+    const imageBaseUrl = this.props.config.images.secure_base_url;
+    const packeryOptions = {};
+
+    const resultNodes = this.props.movies.results.map((result) => {
+      //let size = Math.floor(Math.random() * 3) + 1;
+      let items = Array(1,1,1,1,1,2,2);
+      let size = items[Math.floor(Math.random()*items.length)];
+      const fileSize = this.props.config.images.backdrop_sizes[size];
+      const path = `/movie/${result.id}`;
+      return (
+        <div className={`size-${size}`}>
+          <Link className={Styles.movie} key={result.id} to={path}>
+            <img className={Styles.image} src={imageBaseUrl + fileSize + result.backdrop_path} alt="" />
+            <div className={Styles.info}>
+              <h3 className={Styles.title}>{result.title}</h3>
+                <TextTruncate
+                  containerClassName={Styles.overview}
+                  line={size}
+                  truncateText="…"
+                  text={result.overview}
+                />
+            </div>
+          </Link>
+        </div>
+      );
+    });
+    return (
+      <Packery className={Styles.container} options={packeryOptions}>
+        {resultNodes}
+      </Packery>
+    );
+  }
+}
+
+Tiles.propTypes = {
+  movies: React.PropTypes.arrayOf(React.PropTypes.object),
+  config: React.PropTypes.shape({
+    images: React.PropTypes.shape({
+      backdrop_sizes: React.PropTypes.array,
+      secure_base_url: React.PropTypes.string,
+    }),
+  }),
+};
+
+Tiles.defaultProps = {
+  movies: [],
+  config: {},
+};
+
+export default Tiles;

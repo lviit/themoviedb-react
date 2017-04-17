@@ -1,7 +1,7 @@
 import React from 'react';
 import apiConnect from '../services/ApiConnect';
 import GenreList from './GenreList';
-import MovieList from './MovieList';
+import Tiles from './Tiles';
 
 class GenresPage extends React.Component {
 
@@ -29,12 +29,12 @@ class GenresPage extends React.Component {
 
   render() {
     return (
-      <div className="page container">
+      <div className="page container-large">
         <h1>{this.state.genreName}</h1>
         {this.state.genres &&
           <GenreList genres={this.state.genres} filterByGenre={this.filterByGenre} />}
         {this.state.config.images && this.state.movies.results &&
-          <MovieList {...this.state} />}
+          <Tiles {...this.state} />}
       </div>
     );
   }
