@@ -25,7 +25,8 @@ const SearchResults = (props) => {
         key={result.id}
         onClick={() => props.toggleSearchBox()}
       >
-        <img src={imageBaseUrl + fileSize + result.poster_path} alt="" />
+        { result.poster_path ? <img src={imageBaseUrl + fileSize + result.poster_path} alt="" /> :
+        <div className={`${Styles.noimage} material-icons`}>broken_image</div>}
         <div className={Styles.infocontainer}>
           <span className={Styles.title}>{result.title}</span>
           <span className={Styles.date}>{`(${year})`}</span>
