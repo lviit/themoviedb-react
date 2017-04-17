@@ -13,7 +13,7 @@ class Credits extends React.Component {
     const imageBaseUrl = this.props.config.images.secure_base_url;
     const fileSize = 'w264_and_h264_bestv2';
 
-    const cast = this.props.data.cast.slice(0, castSize).map(castMember =>
+    const cast = this.props.credits.cast.slice(0, castSize).map(castMember =>
       <div className={Styles.item} key={castMember.id}>
         <img
           className={Styles.image}
@@ -31,7 +31,7 @@ class Credits extends React.Component {
 }
 
 Credits.propTypes = {
-  data: React.PropTypes.shape({
+  credits: React.PropTypes.shape({
     cast: React.PropTypes.array,
   }),
   config: React.PropTypes.shape({
@@ -42,7 +42,7 @@ Credits.propTypes = {
 };
 
 Credits.defaultProps = {
-  data: [],
+  credits: [],
   config: {},
 };
 

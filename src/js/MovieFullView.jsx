@@ -30,13 +30,13 @@ class MovieFullView extends React.Component {
       <div className="page movie__full">
         {this.state.config.images &&
           this.state.data.id &&
-          <FullView data={this.state.data} config={this.state.config} />}
+          <FullView {...this.state} />}
         {this.state.credits.id &&
-          <Credits data={this.state.credits} config={this.state.config} />}
+          <Credits {...this.state} />}
         {this.state.reviews.total_results > 0 &&
           <Reviews data={this.state.reviews} />}
         {this.state.similar.total_results > 0 &&
-          <Similar data={this.state.similar} config={this.state.config} />}
+          <Similar movies={this.state.similar} config={this.state.config} />}
       </div>
     );
   }

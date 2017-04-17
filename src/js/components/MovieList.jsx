@@ -11,7 +11,7 @@ class MovieList extends React.Component {
     const imageBaseUrl = this.props.config.images.secure_base_url;
     const fileSize = this.props.config.images.backdrop_sizes[0];
 
-    const resultNodes = this.props.data.map((result) => {
+    const resultNodes = this.props.movies.results.map((result) => {
       const path = `/movie/ ${result.id}`;
       return (
         <Link className={Styles.movie} key={result.id} to={path}>
@@ -31,7 +31,7 @@ class MovieList extends React.Component {
 }
 
 MovieList.propTypes = {
-  data: React.PropTypes.arrayOf(React.PropTypes.object),
+  movies: React.PropTypes.arrayOf(React.PropTypes.object),
   config: React.PropTypes.shape({
     images: React.PropTypes.shape({
       backdrop_sizes: React.PropTypes.array,
@@ -41,7 +41,7 @@ MovieList.propTypes = {
 };
 
 MovieList.defaultProps = {
-  data: [],
+  movies: [],
   config: {},
 };
 

@@ -8,23 +8,23 @@ class Front extends React.Component {
     super();
     this.state = {
       config: [],
-      data: [],
+      movies: [],
     };
   }
 
   componentWillMount() {
     apiConnect.getConfig().then(config => this.setState({ config }));
-    apiConnect.getMovies().then(data => this.setState({ data }));
+    apiConnect.getMovies().then(movies => this.setState({ movies }));
   }
 
   render() {
     return (
       <div className="page">
-        {this.state.config.images && this.state.data.results &&
-          <Hero data={this.state.data} config={this.state.config} />}
+        {this.state.config.images && this.state.movies.results &&
+          <Hero {...this.state} />}
         <div className="movies container">
-          {this.state.config.images && this.state.data.results &&
-            <MovieList data={this.state.data.results} config={this.state.config} />}
+          {this.state.config.images && this.state.movies.results &&
+            <MovieList {...this.state} />}
         </div>
       </div>
     );

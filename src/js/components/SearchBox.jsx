@@ -62,12 +62,7 @@ class SearchBox extends React.Component {
           </form>
           <div className={resultContainerClasses}>
             {this.state.searchResults && this.state.genres && this.state.config &&
-              <SearchResults
-                results={this.state.searchResults}
-                genres={this.state.genres}
-                config={this.state.config}
-                toggleSearchBox={this.props.toggleSearchBox}
-              />}
+              <SearchResults {...this.state} {...this.props} />}
           </div>
         </div>
       </div>

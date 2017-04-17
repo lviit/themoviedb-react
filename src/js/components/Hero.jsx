@@ -27,7 +27,7 @@ const Hero = (props) => {
   const fileSize = props.config.images.backdrop_sizes[3];
   const NumSlides = 5;
 
-  const slides = props.data.results.slice(0, NumSlides).map(result =>
+  const slides = props.movies.results.slice(0, NumSlides).map(result =>
     <div className={Styles.hero} key={result.id}>
       <div className="container">
         <div className={Styles.info}>
@@ -55,7 +55,7 @@ const Hero = (props) => {
 };
 
 Hero.propTypes = {
-  data: React.PropTypes.shape({
+  movies: React.PropTypes.shape({
     results: React.PropTypes.array,
   }),
   config: React.PropTypes.shape({

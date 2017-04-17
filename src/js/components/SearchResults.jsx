@@ -8,7 +8,7 @@ const SearchResults = (props) => {
   const imageBaseUrl = props.config.images.secure_base_url;
   const fileSize = props.config.images.logo_sizes[0];
 
-  const results = props.results.results.map((result) => {
+  const results = props.searchResults.results.map((result) => {
     const path = `/movie/ ${result.id}`;
     const date = new Date(result.release_date);
     const year = date.getFullYear();
@@ -52,7 +52,7 @@ const SearchResults = (props) => {
 
 SearchResults.propTypes = {
   genres: React.PropTypes.arrayOf(React.PropTypes.object),
-  results: React.PropTypes.shape({
+  searchResults: React.PropTypes.shape({
     results: React.PropTypes.array,
   }),
   config: React.PropTypes.shape({
@@ -65,7 +65,7 @@ SearchResults.propTypes = {
 
 SearchResults.defaultProps = {
   genres: [],
-  results: [],
+  searchResults: [],
   config: {},
 };
 

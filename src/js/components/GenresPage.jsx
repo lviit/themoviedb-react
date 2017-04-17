@@ -34,7 +34,7 @@ class GenresPage extends React.Component {
         {this.state.genres &&
           <GenreList genres={this.state.genres} filterByGenre={this.filterByGenre} />}
         {this.state.config.images && this.state.movies.results &&
-          <MovieList data={this.state.movies.results} config={this.state.config} />}
+          <MovieList {...this.state} />}
       </div>
     );
   }
