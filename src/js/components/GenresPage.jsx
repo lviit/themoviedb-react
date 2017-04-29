@@ -19,7 +19,9 @@ class GenresPage extends React.Component {
   componentWillMount() {
     apiConnect.getConfig().then(config => this.setState({ config }));
     apiConnect.getGenres().then(genres => this.setState({ genres }));
-    apiConnect.SearchByGenre(28).then(movies => this.setState({ movies }));
+
+    const genre = (this.props.params.splat === 'all') ? '' : this.props.params.splat;
+    apiConnect.SearchByGenre(genre).then(movies => this.setState({ movies }));
   }
 
   filterByGenre(id, genreName) {
@@ -41,11 +43,13 @@ class GenresPage extends React.Component {
 }
 
 GenresPage.propTypes = {
-  genres: React.PropTypes.arrayOf(React.PropTypes.object),
+  params: React.PropTypes.shape({
+    splat: React.PropTypes.string,
+  }),
 };
 
 GenresPage.defaultProps = {
-  genres: [],
+  params: {},
 };
 
 export default GenresPage;

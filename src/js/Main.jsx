@@ -44,7 +44,7 @@ const App = () => (
       <IndexRoute component={FrontPage} />
       <Route path="/about" component={About} />
       <Route path="movie/*" component={MovieFullView} />
-      <Route path="genres" component={GenresPage} />
+      <Route path="genres/*" component={GenresPage} />
       <Route path="*" component={NotFound} />
     </Route>
   </Router>

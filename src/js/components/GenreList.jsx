@@ -1,10 +1,11 @@
 import React from 'react';
 import Classnames from 'classnames';
+import { Link } from 'react-router';
 import Styles from '../../css/genres.pcss';
 
 const GenreList = (props) => {
   const genres = props.genres.map(genre =>
-    <button className={`${Styles.genre} genre-${genre.id}`} key={genre.id} onClick={() => props.filterByGenre(genre.id, genre.name)}>{genre.name}</button>);
+    <Link className={`${Styles.genre} genre-${genre.id}`} key={genre.id} to={`/genres/${genre.id}`}>{genre.name}</Link>);
 
   const containerClasses = Classnames({
     [Styles.container]: true,

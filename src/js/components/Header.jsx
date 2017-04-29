@@ -25,7 +25,7 @@ class Header extends React.Component {
                 <IndexLink activeClassName="active" to="/">Latest</IndexLink>
               </li>
               <li className={Styles.menulink}>
-                <IndexLink activeClassName="active" to="genres">Genres</IndexLink>
+                <IndexLink activeClassName="active" to="/genres/all">Genres</IndexLink>
               </li>
               <li className={Styles.menulink}>
                 <IndexLink activeClassName="active" to="/about">About</IndexLink>
