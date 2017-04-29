@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router';
-var Packery = require('react-packery-component')(React);
 import TextTruncate from 'react-text-truncate';
 import ScrollReveal from '../ScrollReveal';
 import Styles from '../../css/Tiles.pcss';
+
+const Packery = require('react-packery-component')(React);
 
 class Tiles extends React.Component {
   componentDidMount() {
@@ -14,9 +15,8 @@ class Tiles extends React.Component {
     const packeryOptions = {};
 
     const resultNodes = this.props.movies.results.map((result) => {
-      //let size = Math.floor(Math.random() * 3) + 1;
-      let items = Array(1,1,1,1,1,2,2);
-      let size = items[Math.floor(Math.random()*items.length)];
+      const items = Array(1, 1, 1, 2);
+      const size = items[Math.floor(Math.random()*items.length)];
       const fileSize = this.props.config.images.backdrop_sizes[size];
       const path = `/movie/${result.id}`;
       return (
