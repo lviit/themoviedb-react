@@ -92,7 +92,7 @@ module.exports = {
   },
   devServer: {
     inline: true,
-    compress: true,
+    //compress: true,
     contentBase: './public'
   }
 };

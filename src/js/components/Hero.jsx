@@ -40,7 +40,7 @@ const Hero = (props) => {
               text={result.overview}
             />
           </p>
-          <Link className={Styles.link} to={`/movie/ ${result.id}`}>Read more</Link>
+          <Link className={Styles.link} to={`/movie/${result.id}`}>Read more</Link>
         </div>
       </div>
       <img className={Styles.image} src={imageBaseUrl + fileSize + result.backdrop_path} alt="" />

@@ -9,7 +9,7 @@ const SearchResults = (props) => {
   const fileSize = props.config.images.logo_sizes[0];
 
   const results = props.searchResults.results.map((result) => {
-    const path = `/movie/ ${result.id}`;
+    const path = `/movie/${result.id}`;
     const date = new Date(result.release_date);
     const year = date.getFullYear();
 

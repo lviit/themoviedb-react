@@ -12,7 +12,7 @@ class MovieList extends React.Component {
     const fileSize = this.props.config.images.backdrop_sizes[0];
 
     const resultNodes = this.props.movies.results.map((result) => {
-      const path = `/movie/ ${result.id}`;
+      const path = `/movie/${result.id}`;
       return (
         <Link className={Styles.movie} key={result.id} to={path}>
           <img src={imageBaseUrl + fileSize + result.poster_path} alt="" />

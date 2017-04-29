@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { render } from 'react-dom';
-import { Router, Route, IndexRoute, hashHistory } from 'react-router';
+import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import FrontPage from './FrontPage';
 import MovieFullView from './MovieFullView';
 import GenresPage from './components/GenresPage';
@@ -39,7 +39,7 @@ Container.propTypes = {
 };
 
 const App = () => (
-  <Router history={hashHistory}>
+  <Router history={browserHistory}>
     <Route path="/" component={Container}>
       <IndexRoute component={FrontPage} />
       <Route path="/about" component={About} />
