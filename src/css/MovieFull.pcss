@@ -1,3 +1,7 @@
+.container {
+  position: relative;
+}
+
 .imagecontainer {
   position: absolute;
   background-color: #ccc;
@@ -8,6 +12,7 @@
 
 .image {
   transition: opacity 0.5s;
+  min-height: 35em;
   max-width: 100%;
   opacity: 0;
   display: block;
@@ -15,6 +20,16 @@
   &.loaded {
     opacity: 1;
   }
+}
+
+.noimage {
+  width: 100%;
+  height: 35em;
+  line-height: 2em;
+  background: greylight;
+  text-align: center;
+  font-size: 300px;
+
 }
 
 .title {

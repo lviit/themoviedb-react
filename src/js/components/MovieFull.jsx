@@ -9,7 +9,14 @@ class FullView extends React.Component {
     super();
     this.state = {
       img_loaded: false,
+      img_error: false,
     };
+  }
+
+  handleImageError() {
+    this.setState({
+      img_error: true,
+    });
   }
 
   render() {
@@ -29,20 +36,21 @@ class FullView extends React.Component {
     });
 
     return (
-      <div>
+      <div className={Styles.container}>
         <div className={Styles.imagecontainer}>
-          {!this.state.img_loaded && <div className="loader" />}
-          <img
-            onLoad={() => this.setState({
-              img_loaded: true,
-            })}
-            onError={() => this.setState({
-              img_loaded: true,
-            })}
-            className={imageClasses}
-            src={imageBaseUrl + fileSize + backdropPath}
-            alt=""
-          />
+          {!this.state.img_loaded && !this.state.img_error && <div className="loader" />}
+          { !this.state.img_error ?
+            <img
+              onLoad={() => this.setState({
+                img_loaded: true,
+              })}
+              onError={() => this.handleImageError()}
+              className={imageClasses}
+              src={imageBaseUrl + fileSize + backdropPath}
+              alt=""
+            /> :
+            <div className={`${Styles.noimage} material-icons`}>broken_image</div>
+          }
         </div>
         <div className="container">
           <h1 className={Styles.title}>{title}</h1>
