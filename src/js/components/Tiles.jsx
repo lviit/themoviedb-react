@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import TextTruncate from 'react-text-truncate';
 import ScrollReveal from '../ScrollReveal';
+import MovieImage from './MovieImage';
 import Styles from '../../css/Tiles.pcss';
 
 const Packery = require('react-packery-component')(React);
@@ -22,7 +23,12 @@ class Tiles extends React.Component {
       return (
         <div className={`size-${size}`}>
           <Link className={Styles.movie} key={result.id} to={path}>
-            <img className={Styles.image} src={imageBaseUrl + fileSize + result.backdrop_path} alt="" />
+            <MovieImage
+              backdrop
+              size={this.props.config.images.backdrop_sizes[size]}
+              imageBaseUrl={this.props.config.images.secure_base_url}
+              path={result.backdrop_path}
+            />
             <div className={Styles.info}>
               <h3 className={Styles.title}>{result.title}</h3>
                 <TextTruncate

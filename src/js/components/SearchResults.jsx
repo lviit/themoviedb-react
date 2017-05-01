@@ -3,11 +3,9 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { Link } from 'react-router';
 import Styles from '../../css/SearchResults.pcss';
 import GenreList from './GenreList';
+import MovieImage from './MovieImage';
 
 const SearchResults = (props) => {
-  const imageBaseUrl = props.config.images.secure_base_url;
-  const fileSize = props.config.images.logo_sizes[0];
-
   const results = props.searchResults.results.map((result) => {
     const path = `/movie/${result.id}`;
     const date = new Date(result.release_date);
@@ -25,8 +23,12 @@ const SearchResults = (props) => {
         key={result.id}
         onClick={() => props.toggleSearchBox()}
       >
-        { result.poster_path ? <img src={imageBaseUrl + fileSize + result.poster_path} alt="" /> :
-        <div className={`${Styles.noimage} material-icons`}>broken_image</div>}
+        <MovieImage
+          poster
+          size={props.config.images.logo_sizes[0]}
+          imageBaseUrl={props.config.images.secure_base_url}
+          path={result.poster_path}
+        />
         <div className={Styles.infocontainer}>
           <span className={Styles.title}>{result.title}</span>
           <span className={Styles.date}>{`(${year})`}</span>

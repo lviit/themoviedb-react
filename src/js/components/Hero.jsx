@@ -2,7 +2,8 @@ import React from 'react';
 import TextTruncate from 'react-text-truncate';
 import { Link } from 'react-router';
 import Slider from 'react-slick';
-import Styles from '../../css/movie--hero.pcss';
+import MovieImage from './MovieImage';
+import Styles from '../../css/Hero.pcss';
 import '../../css/slick.pcss';
 
 const HeroPrevArrow = props =>
@@ -23,10 +24,7 @@ const Hero = (props) => {
     prevArrow: <HeroPrevArrow />,
   };
 
-  const imageBaseUrl = props.config.images.secure_base_url;
-  const fileSize = props.config.images.backdrop_sizes[3];
   const NumSlides = 5;
-
   const slides = props.movies.results.slice(0, NumSlides).map(result =>
     <div className={Styles.hero} key={result.id}>
       <div className="container">
@@ -43,7 +41,12 @@ const Hero = (props) => {
           <Link className={Styles.link} to={`/movie/${result.id}`}>Read more</Link>
         </div>
       </div>
-      <img className={Styles.image} src={imageBaseUrl + fileSize + result.backdrop_path} alt="" />
+      <MovieImage
+        backdrop
+        size={props.config.images.backdrop_sizes[3]}
+        imageBaseUrl={props.config.images.secure_base_url}
+        path={result.backdrop_path}
+      />
     </div>,
   );
 

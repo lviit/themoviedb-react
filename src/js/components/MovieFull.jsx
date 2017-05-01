@@ -1,27 +1,11 @@
 import React from 'react';
-import Classnames from 'classnames';
 import Styles from '../../css/MovieFull.pcss';
 import GenreList from './GenreList';
 import Details from './Details';
+import MovieImage from './MovieImage';
 
 class FullView extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      img_loaded: false,
-      img_error: false,
-    };
-  }
-
-  handleImageError() {
-    this.setState({
-      img_error: true,
-    });
-  }
-
   render() {
-    const imageBaseUrl = this.props.config.images.secure_base_url;
-    const fileSize = this.props.config.images.backdrop_sizes[3];
     const {
       title,
       tagline,
@@ -30,27 +14,15 @@ class FullView extends React.Component {
       vote_average: voteAverage,
       genres } = this.props.data;
 
-    const imageClasses = Classnames({
-      [Styles.image]: true,
-      [Styles.loaded]: this.state.img_loaded,
-    });
-
     return (
       <div className={Styles.container}>
         <div className={Styles.imagecontainer}>
-          {!this.state.img_loaded && !this.state.img_error && <div className="loader" />}
-          { !this.state.img_error ?
-            <img
-              onLoad={() => this.setState({
-                img_loaded: true,
-              })}
-              onError={() => this.handleImageError()}
-              className={imageClasses}
-              src={imageBaseUrl + fileSize + backdropPath}
-              alt=""
-            /> :
-            <div className={`${Styles.noimage} material-icons`}>broken_image</div>
-          }
+          <MovieImage
+            backdrop
+            size={this.props.config.images.backdrop_sizes[3]}
+            imageBaseUrl={this.props.config.images.secure_base_url}
+            path={backdropPath}
+          />
         </div>
         <div className="container">
           <h1 className={Styles.title}>{title}</h1>

@@ -12,7 +12,6 @@ import Footer from './components/Footer';
 import '../css/common.pcss';
 import '../css/layout.pcss';
 import '../css/material-icons.pcss';
-import '../css/loader.pcss';
 import '../css/mixins.pcss';
 
 const About = () =>
