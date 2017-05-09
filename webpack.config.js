@@ -14,6 +14,7 @@ let APP_DIR = path.resolve(__dirname, 'src/js');
 module.exports = {
   devtool: 'source-map',
   entry: {
+    babel: 'babel-polyfill',
     app: APP_DIR + '/Main.jsx',
     vendor: [
       'react',

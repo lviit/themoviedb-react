@@ -4,6 +4,7 @@
   },
   "dependencies": {
     "axios": "^0.14.0",
+    "babel-polyfill": "^6.23.0",
     "classnames": "^2.2.5",
     "compression-webpack-plugin": "^0.3.2",
     "material-design-icons": "^3.0.1",
@@ -19,7 +20,8 @@
     "react-text-truncate": "^0.8.3",
     "scrollreveal": "^3.3.5",
     "slick-carousel": "^1.6.0",
-    "throttle-debounce": "^1.0.1"
+    "throttle-debounce": "^1.0.1",
+    "webpack-dev-server": "^2.4.5"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.6",
