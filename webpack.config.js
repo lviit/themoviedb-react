@@ -12,6 +12,7 @@ let BUILD_DIR = path.resolve(__dirname, 'public');
 let APP_DIR = path.resolve(__dirname, 'src/js');
 
 module.exports = {
+  devtool: 'source-map',
   entry: {
     app: APP_DIR + '/Main.jsx',
     vendor: [
@@ -26,7 +27,8 @@ module.exports = {
   },
   output: {
     path: BUILD_DIR,
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    //publicPath: 'public'
   },
   plugins: [
     new webpack.DefinePlugin({
@@ -38,7 +40,8 @@ module.exports = {
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false
-      }
+      },
+      sourceMap: true,
     }),
     new compressionPlugin({
       asset: "[path].gz[query]",
@@ -92,6 +95,10 @@ module.exports = {
   },
   devServer: {
     inline: true,
+    /*
+    historyApiFallback: {
+      index: '/public/index.html'
+    }, */
     //compress: true,
     contentBase: './public'
   }
