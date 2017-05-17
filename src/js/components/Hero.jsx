@@ -13,6 +13,7 @@ const HeroNextArrow = props =>
 
 const Hero = (props) => {
   const sliderSettings = {
+    className: Styles.container,
     dots: true,
     infinite: true,
     speed: 500,
@@ -51,7 +52,7 @@ const Hero = (props) => {
   );
 
   return (
-    <Slider className={Styles.container} {...sliderSettings}>
+    <Slider {...sliderSettings}>
       {slides}
     </Slider>
   );

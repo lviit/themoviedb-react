@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { render } from 'react-dom';
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import FrontPage from './FrontPage';
 import MovieFullView from './MovieFullView';
 import GenresPage from './components/GenresPage';
@@ -38,12 +38,12 @@ Container.propTypes = {
 };
 
 const App = () => (
-  <Router history={browserHistory}>
+  <Router history={hashHistory}>
     <Route path="/" component={Container}>
       <IndexRoute component={FrontPage} />
       <Route path="/about" component={About} />
       <Route path="movie/*" component={MovieFullView} />
-      <Route path="genres/*" component={GenresPage} />
+      <Route name="genrespage" path="genres/*" component={GenresPage} />
       <Route path="*" component={NotFound} />
     </Route>
   </Router>
