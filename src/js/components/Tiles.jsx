@@ -26,17 +26,17 @@ class Tiles extends React.Component {
             <MovieImage
               backdrop
               size={this.props.config.images.backdrop_sizes[size]}
-              imageBaseUrl={this.props.config.images.secure_base_url}
+              imageBaseUrl={imageBaseUrl}
               path={result.backdrop_path}
             />
             <div className={Styles.info}>
               <h3 className={Styles.title}>{result.title}</h3>
-                <TextTruncate
-                  containerClassName={Styles.overview}
-                  line={size}
-                  truncateText="…"
-                  text={result.overview}
-                />
+              <TextTruncate
+                containerClassName={Styles.overview}
+                line={size}
+                truncateText="…"
+                text={result.overview}
+              />
             </div>
           </Link>
         </div>

@@ -26,7 +26,6 @@ GenreList.propTypes = {
 
 GenreList.defaultProps = {
   genres: [],
-  filterByGenre: () => null,
   compact: false,
 };
 

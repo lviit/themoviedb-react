@@ -7,7 +7,6 @@ class GenresPage extends React.Component {
 
   constructor() {
     super();
-    this.filterByGenre = this.filterByGenre.bind(this);
     this.state = {
       genres: [],
       config: [],
@@ -24,17 +23,12 @@ class GenresPage extends React.Component {
     apiConnect.SearchByGenre(genre).then(movies => this.setState({ movies }));
   }
 
-  filterByGenre(id, genreName) {
-    apiConnect.SearchByGenre(id).then(movies => this.setState({ movies }));
-    this.setState({ genreName });
-  }
-
   render() {
     return (
       <div className="page container-large">
         <h1>{this.state.genreName}</h1>
         {this.state.genres &&
-          <GenreList genres={this.state.genres} filterByGenre={this.filterByGenre} />}
+          <GenreList genres={this.state.genres} />}
         {this.state.config.images && this.state.movies.results &&
           <Tiles {...this.state} />}
       </div>
