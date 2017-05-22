@@ -1,4 +1,5 @@
-import { createStore, compose } from 'redux';
+import { createStore, compose, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 import { syncHistoryWithStore } from 'react-router-redux';
 import { hashHistory } from 'react-router';
 
@@ -10,6 +11,7 @@ const defaultState = {
 
 // redux dev tools
 const enhancers = compose(
+  applyMiddleware(thunk),
   window.devToolsExtension ? window.devToolsExtension() : f => f
 );
 

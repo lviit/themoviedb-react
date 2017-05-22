@@ -21,6 +21,7 @@
     "react-slick": "^0.14.5",
     "react-text-truncate": "^0.8.3",
     "redux": "^3.6.0",
+    "redux-thunk": "^2.2.0",
     "scrollreveal": "^3.3.5",
     "slick-carousel": "^1.6.0",
     "throttle-debounce": "^1.0.1"
