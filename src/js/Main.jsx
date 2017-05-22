@@ -2,7 +2,9 @@
 
 import React from 'react';
 import { render } from 'react-dom';
-import { Router, Route, IndexRoute, hashHistory } from 'react-router';
+import { Router, Route, IndexRoute} from 'react-router';
+import { Provider } from 'react-redux';
+import Store, { history } from './utils/Store';
 import FrontPage from './FrontPage';
 import MovieFullView from './MovieFullView';
 import GenresPage from './components/GenresPage';
@@ -38,15 +40,17 @@ Container.propTypes = {
 };
 
 const App = () => (
-  <Router history={hashHistory}>
-    <Route path="/" component={Container}>
-      <IndexRoute component={FrontPage} />
-      <Route path="/about" component={About} />
-      <Route path="movie/*" component={MovieFullView} />
-      <Route name="genrespage" path="genres/*" component={GenresPage} />
-      <Route path="*" component={NotFound} />
-    </Route>
-  </Router>
+  <Provider store={Store}>
+    <Router history={history}>
+      <Route path="/" component={Container}>
+        <IndexRoute component={FrontPage} />
+        <Route path="/about" component={About} />
+        <Route path="movie/*" component={MovieFullView} />
+        <Route name="genrespage" path="genres/*" component={GenresPage} />
+        <Route path="*" component={NotFound} />
+      </Route>
+    </Router>
+  </Provider>
 );
 
 render(
