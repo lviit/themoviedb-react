@@ -1,6 +1,6 @@
 # themoviedb-react
 
-React with The Movie Database API. This product uses the TMDb API but is not endorsed or certified by TMDb.
+React with The Movie Database API. Not endorsed or certified by TMDb.
 
 
 
