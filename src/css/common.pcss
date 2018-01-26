@@ -1,5 +1,4 @@
-@value colors: './colors.pcss';
-@value fontcolor from colors;
+@import './colors.pcss';
 
 :global {
   @import url('https://fonts.googleapis.com/css?family=Fira+Sans:200,300,400,300i,500,600,700');
@@ -25,11 +24,11 @@
   body {
     font-family: 'Fira Sans', sans-serif;
     font-weight: 200;
-    color: fontcolor;
+    color: var(--fontcolor);
   }
 
   a {
-    color: fontcolor;
+    color: var(--fontcolor);
   }
 
   h1, h2, h3 {

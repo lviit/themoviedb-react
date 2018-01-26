@@ -1,5 +1,4 @@
-@value colors: './colors.pcss';
-@value fontcolor from colors;
+@import './colors.pcss';
 
 .container {
   display: flex;
@@ -11,7 +10,7 @@
   background: #000;
   position: relative;
   overflow: hidden;
-  color: fontcolor;
+  color: var(--fontcolor);
   overflow: hidden;
   img {
     transition: transform 0.5s cubic-bezier(0.15, 1, 0.33, 1);

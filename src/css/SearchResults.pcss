@@ -1,5 +1,4 @@
-@value colors: './colors.pcss';
-@value fontcolor, greylight from colors;
+@import './colors.pcss';
 
 .result {
   border-bottom: 1px solid #eee;
@@ -10,7 +9,7 @@
   width: 104%;
   overflow: hidden;
   &:hover {
-    background: greylight;
+    background: var(--greylight);
     color: white;
     width: 100%;
   }

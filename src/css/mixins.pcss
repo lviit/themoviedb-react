@@ -1,5 +1,4 @@
-@value colors: './colors.pcss';
-@value bgaltlight, greylight from colors;
+@import './colors.pcss';
 
 @define-mixin scrollbar {
   overflow-y: scroll;
@@ -10,14 +9,14 @@
   }
 
   &::-webkit-scrollbar-thumb {
-    background: bgaltlight;
+    background: var(--bgaltlight);
   }
 
   &::-webkit-scrollbar-track {
-    background: greylight;
+    background: var(--greylight);
   }
 
   // For Internet Explorer
-  scrollbar-face-color: bgaltlight;
-  scrollbar-track-color: greylight;
+  scrollbar-face-color: var(--bgaltlight);
+  scrollbar-track-color: var(--greylight);
 }

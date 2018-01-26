@@ -1,9 +1,8 @@
-:global {
-  @value colors: './colors.pcss';
-  @value bgcolor, bgalt from colors;
+@import './colors.pcss';
 
+:global {
   body {
-    background: bgcolor;
+    background: var(--bgcolor);
     margin: 50px 0 0 0;
   }
 

@@ -3,10 +3,9 @@ let webpack = require('webpack');
 let compressionPlugin = require('compression-webpack-plugin');
 let path = require('path');
 let precss = require('precss');
-let autoprefixer = require('autoprefixer');
 let postcssmixins = require('postcss-mixins');
 let values = require('postcss-modules-values');
-let postcssnested = require('postcss-nested');
+let cssnext = require("postcss-cssnext");
 
 let BUILD_DIR = path.resolve(__dirname, 'public');
 let APP_DIR = path.resolve(__dirname, 'src/js');
@@ -91,7 +90,7 @@ module.exports = {
     ]
   },
   postcss: function () {
-      return [precss, values, autoprefixer];
+      return [precss, cssnext];
   },
   devServer: {
     inline: true,

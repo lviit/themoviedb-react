@@ -1,5 +1,4 @@
-@value colors: './colors.pcss';
-@value greylight from colors;
+@import './colors.pcss';
 
 .container {
   display: flex;
@@ -31,7 +30,7 @@
 
 .noimage {
   border-radius: 50%;
-  background: greylight;
+  background: var(--greylight);
   color: #fff;
   border: 3px solid #fff;
   font-size: 100px;

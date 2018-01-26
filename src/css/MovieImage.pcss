@@ -1,5 +1,4 @@
-@value colors: './colors.pcss';
-@value greylight from colors;
+@import './colors.pcss';
 
 .loader,
 .loader:after {
@@ -41,7 +40,7 @@
 }
 
 .container {
-  background-color: greylight;
+  background-color: var(--greylight);
   width: 100%;
 }
 
@@ -55,7 +54,7 @@
 }
 
 .noimage {
-  background: greylight;
+  background: var(--greylight);
   text-align: center;
   min-height: 240px;
   line-height: 240px;
@@ -73,7 +72,7 @@
   .small & {
     min-width: 45px;
     min-height: auto;
-    background: greylight;
+    background: var(--greylight);
     text-align: center;
     font-size: 30px;
     line-height: 56px;
