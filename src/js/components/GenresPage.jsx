@@ -19,8 +19,8 @@ class GenresPage extends React.Component {
     apiConnect.getConfig().then(config => this.setState({ config }));
     apiConnect.getGenres().then(genres => this.setState({ genres }));
 
-    const genre = (this.props.params.splat === 'all') ? '' : this.props.params.splat;
-    apiConnect.SearchByGenre(genre).then(movies => this.setState({ movies }));
+    this.genre = (this.props.params.splat === 'all') ? '' : this.props.params.splat;
+    apiConnect.SearchByGenre(this.genre).then(movies => this.setState({ movies }));
   }
 
   render() {
@@ -30,7 +30,7 @@ class GenresPage extends React.Component {
         {this.state.genres &&
           <GenreList genres={this.state.genres} />}
         {this.state.config.images && this.state.movies.results &&
-          <Tiles {...this.state} />}
+          <Tiles {...this.state} genre={this.genre} />}
       </div>
     );
   }

@@ -29,68 +29,14 @@
 }
 
 :global {
-  .genre {
-    &-28 {
-      background-color: var(--color-genre-28);
+  @each $genre in 28, 12, 16, 35, 80, 99, 18, 10751, 14, 36, 27, 10402, 9648, 10749, 878, 10770, 53, 10752, 37 {
+    .genre-$(genre) {
+      background-color: var(--color-genre-$(genre));
     }
-    &-12 {
-      background-color: var(--color-genre-12);
-    }
-    &-16 {
-      background-color: var(--color-genre-16);
-    }
-    &-35 {
-      background-color: var(--color-genre-35);
-    }
-    &-80 {
-      background-color: var(--color-genre-80);
-    }
-    &-99 {
-      background-color: var(--color-genre-99);
-    }
-    &-18 {
-      background-color: var(--color-genre-18);
-    }
-    &-10751 {
-      background-color: var(--color-genre-10751);
-    }
-    &-14 {
-      background-color: var(--color-genre-14);
-    }
-    &-36 {
-      background-color: var(--color-genre-36);
-    }
-    &-27 {
-      background-color: var(--color-genre-27);
-    }
-    &-10402 {
-      background-color: var(--color-genre-10402);
-    }
-    &-9648 {
-      background-color: var(--color-genre-9648);
-    }
-    &-10749 {
-      background-color: var(--color-genre-10749);
-    }
-    &-878 {
-      background-color: var(--color-genre-878);
-    }
-    &-10770 {
-      background-color: var(--color-genre-10770);
-    }
-    &-53 {
-      background-color: var(--color-genre-53);
-    }
-    &-10752 {
-      background-color: var(--color-genre-10752);
-    }
-    &-37 {
-      background-color: var(--color-genre-37);
+    .gradient-genre-$(genre) {
+      background: linear-gradient(135deg, color(var(--color-genre-$(genre)) alpha(40%)) 0,transparent 50%,transparent 100%),
+      linear-gradient(45deg,transparent 0,transparent 50%, color(var(--color-genre-$(genre)) alpha(20%)) 100%),
+      linear-gradient(transparent 5%,rgba(0,0,0,.8) 100%);
     }
   }
 }
-
-/*
-linear-gradient(135deg,rgba(255,101,100,.4) 0,rgba(255,101,100,0) 50%,rgba(255,101,100,0) 100%),
-linear-gradient(45deg,rgba(40,0,215,0) 0,rgba(40,0,215,0) 50%,rgba(40,0,215,.4) 100%),
-linear-gradient(transparent 5%,rgba(0,0,0,.8) 100%); */

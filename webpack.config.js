@@ -4,7 +4,7 @@ let compressionPlugin = require('compression-webpack-plugin');
 let path = require('path');
 let precss = require('precss');
 let postcssmixins = require('postcss-mixins');
-let values = require('postcss-modules-values');
+let postcsseach = require("postcss-each");
 let cssnext = require("postcss-cssnext");
 
 let BUILD_DIR = path.resolve(__dirname, 'public');
@@ -36,6 +36,7 @@ module.exports = {
       }
     }),
     new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js'),
+    /*
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false
@@ -48,7 +49,7 @@ module.exports = {
       test: /\.js$|\.css$|\.html$/,
       threshold: 10240,
       minRatio: 0.8
-    })
+    }) */
   ],
   resolve: {
     extensions: ['', '.js', '.jsx']
