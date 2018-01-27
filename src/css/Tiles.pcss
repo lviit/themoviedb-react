@@ -1,19 +1,36 @@
 .movie {
   position: relative;
   display: block;
+  overflow: hidden;
+
+  img {
+    transition: transform 0.5s cubic-bezier(0.15, 1, 0.33, 1);
+  }
+
+  &:hover {
+    img {
+      transform: scale(1.15);
+    }
+    .gradientOverlay {
+      opacity: 0;
+    }
+  }
 }
 
 .gradientOverlay {
   content: "";
+  z-index: 1;
   position: absolute;
   width: 100%;
   top: 0;
   left: 0;
   height: 100%;
+  transition: opacity 2s cubic-bezier(0.15, 1, 0.33, 1);
 }
 
 .info {
   position: absolute;
+  z-index: 2;
   bottom: 0;
   padding: 1em;
   color: #fff;
@@ -25,13 +42,14 @@
 }
 
 .overview {
-  font-size: 20px
+  font-size: 18px;
 }
 
 :global {
   .size-1 {
     width: 33.3333%;
     font-size: 25px;
+
   }
   .size-2 {
     width: 66.666%;
