@@ -61,7 +61,7 @@ module.exports = {
         loader: 'babel-loader',
         include: APP_DIR,
         query: {
-          presets: ['es2015', 'react']
+          presets: ['es2015', 'react', 'stage-3']
         }
       },
       {

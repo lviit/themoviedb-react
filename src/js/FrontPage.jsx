@@ -1,38 +1,41 @@
-import React from 'react';
-import apiConnect from './services/ApiConnect';
-import Hero from './components/Hero';
-import MovieList from './components/MovieList';
-import store from './utils/Store';
-import { setConfig } from './actions/actionCreators';
-import { connect } from 'react-redux';
-import { mapStateToProps, mapDispachToProps } from './utils/MapToProps';
+import React from "react";
+import { connect } from "react-redux";
+
+import apiConnect from "./services/ApiConnect";
+import Hero from "./components/Hero";
+import MovieList from "./components/MovieList";
 
 class Front extends React.Component {
   constructor() {
     super();
     this.state = {
-      config: [],
-      movies: [],
+      movies: []
     };
   }
 
   componentWillMount() {
-    apiConnect.getConfig().then(config => store.dispatch(setConfig(config)));
     apiConnect.getMovies().then(movies => this.setState({ movies }));
   }
 
   render() {
     return (
       <div className="page">
-        {this.state.config.images && this.state.movies.results &&
-          <Hero {...this.state} />}
-        <div className="movies container">
-          {this.state.config.images && this.state.movies.results &&
-            <MovieList {...this.state} />}
-        </div>
+        {this.props.config.images &&
+          this.state.movies.results && (
+            <div>
+              <Hero {...this.state} />
+              <div className="movies container">
+                <MovieList {...this.state} />
+              </div>
+            </div>
+          )}
       </div>
     );
   }
 }
 
-export default connect(mapStateToProps, mapDispachToProps)(Front);
+const mapStateToProps = (state, ownProps) => {
+  return { ...ownProps, config: state.config };
+};
+
+export default connect(mapStateToProps)(Front);

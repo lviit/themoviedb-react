@@ -1,7 +1,9 @@
-function config(state = [],  action) {
+function config(state = [], action) {
   switch (action.type) {
-    case 'SET_CONFIG':
-      return action.config.images
+    case "SET_CONFIG":
+      return {
+        images: action.config.images
+      };
     default:
       return state;
   }

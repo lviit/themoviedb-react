@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from "react-redux";
+
 import { Link } from 'react-router-dom';
 import Styles from '../../css/MovieList.pcss';
 import ScrollReveal from '../ScrollReveal';
@@ -48,4 +50,8 @@ MovieList.defaultProps = {
   config: {},
 };
 
-export default MovieList;
+const mapStateToProps = (state, ownProps) => {
+  return { ...ownProps, config: state.config };
+};
+
+export default connect(mapStateToProps)(MovieList);
