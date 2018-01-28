@@ -1,5 +1,5 @@
 import React from 'react';
-import { IndexLink } from 'react-router';
+import { Link } from 'react-router-dom';
 import SearchBox from './SearchBox';
 import Styles from '../../css/header.pcss';
 
@@ -22,13 +22,13 @@ class Header extends React.Component {
             <button className={`${Styles.button} material-icons`} onClick={this.props.history.goBack}>arrow_back</button>
             <ul className={Styles.menu}>
               <li className={Styles.menulink}>
-                <IndexLink activeClassName="active" to="/">Latest</IndexLink>
+                <Link activeClassName="active" to="/">Latest</Link>
               </li>
               <li className={Styles.menulink}>
-                <IndexLink activeClassName="active" to="/genres/all">Genres</IndexLink>
+                <Link activeClassName="active" to="/genres/all">Genres</Link>
               </li>
               <li className={Styles.menulink}>
-                <IndexLink activeClassName="active" to="/about">About</IndexLink>
+                <Link activeClassName="active" to="/about">About</Link>
               </li>
             </ul>
             <button className={`${Styles.button} material-icons`} onClick={this.toggleSearchBox}>search</button>

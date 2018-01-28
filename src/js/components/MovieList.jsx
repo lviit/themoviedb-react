@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 import Styles from '../../css/MovieList.pcss';
 import ScrollReveal from '../ScrollReveal';
 import MovieImage from './MovieImage';

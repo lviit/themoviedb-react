@@ -19,7 +19,7 @@ class GenresPage extends React.Component {
     apiConnect.getConfig().then(config => this.setState({ config }));
     apiConnect.getGenres().then(genres => this.setState({ genres }));
 
-    this.genre = (this.props.params.splat === 'all') ? '' : this.props.params.splat;
+    this.genre = (this.props.match.params.id === 'all') ? '' : this.props.match.params.id;
     apiConnect.SearchByGenre(this.genre).then(movies => this.setState({ movies }));
   }
 

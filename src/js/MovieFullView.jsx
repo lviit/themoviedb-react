@@ -19,10 +19,10 @@ class MovieFullView extends React.Component {
 
   componentWillMount() {
     apiConnect.getConfig().then(config => this.setState({ config }));
-    apiConnect.getMovieFullview(this.props.params.splat).then(data => this.setState({ data }));
-    apiConnect.getReviews(this.props.params.splat).then(reviews => this.setState({ reviews }));
-    apiConnect.getCredits(this.props.params.splat).then(credits => this.setState({ credits }));
-    apiConnect.getSimilar(this.props.params.splat).then(similar => this.setState({ similar }));
+    apiConnect.getMovieFullview(this.props.match.params.id).then(data => this.setState({ data }));
+    apiConnect.getReviews(this.props.match.params.id).then(reviews => this.setState({ reviews }));
+    apiConnect.getCredits(this.props.match.params.id).then(credits => this.setState({ credits }));
+    apiConnect.getSimilar(this.props.match.params.id).then(similar => this.setState({ similar }));
   }
 
   render() {

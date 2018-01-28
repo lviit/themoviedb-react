@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 import Styles from '../../css/SearchResults.pcss';
 import GenreList from './GenreList';
 import MovieImage from './MovieImage';
