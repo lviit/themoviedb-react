@@ -4,6 +4,7 @@ import FullView from './components/MovieFull';
 import Reviews from './components/Reviews';
 import Credits from './components/Credits';
 import Similar from './components/Similar';
+import PageWrapper from './components/PageWrapper';
 
 class MovieFullView extends React.Component {
   constructor() {
@@ -18,6 +19,7 @@ class MovieFullView extends React.Component {
   }
 
   componentWillMount() {
+    console.log('pling');
     apiConnect.getConfig().then(config => this.setState({ config }));
     apiConnect.getMovieFullview(this.props.match.params.id).then(data => this.setState({ data }));
     apiConnect.getReviews(this.props.match.params.id).then(reviews => this.setState({ reviews }));
