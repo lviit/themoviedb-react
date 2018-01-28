@@ -1,6 +1,7 @@
-function config(state = [], action) {
+export function config(state = [], action) {
   switch (action.type) {
     case "SET_CONFIG":
+      console.log('reducer');
       return {
         images: action.config.images
       };
@@ -9,5 +10,3 @@ function config(state = [], action) {
   }
   return state;
 }
-
-export default config;

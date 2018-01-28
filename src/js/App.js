@@ -1,12 +1,9 @@
-/* global document */
 import React from "react";
 import { render } from "react-dom";
-import { BrowserRouter, Route, Switch, withRouter } from "react-router-dom";
-import { Provider } from "react-redux";
-import Store from "./utils/Store";
+import { Route, Switch, withRouter } from "react-router-dom";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { connect } from "react-redux";
-import { mapDispachToProps } from "./utils/MapToProps";
+import { mapDispachToProps } from "./redux/Store";
 
 import apiConnect from "./services/ApiConnect";
 import FrontPage from "./FrontPage";
