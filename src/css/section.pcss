@@ -1,5 +1,4 @@
-@value colors: './colors.pcss';
-@value bgalt from colors;
+@import './colors.pcss';
 
 .section {
   position: relative;
@@ -7,7 +6,7 @@
 }
 
 .dark {
-  background-color: bgalt;
+  background-color: var(--bgalt);
   color: #fff;
   a {
     color: #fff;

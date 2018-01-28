@@ -1,8 +1,8 @@
-import React from 'react';
-import Styles from '../../css/MovieFull.pcss';
-import GenreList from './GenreList';
-import Details from './Details';
-import MovieImage from './MovieImage';
+import React from "react";
+import Styles from "../../css/MovieFull.pcss";
+import GenreList from "./GenreList";
+import Details from "./Details";
+import MovieImage from "./MovieImage";
 
 class FullView extends React.Component {
   render() {
@@ -12,7 +12,9 @@ class FullView extends React.Component {
       overview,
       backdrop_path: backdropPath,
       vote_average: voteAverage,
-      genres } = this.props.data;
+      genres
+    } = this.props.data;
+    const strokeDash = "339.292";
 
     return (
       <div className={Styles.container}>
@@ -35,6 +37,19 @@ class FullView extends React.Component {
             <Details details={this.props.data} />
             <div className={Styles.score}>
               <span>{voteAverage}</span>
+              <svg
+                className={Styles.scoreMeter}
+              >
+                <circle className={Styles.scoreMeterCircle} />
+                <circle
+                  className={(Styles.scoreMeterValue)}
+                  style={{
+                    "stroke-dashoffset":
+                      strokeDash - strokeDash * (voteAverage / 10),
+                    "stroke-dasharray": strokeDash
+                  }}
+                />
+              </svg>
             </div>
           </div>
         </div>
@@ -50,19 +65,19 @@ FullView.propTypes = {
     overview: React.PropTypes.string,
     backdrop_path: React.PropTypes.string,
     genres: React.PropTypes.array,
-    vote_average: React.PropTypes.number,
+    vote_average: React.PropTypes.number
   }),
   config: React.PropTypes.shape({
     images: React.PropTypes.shape({
       backdrop_sizes: React.PropTypes.array,
-      secure_base_url: React.PropTypes.string,
-    }),
-  }),
+      secure_base_url: React.PropTypes.string
+    })
+  })
 };
 
 FullView.defaultProps = {
   data: [],
-  config: {},
+  config: {}
 };
 
 export default FullView;

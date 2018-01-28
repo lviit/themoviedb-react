@@ -1,6 +1,6 @@
 import React from 'react';
 import Classnames from 'classnames';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 import Styles from '../../css/genres.pcss';
 
 const GenreList = (props) => {

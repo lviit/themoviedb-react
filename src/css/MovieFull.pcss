@@ -1,3 +1,5 @@
+@import './colors.pcss';
+
 .container {
   position: relative;
 }
@@ -45,14 +47,38 @@
 .score {
   flex-basis: 14%;
   align-self: center;
+  position: relative;
   span {
-    background: #000;
     text-align: center;
     display: block;
-    padding: 30px;
-    border-radius: 50%;
     font-weight: 400;
-    color: #fff;
     font-size: 50px;
+    position: absolute;
+    height: 120px;
+    line-height: 120px;
+    width: 120px;
   }
+}
+
+.scoreMeter {
+  transform: rotate(-90deg);
+  width:120px;
+  height:120px;
+  viewBox: "0 0 120 120";
+
+  circle {
+    stroke-width: 8px;
+    fill: transparent;
+    cx:60;
+    cy:60;
+    r:54;
+  }
+}
+
+.scoreMeterCircle {
+  stroke: var(--bgcolor);
+}
+
+.scoreMeterValue {
+  stroke: #f77a52;
 }

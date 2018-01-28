@@ -1,11 +1,10 @@
-@value colors: './colors.pcss';
-@value boxcolor, fontcolor, bgalt from colors;
+@import './colors.pcss';
 
 .header {
   position: fixed;
   width: 100%;
   top: 0;
-  background: bgalt;
+  background: var(--bgalt);
   z-index: 100;
 }
 
@@ -31,8 +30,8 @@
     text-transform: uppercase;
     color: #fff;
     &.active {
-      background: boxcolor;
-      color: fontcolor;
+      background: var(--boxcolor);
+      color: var(--fontcolor);
     }
   }
 }

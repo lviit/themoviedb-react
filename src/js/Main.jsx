@@ -1,59 +1,65 @@
 /* global document */
-
-import React from 'react';
-import { render } from 'react-dom';
-import { Router, Route, IndexRoute} from 'react-router';
+import React from "react";
+import { render } from "react-dom";
+import { BrowserRouter, Route, Switch, withRouter } from "react-router-dom";
 import { Provider } from 'react-redux';
 import Store, { history } from './utils/Store';
-import FrontPage from './FrontPage';
-import MovieFullView from './MovieFullView';
-import GenresPage from './components/GenresPage';
-import Header from './components/Header';
-import Footer from './components/Footer';
-// import 'normalize.css';
-import '../css/common.pcss';
-import '../css/layout.pcss';
-import '../css/material-icons.pcss';
-import '../css/mixins.pcss';
+import { TransitionGroup, CSSTransition } from "react-transition-group";
 
-const About = () =>
-  <h1>This product uses the TMDb API but is not endorsed or certified by TMDb.</h1>;
-const NotFound = () =>
-  <h1>404.. Whoops, page not found!</h1>;
+import FrontPage from "./FrontPage";
+import MovieFullView from "./MovieFullView";
+import GenresPage from "./components/GenresPage";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import "../css/common.pcss";
+import "../css/layout.pcss";
+import "../css/material-icons.pcss";
+import "../css/mixins.pcss";
 
-const Container = props => (
-  <div>
-    <Header history={props.history} />
-    <div className="page-wrapper" key={props.location.pathname}>
-      {props.children}
-    </div>
-    <Footer />
-  </div>
+const About = () => (
+  <h1>
+    This product uses the TMDb API but is not endorsed or certified by TMDb.
+  </h1>
 );
+const NotFound = () => <h1>404.. Whoops, page not found!</h1>;
 
-Container.propTypes = {
-  history: React.PropTypes.object, // eslint-disable-line react/forbid-prop-types
-  children: React.PropTypes.object, // eslint-disable-line react/forbid-prop-types
-  location: React.PropTypes.shape({
-    pathname: React.PropTypes.string,
-  }),
-};
-
-const App = () => (
+const App = withRouter(({ location, history }) => (
   <Provider store={Store}>
-    <Router history={history}>
-      <Route path="/" component={Container}>
-        <IndexRoute component={FrontPage} />
-        <Route path="/about" component={About} />
-        <Route path="movie/*" component={MovieFullView} />
-        <Route name="genrespage" path="genres/*" component={GenresPage} />
-        <Route path="*" component={NotFound} />
-      </Route>
-    </Router>
+    <Header />
+    <TransitionGroup className="page-wrapper">
+      <CSSTransition
+        key={location.key}
+        classNames={
+          history.action === "POP" ? "transition-back" : "transition-forward"
+        }
+        timeout={1000}
+      >
+        <Switch location={location}>
+          <Route exact path="/" component={FrontPage} />
+          <Route exact path="/about" component={About} />
+          <Route
+            path="/movie/:id"
+            render={props => (
+              <MovieFullView {...props} key={props.match.params.id} />
+            )}
+          />
+          <Route
+            path="/genres/:id"
+            render={props => (
+              <GenresPage {...props} key={props.match.params.id} />
+            )}
+          />
+          <Route component={NotFound} />
+        </Switch>
+      </CSSTransition>
+    </TransitionGroup>
+    {/* <Footer /> */}
   </Provider>
-);
+));
 
 render(
-  <App />,
-  document.getElementById('content'),
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>,
+  document.getElementById("content")
 );

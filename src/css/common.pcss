@@ -1,5 +1,4 @@
-@value colors: './colors.pcss';
-@value fontcolor from colors;
+@import './colors.pcss';
 
 :global {
   @import url('https://fonts.googleapis.com/css?family=Fira+Sans:200,300,400,300i,500,600,700');
@@ -25,11 +24,11 @@
   body {
     font-family: 'Fira Sans', sans-serif;
     font-weight: 200;
-    color: fontcolor;
+    color: var(--fontcolor);
   }
 
   a {
-    color: fontcolor;
+    color: var(--fontcolor);
   }
 
   h1, h2, h3 {
@@ -62,5 +61,94 @@
   ul {
     margin: 0;
     padding: 0;
+  }
+
+  .page-wrapper {
+    width: 100%;
+    position: relative;
+  }
+
+  .page {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  @media (--desktop) {
+    .page {
+      transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+    }
+
+    .transition-forward-enter,
+    .transition-back-enter {
+      transform: translateY(-30px);
+      opacity: 0;
+    }
+  
+    .transition-forward-enter-active,
+    .transition-back-enter-active {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  
+    .transition-forward-exit,
+    .transition-back-exit {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  
+    .transition-forward-exit-active,
+    .transition-back-exit-active {
+      transform: translateY(30px);
+      opacity: 0;
+    }
+  }
+
+  @media (--mobile) {
+    body {
+      overflow: hidden;
+    }
+  
+    .page {
+      transition: transform 1s cubic-bezier(0.15, 1, 0.33, 1);
+      width: 100vw;
+      height: 100vh;
+      overflow-y: scroll;
+      position: absolute;
+    }
+
+    .transition-forward-enter {
+      transform: translateX(100%);
+    }
+  
+    .transition-forward-enter-active {
+      transform: translateX(0);
+    }
+  
+    .transition-forward-exit {
+      transform: translateX(0);
+      overflow-y: hidden;
+    }
+  
+    .transition-forward-exit-active {
+      transform: translateX(-100%);
+    }
+  
+    .transition-back-enter {
+      transform: translateX(-100%);
+    }
+  
+    .transition-back-enter-active {
+      transform: translateX(0);
+    }
+  
+    .transition-back-exit {
+      transform: translateX(0);
+      overflow-y: hidden;
+    }
+  
+    .transition-back-exit-active {
+      transform: translateX(100%);
+    }
   }
 }

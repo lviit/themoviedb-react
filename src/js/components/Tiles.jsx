@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 import TextTruncate from 'react-text-truncate';
 import ScrollReveal from '../ScrollReveal';
 import MovieImage from './MovieImage';
@@ -23,6 +23,7 @@ class Tiles extends React.Component {
       return (
         <div className={`size-${size}`}>
           <Link className={Styles.movie} key={result.id} to={path}>
+            <div className={[Styles.gradientOverlay, `gradient-genre-${this.props.genre}`].join(' ')} />
             <MovieImage
               backdrop
               size={this.props.config.images.backdrop_sizes[size]}
