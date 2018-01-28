@@ -3,7 +3,6 @@
     "lint": "eslint --ext .js --ext .jsx src"
   },
   "dependencies": {
-    "animated": "^0.2.1",
     "axios": "^0.14.0",
     "babel-polyfill": "^6.23.0",
     "classnames": "^2.2.5",
@@ -23,7 +22,7 @@
     "react-slick": "^0.14.5",
     "react-text-truncate": "^0.8.3",
     "react-transition-group": "^2.2.1",
-    "scrollreveal": "^3.3.5",
+    "scrollreveal": "^3.3.6",
     "slick-carousel": "^1.6.0",
     "throttle-debounce": "^1.0.1",
     "webpack-dev-server": "^2.4.5"

@@ -22,11 +22,17 @@ const About = () => (
 );
 const NotFound = () => <h1>404.. Whoops, page not found!</h1>;
 
-const App = withRouter(({ location }) => (
+const App = withRouter(({ location, history }) => (
   <div>
     <Header />
     <TransitionGroup className="page-wrapper">
-      <CSSTransition key={location.key} classNames="transition" timeout={1000}>
+      <CSSTransition
+        key={location.key}
+        classNames={
+          history.action === "POP" ? "transition-back" : "transition-forward"
+        }
+        timeout={1000}
+      >
         <Switch location={location}>
           <Route exact path="/" component={FrontPage} />
           <Route exact path="/about" component={About} />

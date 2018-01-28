@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import SearchBox from './SearchBox';
 import Styles from '../../css/header.pcss';
+import { withRouter } from 'react-router-dom';
 
 class Header extends React.Component {
   constructor() {
@@ -48,4 +49,4 @@ Header.defaultProps = {
   history: {},
 };
 
-export default Header;
+export default withRouter(Header);
