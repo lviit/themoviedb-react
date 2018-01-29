@@ -33,7 +33,7 @@ const Hero = props => {
   };
 
   const NumSlides = 5;
-  const slides = props.movies.results.slice(0, NumSlides).map(result => (
+  const slides = props.movies.map(result => (
     <div className={Styles.hero} key={result.id}>
       <div className="container">
         <div className={Styles.info}>

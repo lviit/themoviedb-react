@@ -5,7 +5,6 @@ import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { connect } from "react-redux";
 import { mapDispachToProps } from "./redux/Store";
 
-import apiConnect from "./services/ApiConnect";
 import FrontPage from "./FrontPage";
 import MovieFullView from "./MovieFullView";
 import GenresPage from "./components/GenresPage";
@@ -29,7 +28,7 @@ class App extends React.Component {
   }
 
   componentWillMount() {
-    apiConnect.getConfig().then(config => this.props.setConfig(config));
+    this.props.getConfig();
   }
 
   render() {

@@ -1,7 +1,9 @@
 import React from 'react';
+import { connect } from "react-redux";
 import Classnames from 'classnames';
 import { debounce } from 'throttle-debounce';
 import enhanceWithClickOutside from 'react-click-outside';
+
 import SearchResults from './SearchResults';
 import apiConnect from '../services/ApiConnect';
 import Styles from '../../css/SearchBox.pcss';
@@ -17,7 +19,6 @@ class SearchBox extends React.Component {
   }
 
   componentWillMount() {
-    apiConnect.getConfig().then(config => this.setState({ config }));
     apiConnect.getGenres().then(genres => this.setState({ genres }));
   }
 
@@ -61,7 +62,7 @@ class SearchBox extends React.Component {
             />
           </form>
           <div className={resultContainerClasses}>
-            {this.state.searchResults && this.state.genres && this.state.config &&
+            {this.state.searchResults && this.state.genres && this.props.config &&
               <SearchResults {...this.state} {...this.props} />}
           </div>
         </div>
@@ -80,4 +81,8 @@ SearchBox.defaultProps = {
   toggleSearchBox: () => null,
 };
 
-export default enhanceWithClickOutside(SearchBox);
+const mapStateToProps = (state, ownProps) => {
+  return { ...ownProps, config: state.config };
+};
+
+export default connect(mapStateToProps)(enhanceWithClickOutside(SearchBox));

@@ -11,7 +11,7 @@ class MovieList extends React.Component {
     ScrollReveal.reveal(`.${Styles.movie}`, 50);
   }
   render() {
-    const resultNodes = this.props.movies.results.map((result) => {
+    const resultNodes = this.props.movies.map((result) => {
       const path = `/movie/${result.id}`;
       return (
         <Link className={Styles.movie} key={result.id} to={path}>

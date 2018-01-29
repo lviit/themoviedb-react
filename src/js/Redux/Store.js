@@ -1,16 +1,19 @@
-import { createStore, compose, applyMiddleware, combineReducers } from 'redux';
+import { createStore, compose, applyMiddleware, combineReducers } from "redux";
 
-import thunk from 'redux-thunk';
-import { syncHistoryWithStore, routerReducer } from 'react-router-redux';
-import { BrowserHistory } from 'react-router';
-import { bindActionCreators } from 'redux';
-import * as actionCreators from './Actions';
-import { config } from './Reducers';
+import thunk from "redux-thunk";
+import { syncHistoryWithStore, routerReducer } from "react-router-redux";
+import { BrowserHistory } from "react-router";
+import { bindActionCreators } from "redux";
+import * as actionCreators from "./Actions";
+import * as reducers from "./Reducers";
 
-const rootReducer = combineReducers({config, routing: routerReducer });
+const rootReducer = combineReducers({ ...reducers, routing: routerReducer });
 
 const defaultState = {
   config: {},
+  movies: {
+    latest: [],
+  },
 };
 
 const enhancers = compose(

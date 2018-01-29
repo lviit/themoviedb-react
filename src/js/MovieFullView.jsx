@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from "react-redux";
+
 import apiConnect from './services/ApiConnect';
 import FullView from './components/MovieFull';
 import Reviews from './components/Reviews';
@@ -10,7 +12,6 @@ class MovieFullView extends React.Component {
   constructor() {
     super();
     this.state = {
-      config: [],
       data: [],
       credits: [],
       reviews: [],
@@ -20,7 +21,6 @@ class MovieFullView extends React.Component {
 
   componentWillMount() {
     console.log('pling');
-    apiConnect.getConfig().then(config => this.setState({ config }));
     apiConnect.getMovieFullview(this.props.match.params.id).then(data => this.setState({ data }));
     apiConnect.getReviews(this.props.match.params.id).then(reviews => this.setState({ reviews }));
     apiConnect.getCredits(this.props.match.params.id).then(credits => this.setState({ credits }));
@@ -30,7 +30,7 @@ class MovieFullView extends React.Component {
   render() {
     return (
       <div className="page movie__full">
-        {this.state.config.images &&
+        {this.props.config.images &&
           this.state.data.id &&
           <FullView {...this.state} />}
         {this.state.credits.id &&
@@ -38,7 +38,7 @@ class MovieFullView extends React.Component {
         {this.state.reviews.total_results > 0 &&
           <Reviews data={this.state.reviews} />}
         {this.state.similar.total_results > 0 &&
-          <Similar movies={this.state.similar} config={this.state.config} />}
+          <Similar movies={this.state.similar} config={this.props.config} />}
       </div>
     );
   }
@@ -54,4 +54,8 @@ MovieFullView.defaultProps = {
   params: {},
 };
 
-export default MovieFullView;
+const mapStateToProps = (state, ownProps) => {
+  return { ...ownProps, config: state.config };
+};
+
+export default connect(mapStateToProps)(MovieFullView);

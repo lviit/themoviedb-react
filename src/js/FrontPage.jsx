@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
+import { mapDispachToProps } from "./redux/Store";
 
-import apiConnect from "./services/ApiConnect";
 import Hero from "./components/Hero";
 import MovieList from "./components/MovieList";
 
@@ -14,28 +14,27 @@ class Front extends React.Component {
   }
 
   componentWillMount() {
-    apiConnect.getMovies().then(movies => this.setState({ movies }));
+    this.props.getLatestMovies();
   }
 
   render() {
     return (
       <div className="page">
-        {this.props.config.images &&
-          this.state.movies.results && (
-            <div>
-              <Hero {...this.state} />
-              <div className="movies container">
-                <MovieList {...this.state} />
-              </div>
-            </div>
-          )}
+        {/* <Hero movies={this.props.latestMovies.slice(0, 5)} /> */}
+        <div className="movies container">
+          <MovieList movies={this.props.latestMovies.slice(5)} />
+        </div>
       </div>
     );
   }
 }
 
 const mapStateToProps = (state, ownProps) => {
-  return { ...ownProps, config: state.config };
+  return {
+    ...ownProps,
+    config: state.config,
+    latestMovies: state.movies.latest
+  };
 };
 
-export default connect(mapStateToProps)(Front);
+export default connect(mapStateToProps, mapDispachToProps)(Front);
