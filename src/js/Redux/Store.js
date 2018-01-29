@@ -10,7 +10,9 @@ import * as reducers from "./Reducers";
 const rootReducer = combineReducers({ ...reducers, routing: routerReducer });
 
 const defaultState = {
-  config: {},
+  config: {
+    images: {},
+  },
   movies: {
     latest: [],
   },
