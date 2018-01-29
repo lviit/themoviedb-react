@@ -16,6 +16,12 @@ const defaultState = {
   movies: {
     latest: [],
   },
+  movieFullView: {
+    details: [],
+    similarMovies: [],
+    reviews: [],
+    credits: [],
+  }
 };
 
 const enhancers = compose(

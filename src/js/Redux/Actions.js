@@ -12,10 +12,50 @@ export function getConfig() {
 
 export function getLatestMovies() {
   return async (dispatch, getState) =>  {
-    const response = await apiConnect.getMovies();
+    const response = await apiConnect.getLatestMovies();
     dispatch({
       type: 'GET_LATEST_MOVIES',
       movies: response.results,
+    });
+  }
+}
+
+export function getMovieDetails(id) {
+  return async (dispatch, getState) =>  {
+    const response = await apiConnect.getMovieDetails(id);
+    dispatch({
+      type: 'GET_MOVIE_DETAILS',
+      details: response,
+    });
+  }
+}
+
+export function getReviews(id) {
+  return async (dispatch, getState) =>  {
+    const response = await apiConnect.getReviews(id);
+    dispatch({
+      type: 'GET_MOVIE_REVIEWS',
+      reviews: response,
+    });
+  }
+}
+
+export function getCredits(id) {
+  return async (dispatch, getState) =>  {
+    const response = await apiConnect.getCredits(id);
+    dispatch({
+      type: 'GET_MOVIE_CREDITS',
+      credits: response,
+    });
+  }
+}
+
+export function getSimilar(id) {
+  return async (dispatch, getState) =>  {
+    const response = await apiConnect.getSimilar(id);
+    dispatch({
+      type: 'GET_MOVIE_SIMILAR',
+      similarMovies: response.results,
     });
   }
 }
@@ -30,42 +70,12 @@ export function getGenres() {
   }
 }
 
-export function getMovieFullview() {
+export function SearchByGenre() {
   return async (dispatch, getState) =>  {
-    const response = await apiConnect.getMovieFullview();
+    const response = await apiConnect.SearchByGenre();
     dispatch({
-      type: 'GET_MOVIE_FULL_VIEW',
-      movieFullView: response,
-    });
-  }
-}
-
-export function getReviews() {
-  return async (dispatch, getState) =>  {
-    const response = await apiConnect.getReviews();
-    dispatch({
-      type: 'GET_REVIEWS',
-      reviews: response,
-    });
-  }
-}
-
-export function getCredits() {
-  return async (dispatch, getState) =>  {
-    const response = await apiConnect.getCredits();
-    dispatch({
-      type: 'GET_CREDITS',
-      credits: response,
-    });
-  }
-}
-
-export function getSimilar() {
-  return async (dispatch, getState) =>  {
-    const response = await apiConnect.getSimilar();
-    dispatch({
-      type: 'GET_SIMILAR',
-      similar: response,
+      type: 'SEARCH_BY_GENRE',
+      searchByGenre: response,
     });
   }
 }
@@ -76,16 +86,6 @@ export function Search() {
     dispatch({
       type: 'SEARCH',
       search: response,
-    });
-  }
-}
-
-export function SearchByGenre() {
-  return async (dispatch, getState) =>  {
-    const response = await apiConnect.SearchByGenre();
-    dispatch({
-      type: 'SEARCH_BY_GENRE',
-      searchByGenre: response,
     });
   }
 }

@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import TextTruncate from "react-text-truncate";
 import { Link } from "react-router-dom";
 import Slider from "react-slick";
+
 import MovieImage from "./MovieImage";
 import Styles from "../../css/Hero.pcss";
 import "../../css/slick.pcss";

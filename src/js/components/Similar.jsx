@@ -2,11 +2,8 @@ import React from 'react';
 import MovieList from './MovieList';
 import Section from './Section';
 
-const Similar = (props) => {
-  const NumResults = 4;
-  props.movies.results = props.movies.results.slice(0, NumResults);
-  const content = <MovieList {...props} />;
-
+const Similar = ({ movies }) => {
+  const content = <MovieList movies={movies.slice(0, 4)} />;
   return <Section title="You might also like" content={content} />;
 };
 

@@ -1,12 +1,12 @@
-import React from 'react';
+import React from "react";
 import { connect } from "react-redux";
+import { mapDispachToProps } from "./redux/Store";
 
-import apiConnect from './services/ApiConnect';
-import FullView from './components/MovieFull';
-import Reviews from './components/Reviews';
-import Credits from './components/Credits';
-import Similar from './components/Similar';
-import PageWrapper from './components/PageWrapper';
+import FullView from "./components/MovieFull";
+import Reviews from "./components/Reviews";
+import Credits from "./components/Credits";
+import Similar from "./components/Similar";
+import PageWrapper from "./components/PageWrapper";
 
 class MovieFullView extends React.Component {
   constructor() {
@@ -15,30 +15,26 @@ class MovieFullView extends React.Component {
       data: [],
       credits: [],
       reviews: [],
-      similar: [],
+      similar: []
     };
   }
 
   componentWillMount() {
-    console.log('pling');
-    apiConnect.getMovieFullview(this.props.match.params.id).then(data => this.setState({ data }));
-    apiConnect.getReviews(this.props.match.params.id).then(reviews => this.setState({ reviews }));
-    apiConnect.getCredits(this.props.match.params.id).then(credits => this.setState({ credits }));
-    apiConnect.getSimilar(this.props.match.params.id).then(similar => this.setState({ similar }));
+    const id = this.props.match.params.id;
+    this.props.getMovieDetails(id);
+    this.props.getReviews(id);
+    this.props.getCredits(id);
+    this.props.getSimilar(id);
   }
 
   render() {
+    const { details, credits, reviews, similar } = this.props;
     return (
       <div className="page movie__full">
-        {this.props.config.images &&
-          this.state.data.id &&
-          <FullView {...this.state} />}
-        {this.state.credits.id &&
-          <Credits {...this.state} />}
-        {this.state.reviews.total_results > 0 &&
-          <Reviews data={this.state.reviews} />}
-        {this.state.similar.total_results > 0 &&
-          <Similar movies={this.state.similar} config={this.props.config} />}
+        <FullView details={details} />
+        <Credits credits={credits} />
+        <Reviews reviews={reviews} />
+        <Similar movies={similar} />
       </div>
     );
   }
@@ -46,16 +42,23 @@ class MovieFullView extends React.Component {
 
 MovieFullView.propTypes = {
   params: React.PropTypes.shape({
-    splat: React.PropTypes.string,
-  }),
+    splat: React.PropTypes.string
+  })
 };
 
 MovieFullView.defaultProps = {
-  params: {},
+  params: {}
 };
 
 const mapStateToProps = (state, ownProps) => {
-  return { ...ownProps, config: state.config };
+  return {
+    ...ownProps,
+    config: state.config,
+    similar: state.movieFullView.similarMovies,
+    credits: state.movieFullView.credits,
+    reviews: state.movieFullView.reviews,
+    details: state.movieFullView.details
+  };
 };
 
-export default connect(mapStateToProps)(MovieFullView);
+export default connect(mapStateToProps, mapDispachToProps)(MovieFullView);
