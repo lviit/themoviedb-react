@@ -20,7 +20,7 @@ class Front extends React.Component {
   render() {
     return (
       <div className="page">
-        {/* <Hero movies={this.props.latestMovies.slice(0, 5)} /> */}
+        <Hero movies={this.props.latestMovies.slice(0, 5)} />
         <div className="movies container">
           <MovieList movies={this.props.latestMovies.slice(5)} />
         </div>

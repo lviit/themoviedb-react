@@ -18,7 +18,12 @@ const HeroNextArrow = props => (
   </i>
 );
 
-const Hero = props => {
+const Hero = ({
+  movies,
+  config: {
+    images: { backdrop_sizes: imageSizes, secure_base_url: imageBaseUrl }
+  }
+}) => {
   const sliderSettings = {
     className: Styles.container,
     dots: true,
@@ -32,35 +37,34 @@ const Hero = props => {
     prevArrow: <HeroPrevArrow />
   };
 
-  const NumSlides = 5;
-  const slides = props.movies.map(result => (
-    <div className={Styles.hero} key={result.id}>
+  const slides = movies.map(movie => (
+    <div className={Styles.hero} key={movie.id}>
       <div className="container">
         <div className={Styles.info}>
-          <h2 className={Styles.title}>{result.title}</h2>
+          <h2 className={Styles.title}>{movie.title}</h2>
           <p className={Styles.overview}>
             <TextTruncate
               containerClassName={Styles.overview}
               line={3}
               truncateText="…"
-              text={result.overview}
+              text={movie.overview}
             />
           </p>
-          <Link className={Styles.link} to={`/movie/${result.id}`}>
+          <Link className={Styles.link} to={`/movie/${movie.id}`}>
             Read more
           </Link>
         </div>
       </div>
       <MovieImage
         backdrop
-        size={props.config.images.backdrop_sizes[3]}
-        imageBaseUrl={props.config.images.secure_base_url}
-        path={result.backdrop_path}
+        size={imageSizes[3]}
+        imageBaseUrl={imageBaseUrl}
+        path={movie.backdrop_path}
       />
     </div>
   ));
 
-  return <Slider {...sliderSettings}>{slides}</Slider>;
+  return slides.length > 0 && <Slider {...sliderSettings}>{slides}</Slider>;
 };
 
 Hero.propTypes = {
