@@ -11,16 +11,17 @@ const rootReducer = combineReducers({ ...reducers, routing: routerReducer });
 
 const defaultState = {
   config: {
-    images: {},
+    images: {}
   },
   movies: {
-    latest: [],
+    latest: []
   },
+  genres: [],
   movieFullView: {
     details: [],
     similarMovies: [],
     reviews: [],
-    credits: [],
+    credits: []
   }
 };
 

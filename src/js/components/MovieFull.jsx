@@ -58,11 +58,11 @@ class FullView extends React.Component {
 }
 
 FullView.propTypes = {
-  data: React.PropTypes.shape({
+  details: React.PropTypes.shape({
     title: React.PropTypes.string,
     tagline: React.PropTypes.string,
     overview: React.PropTypes.string,
-    backdropPath: React.PropTypes.string,
+    backDropPath: React.PropTypes.string,
     genres: React.PropTypes.array,
     voteAverage: React.PropTypes.number
   }),

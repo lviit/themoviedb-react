@@ -22,6 +22,18 @@ export function movies(state = [], action) {
   }
 }
 
+export function genres(state = [], action) {
+  switch (action.type) {
+    case "GET_GENRES":
+      return [
+        ...action.genres
+      ];
+    default:
+      return state;
+  }
+}
+
+
 export function movieFullView(state = [], action) {
   switch (action.type) {
     case "GET_MOVIE_DETAILS":
