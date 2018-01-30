@@ -2,21 +2,15 @@ import React from "react";
 import { connect } from "react-redux";
 import { mapDispachToProps } from "./redux/Store";
 
+import Section from "./components/Section";
+import MovieList from "./components/MovieList";
 import FullView from "./components/MovieFull";
 import Reviews from "./components/Reviews";
 import Credits from "./components/Credits";
-import Similar from "./components/Similar";
-import PageWrapper from "./components/PageWrapper";
 
 class MovieFullView extends React.Component {
   constructor() {
     super();
-    this.state = {
-      data: [],
-      credits: [],
-      reviews: [],
-      similar: []
-    };
   }
 
   componentWillMount() {
@@ -32,9 +26,15 @@ class MovieFullView extends React.Component {
     return (
       <div className="page movie__full">
         <FullView />
-        <Credits />
-        <Reviews />
-        <Similar movies={similar} />
+        <Section title="Cast">;
+          <Credits />
+        </Section>
+        <Section title="Reviews" dark>
+          <Reviews />
+        </Section>
+        <Section title="You might also like">
+          <MovieList movies={similar.slice(0, 4)} />
+        </Section>
       </div>
     );
   }

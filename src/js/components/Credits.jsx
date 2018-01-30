@@ -1,9 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
+import ScrollReveal from "../ScrollReveal";
 
 import Styles from "../../css/cast.pcss";
-import Section from "./Section";
-import ScrollReveal from "../ScrollReveal";
 
 class Credits extends React.Component {
   componentDidMount() {
@@ -34,15 +33,12 @@ class Credits extends React.Component {
       </div>
     ));
 
-    const content = <div className={Styles.container}>{castList}</div>;
-    return <Section title="Cast" content={content} />;
+    return <div className={Styles.container}>{castList}</div>;
   }
 }
 
 Credits.propTypes = {
-  credits: React.PropTypes.shape({
-    cast: React.PropTypes.array
-  }),
+  cast: React.PropTypes.array,
   config: React.PropTypes.shape({
     images: React.PropTypes.shape({
       secure_base_url: React.PropTypes.string

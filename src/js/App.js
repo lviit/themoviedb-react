@@ -5,6 +5,7 @@ import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { connect } from "react-redux";
 import { mapDispachToProps } from "./redux/Store";
 
+import Section from "./components/Section";
 import FrontPage from "./FrontPage";
 import MovieFullView from "./MovieFullView";
 import GenresPage from "./components/GenresPage";
@@ -65,7 +66,10 @@ class App extends React.Component {
             </Switch>
           </CSSTransition>
         </TransitionGroup>
-        {/* <Footer /> */}
+
+        {/*<Section dark>
+          <Footer />
+        </Section>*/}
       </div>
     );
   }

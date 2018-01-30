@@ -1,11 +1,10 @@
-import React from 'react';
+import React from "react";
 import { connect } from "react-redux";
-import TextTruncate from 'react-text-truncate';
+import TextTruncate from "react-text-truncate";
 
-import Styles from '../../css/reviews.pcss';
-import Section from './Section';
+import Styles from "../../css/reviews.pcss";
 
-const Reviews = ({reviews = []}) => {
+const Reviews = ({ reviews = [] }) => {
   const reviewsList = reviews.slice(0, 3).map(review => (
     <div className={Styles.item} key={review.id}>
       <h3 className={Styles.author}> {review.author}</h3>
@@ -20,25 +19,17 @@ const Reviews = ({reviews = []}) => {
     </div>
   ));
 
-  const content = <div className={Styles.container}>{reviewsList}</div>;
-
-  return <Section dark title="Reviews" content={content} />;
+  return <div className={Styles.container}>{reviewsList}</div>;
 };
 
 Reviews.propTypes = {
-  data: React.PropTypes.shape({
-    results: React.PropTypes.array,
-  }),
-};
-
-Reviews.defaultProps = {
-  data: [],
+  reviews: React.PropTypes.array
 };
 
 const mapStateToProps = (state, ownProps) => {
   return {
     ...ownProps,
-    reviews: state.movieFullView.reviews,
+    reviews: state.movieFullView.reviews
   };
 };
 

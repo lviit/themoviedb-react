@@ -3,7 +3,12 @@ import { connect } from "react-redux";
 
 import Styles from "../../css/details.pcss";
 
-const Details = ({ releaseDate = '', revenue = 0, budget= 0, runtime = 0 }) => {
+const Details = ({
+  releaseDate = "",
+  revenue = 0,
+  budget = 0,
+  runtime = 0
+}) => {
   const date = new Date(releaseDate);
   const formattedDate = `${date.getDay()}.${date.getMonth()}.${date.getFullYear()}`;
   const formattedRevenue = `$${revenue
