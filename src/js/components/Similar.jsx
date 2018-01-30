@@ -17,5 +17,4 @@ Similar.defaultProps = {
   movies: [],
 };
 
-
 export default Similar;

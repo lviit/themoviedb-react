@@ -35,7 +35,7 @@ export function getReviews(id) {
     const response = await apiConnect.getReviews(id);
     dispatch({
       type: 'GET_MOVIE_REVIEWS',
-      reviews: response,
+      reviews: response.results,
     });
   }
 }

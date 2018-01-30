@@ -31,9 +31,9 @@ class MovieFullView extends React.Component {
     const { details, credits, reviews, similar } = this.props;
     return (
       <div className="page movie__full">
-        <FullView details={details} />
-        <Credits credits={credits} />
-        <Reviews reviews={reviews} />
+        <FullView />
+        <Credits />
+        <Reviews />
         <Similar movies={similar} />
       </div>
     );
