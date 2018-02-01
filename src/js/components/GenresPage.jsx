@@ -10,25 +10,25 @@ class GenresPage extends React.Component {
   constructor() {
     super();
     this.state = {
-      genreName: "Browse by genre"
+      genreName: "Browse by genre",
+      moviesByGenre: []
     };
   }
 
   componentWillMount() {
-    this.props.getGenres();
     this.genre =
       this.props.match.params.id === "all" ? "" : this.props.match.params.id;
     apiConnect
       .SearchByGenre(this.genre)
-      .then(movies => this.setState({ movies }));
+      .then(response => this.setState({ moviesByGenre: response.results }));
   }
 
-  render({ genres }) {
+  render() {
     return (
       <div className="page container-large">
         <h1>{this.state.genreName}</h1>
-        <GenreList genres={genres} />
-        <Tiles {...this.state} genre={this.genre} />
+        <GenreList genres={this.props.genres}/>
+        <Tiles movies={this.state.moviesByGenre} genre={this.genre} />
       </div>
     );
   }

@@ -30,6 +30,7 @@ class App extends React.Component {
 
   componentWillMount() {
     this.props.getConfig();
+    this.props.getGenres();
   }
 
   render() {
@@ -56,17 +57,11 @@ class App extends React.Component {
                   <MovieFullView {...props} key={props.match.params.id} />
                 )}
               />
-              <Route
-                path="/genres/:id"
-                render={props => (
-                  <GenresPage {...props} key={props.match.params.id} />
-                )}
-              />
+              <Route path="/genres/:id" component={GenresPage} />
               <Route component={NotFound} />
             </Switch>
           </CSSTransition>
         </TransitionGroup>
-
         {/*<Section dark>
           <Footer />
         </Section>*/}
