@@ -1,6 +1,5 @@
 import React from "react";
 import { connect } from "react-redux";
-import TextTruncate from "react-text-truncate";
 import { Link } from "react-router-dom";
 import Slider from "react-slick";
 
@@ -44,12 +43,9 @@ const Hero = ({
         <div className={Styles.info}>
           <h2 className={Styles.title}>{movie.title}</h2>
           <p className={Styles.overview}>
-            <TextTruncate
-              containerClassName={Styles.overview}
-              line={3}
-              truncateText="…"
-              text={movie.overview}
-            />
+            <div className={Styles.overview}>
+              {`${movie.overview.substr(0, 150)}...`}
+            </div>
           </p>
           <Link className={Styles.link} to={`/movie/${movie.id}`}>
             Read more

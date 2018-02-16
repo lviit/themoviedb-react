@@ -1,7 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import TextTruncate from "react-text-truncate";
 import ScrollReveal from "../ScrollReveal";
 
 import MovieImage from "./MovieImage";
@@ -43,17 +42,12 @@ class Tiles extends React.Component {
               size={imageSizes[size]}
               imageBaseUrl={imageBaseUrl}
               path={movie.backdrop_path}
-            />{" "}
-            {/*
+            />
+
             <div className={Styles.info}>
               <h3 className={Styles.title}>{movie.title}</h3>
-              <TextTruncate
-                containerClassName={Styles.overview}
-                line={size}
-                truncateText="…"
-                text={movie.overview}
-              />
-            </div> */}
+              <div className={Styles.overview}>{`${movie.overview.substr(0, 50 * size)}...`}</div>
+            </div>
           </Link>
         </div>
       );

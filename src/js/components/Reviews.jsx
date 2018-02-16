@@ -1,6 +1,5 @@
 import React from "react";
 import { connect } from "react-redux";
-import TextTruncate from "react-text-truncate";
 
 import Styles from "../../css/reviews.pcss";
 
@@ -9,12 +8,7 @@ const Reviews = ({ reviews = [] }) => {
     <div className={Styles.item} key={review.id}>
       <h3 className={Styles.author}> {review.author}</h3>
       <p>
-        <TextTruncate
-          containerClassName={Styles.content}
-          line={10}
-          truncateText="…"
-          text={review.content}
-        />
+        {`${review.content.substr(0, 300)}...`}
       </p>
     </div>
   ));

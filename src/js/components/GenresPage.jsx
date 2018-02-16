@@ -10,7 +10,6 @@ class GenresPage extends React.Component {
   constructor() {
     super();
     this.state = {
-      genreName: "Browse by genre",
       moviesByGenre: []
     };
   }
@@ -24,10 +23,17 @@ class GenresPage extends React.Component {
   }
 
   render() {
+    const activeGenre =
+      this.props.match.params.id === "all"
+        ? "Browse by genre"
+        : this.props.genres.filter(
+            genre => genre.id == this.props.match.params.id
+          )[0].name;
+
     return (
       <div className="page container-large">
-        <h1>{this.state.genreName}</h1>
-        <GenreList genres={this.props.genres}/>
+        <h1>{activeGenre}</h1>
+        <GenreList genres={this.props.genres} />
         <Tiles movies={this.state.moviesByGenre} genre={this.genre} />
       </div>
     );
