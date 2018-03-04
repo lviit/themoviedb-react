@@ -7,14 +7,14 @@ sudo: required
 node_js:
   - "node"
 
-install:
-  - yarn install
-  - yarn build
-
 cache:
   yarn: true
   directories:
     - node_modules
+
+install:
+  - yarn install
+  - yarn build
 
 deploy:
   provider: heroku
