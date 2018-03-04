@@ -1,7 +1,8 @@
 {
   "scripts": {
     "lint": "eslint --ext .js --ext .jsx src",
-    "serve": "node server.js"
+    "serve": "node server.js",
+    "build": "webpack"
   },
   "dependencies": {
     "axios": "^0.14.0",
