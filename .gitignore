@@ -1,2 +1,6 @@
 node_modules
 settings.js
+public/*.js
+public/*.js.gz
+public/*.js.map
+
