@@ -8,11 +8,12 @@ node_js:
   - "node"
 
 install:
-  - npm run build
+  - yarn build
 
 cache:
+  yarn: true
   directories:
-    - "node_modules"
+    - node_modules
 
 deploy:
   provider: heroku
