@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "lint": "eslint --ext .js --ext .jsx src"
+    "lint": "eslint --ext .js --ext .jsx src",
+    "serve": "node server.js"
   },
   "dependencies": {
     "axios": "^0.14.0",
