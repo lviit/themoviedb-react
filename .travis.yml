@@ -1,24 +1,20 @@
 language: node_js
-
 dist: trusty
-
 sudo: required
-
 node_js:
-  - "node"
-
+- node
 cache:
   yarn: true
   directories:
-    - node_modules
-
+  - node_modules
 install:
-  - yarn install
-
+- yarn install
 script:
-  - yarn build
-
+- yarn build
 deploy:
   provider: heroku
   api_key:
-    secure: Wloe83/WUKoieYVcLuerB3x6pn5hw6MuZckEMeAbr6iZFdUT/LExvQRETecj2HFDIh0Piiyg1Sfb1x+ZN5b+Gw1FVCF0lcePEYsn8/UJBMrbuQLZmSAuQUyMUH8sFf/AWVj/F9utRdxSAqvUImmY/ihxWIrUjmUypVfjEJLZ3844w+8/pguKwjQp/P4y8XBPRKo5RdQWt0aVfaPyWiIFHvhz8BBEZWVe/opM1rn738l2agZNiaxbFSYBuZNRYM1ITrL+HZN+zPArxHz2aZvIDFfrs4Jwxruf1kZrIrcRA1nrl3nMgAS9I2WV8mWz2+02cv022QZs24cb8W8XXZ8bFPuCaByRK7kamxyNzt2lrWqVRRo2qB1+17dncUgiIQDdD73U8GNl/Z/wRxlDWOtAXTx8jUPIkeXvOX0LlBjwSBW8C5udTWNTSsxGM6apnsZFtfIOLdaH3zsZyOYQAmbxgQMPaEmmA1GE5GwqXD6k5kJc2BnKnLiiRHJIH4YiltftPhWpIM+EBXnmNd6WhLtu7oPUWAqnPeZW46yAZPO2vOiCU1Z58veloVS/ekgXN7l2Sqvm5Z5PI/ADIFI2Ak3ZEQhxMeIpfVVc4qrh8WKs9hPY5yDMHNMHck94FmMyN/BZ/KP+ysh9/NRvUfhPoo7naHGnLEmDM3+4jAhH0onrqvQ=
+    secure: Y4X99/NFSWgIpHf7E4zfan+Nw8I7qjWHeskIlfK3InCBaUjDrq2Y+Kvk2i3PTnzzXYDaf+qxmfVo2xQDdlP11uNZFnKMomuBWP1lYLFMCL2GXky9chFfC7yPfgdp1Ho/Tu5VtUvhTXP+BbMhypXXd7vqvbz5awrICS46UmPnkRP1QlZbUdD2siqxW5EE/se/R8cYzeWi7gCXR+eWmhxOMgdBPnLttIQGfOwJqN7UgbO3LwgLaxb0FAZjJ9ChcEqnD1TC82zS9qJmbmd9KzKovK99JEzmPdcILsA3gFfY7m038cc18PubWPfuhIx2/AyzScJoW4v5bo48Z6aTjvBcSdnJGfwOPvEMlrDeGodLn+2Q3l0ugzTPKnindXqMK+3MsF2Vz7ZomtJv0ba97j0oQj66V4+Qf+DhKOEdtLsctLT0crk8/dsMyG9oreATi5mKT4hcf4+Sva4ziajggrvIewAl12+b+VTDaxE8eD93x/uMLhsWrMiifbBXDqmk0eFtBI/cfbkT1d2gibO+zYi+6+J0hdQ9MF1vz6RFqXyh+WE3cKxwrywIQw+d8y5K2xkjc7xxjMK2ddqnO3cdzz0y4z2xybZ3piS3fCYLLfBNwH0SPAHovFg52WkKLiu/G+x1oFI19xgD/K6K3VThEQJBAowny8o+J2J2WCMYGIDKGPU=
+  app: boiling-caverns-71539
+  on:
+    repo: lviit/themoviedb-react
