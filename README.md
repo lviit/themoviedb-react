@@ -2,7 +2,7 @@
 
 React with The Movie Database API. Not endorsed or certified by TMDb.
 
-
+[![Build Status](https://travis-ci.org/lviit/themoviedb-react.svg?branch=master)](https://travis-ci.org/lviit/themoviedb-react)
 
 ## getting started
 install packages:
