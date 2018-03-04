@@ -1952,7 +1952,7 @@ expand-range@^1.8.1:
   dependencies:
     fill-range "^2.1.0"
 
-express@^4.13.3:
+express@^4.13.3, express@^4.16.2:
   version "4.16.2"
   resolved "https://registry.yarnpkg.com/express/-/express-4.16.2.tgz#e35c6dfe2d64b7dca0a5cd4f21781be3299e076c"
   dependencies:
@@ -4524,10 +4524,6 @@ react-slick:
     object-assign "^4.1.0"
     react-responsive-mixin "^0.4.0"
     slick-carousel "^1.6.0"
-
-react-text-truncate@^0.8.3:
-  version "0.8.3"
-  resolved "https://registry.yarnpkg.com/react-text-truncate/-/react-text-truncate-0.8.3.tgz#3110387531e9344ff5dda5c25c37ec7d9e017f7f"
 
 react-transition-group@^2.2.1:
   version "2.2.1"
