@@ -9,7 +9,7 @@ export default {
     .then(res => res.data)
     .catch(error => console.log(error)),
 
-  getMovies: () => axios
+  getLatestMovies: () => axios
     .get(settings.moviesUrl)
     .then(res => res.data)
     .catch(error => console.log(error)),
@@ -19,7 +19,7 @@ export default {
     .then(res => res.data.genres)
     .catch(error => console.log(error)),
 
-  getMovieFullview: id => axios
+  getMovieDetails: id => axios
     .get(`${settings.baseUrl}movie/${id}?api_key=${settings.apiKey}`)
     .then(res => res.data)
     .catch(error => console.log(error)),

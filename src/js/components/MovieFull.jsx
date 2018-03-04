@@ -1,4 +1,6 @@
 import React from "react";
+import { connect } from "react-redux";
+
 import Styles from "../../css/MovieFull.pcss";
 import GenreList from "./GenreList";
 import Details from "./Details";
@@ -7,13 +9,12 @@ import MovieImage from "./MovieImage";
 class FullView extends React.Component {
   render() {
     const {
-      title,
-      tagline,
-      overview,
-      backdrop_path: backdropPath,
-      vote_average: voteAverage,
-      genres
-    } = this.props.data;
+      details,
+      config: {
+        images: { backdrop_sizes: imageSizes, secure_base_url: imageBaseUrl }
+      }
+    } = this.props;
+    console.log(this.props);
     const strokeDash = "339.292";
 
     return (
@@ -21,31 +22,29 @@ class FullView extends React.Component {
         <div className={Styles.imagecontainer}>
           <MovieImage
             backdrop
-            size={this.props.config.images.backdrop_sizes[3]}
-            imageBaseUrl={this.props.config.images.secure_base_url}
-            path={backdropPath}
+            size={imageSizes[3]}
+            imageBaseUrl={imageBaseUrl}
+            path={details.backDropPath}
           />
         </div>
         <div className="container">
-          <h1 className={Styles.title}>{title}</h1>
-          <h2 className={Styles.tagline}>{tagline}</h2>
+          <h1 className={Styles.title}>{details.title}</h1>
+          <h2 className={Styles.tagline}>{details.tagline}</h2>
           <div className={Styles.info}>
-            <GenreList genres={genres} />
+            <GenreList genres={details.genres} />
             <div className={Styles.overview}>
-              <p>{overview}</p>
+              <p>{details.overview}</p>
             </div>
-            <Details details={this.props.data} />
+            <Details />
             <div className={Styles.score}>
-              <span>{voteAverage}</span>
-              <svg
-                className={Styles.scoreMeter}
-              >
+              <span>{details.voteAverage}</span>
+              <svg className={Styles.scoreMeter}>
                 <circle className={Styles.scoreMeterCircle} />
                 <circle
-                  className={(Styles.scoreMeterValue)}
+                  className={Styles.scoreMeterValue}
                   style={{
                     "stroke-dashoffset":
-                      strokeDash - strokeDash * (voteAverage / 10),
+                      strokeDash - strokeDash * (details.voteAverage / 10),
                     "stroke-dasharray": strokeDash
                   }}
                 />
@@ -59,13 +58,13 @@ class FullView extends React.Component {
 }
 
 FullView.propTypes = {
-  data: React.PropTypes.shape({
+  details: React.PropTypes.shape({
     title: React.PropTypes.string,
     tagline: React.PropTypes.string,
     overview: React.PropTypes.string,
-    backdrop_path: React.PropTypes.string,
+    backDropPath: React.PropTypes.string,
     genres: React.PropTypes.array,
-    vote_average: React.PropTypes.number
+    voteAverage: React.PropTypes.number
   }),
   config: React.PropTypes.shape({
     images: React.PropTypes.shape({
@@ -75,9 +74,19 @@ FullView.propTypes = {
   })
 };
 
-FullView.defaultProps = {
-  data: [],
-  config: {}
+const mapStateToProps = (state, ownProps) => {
+  return {
+    ...ownProps,
+    config: state.config,
+    details: {
+      title: state.movieFullView.details.title,
+      tagline: state.movieFullView.details.tagline,
+      overview: state.movieFullView.details.overview,
+      backDropPath: state.movieFullView.details.backdrop_path,
+      voteAverage: state.movieFullView.details.vote_average,
+      genres: state.movieFullView.details.genres
+    },
+  };
 };
 
-export default FullView;
+export default connect(mapStateToProps)(FullView);

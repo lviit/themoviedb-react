@@ -1,36 +1,40 @@
-import React from 'react';
-import apiConnect from '../services/ApiConnect';
-import GenreList from './GenreList';
-import Tiles from './Tiles';
+import React from "react";
+import { connect } from "react-redux";
+
+import apiConnect from "../services/ApiConnect";
+import GenreList from "./GenreList";
+import Tiles from "./Tiles";
+import { mapDispachToProps } from "../redux/Store";
 
 class GenresPage extends React.Component {
-
   constructor() {
     super();
     this.state = {
-      genres: [],
-      config: [],
-      movies: [],
-      genreName: 'Browse by genre',
+      moviesByGenre: []
     };
   }
 
   componentWillMount() {
-    apiConnect.getConfig().then(config => this.setState({ config }));
-    apiConnect.getGenres().then(genres => this.setState({ genres }));
-
-    this.genre = (this.props.match.params.id === 'all') ? '' : this.props.match.params.id;
-    apiConnect.SearchByGenre(this.genre).then(movies => this.setState({ movies }));
+    this.genre =
+      this.props.match.params.id === "all" ? "" : this.props.match.params.id;
+    apiConnect
+      .SearchByGenre(this.genre)
+      .then(response => this.setState({ moviesByGenre: response.results }));
   }
 
   render() {
+    const activeGenre =
+      this.props.match.params.id === "all"
+        ? "Browse by genre"
+        : this.props.genres.filter(
+            genre => genre.id == this.props.match.params.id
+          )[0].name;
+
     return (
       <div className="page container-large">
-        <h1>{this.state.genreName}</h1>
-        {this.state.genres &&
-          <GenreList genres={this.state.genres} />}
-        {this.state.config.images && this.state.movies.results &&
-          <Tiles {...this.state} genre={this.genre} />}
+        <h1>{activeGenre}</h1>
+        <GenreList genres={this.props.genres} />
+        <Tiles movies={this.state.moviesByGenre} genre={this.genre} />
       </div>
     );
   }
@@ -38,12 +42,16 @@ class GenresPage extends React.Component {
 
 GenresPage.propTypes = {
   params: React.PropTypes.shape({
-    splat: React.PropTypes.string,
-  }),
+    splat: React.PropTypes.string
+  })
 };
 
-GenresPage.defaultProps = {
-  params: {},
+const mapStateToProps = (state, ownProps) => {
+  return {
+    ...ownProps,
+    config: state.config,
+    genres: state.genres
+  };
 };
 
-export default GenresPage;
+export default connect(mapStateToProps, mapDispachToProps)(GenresPage);

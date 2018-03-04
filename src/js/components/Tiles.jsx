@@ -1,53 +1,58 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import TextTruncate from 'react-text-truncate';
-import ScrollReveal from '../ScrollReveal';
-import MovieImage from './MovieImage';
-import Styles from '../../css/Tiles.pcss';
+import React from "react";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+import ScrollReveal from "../ScrollReveal";
 
-const Packery = require('react-packery-component')(React);
+import MovieImage from "./MovieImage";
+import Styles from "../../css/Tiles.pcss";
+
+const Packery = require("react-packery-component")(React);
 
 class Tiles extends React.Component {
   componentDidMount() {
     ScrollReveal.reveal(`.${Styles.movie}`, 50);
   }
   render() {
-    const imageBaseUrl = this.props.config.images.secure_base_url;
-    const packeryOptions = {};
+    const {
+      movies = [],
+      config: {
+        images: { backdrop_sizes: imageSizes, secure_base_url: imageBaseUrl }
+      }
+    } = this.props;
 
-    const resultNodes = this.props.movies.results.map((result) => {
+    const movieList = movies.map(movie => {
       const items = Array(1, 1, 1, 2);
-      const size = items[Math.floor(Math.random()*items.length)];
-      const fileSize = this.props.config.images.backdrop_sizes[size];
-      const path = `/movie/${result.id}`;
+      const size = items[Math.floor(Math.random() * items.length)];
+
       return (
         <div className={`size-${size}`}>
-          <Link className={Styles.movie} key={result.id} to={path}>
-            <div className={[Styles.gradientOverlay, `gradient-genre-${this.props.genre}`].join(' ')} />
+          <Link
+            className={Styles.movie}
+            key={movie.id}
+            to={`/movie/${movie.id}`}
+          >
+            <div
+              className={[
+                Styles.gradientOverlay,
+                `gradient-genre-${this.props.genre}`
+              ].join(" ")}
+            />
             <MovieImage
               backdrop
-              size={this.props.config.images.backdrop_sizes[size]}
+              size={imageSizes[size]}
               imageBaseUrl={imageBaseUrl}
-              path={result.backdrop_path}
+              path={movie.backdrop_path}
             />
+
             <div className={Styles.info}>
-              <h3 className={Styles.title}>{result.title}</h3>
-              <TextTruncate
-                containerClassName={Styles.overview}
-                line={size}
-                truncateText="…"
-                text={result.overview}
-              />
+              <h3 className={Styles.title}>{movie.title}</h3>
+              <div className={Styles.overview}>{`${movie.overview.substr(0, 50 * size)}...`}</div>
             </div>
           </Link>
         </div>
       );
     });
-    return (
-      <Packery className={Styles.container} options={packeryOptions}>
-        {resultNodes}
-      </Packery>
-    );
+    return <Packery className={Styles.container}>{movieList}</Packery>;
   }
 }
 
@@ -56,14 +61,16 @@ Tiles.propTypes = {
   config: React.PropTypes.shape({
     images: React.PropTypes.shape({
       backdrop_sizes: React.PropTypes.array,
-      secure_base_url: React.PropTypes.string,
-    }),
-  }),
+      secure_base_url: React.PropTypes.string
+    })
+  })
 };
 
-Tiles.defaultProps = {
-  movies: [],
-  config: {},
+const mapStateToProps = (state, ownProps) => {
+  return {
+    ...ownProps,
+    config: state.config
+  };
 };
 
-export default Tiles;
+export default connect(mapStateToProps)(Tiles);

@@ -1,17 +1,29 @@
-import React from 'react';
-import TextTruncate from 'react-text-truncate';
-import { Link } from 'react-router-dom';
-import Slider from 'react-slick';
-import MovieImage from './MovieImage';
-import Styles from '../../css/Hero.pcss';
-import '../../css/slick.pcss';
+import React from "react";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+import Slider from "react-slick";
 
-const HeroPrevArrow = props =>
-  <i {...props} className="slick-arrow slick-prev material-icons">chevron_left</i>;
-const HeroNextArrow = props =>
-  <i {...props} className="slick-arrow slick-next material-icons">chevron_right</i>;
+import MovieImage from "./MovieImage";
+import Styles from "../../css/Hero.pcss";
+import "../../css/slick.pcss";
 
-const Hero = (props) => {
+const HeroPrevArrow = props => (
+  <i {...props} className="slick-arrow slick-prev material-icons">
+    chevron_left
+  </i>
+);
+const HeroNextArrow = props => (
+  <i {...props} className="slick-arrow slick-next material-icons">
+    chevron_right
+  </i>
+);
+
+const Hero = ({
+  movies,
+  config: {
+    images: { backdrop_sizes: imageSizes, secure_base_url: imageBaseUrl }
+  }
+}) => {
   const sliderSettings = {
     className: Styles.container,
     dots: true,
@@ -22,52 +34,50 @@ const Hero = (props) => {
     slidesToShow: 1,
     slidesToScroll: 1,
     nextArrow: <HeroNextArrow />,
-    prevArrow: <HeroPrevArrow />,
+    prevArrow: <HeroPrevArrow />
   };
 
-  const NumSlides = 5;
-  const slides = props.movies.results.slice(0, NumSlides).map(result =>
-    <div className={Styles.hero} key={result.id}>
+  const slides = movies.map(movie => (
+    <div className={Styles.hero} key={movie.id}>
       <div className="container">
         <div className={Styles.info}>
-          <h2 className={Styles.title}>{result.title}</h2>
+          <h2 className={Styles.title}>{movie.title}</h2>
           <p className={Styles.overview}>
-            <TextTruncate
-              containerClassName={Styles.overview}
-              line={3}
-              truncateText="…"
-              text={result.overview}
-            />
+            <div className={Styles.overview}>
+              {`${movie.overview.substr(0, 150)}...`}
+            </div>
           </p>
-          <Link className={Styles.link} to={`/movie/${result.id}`}>Read more</Link>
+          <Link className={Styles.link} to={`/movie/${movie.id}`}>
+            Read more
+          </Link>
         </div>
       </div>
       <MovieImage
         backdrop
-        size={props.config.images.backdrop_sizes[3]}
-        imageBaseUrl={props.config.images.secure_base_url}
-        path={result.backdrop_path}
+        size={imageSizes[3]}
+        imageBaseUrl={imageBaseUrl}
+        path={movie.backdrop_path}
       />
-    </div>,
-  );
+    </div>
+  ));
 
-  return (
-    <Slider {...sliderSettings}>
-      {slides}
-    </Slider>
-  );
+  return slides.length > 0 && <Slider {...sliderSettings}>{slides}</Slider>;
 };
 
 Hero.propTypes = {
   movies: React.PropTypes.shape({
-    results: React.PropTypes.array,
+    results: React.PropTypes.array
   }),
   config: React.PropTypes.shape({
     images: React.PropTypes.shape({
       backdrop_sizes: React.PropTypes.array,
-      secure_base_url: React.PropTypes.string,
-    }),
-  }),
+      secure_base_url: React.PropTypes.string
+    })
+  })
 };
 
-export default Hero;
+const mapStateToProps = (state, ownProps) => {
+  return { ...ownProps, config: state.config };
+};
+
+export default connect(mapStateToProps)(Hero);
