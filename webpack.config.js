@@ -19,7 +19,6 @@ module.exports = {
       'react-dom',
       'react-router',
       'react-addons-css-transition-group',
-      'react-text-truncate',
       'classnames',
       'axios'
     ]
