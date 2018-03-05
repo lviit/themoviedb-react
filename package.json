@@ -2,7 +2,8 @@
   "scripts": {
     "lint": "eslint --ext .js --ext .jsx src",
     "serve": "node server.js",
-    "build": "webpack"
+    "build": "webpack --progress --colors",
+    "postinstall": "webpack --progress --colors"
   },
   "dependencies": {
     "axios": "^0.14.0",
