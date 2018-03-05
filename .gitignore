@@ -3,4 +3,4 @@ settings.js
 public/*.js
 public/*.js.gz
 public/*.js.map
-
+.env
