@@ -1,5 +1,6 @@
 "use strict";
 let webpack = require("webpack");
+const { getIfUtils, removeEmpty } = require("webpack-config-utils");
 const Dotenv = require("dotenv-webpack");
 let compressionPlugin = require("compression-webpack-plugin");
 let path = require("path");
@@ -8,11 +9,13 @@ let postcssmixins = require("postcss-mixins");
 let postcsseach = require("postcss-each");
 let cssnext = require("postcss-cssnext");
 
+const { ifProduction, ifNotProduction } = getIfUtils(process.env.NODE_ENV);
+
 let BUILD_DIR = path.resolve(__dirname, "public");
 let APP_DIR = path.resolve(__dirname, "src/js");
 
 module.exports = {
-  devtool: "source-map",
+  devtool: ifProduction("source-map", "source-map"),
   entry: {
     app: ["babel-polyfill", APP_DIR + "/Main.jsx"],
     vendor: [
@@ -29,24 +32,34 @@ module.exports = {
     filename: "bundle.js"
     //publicPath: 'public'
   },
-  plugins: [
+  plugins: removeEmpty([
     new Dotenv({ systemvars: true }),
-    new webpack.optimize.CommonsChunkPlugin("vendor", "vendor.bundle.js")
-    /*
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false
-      },
-      sourceMap: true,
-    }),
-    new compressionPlugin({
-      asset: "[path].gz[query]",
-      algorithm: "gzip",
-      test: /\.js$|\.css$|\.html$/,
-      threshold: 10240,
-      minRatio: 0.8
-    }) */
-  ],
+    new webpack.optimize.CommonsChunkPlugin("vendor", "vendor.bundle.js"),
+    ifProduction(
+      new webpack.DefinePlugin({
+        "process.env": {
+          NODE_ENV: JSON.stringify("production")
+        }
+      })
+    ),
+    ifProduction(
+      new webpack.optimize.UglifyJsPlugin({
+        compress: {
+          warnings: false
+        },
+        sourceMap: true
+      })
+    ),
+    ifProduction(
+      new compressionPlugin({
+        asset: "[path].gz[query]",
+        algorithm: "gzip",
+        test: /\.js$|\.css$|\.html$/,
+        threshold: 10240,
+        minRatio: 0.8
+      })
+    )
+  ]),
   resolve: {
     extensions: ["", ".js", ".jsx"]
   },
@@ -91,10 +104,9 @@ module.exports = {
   },
   devServer: {
     inline: true,
-    /*
     historyApiFallback: {
-      index: '/public/index.html'
-    }, */
+      index: "index.html"
+    },
     //compress: true,
     contentBase: "./public"
   }

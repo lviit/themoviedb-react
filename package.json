@@ -2,8 +2,10 @@
   "scripts": {
     "lint": "eslint --ext .js --ext .jsx src",
     "serve": "node server.js",
-    "build": "webpack --progress --colors",
-    "postinstall": "webpack --progress --colors"
+    "dev": "NODE_ENV=development webpack-dev-server",
+    "build:dev": "NODE_ENV=development webpack --progress --colors",
+    "build:prod": "NODE_ENV=production webpack --progress --colors",
+    "postinstall": "NODE_ENV=production webpack --progress --colors"
   },
   "dependencies": {
     "axios": "^0.14.0",
@@ -32,7 +34,8 @@
     "redux-thunk": "^2.2.0",
     "scrollreveal": "^3.3.6",
     "slick-carousel": "^1.6.0",
-    "throttle-debounce": "^1.0.1"
+    "throttle-debounce": "^1.0.1",
+    "webpack-config-utils": "^2.3.0"
   },
   "devDependencies": {
     "babel-core": "^6.14.0",
