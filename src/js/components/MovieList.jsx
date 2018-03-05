@@ -3,37 +3,30 @@ import { connect } from "react-redux";
 
 import { Link } from "react-router-dom";
 import Styles from "../../css/MovieList.pcss";
-import ScrollReveal from "../ScrollReveal";
+import WithScrollReveal from "./WithScrollReveal";
 import MovieImage from "./MovieImage";
 
-class MovieList extends React.Component {
-  componentDidMount() {
-    ScrollReveal.reveal(`.${Styles.movie}`, 50);
+const MovieList = ({
+  movies,
+  config: {
+    images: { backdrop_sizes: imageSizes, secure_base_url: imageBaseUrl }
   }
-  render() {
-    const {
-      movies,
-      config: {
-        images: { backdrop_sizes: imageSizes, secure_base_url: imageBaseUrl }
-      }
-    } = this.props;
-
-    const movieList = this.props.movies.map(movie => (
-      <Link className={Styles.movie} key={movie.id} to={`/movie/${movie.id}`}>
-        <MovieImage
-          poster
-          size={imageSizes[0]}
-          imageBaseUrl={imageBaseUrl}
-          path={movie.poster_path}
-        />
-        <div className={Styles.info}>
-          <h3 className={Styles.title}>{movie.title}</h3>
-        </div>
-      </Link>
-    ));
-    return <div className={Styles.container}>{movieList}</div>;
-  }
-}
+}) => {
+  const movieList = movies.map(movie => (
+    <Link className={Styles.movie} key={movie.id} to={`/movie/${movie.id}`}>
+      <MovieImage
+        poster
+        size={imageSizes[0]}
+        imageBaseUrl={imageBaseUrl}
+        path={movie.poster_path}
+      />
+      <div className={Styles.info}>
+        <h3 className={Styles.title}>{movie.title}</h3>
+      </div>
+    </Link>
+  ));
+  return <div className={Styles.container}>{movieList}</div>;
+};
 
 MovieList.propTypes = {
   movies: React.PropTypes.arrayOf(React.PropTypes.object),
@@ -54,4 +47,6 @@ const mapStateToProps = (state, ownProps) => {
   return { ...ownProps, config: state.config };
 };
 
-export default connect(mapStateToProps)(MovieList);
+export default connect(mapStateToProps)(
+  WithScrollReveal(MovieList, Styles.movie)
+);
