@@ -1,6 +1,6 @@
 "use strict";
 let webpack = require("webpack");
-const Dotenv = require('dotenv-webpack');
+const Dotenv = require("dotenv-webpack");
 let compressionPlugin = require("compression-webpack-plugin");
 let path = require("path");
 let precss = require("precss");
@@ -30,7 +30,7 @@ module.exports = {
     //publicPath: 'public'
   },
   plugins: [
-    new Dotenv(),
+    new Dotenv({ systemvars: true }),
     new webpack.optimize.CommonsChunkPlugin("vendor", "vendor.bundle.js")
     /*
     new webpack.optimize.UglifyJsPlugin({
