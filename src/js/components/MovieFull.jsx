@@ -7,14 +7,31 @@ import Details from "./Details";
 import MovieImage from "./MovieImage";
 
 class FullView extends React.Component {
+  constructor() {
+    super();
+    this.state = { animateMeter: false };
+  }
+  componentDidMount() {
+    this.setState({ animateMeter: true });
+  }
+
   render() {
     const {
-      details,
+      details: {
+        title,
+        tagline,
+        overview,
+        backDropPath,
+        genres,
+        voteAverage = 0,
+      },
       config: {
-        images: { backdrop_sizes: imageSizes, secure_base_url: imageBaseUrl }
+        images: {
+          backdrop_sizes: imageSizes = [],
+          secure_base_url: imageBaseUrl
+        }
       }
     } = this.props;
-    console.log(this.props);
     const strokeDash = "339.292";
 
     return (
@@ -24,27 +41,26 @@ class FullView extends React.Component {
             backdrop
             size={imageSizes[3]}
             imageBaseUrl={imageBaseUrl}
-            path={details.backDropPath}
+            path={backDropPath}
           />
         </div>
         <div className="container">
-          <h1 className={Styles.title}>{details.title}</h1>
-          <h2 className={Styles.tagline}>{details.tagline}</h2>
+          <h1 className={Styles.title}>{title}</h1>
+          <h2 className={Styles.tagline}>{tagline}</h2>
           <div className={Styles.info}>
-            <GenreList genres={details.genres} />
+            <GenreList genres={genres} />
             <div className={Styles.overview}>
-              <p>{details.overview}</p>
+              <p>{overview}</p>
             </div>
             <Details />
             <div className={Styles.score}>
-              <span>{details.voteAverage}</span>
+              <span>{voteAverage}</span>
               <svg className={Styles.scoreMeter}>
                 <circle className={Styles.scoreMeterCircle} />
                 <circle
                   className={Styles.scoreMeterValue}
                   style={{
-                    "stroke-dashoffset":
-                      strokeDash - strokeDash * (details.voteAverage / 10),
+                    "stroke-dashoffset": strokeDash - strokeDash * (voteAverage / 10),
                     "stroke-dasharray": strokeDash
                   }}
                 />
@@ -85,7 +101,7 @@ const mapStateToProps = (state, ownProps) => {
       backDropPath: state.movieFullView.details.backdrop_path,
       voteAverage: state.movieFullView.details.vote_average,
       genres: state.movieFullView.details.genres
-    },
+    }
   };
 };
 
