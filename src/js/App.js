@@ -40,13 +40,14 @@ class App extends React.Component {
         <Header />
         <TransitionGroup className="page-wrapper">
           <CSSTransition
+            in={true}
             key={location.key}
             classNames={
               history.action === "POP"
                 ? "transition-back"
                 : "transition-forward"
             }
-            timeout={1000}
+            timeout={300}
           >
             <Switch location={location}>
               <Route exact path="/" component={FrontPage} />

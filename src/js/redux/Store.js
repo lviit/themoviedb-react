@@ -18,10 +18,22 @@ const defaultState = {
   },
   genres: [],
   movieFullView: {
-    details: [],
-    similarMovies: [],
-    reviews: [],
-    credits: []
+    details: {
+      data: [],
+      isLoading: false,
+    },
+    similarMovies: {
+      data: [],
+      isLoading: false,
+    },
+    reviews: {
+      data: [],
+      isLoading: false,
+    },
+    credits: {
+      data: [],
+      isLoading: false,
+    }
   }
 };
 

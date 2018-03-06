@@ -25,36 +25,77 @@ export function movies(state = [], action) {
 export function genres(state = [], action) {
   switch (action.type) {
     case "GET_GENRES":
-      return [
-        ...action.genres
-      ];
+      return [...action.genres];
     default:
       return state;
   }
 }
 
-
 export function movieFullView(state = [], action) {
   switch (action.type) {
-    case "GET_MOVIE_DETAILS":
+    case "GET_MOVIE_DETAILS_LOADING":
       return {
         ...state,
-        details: action.details
+        details: {
+          ...state.details,
+          isLoading: true
+        }
       };
-    case "GET_MOVIE_CREDITS":
+    case "GET_MOVIE_DETAILS_DONE":
       return {
         ...state,
-        credits: action.credits
+        details: {
+          data: action.details,
+          isLoading: false
+        }
       };
-    case "GET_MOVIE_REVIEWS":
+    case "GET_MOVIE_CREDITS_LOADING":
       return {
         ...state,
-        reviews: action.reviews
+        credits: {
+          ...state.credits,
+          isLoading: true
+        }
       };
-    case "GET_MOVIE_SIMILAR":
+    case "GET_MOVIE_CREDITS_DONE":
       return {
         ...state,
-        similarMovies: action.similarMovies
+        credits: {
+          data: action.credits,
+          isLoading: false
+        }
+      };
+    case "GET_MOVIE_REVIEWS_LOADING":
+      return {
+        ...state,
+        reviews: {
+          ...state.reviews,
+          isLoading: true
+        }
+      };
+    case "GET_MOVIE_REVIEWS_DONE":
+      return {
+        ...state,
+        reviews: {
+          data: action.reviews,
+          isLoading: false
+        }
+      };
+    case "GET_MOVIE_SIMILAR_LOADING":
+      return {
+        ...state,
+        similarMovies: {
+          ...state.similarMovies,
+          isLoading: false
+        }
+      };
+    case "GET_MOVIE_SIMILAR_DONE":
+      return {
+        ...state,
+        similarMovies: {
+          data: action.similarMovies,
+          isLoading: false
+        }
       };
     default:
       return state;

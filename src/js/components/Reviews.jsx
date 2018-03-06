@@ -23,7 +23,7 @@ Reviews.propTypes = {
 const mapStateToProps = (state, ownProps) => {
   return {
     ...ownProps,
-    reviews: state.movieFullView.reviews
+    reviews: state.movieFullView.reviews.data
   };
 };
 

@@ -53,10 +53,10 @@ Details.propTypes = {
 const mapStateToProps = (state, ownProps) => {
   return {
     ...ownProps,
-    releaseDate: state.movieFullView.details.release_date,
-    revenue: state.movieFullView.details.revenue,
-    budget: state.movieFullView.details.budget,
-    runtime: state.movieFullView.details.runtime
+    releaseDate: state.movieFullView.details.data.release_date,
+    revenue: state.movieFullView.details.data.revenue,
+    budget: state.movieFullView.details.data.budget,
+    runtime: state.movieFullView.details.data.runtime
   };
 };
 

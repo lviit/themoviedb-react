@@ -22,11 +22,12 @@ class MovieFullView extends React.Component {
   }
 
   render() {
-    const { details, credits, reviews, similar } = this.props;
+    const { similar, isLoading } = this.props;
+    if (isLoading) return <div />;
     return (
       <div className="page">
         <FullView />
-        <Section title="Cast">;
+        <Section title="Cast">
           <Credits />
         </Section>
         <Section title="Reviews" dark>
@@ -54,10 +55,12 @@ const mapStateToProps = (state, ownProps) => {
   return {
     ...ownProps,
     config: state.config,
-    similar: state.movieFullView.similarMovies,
-    credits: state.movieFullView.credits,
-    reviews: state.movieFullView.reviews,
-    details: state.movieFullView.details
+    similar: state.movieFullView.similarMovies.data,
+    isLoading:
+      state.movieFullView.similarMovies.isLoading ||
+      state.movieFullView.credits.isLoading ||
+      state.movieFullView.reviews.isLoading ||
+      state.movieFullView.details.isLoading
   };
 };
 

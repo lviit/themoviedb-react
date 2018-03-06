@@ -32,7 +32,7 @@ class FullView extends React.Component {
         }
       }
     } = this.props;
-    const strokeDash = "339.292";
+    const strokeDash = 339.292;
 
     return (
       <div className={Styles.container}>
@@ -60,8 +60,8 @@ class FullView extends React.Component {
                 <circle
                   className={Styles.scoreMeterValue}
                   style={{
-                    "stroke-dashoffset": strokeDash - strokeDash * (voteAverage / 10),
-                    "stroke-dasharray": strokeDash
+                    strokeDashoffset: strokeDash - strokeDash * (voteAverage / 10),
+                    strokeDasharray: strokeDash
                   }}
                 />
               </svg>
@@ -95,12 +95,12 @@ const mapStateToProps = (state, ownProps) => {
     ...ownProps,
     config: state.config,
     details: {
-      title: state.movieFullView.details.title,
-      tagline: state.movieFullView.details.tagline,
-      overview: state.movieFullView.details.overview,
-      backDropPath: state.movieFullView.details.backdrop_path,
-      voteAverage: state.movieFullView.details.vote_average,
-      genres: state.movieFullView.details.genres
+      title: state.movieFullView.details.data.title,
+      tagline: state.movieFullView.details.data.tagline,
+      overview: state.movieFullView.details.data.overview,
+      backDropPath: state.movieFullView.details.data.backdrop_path,
+      voteAverage: state.movieFullView.details.data.vote_average,
+      genres: state.movieFullView.details.data.genres
     }
   };
 };
