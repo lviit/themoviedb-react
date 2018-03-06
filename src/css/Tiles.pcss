@@ -1,3 +1,10 @@
+.container {
+  display: grid;
+  grid-auto-flow: dense;
+  grid-template-columns: 33% 33% 33%;
+  grid-template-rows: auto;
+}
+
 .movie {
   position: relative;
   display: block;
@@ -48,16 +55,13 @@
 
 :global {
   .size-1 {
-    width: 33.3333%;
     font-size: 25px;
-
+    grid-column: auto / span 1;
+    grid-row: auto / span 1;
   }
   .size-2 {
-    width: 66.666%;
     font-size: 40px;
-  }
-  .size-3 {
-    width: 66.666%;
-    font-size: 60px;
+    grid-column: auto / span 2;
+    grid-row: auto / span 2;
   }
 }

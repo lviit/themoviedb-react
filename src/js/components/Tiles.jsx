@@ -13,9 +13,8 @@ const Tiles = ({
     images: { backdrop_sizes: imageSizes, secure_base_url: imageBaseUrl }
   }
 }) => {
-  const movieList = movies.map(movie => {
-    const items = Array(1, 1, 1, 2);
-    const size = items[Math.floor(Math.random() * items.length)];
+  const movieList = movies.map((movie, index) => {
+    const size = index % 7 === 0 ? 2 : 1;
 
     return (
       <div className={`size-${size}`}>

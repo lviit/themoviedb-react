@@ -31,10 +31,12 @@ class GenresPage extends React.Component {
           )[0].name;
 
     return (
-      <div className="page container-large">
-        <h1>{activeGenre}</h1>
-        <GenreList genres={this.props.genres} />
-        <Tiles movies={this.state.moviesByGenre} genre={this.genre} />
+      <div className="page">
+        <div className="container-large">
+          <h1>{activeGenre}</h1>
+          <GenreList genres={this.props.genres} />
+          <Tiles movies={this.state.moviesByGenre} genre={this.genre} />
+        </div>
       </div>
     );
   }

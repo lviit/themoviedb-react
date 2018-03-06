@@ -24,7 +24,7 @@ class MovieFullView extends React.Component {
   render() {
     const { details, credits, reviews, similar } = this.props;
     return (
-      <div className="page movie__full">
+      <div className="page">
         <FullView />
         <Section title="Cast">;
           <Credits />
