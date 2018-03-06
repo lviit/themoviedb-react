@@ -5,6 +5,16 @@
   grid-template-rows: auto;
 }
 
+.small {
+  grid-column: auto / span 1;
+  grid-row: auto / span 1;
+}
+
+.big {
+  grid-column: auto / span 2;
+  grid-row: auto / span 2;
+}
+
 .movie {
   position: relative;
   display: block;
@@ -40,28 +50,29 @@
   position: absolute;
   z-index: 2;
   bottom: 0;
-  padding: 1em;
+  padding: 20px;
   color: #fff;
   text-shadow: 0 0 15px #000;
 }
 
-.title {
-  padding: 0.2em 0;
+.info__big {
+  padding: 40px;
 }
 
-.overview {
+.title__big {
+  padding: 0.2em 0;
+  font-size: 45px;
+}
+
+.title {
+  padding: 0.2em 0;
+  font-size: 30px;
+}
+
+.overview__big {
   font-size: 18px;
 }
 
-:global {
-  .size-1 {
-    font-size: 25px;
-    grid-column: auto / span 1;
-    grid-row: auto / span 1;
-  }
-  .size-2 {
-    font-size: 40px;
-    grid-column: auto / span 2;
-    grid-row: auto / span 2;
-  }
+.overview {
+  font-size: 16px;
 }

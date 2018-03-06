@@ -1,8 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import WithScrollReveal from "./WithScrollReveal";
 
+import WithScrollReveal from "./WithScrollReveal";
 import MovieImage from "./MovieImage";
 import Styles from "../../css/Tiles.pcss";
 
@@ -17,7 +17,7 @@ const Tiles = ({
     const size = index % 7 === 0 ? 2 : 1;
 
     return (
-      <div className={`size-${size}`}>
+      <div className={size === 1 ? Styles.small : Styles.big}>
         <Link className={Styles.movie} key={movie.id} to={`/movie/${movie.id}`}>
           <div
             className={[
@@ -32,11 +32,11 @@ const Tiles = ({
             path={movie.backdrop_path}
           />
 
-          <div className={Styles.info}>
-            <h3 className={Styles.title}>{movie.title}</h3>
-            <div className={Styles.overview}>{`${movie.overview.substr(
+          <div className={size === 1 ? Styles.info : `${Styles.info} ${Styles.info__big}`}>
+            <h3 className={size === 1 ? Styles.title : Styles.title__big}>{movie.title}</h3>
+            <div className={size === 1 ? Styles.overview : Styles.overview__big}>{`${movie.overview.substr(
               0,
-              50 * size
+              size === 1 ? 50 : 200
             )}...`}</div>
           </div>
         </Link>
