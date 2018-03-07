@@ -12,7 +12,9 @@ class FullView extends React.Component {
     this.state = { animateMeter: false };
   }
   componentDidMount() {
-    this.setState({ animateMeter: true });
+    setTimeout(() => {
+      this.setState({ animateMeter: true });
+    }, 100);
   }
 
   render() {
@@ -23,7 +25,7 @@ class FullView extends React.Component {
         overview,
         backDropPath,
         genres,
-        voteAverage = 0,
+        voteAverage,
       },
       config: {
         images: {
@@ -60,7 +62,10 @@ class FullView extends React.Component {
                 <circle
                   className={Styles.scoreMeterValue}
                   style={{
-                    strokeDashoffset: strokeDash - strokeDash * (voteAverage / 10),
+                    strokeDashoffset:
+                      strokeDash -
+                      strokeDash *
+                        (this.state.animateMeter ? voteAverage / 10 : 0),
                     strokeDasharray: strokeDash
                   }}
                 />
