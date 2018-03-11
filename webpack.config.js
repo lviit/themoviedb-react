@@ -4,40 +4,28 @@ const { getIfUtils, removeEmpty } = require("webpack-config-utils");
 const Dotenv = require("dotenv-webpack");
 const compressionPlugin = require("compression-webpack-plugin");
 const path = require("path");
-const precss = require("precss");
-const postcssmixins = require("postcss-mixins");
-const postcsseach = require("postcss-each");
-const cssnext = require("postcss-cssnext");
 
-const { ifProduction, ifNotProduction } = getIfUtils(process.env.NODE_ENV);
+//const { ifProduction, ifNotProduction } = getIfUtils(process.env.NODE_ENV);
 
 let BUILD_DIR = path.resolve(__dirname, "public");
 let APP_DIR = path.resolve(__dirname, "src/js");
 
 module.exports = {
-  devtool: ifProduction("source-map", "source-map"),
+  devtool: "source-map",
   entry: {
-    app: ["babel-polyfill", APP_DIR + "/Main.jsx"],
-    vendor: [
-      "react",
-      "react-dom",
-      "react-router",
-      "react-addons-css-transition-group",
-      "classnames",
-      "axios"
-    ]
+    app: ["babel-polyfill", APP_DIR + "/Main.jsx"]
   },
   output: {
     path: BUILD_DIR,
-    filename: "[id].js",
-    chunkFilename: "[id].js"
+    filename: "[name].js",
+    chunkFilename: "[name].js"
   },
   optimization: {
     splitChunks: {
       cacheGroups: {
         commons: {
           test: /[\\/]node_modules[\\/]/,
-          name: "vendors",
+          name: "vendor",
           chunks: "all"
         }
       }
@@ -88,7 +76,23 @@ module.exports = {
       },
       {
         test: /\.pcss$/,
-        use: ["style-loader", "css-loader", "postcss-loader"]
+        use: ["style-loader"]
+      },
+      {
+        test: /\.pcss$/,
+        use: [
+          {
+            loader: "css-loader",
+            options: {
+              modules: true,
+              localIdentName: "[path][name]__[local]--[hash:base64:5]"
+            }
+          }
+        ]
+      },
+      {
+        test: /\.pcss$/,
+        use: ["postcss-loader"]
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2)$/,
@@ -107,10 +111,6 @@ module.exports = {
       }
     ]
   },
-  /*
-  postcss: function() {
-    return [precss, cssnext];
-  }, */
   devServer: {
     inline: true,
     historyApiFallback: {

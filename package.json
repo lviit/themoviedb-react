@@ -3,10 +3,10 @@
   "scripts": {
     "lint": "eslint --ext .js --ext .jsx src",
     "serve": "node server.js",
-    "dev-server": "NODE_ENV=development webpack-dev-server",
-    "build:dev": "NODE_ENV=development webpack --progress --colors",
-    "build:prod": "NODE_ENV=production webpack --progress --colors",
-    "postinstall": "NODE_ENV=production webpack --progress --colors"
+    "dev-server": "webpack-dev-server --mode development --progress --colors",
+    "build:dev": "webpack --mode development --progress --colors",
+    "build:prod": "webpack --mode production --progress --colors",
+    "postinstall": "webpack --mode production --progress --colors"
   },
   "dependencies": {
     "axios": "^0.14.0",
@@ -51,6 +51,7 @@
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.10.3",
     "file-loader": "^1.1.11",
+    "postcss-import": "^11.1.0",
     "postcss-loader": "^2.1.1",
     "postcss-mixins": "^6.2.0",
     "precss": "^3.1.2",
