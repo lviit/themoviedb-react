@@ -1,4 +1,5 @@
-@import './colors.pcss';
+@import "./colors.pcss";
+@import "./mixins.pcss";
 
 .searchbox {
   position: absolute;
@@ -13,10 +14,11 @@
   width: 100%;
   padding: 15px;
   font-size: 18px;
-  &::placeholder {
-    font-style: italic;
-    font-weight: 300;
-  }
+}
+
+.input::placeholder {
+  font-style: italic;
+  font-weight: 300;
 }
 
 .resultcontainer {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import SearchBox from './SearchBox';
 import Styles from '../../css/header.pcss';
 import { withRouter } from 'react-router-dom';
@@ -22,14 +22,14 @@ class Header extends React.Component {
           <div className={Styles.navigation}>
             <button className={`${Styles.button} material-icons`} onClick={this.props.history.goBack}>arrow_back</button>
             <ul className={Styles.menu}>
-              <li className={Styles.menulink}>
-                <Link activeClassName="active" to="/">Latest</Link>
+              <li className={Styles.menuitem}>
+                <NavLink className={Styles.menulink} activeClassName={Styles.active} to="/">Latest</NavLink>
               </li>
-              <li className={Styles.menulink}>
-                <Link activeClassName="active" to="/genres/all">Genres</Link>
+              <li className={Styles.menuitem}>
+                <NavLink className={Styles.menulink} activeClassName={Styles.active} to="/genres/all">Genres</NavLink>
               </li>
-              <li className={Styles.menulink}>
-                <Link activeClassName="active" to="/about">About</Link>
+              <li className={Styles.menuitem}>
+                <NavLink className={Styles.menulink} activeClassName={Styles.active} to="/about">About</NavLink>
               </li>
             </ul>
             <button className={`${Styles.button} material-icons`} onClick={this.toggleSearchBox}>search</button>

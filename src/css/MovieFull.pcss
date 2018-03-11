@@ -1,4 +1,4 @@
-@import './colors.pcss';
+@import "./colors.pcss";
 
 .container {
   position: relative;
@@ -25,7 +25,7 @@
 }
 
 .info {
-  background: rgba(255,255,255, 1);
+  background: rgba(255, 255, 255, 1);
   position: relative;
   padding: 2em;
   margin-top: 100px;
@@ -38,41 +38,43 @@
   font-size: 18px;
   padding-right: 1.5em;
   flex-basis: 60%;
-  p {
-    line-height: 28px;
-    margin-top: 1em;
-  }
+}
+
+.overview p {
+  line-height: 28px;
+  margin-top: 1em;
 }
 
 .score {
   flex-basis: 14%;
   align-self: center;
   position: relative;
-  span {
-    text-align: center;
-    display: block;
-    font-weight: 400;
-    font-size: 50px;
-    position: absolute;
-    height: 120px;
-    line-height: 120px;
-    width: 120px;
-  }
+}
+
+.score span {
+  text-align: center;
+  display: block;
+  font-weight: 400;
+  font-size: 50px;
+  position: absolute;
+  height: 120px;
+  line-height: 120px;
+  width: 120px;
 }
 
 .scoreMeter {
   transform: rotate(-90deg);
-  width:120px;
-  height:120px;
-  viewBox: "0 0 120 120";
+  width: 120px;
+  height: 120px;
+  viewbox: "0 0 120 120";
+}
 
-  circle {
-    stroke-width: 8px;
-    fill: transparent;
-    cx:60;
-    cy:60;
-    r:54;
-  }
+.scoreMeter circle {
+  stroke-width: 8px;
+  fill: transparent;
+  cx: 60;
+  cy: 60;
+  r: 54;
 }
 
 .scoreMeterCircle {
@@ -81,5 +83,5 @@
 
 .scoreMeterValue {
   stroke: #f77a52;
-  transition: 1s stroke-dashoffset cubic-bezier(.76,.21,.38,.88);
+  transition: 1s stroke-dashoffset cubic-bezier(0.76, 0.21, 0.38, 0.88);
 }

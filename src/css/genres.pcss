@@ -1,4 +1,4 @@
-@import './colors.pcss';
+@import "./colors.pcss";
 
 .container {
   width: 100%;
@@ -23,20 +23,31 @@
 
 .compact {
   font-size: 12px;
-  .genre {
-    padding: 0.3em 0.7em;
-  }
 }
 
-:global {
-  @each $genre in 28, 12, 16, 35, 80, 99, 18, 10751, 14, 36, 27, 10402, 9648, 10749, 878, 10770, 53, 10752, 37 {
-    .genre-$(genre) {
-      background-color: var(--color-genre-$(genre));
-    }
-    .gradient-genre-$(genre) {
-      background: linear-gradient(135deg, color(var(--color-genre-$(genre)) alpha(40%)) 0,transparent 50%,transparent 100%),
-      linear-gradient(45deg,transparent 0,transparent 50%, color(var(--color-genre-$(genre)) alpha(20%)) 100%),
-      linear-gradient(transparent 5%,rgba(0,0,0,.8) 100%);
-    }
+.compact .genre {
+  padding: 0.3em 0.7em;
+}
+
+@each $genre in 28, 12, 16, 35, 80, 99, 18, 10751, 14, 36, 27, 10402, 9648,
+  10749, 878, 10770, 53, 10752, 37
+{
+  :global .genre-$(genre) {
+    background-color: var(--color-genre-$(genre));
+  }
+  :global .gradient-genre-$(genre) {
+    background: linear-gradient(
+        135deg,
+        color(var(--color-genre-$(genre)) alpha(40%)) 0,
+        transparent 50%,
+        transparent 100%
+      ),
+      linear-gradient(
+        45deg,
+        transparent 0,
+        transparent 50%,
+        color(var(--color-genre-$(genre)) alpha(20%)) 100%
+      ),
+      linear-gradient(transparent 5%, rgba(0, 0, 0, 0.8) 100%);
   }
 }

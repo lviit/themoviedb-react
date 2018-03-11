@@ -1,24 +1,23 @@
-@import './colors.pcss';
+@import "./colors.pcss";
 
-:global {
-  body {
-    background: var(--bgcolor);
-    margin: 50px 0 0 0;
-  }
+:global body {
+  background: var(--bgcolor);
+  margin: 50px 0 0 0;
+}
 
-  .container {
-    max-width: 60em;
-    margin: 0 auto;
-    overflow: hidden;
-  }
+:global .container {
+  max-width: 60em;
+  margin: 0 auto;
+  overflow: hidden;
+}
 
-  .container-large {
-    margin: 0 auto;
-    overflow: hidden;
-    max-width: 80em;
-  }
+:global .container-large {
+  margin: 0 auto;
+  overflow: hidden;
+  max-width: 80em;
+}
 
-  /*
+/*
   .page-wrapper {
     transition: transform 0.5s cubic-bezier(0.15, 1, 0.33, 1);
     position: absolute;
@@ -30,24 +29,23 @@
   }
   */
 
-  .page-wrapper {
-    max-width: 90em;
-    margin: 0 auto;
-  }
+:global .page-wrapper {
+  max-width: 90em;
+  margin: 0 auto;
+}
 
-  .pageSlider-enter {
-    transform: translateX(100%);
-  }
+:global .pageSlider-enter {
+  transform: translateX(100%);
+}
 
-  .pageSlider-enter.pageSlider-enter-active {
-    transform: translateX(0);
-  }
+:global .pageSlider-enter.pageSlider-enter-active {
+  transform: translateX(0);
+}
 
-  .pageSlider-leave {
-    transform: translateX(0);
-  }
+:global .pageSlider-leave {
+  transform: translateX(0);
+}
 
-  .pageSlider-leave.pageSlider-leave-active {
-    transform: translateX(-100%);
-  }
+:global .pageSlider-leave.pageSlider-leave-active {
+  transform: translateX(-100%);
 }
