@@ -1,4 +1,4 @@
-@import './colors.pcss';
+@import "./colors.pcss";
 
 .container {
   display: flex;
@@ -13,18 +13,19 @@
   color: var(--fontcolor);
   overflow: hidden;
   visibility: hidden;
-  img {
-    transition: transform 0.5s cubic-bezier(0.15, 1, 0.33, 1);
-  }
-  &:hover {
-    .info {
-      transform: translateY(0);
-    }
-    img {
-      opacity: 0.5;
-      transform: scale(1.15);
-    }
-  }
+}
+
+.movie img {
+  transition: transform 0.5s cubic-bezier(0.15, 1, 0.33, 1);
+}
+
+.movie:hover .info {
+  transform: translateY(0);
+}
+
+.movie:hover img {
+  opacity: 0.5;
+  transform: scale(1.15);
 }
 
 .info {
@@ -40,7 +41,6 @@
   text-align: center;
   justify-content: space-between;
 }
-
 
 .title {
   font-size: 25px;

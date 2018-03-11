@@ -1,4 +1,4 @@
-@import './colors.pcss';
+@import "./colors.pcss";
 
 .result {
   border-bottom: 1px solid #eee;
@@ -8,11 +8,12 @@
   transition: all 0.2s;
   width: 104%;
   overflow: hidden;
-  &:hover {
-    background: var(--greylight);
-    color: white;
-    width: 100%;
-  }
+}
+
+.result:hover {
+  background: var(--greylight);
+  color: white;
+  width: 100%;
 }
 
 .infocontainer {
@@ -48,20 +49,18 @@
   font-size: 30px;
 }
 
-:global {
-  .searchresult-enter {
-    height: 0;
-  }
+:global .searchresult-enter {
+  height: 0;
+}
 
-  .searchresult-enter-active {
-    height: 70px;
-  }
+:global .searchresult-enter-active {
+  height: 70px;
+}
 
-  .searchresult-leave {
-    height: 70px;
-  }
+:global .searchresult-leave {
+  height: 70px;
+}
 
-  .searchresult-leave-active {
-    height: 0;
-  }
+:global .searchresult-leave-active {
+  height: 0;
 }

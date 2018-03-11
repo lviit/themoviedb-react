@@ -20,19 +20,18 @@
   display: block;
   overflow: hidden;
   visibility: hidden;
+}
 
-  img {
-    transition: transform 0.5s cubic-bezier(0.15, 1, 0.33, 1);
-  }
+.movie img {
+  transition: transform 0.5s cubic-bezier(0.15, 1, 0.33, 1);
+}
 
-  &:hover {
-    img {
-      transform: scale(1.15);
-    }
-    .gradientOverlay {
-      opacity: 0;
-    }
-  }
+.movie:hover img {
+  transform: scale(1.15);
+}
+
+.movie:hover .gradientOverlay {
+  opacity: 0;
 }
 
 .gradientOverlay {
