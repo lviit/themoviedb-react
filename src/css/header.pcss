@@ -1,4 +1,4 @@
-@import './colors.pcss';
+@import "./colors.pcss";
 
 .header {
   position: fixed;
@@ -17,23 +17,24 @@
 
 .menu {
   text-align: center;
+  display: flex;
   margin: 0;
 }
 
+.menuitem {
+  padding: 0 15px;
+  font-weight: 600;
+  list-style-type: none;
+}
+
 .menulink {
-  display: inline;
-  a {
-    padding: 0 15px;
-    display: inline-block;
-    font-weight: 600;
-    text-decoration: none;
-    text-transform: uppercase;
-    color: #fff;
-    &.active {
-      background: var(--boxcolor);
-      color: var(--fontcolor);
-    }
-  }
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.active {
+  color: var(--fontcolor);
 }
 
 .button {
