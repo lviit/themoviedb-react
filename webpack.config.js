@@ -3,6 +3,7 @@ const webpack = require("webpack");
 const { getIfUtils, removeEmpty } = require("webpack-config-utils");
 const Dotenv = require("dotenv-webpack");
 const compressionPlugin = require("compression-webpack-plugin");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require("path");
 
 let BUILD_DIR = path.resolve(__dirname, "public");
@@ -34,6 +35,15 @@ module.exports = (env, argv) => {
     },
     plugins: removeEmpty([
       new Dotenv({ systemvars: true }),
+      new HtmlWebpackPlugin({
+        title: 'TMDb react',
+        minify: {
+          collapseWhitespace: true,
+          collapseInlineTagWhitespace: true,
+          removeComments: true,
+          removeRedundantAttributes: true
+        }
+      }),
       ifProduction(
         new compressionPlugin({
           asset: "[path].gz[query]",
@@ -42,7 +52,7 @@ module.exports = (env, argv) => {
           threshold: 10240,
           minRatio: 0.8
         })
-      ),
+      )
     ]),
     resolve: {
       extensions: [".js", ".jsx"]
