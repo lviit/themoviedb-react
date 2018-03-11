@@ -13,7 +13,6 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import "../css/global.pcss";
 import "../css/layout.pcss";
-import "../css/material-icons.pcss";
 import "../css/mixins.pcss";
 
 const About = () => (

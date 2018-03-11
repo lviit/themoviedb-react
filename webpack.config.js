@@ -36,7 +36,7 @@ module.exports = (env, argv) => {
     plugins: removeEmpty([
       new Dotenv({ systemvars: true }),
       new HtmlWebpackPlugin({
-        title: 'TMDb react',
+        template: 'index.ejs',
         minify: {
           collapseWhitespace: true,
           collapseInlineTagWhitespace: true,
@@ -86,10 +86,6 @@ module.exports = (env, argv) => {
         {
           test: /\.pcss$/,
           use: ["postcss-loader"]
-        },
-        {
-          test: /\.(eot|svg|ttf|woff|woff2)$/,
-          loader: "file-loader?name=fonts/[name].[ext]"
         },
         {
           test: /\.(jpg|png)$/,

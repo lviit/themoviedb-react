@@ -15,5 +15,5 @@ render(
       </ScrollToTop>
     </BrowserRouter>
   </Provider>,
-  document.getElementById("content")
+  document.getElementById("root")
 );
