@@ -1,13 +1,13 @@
 "use strict";
-let webpack = require("webpack");
+const webpack = require("webpack");
 const { getIfUtils, removeEmpty } = require("webpack-config-utils");
 const Dotenv = require("dotenv-webpack");
-let compressionPlugin = require("compression-webpack-plugin");
-let path = require("path");
-let precss = require("precss");
-let postcssmixins = require("postcss-mixins");
-let postcsseach = require("postcss-each");
-let cssnext = require("postcss-cssnext");
+const compressionPlugin = require("compression-webpack-plugin");
+const path = require("path");
+const precss = require("precss");
+const postcssmixins = require("postcss-mixins");
+const postcsseach = require("postcss-each");
+const cssnext = require("postcss-cssnext");
 
 const { ifProduction, ifNotProduction } = getIfUtils(process.env.NODE_ENV);
 
@@ -29,12 +29,24 @@ module.exports = {
   },
   output: {
     path: BUILD_DIR,
-    filename: "bundle.js"
-    //publicPath: 'public'
+    filename: "[id].js",
+    chunkFilename: "[id].js"
+  },
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        commons: {
+          test: /[\\/]node_modules[\\/]/,
+          name: "vendors",
+          chunks: "all"
+        }
+      }
+    }
   },
   plugins: removeEmpty([
-    new Dotenv({ systemvars: true }),
-    new webpack.optimize.CommonsChunkPlugin("vendor", "vendor.bundle.js"),
+    new Dotenv({ systemvars: true })
+    //new webpack.optimize.CommonsChunkPlugin("vendor", "vendor.bundle.js"),
+    /*
     ifProduction(
       new webpack.DefinePlugin({
         "process.env": {
@@ -43,6 +55,7 @@ module.exports = {
       })
     ),
     ifProduction(
+
       new webpack.optimize.UglifyJsPlugin({
         compress: {
           warnings: false
@@ -58,13 +71,13 @@ module.exports = {
         threshold: 10240,
         minRatio: 0.8
       })
-    )
+    ) */
   ]),
   resolve: {
-    extensions: ["", ".js", ".jsx"]
+    extensions: [".js", ".jsx"]
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /.jsx?$/,
         loader: "babel-loader",
@@ -75,19 +88,7 @@ module.exports = {
       },
       {
         test: /\.pcss$/,
-        loader: "style-loader"
-      },
-      {
-        test: /\.pcss$/,
-        loader: "css-loader",
-        query: {
-          modules: true,
-          localIdentName: "[name]__[local]___[hash:base64:5]"
-        }
-      },
-      {
-        test: /\.pcss$/,
-        loader: "postcss-loader"
+        use: ["style-loader", "css-loader", "postcss-loader"]
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2)$/,
@@ -95,13 +96,21 @@ module.exports = {
       },
       {
         test: /\.(jpg|png)$/,
-        loader: "url?limit=25000"
+        use: [
+          {
+            loader: "url-loader",
+            options: {
+              limit: 25000
+            }
+          }
+        ]
       }
     ]
   },
+  /*
   postcss: function() {
     return [precss, cssnext];
-  },
+  }, */
   devServer: {
     inline: true,
     historyApiFallback: {
