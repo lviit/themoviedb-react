@@ -18,7 +18,12 @@ const SearchResults = props => {
     });
 
     return (
-      <CSSTransition key={result.id} classNames="searchresult" timeout={300}>
+      <CSSTransition key={result.id} classNames={{
+        enter: Styles.searchresult-enter,
+        enterActive: Styles.searchresult-enter-active,
+        exit: Styles.searchresult-exit,
+        exitActive: Styles.searchresult-exit-active,
+       }} timeout={300}>
         <Link
           to={path}
           className={Styles.result}

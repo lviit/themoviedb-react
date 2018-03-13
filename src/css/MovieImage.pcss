@@ -1,4 +1,4 @@
-@import './colors.pcss';
+@import "./colors.pcss";
 
 .loader,
 .loader:after {
@@ -59,35 +59,39 @@
   text-align: center;
   min-height: 240px;
   line-height: 240px;
-  font-size: 100px;
   width: 100%;
-  .large & {
-    height: 35em;
-    line-height: 2em;
-    font-size: 300px;
-  }
-  .medium & {
-    height: 360px;
-    line-height: 360px;
-  }
-  .small & {
-    min-width: 45px;
-    min-height: auto;
-    background: var(--greylight);
-    text-align: center;
-    font-size: 30px;
-    line-height: 56px;
-  }
+  font-size: 100px;
+}
+
+.large .noimage {
+  height: 35em;
+  line-height: 2em;
+  font-size: 300px;
+}
+
+.medium .noimage {
+  height: 360px;
+  line-height: 360px;
+}
+
+.small .noimage {
+  min-width: 45px;
+  min-height: auto;
+  background: var(--greylight);
+  text-align: center;
+  font-size: 30px;
+  line-height: 56px;
 }
 
 .large {
   max-height: 40em;
   overflow: hidden;
-  .image {
-    min-height: 35em;
-    max-width: 100%;
-    margin: 0 auto;
-  }
+}
+
+.large .image {
+  min-height: 35em;
+  max-width: 100%;
+  margin: 0 auto;
 }
 
 .small {
