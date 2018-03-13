@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import Classnames from "classnames";
 import Styles from "../../css/section.pcss";
 
@@ -17,8 +18,8 @@ const Section = ({ title, dark, children }) => {
 };
 
 Section.propTypes = {
-  title: React.PropTypes.string,
-  dark: React.PropTypes.bool
+  title: PropTypes.string,
+  dark: PropTypes.bool
 };
 
 Section.defaultProps = {

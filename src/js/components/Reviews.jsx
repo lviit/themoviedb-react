@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import { connect } from "react-redux";
 
 import Styles from "../../css/reviews.pcss";
@@ -17,7 +18,7 @@ const Reviews = ({ reviews = [] }) => {
 };
 
 Reviews.propTypes = {
-  reviews: React.PropTypes.array
+  reviews: PropTypes.array
 };
 
 const mapStateToProps = (state, ownProps) => {

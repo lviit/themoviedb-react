@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import { connect } from "react-redux";
 
 import Styles from "../../css/details.pcss";
@@ -42,11 +43,11 @@ const Details = ({
 };
 
 Details.propTypes = {
-  details: React.PropTypes.shape({
-    release_date: React.PropTypes.string,
-    revenue: React.PropTypes.number,
-    budget: React.PropTypes.number,
-    runtime: React.PropTypes.number
+  details: PropTypes.shape({
+    release_date: PropTypes.string,
+    revenue: PropTypes.number,
+    budget: PropTypes.number,
+    runtime: PropTypes.number
   })
 };
 

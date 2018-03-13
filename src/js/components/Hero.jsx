@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import Slider from "react-slick";
@@ -65,13 +66,13 @@ const Hero = ({
 };
 
 Hero.propTypes = {
-  movies: React.PropTypes.shape({
-    results: React.PropTypes.array
+  movies: PropTypes.shape({
+    results: PropTypes.array
   }),
-  config: React.PropTypes.shape({
-    images: React.PropTypes.shape({
-      backdrop_sizes: React.PropTypes.array,
-      secure_base_url: React.PropTypes.string
+  config: PropTypes.shape({
+    images: PropTypes.shape({
+      backdrop_sizes: PropTypes.array,
+      secure_base_url: PropTypes.string
     })
   })
 };

@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import { connect } from "react-redux";
 import { mapDispachToProps } from "./redux/Store";
 
@@ -42,8 +43,8 @@ class MovieFullView extends React.Component {
 }
 
 MovieFullView.propTypes = {
-  params: React.PropTypes.shape({
-    splat: React.PropTypes.string
+  params: PropTypes.shape({
+    splat: PropTypes.string
   })
 };
 

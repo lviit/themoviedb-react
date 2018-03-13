@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import SearchBox from './SearchBox';
 import Styles from '../../css/header.pcss';
@@ -42,7 +43,7 @@ class Header extends React.Component {
 }
 
 Header.propTypes = {
-  history: React.PropTypes.object, // eslint-disable-line react/forbid-prop-types
+  history: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 };
 
 Header.defaultProps = {

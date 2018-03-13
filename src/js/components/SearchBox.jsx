@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from "react-redux";
 import Classnames from 'classnames';
 import { debounce } from 'throttle-debounce';
@@ -72,8 +73,8 @@ class SearchBox extends React.Component {
 }
 
 SearchBox.propTypes = {
-  toggleSearchBox: React.PropTypes.func,
-  collapsed: React.PropTypes.bool,
+  toggleSearchBox: PropTypes.func,
+  collapsed: PropTypes.bool,
 };
 
 SearchBox.defaultProps = {

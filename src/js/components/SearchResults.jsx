@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import { Link } from "react-router-dom";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
@@ -18,12 +19,7 @@ const SearchResults = props => {
     });
 
     return (
-      <CSSTransition key={result.id} classNames={{
-        enter: Styles.searchresult-enter,
-        enterActive: Styles.searchresult-enter-active,
-        exit: Styles.searchresult-exit,
-        exitActive: Styles.searchresult-exit-active,
-       }} timeout={300}>
+      <CSSTransition key={result.id} timeout={300}>
         <Link
           to={path}
           className={Styles.result}
@@ -53,14 +49,14 @@ const SearchResults = props => {
 };
 
 SearchResults.propTypes = {
-  genres: React.PropTypes.arrayOf(React.PropTypes.object),
-  searchResults: React.PropTypes.shape({
-    results: React.PropTypes.array
+  genres: PropTypes.arrayOf(PropTypes.object),
+  searchResults: PropTypes.shape({
+    results: PropTypes.array
   }),
-  config: React.PropTypes.shape({
-    images: React.PropTypes.shape({
-      secure_base_url: React.PropTypes.string,
-      logo_sizes: React.PropTypes.array
+  config: PropTypes.shape({
+    images: PropTypes.shape({
+      secure_base_url: PropTypes.string,
+      logo_sizes: PropTypes.array
     })
   })
 };

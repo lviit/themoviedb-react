@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
@@ -17,7 +18,7 @@ const Tiles = ({
     const size = index % 7 === 0 ? 2 : 1;
 
     return (
-      <div className={size === 1 ? Styles.small : Styles.big}>
+      <div className={size === 1 ? Styles.small : Styles.big} key={movie.id}>
         <Link className={Styles.movie} key={movie.id} to={`/movie/${movie.id}`}>
           <div
             className={[
@@ -47,11 +48,11 @@ const Tiles = ({
 };
 
 Tiles.propTypes = {
-  movies: React.PropTypes.arrayOf(React.PropTypes.object),
-  config: React.PropTypes.shape({
-    images: React.PropTypes.shape({
-      backdrop_sizes: React.PropTypes.array,
-      secure_base_url: React.PropTypes.string
+  movies: PropTypes.arrayOf(PropTypes.object),
+  config: PropTypes.shape({
+    images: PropTypes.shape({
+      backdrop_sizes: PropTypes.array,
+      secure_base_url: PropTypes.string
     })
   })
 };

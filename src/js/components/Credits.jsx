@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import { connect } from "react-redux";
 import WithScrollReveal from "./WithScrollReveal";
 
@@ -28,10 +29,10 @@ const Credits = ({
 };
 
 Credits.propTypes = {
-  cast: React.PropTypes.array,
-  config: React.PropTypes.shape({
-    images: React.PropTypes.shape({
-      secure_base_url: React.PropTypes.string
+  cast: PropTypes.array,
+  config: PropTypes.shape({
+    images: PropTypes.shape({
+      secure_base_url: PropTypes.string
     })
   })
 };

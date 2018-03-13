@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import { connect } from "react-redux";
 
 import Styles from "../../css/MovieFull.pcss";
@@ -79,18 +80,18 @@ class FullView extends React.Component {
 }
 
 FullView.propTypes = {
-  details: React.PropTypes.shape({
-    title: React.PropTypes.string,
-    tagline: React.PropTypes.string,
-    overview: React.PropTypes.string,
-    backDropPath: React.PropTypes.string,
-    genres: React.PropTypes.array,
-    voteAverage: React.PropTypes.number
+  details: PropTypes.shape({
+    title: PropTypes.string,
+    tagline: PropTypes.string,
+    overview: PropTypes.string,
+    backDropPath: PropTypes.string,
+    genres: PropTypes.array,
+    voteAverage: PropTypes.number
   }),
-  config: React.PropTypes.shape({
-    images: React.PropTypes.shape({
-      backdrop_sizes: React.PropTypes.array,
-      secure_base_url: React.PropTypes.string
+  config: PropTypes.shape({
+    images: PropTypes.shape({
+      backdrop_sizes: PropTypes.array,
+      secure_base_url: PropTypes.string
     })
   })
 };

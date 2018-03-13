@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Classnames from 'classnames';
 import { Link } from 'react-router-dom';
 import Styles from '../../css/genres.pcss';
@@ -20,8 +21,8 @@ const GenreList = (props) => {
 };
 
 GenreList.propTypes = {
-  genres: React.PropTypes.arrayOf(React.PropTypes.object),
-  compact: React.PropTypes.bool,
+  genres: PropTypes.arrayOf(PropTypes.object),
+  compact: PropTypes.bool,
 };
 
 GenreList.defaultProps = {

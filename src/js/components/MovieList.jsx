@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import { connect } from "react-redux";
 
 import { Link } from "react-router-dom";
@@ -29,11 +30,11 @@ const MovieList = ({
 };
 
 MovieList.propTypes = {
-  movies: React.PropTypes.arrayOf(React.PropTypes.object),
-  config: React.PropTypes.shape({
-    images: React.PropTypes.shape({
-      backdrop_sizes: React.PropTypes.array,
-      secure_base_url: React.PropTypes.string
+  movies: PropTypes.arrayOf(PropTypes.object),
+  config: PropTypes.shape({
+    images: PropTypes.shape({
+      backdrop_sizes: PropTypes.array,
+      secure_base_url: PropTypes.string
     })
   })
 };
