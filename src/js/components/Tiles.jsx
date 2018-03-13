@@ -23,7 +23,7 @@ const Tiles = ({
           <div
             className={[
               Styles.gradientOverlay,
-              `gradient-genre-${genre}`
+              `gradient-genre-${genre ? genre : 'all'}`
             ].join(" ")}
           />
           <MovieImage
