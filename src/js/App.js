@@ -34,6 +34,7 @@ class App extends React.Component {
 
   render() {
     const { location, history } = this.props;
+    console.log(this.props);
     return (
       <div>
         <Header />
@@ -57,7 +58,7 @@ class App extends React.Component {
                   <MovieFullView {...props} key={props.match.params.id} />
                 )}
               />
-              <Route path="/genres/:id" component={GenresPage} />
+              <Route path="/genres" component={GenresPage} />
               <Route component={NotFound} />
             </Switch>
           </CSSTransition>

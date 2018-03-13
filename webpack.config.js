@@ -19,7 +19,7 @@ module.exports = (env, argv) => {
     },
     output: {
       path: BUILD_DIR,
-      publicPath: BUILD_DIR,
+      publicPath: "/",
       filename: "[name].js",
       chunkFilename: "[name].js"
     },
@@ -103,11 +103,9 @@ module.exports = (env, argv) => {
     },
     devServer: {
       inline: true,
-      publicPath: BUILD_DIR,
       historyApiFallback: {
         index: "index.html"
       },
-      //compress: true,
       contentBase: BUILD_DIR
     }
   };
