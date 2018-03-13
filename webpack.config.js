@@ -3,7 +3,7 @@ const webpack = require("webpack");
 const { getIfUtils, removeEmpty } = require("webpack-config-utils");
 const Dotenv = require("dotenv-webpack");
 const compressionPlugin = require("compression-webpack-plugin");
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
 
 let BUILD_DIR = path.resolve(__dirname, "public");
@@ -19,6 +19,7 @@ module.exports = (env, argv) => {
     },
     output: {
       path: BUILD_DIR,
+      publicPath: BUILD_DIR,
       filename: "[name].js",
       chunkFilename: "[name].js"
     },
@@ -36,7 +37,7 @@ module.exports = (env, argv) => {
     plugins: removeEmpty([
       new Dotenv({ systemvars: true }),
       new HtmlWebpackPlugin({
-        template: 'index.ejs',
+        template: "index.ejs",
         minify: {
           collapseWhitespace: true,
           collapseInlineTagWhitespace: true,
@@ -102,11 +103,12 @@ module.exports = (env, argv) => {
     },
     devServer: {
       inline: true,
+      publicPath: BUILD_DIR,
       historyApiFallback: {
         index: "index.html"
       },
       //compress: true,
-      contentBase: "./public"
+      contentBase: BUILD_DIR
     }
   };
 };
