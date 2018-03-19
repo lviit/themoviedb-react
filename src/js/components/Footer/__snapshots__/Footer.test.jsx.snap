@@ -1,0 +1,123 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Footer />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <img
+          alt=""
+          className="logo"
+          src="test-file-stub"
+        />,
+        <a
+          href="https://github.com/lviit/themoviedb-react/"
+        >
+          https://github.com/lviit/themoviedb-react/
+        </a>,
+      ],
+      "className": "footer",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "alt": "",
+          "className": "logo",
+          "src": "test-file-stub",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "img",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "https://github.com/lviit/themoviedb-react/",
+          "href": "https://github.com/lviit/themoviedb-react/",
+        },
+        "ref": null,
+        "rendered": "https://github.com/lviit/themoviedb-react/",
+        "type": "a",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <img
+            alt=""
+            className="logo"
+            src="test-file-stub"
+          />,
+          <a
+            href="https://github.com/lviit/themoviedb-react/"
+          >
+            https://github.com/lviit/themoviedb-react/
+          </a>,
+        ],
+        "className": "footer",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "alt": "",
+            "className": "logo",
+            "src": "test-file-stub",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "img",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "https://github.com/lviit/themoviedb-react/",
+            "href": "https://github.com/lviit/themoviedb-react/",
+          },
+          "ref": null,
+          "rendered": "https://github.com/lviit/themoviedb-react/",
+          "type": "a",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
