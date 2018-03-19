@@ -11,6 +11,7 @@ install:
 - yarn install
 script:
 - yarn build:prod
+- yarn test
 deploy:
   provider: heroku
   api_key:
