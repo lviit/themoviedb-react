@@ -64,9 +64,6 @@ module.exports = (env, argv) => {
           test: /.jsx?$/,
           loader: "babel-loader",
           include: APP_DIR,
-          query: {
-            presets: ["es2015", "react", "stage-3"]
-          }
         },
         {
           test: /\.pcss$/,
