@@ -11,15 +11,13 @@ import MovieFullView from "./MovieFullView";
 import GenresPage from "./components/GenresPage";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+
 import "../css/global.pcss";
 import "../css/layout.pcss";
 import "../css/mixins.pcss";
+import Readme from "../../README.md";
 
-const About = () => (
-  <h1>
-    This product uses the TMDb API but is not endorsed or certified by TMDb.
-  </h1>
-);
+const About = () => <div className="container readme" dangerouslySetInnerHTML={{ __html: Readme }} />;
 const NotFound = () => <h1>404.. Whoops, page not found!</h1>;
 
 class App extends React.Component {
