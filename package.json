@@ -66,24 +66,17 @@
     "webpack-dev-server": "^3.1.1"
   },
   "jest": {
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx}"
-    ],
+    "collectCoverageFrom": ["src/**/*.{js,jsx}"],
     "testEnvironment": "node",
     "testURL": "http://localhost",
-    "modulePaths": [
-      "<rootDir>/src"
+    "setupFiles": [
+      "<rootDir>/test/enzyme-setup.js"
     ],
-    "moduleFileExtensions": [
-      "web.js",
-      "js",
-      "json",
-      "web.jsx",
-      "jsx"
-    ],
+    "modulePaths": ["<rootDir>/src"],
+    "moduleFileExtensions": ["web.js", "js", "json", "web.jsx", "jsx"],
     "moduleNameMapper": {
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$":
-        "<rootDir>/__mocks__/fileMock.js",
+        "<rootDir>/test/fileMock.js",
       "\\.(css|pcss)$": "identity-obj-proxy"
     }
   }
