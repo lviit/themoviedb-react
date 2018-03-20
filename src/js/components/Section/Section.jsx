@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import Classnames from "classnames";
-import Styles from "../../css/section.pcss";
+import Styles from "./Section.pcss";
 
 const Section = ({ title, dark, children }) => {
   const classes = Classnames({

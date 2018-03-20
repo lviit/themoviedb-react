@@ -2,9 +2,9 @@ import React from "react";
 import PropTypes from 'prop-types';
 import { connect } from "react-redux";
 
-import apiConnect from "../services/ApiConnect";
-import Tiles from "./Tiles";
-import { mapDispachToProps } from "../redux/Store";
+import apiConnect from "../../services/ApiConnect";
+import Tiles from "../Tiles";
+import { mapDispachToProps } from "../../redux/Store";
 
 class MoviesByGenre extends React.Component {
   constructor() {

@@ -2,10 +2,10 @@ import React from "react";
 import PropTypes from 'prop-types';
 import { connect } from "react-redux";
 
-import Styles from "../../css/MovieFull.pcss";
-import GenreList from "./GenreList";
-import Details from "./Details";
-import MovieImage from "./MovieImage";
+import Styles from "./MovieFull.pcss";
+import GenreList from "../GenreList";
+import Details from "../Details";
+import MovieImage from "../MovieImage";
 
 class FullView extends React.Component {
   constructor() {

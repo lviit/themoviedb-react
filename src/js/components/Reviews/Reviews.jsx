@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from 'prop-types';
 import { connect } from "react-redux";
 
-import Styles from "../../css/reviews.pcss";
+import Styles from "./Reviews.pcss";
 
 const Reviews = ({ reviews = [] }) => {
   const reviewsList = reviews.slice(0, 3).map(review => (

@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import { connect } from "react-redux";
 
 import { Link } from "react-router-dom";
-import Styles from "../../css/MovieList.pcss";
-import WithScrollReveal from "./WithScrollReveal";
-import MovieImage from "./MovieImage";
+import Styles from "./MovieList.pcss";
+import WithScrollReveal from "../WithScrollReveal";
+import MovieImage from "../MovieImage";
 
 const MovieList = ({
   movies,

@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from 'prop-types';
 import { connect } from "react-redux";
 
-import Styles from "../../css/details.pcss";
+import Styles from "./Details.pcss";
 
 const Details = ({
   releaseDate = "",

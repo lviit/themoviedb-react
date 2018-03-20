@@ -4,9 +4,9 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import Slider from "react-slick";
 
-import MovieImage from "./MovieImage";
-import Styles from "../../css/Hero.pcss";
-import "../../css/slick.pcss";
+import MovieImage from "../MovieImage";
+import Styles from "./Hero.pcss";
+import "./slick.pcss";
 
 const HeroPrevArrow = props => (
   <i {...props} className="slick-arrow slick-prev material-icons">
