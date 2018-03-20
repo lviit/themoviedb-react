@@ -14,7 +14,6 @@ import Footer from "./components/Footer";
 
 import "../css/global.pcss";
 import "../css/layout.pcss";
-import "../css/mixins.pcss";
 import Readme from "../../README.md";
 
 const About = () => <div className="container readme" dangerouslySetInnerHTML={{ __html: Readme }} />;

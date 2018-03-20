@@ -1,5 +1,4 @@
 @import "../../../css/colors.pcss";
-@import "../../../css/mixins.pcss";
 
 .searchbox {
   position: absolute;
@@ -22,7 +21,8 @@
 }
 
 .resultcontainer {
-  @mixin scrollbar;
+  composes: scrollbar from "../../../css/scrollbar.pcss";
+
   background: #fff;
   position: absolute;
   width: 100%;

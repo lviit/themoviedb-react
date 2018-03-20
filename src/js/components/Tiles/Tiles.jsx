@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
-import WithScrollReveal from "./WithScrollReveal";
-import MovieImage from "./MovieImage";
-import Styles from "../../css/Tiles.pcss";
+import WithScrollReveal from "../WithScrollReveal";
+import MovieImage from "../MovieImage";
+import Styles from "./Tiles.pcss";
 
 const Tiles = ({
   movies = [],

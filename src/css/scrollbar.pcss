@@ -1,0 +1,22 @@
+@import "./colors.pcss";
+
+.scrollbar {
+  overflow-y: scroll;
+
+  // For Internet Explorer
+  scrollbar-face-color: var(--bgaltlight);
+  scrollbar-track-color: var(--greylight);
+}
+
+.scrollbar::-webkit-scrollbar {
+  width: 0.7em;
+  height: 0.7em;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  background: var(--bgaltlight);
+}
+
+.scrollbar::-webkit-scrollbar-track {
+  background: var(--greylight);
+}
