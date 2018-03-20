@@ -4,6 +4,7 @@ const { getIfUtils, removeEmpty } = require("webpack-config-utils");
 const Dotenv = require("dotenv-webpack");
 const compressionPlugin = require("compression-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 const path = require("path");
 
 let BUILD_DIR = path.resolve(__dirname, "public");
@@ -35,6 +36,7 @@ module.exports = (env, argv) => {
       }
     },
     plugins: removeEmpty([
+      new CaseSensitivePathsPlugin(),
       new Dotenv({ systemvars: true }),
       new HtmlWebpackPlugin({
         template: "index.ejs",
@@ -63,7 +65,7 @@ module.exports = (env, argv) => {
         {
           test: /.jsx?$/,
           loader: "babel-loader",
-          include: APP_DIR,
+          include: APP_DIR
         },
         {
           test: /\.pcss$/,

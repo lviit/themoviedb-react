@@ -1,3 +1,3 @@
-import Genrelist from './Genrelist';
+import GenreList from './GenreList';
 
-export default Genrelist;
+export default GenreList;
