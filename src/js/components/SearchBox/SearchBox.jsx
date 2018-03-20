@@ -5,9 +5,9 @@ import Classnames from 'classnames';
 import { debounce } from 'throttle-debounce';
 import enhanceWithClickOutside from 'react-click-outside';
 
-import SearchResults from './SearchResults';
-import apiConnect from '../services/ApiConnect';
-import Styles from '../../css/SearchBox.pcss';
+import SearchResults from '../SearchResults';
+import apiConnect from '../../services/ApiConnect';
+import Styles from './SearchBox.pcss';
 
 class SearchBox extends React.Component {
   constructor() {

@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import { Link } from "react-router-dom";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
-import Styles from "../../css/SearchResults.pcss";
-import GenreList from "./GenreList";
-import MovieImage from "./MovieImage";
+import Styles from "./SearchResults.pcss";
+import GenreList from "../GenreList";
+import MovieImage from "../MovieImage";
 
 const SearchResults = props => {
   const results = props.searchResults.results.map(result => {

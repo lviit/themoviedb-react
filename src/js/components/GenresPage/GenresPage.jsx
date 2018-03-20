@@ -2,8 +2,8 @@ import React from "react";
 import { connect } from "react-redux";
 import { Route } from "react-router-dom";
 
-import GenreList from "./GenreList";
-import MoviesByGenre from "./MoviesByGenre";
+import GenreList from "../GenreList";
+import MoviesByGenre from "../MoviesByGenre";
 
 const GenresPage = ({ genres }) => (
   <div className="page">

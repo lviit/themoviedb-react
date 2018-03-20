@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Classnames from 'classnames';
 import { Link } from 'react-router-dom';
-import Styles from '../../css/genres.pcss';
+import Styles from './GenreList.pcss';
 
 const GenreList = (props) => {
   const genres = props.genres.map(genre =>
