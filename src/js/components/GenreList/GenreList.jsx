@@ -1,33 +1,43 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Classnames from 'classnames';
-import { Link } from 'react-router-dom';
-import Styles from './GenreList.pcss';
+import React from "react";
+import PropTypes from "prop-types";
+import Classnames from "classnames";
+import { Link } from "react-router-dom";
+import Styles from "./GenreList.pcss";
 
-const GenreList = (props) => {
-  const genres = props.genres.map(genre =>
-    <Link className={`${Styles.genre} genre-${genre.id}`} key={genre.id} to={`/genres/${genre.id}`}>{genre.name}</Link>);
+const GenreList = ({ genres, compact }) => {
+  const genreList = genres.map(
+    genre =>
+      compact ? (
+        <span className={`${Styles.genre} genre-${genre.id}`} key={genre.id}>
+          {genre.name}
+        </span>
+      ) : (
+        <Link
+          className={`${Styles.genre} genre-${genre.id}`}
+          key={genre.id}
+          to={`/genres/${genre.id}`}
+        >
+          {genre.name}
+        </Link>
+      )
+  );
 
   const containerClasses = Classnames({
     [Styles.container]: true,
-    [Styles.compact]: props.compact,
+    [Styles.compact]: compact
   });
 
-  return (
-    <div className={containerClasses}>
-      {genres}
-    </div>
-  );
+  return <div className={containerClasses}>{genreList}</div>;
 };
 
 GenreList.propTypes = {
   genres: PropTypes.arrayOf(PropTypes.object),
-  compact: PropTypes.bool,
+  compact: PropTypes.bool
 };
 
 GenreList.defaultProps = {
   genres: [],
-  compact: false,
+  compact: false
 };
 
 export default GenreList;
