@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
@@ -19,7 +19,16 @@ const SearchResults = props => {
     });
 
     return (
-      <CSSTransition key={result.id} timeout={300}>
+      <CSSTransition
+        key={result.id}
+        classNames={{
+          enter: Styles.enter,
+          enterActive: Styles.enterActive,
+          exit: Styles.exit,
+          exitActive: Styles.exitActive
+        }}
+        timeout={300}
+      >
         <Link
           to={path}
           className={Styles.result}

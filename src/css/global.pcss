@@ -2,10 +2,6 @@
 @import url("https://fonts.googleapis.com/css?family=Fira+Sans:200,300,400,300i,500,600,700");
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
-
-@custom-media --mobile (width <= 768px);
-@custom-media --desktop (width > 768px);
-
 :global html {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -96,93 +92,4 @@
 
 :global .readme h2 {
   margin: 20px 0;
-}
-
-:global .page-wrapper {
-  width: 100%;
-  position: relative;
-}
-
-:global .page {
-  position: absolute;
-  width: 100vw;
-  height: 100vh;
-}
-
-@media (--desktop) {
-  :global .page {
-    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
-  }
-
-  :global .transition-forward-enter,
-  :global .transition-back-enter {
-    transform: translateY(-30px);
-    opacity: 0;
-  }
-
-  :global .transition-forward-enter-active,
-  :global .transition-back-enter-active {
-    transform: translateY(0);
-    opacity: 1;
-  }
-
-  :global .transition-forward-exit,
-  :global .transition-back-exit {
-    transform: translateY(0);
-    opacity: 1;
-  }
-
-  :global .transition-forward-exit-active,
-  :global .transition-back-exit-active {
-    transform: translateY(30px);
-    opacity: 0;
-  }
-}
-
-@media (--mobile) {
-  :global body {
-    overflow: hidden;
-  }
-
-  :global .page {
-    transition: transform 0.3s cubic-bezier(0.15, 1, 0.33, 1);
-    width: 100vw;
-    height: 100vh;
-    overflow-y: scroll;
-    position: absolute;
-  }
-
-  :global .transition-forward-enter {
-    transform: translateX(100%);
-  }
-
-  :global .transition-forward-enter-active {
-    transform: translateX(0);
-  }
-
-  :global .transition-forward-exit {
-    transform: translateX(0);
-    overflow-y: hidden;
-  }
-
-  :global .transition-forward-exit-active {
-    transform: translateX(-100%);
-  }
-
-  :global .transition-back-enter {
-    transform: translateX(-100%);
-  }
-
-  :global .transition-back-enter-active {
-    transform: translateX(0);
-  }
-
-  :global .transition-back-exit {
-    transform: translateX(0);
-    overflow-y: hidden;
-  }
-
-  :global .transition-back-exit-active {
-    transform: translateX(100%);
-  }
 }

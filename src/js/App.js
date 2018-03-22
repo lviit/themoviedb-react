@@ -13,10 +13,15 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 
 import "../css/global.pcss";
-import "../css/layout.pcss";
+import Styles from "../css/layout.pcss";
 import Readme from "../../README.md";
 
-const About = () => <div className="container readme" dangerouslySetInnerHTML={{ __html: Readme }} />;
+const About = () => (
+  <div
+    className="container readme"
+    dangerouslySetInnerHTML={{ __html: Readme }}
+  />
+);
 const NotFound = () => <h1>404.. Whoops, page not found!</h1>;
 
 class App extends React.Component {
@@ -41,8 +46,18 @@ class App extends React.Component {
             key={location.key}
             classNames={
               history.action === "POP"
-                ? "transition-back"
-                : "transition-forward"
+                ? {
+                    enter: Styles.transitionBackEnter,
+                    enterActive: Styles.transitionBackEnterActive,
+                    exit: Styles.transitionBackExit,
+                    exitActive: Styles.transitionBackExitActive
+                  }
+                : {
+                    enter: Styles.transitionForwardEnter,
+                    enterActive: Styles.transitionForwardEnterActive,
+                    exit: Styles.transitionForwardExit,
+                    exitActive: Styles.transitionForwardExitActive
+                  }
             }
             timeout={300}
           >

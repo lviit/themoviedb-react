@@ -1,5 +1,8 @@
 @import "./colors.pcss";
 
+@custom-media --mobile (width <= 768px);
+@custom-media --desktop (width > 768px);
+
 :global body {
   background: var(--bgcolor);
   margin: 50px 0 0 0;
@@ -34,18 +37,114 @@
   margin: 0 auto;
 }
 
-:global .pageSlider-enter {
-  transform: translateX(100%);
+:global .page-wrapper {
+  width: 100%;
+  position: relative;
 }
 
-:global .pageSlider-enter.pageSlider-enter-active {
-  transform: translateX(0);
+:global .page {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
 }
 
-:global .pageSlider-leave {
-  transform: translateX(0);
+@media (--desktop) {
+  :global .page {
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  }
+
+  .transitionForwardEnter,
+  .transitionBackEnter {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+
+  .transitionForwardEnterActive,
+  .transitionBackEnterActive {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .transitionForwardExit,
+  .transitionBackExit {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .transitionForwardExitActive,
+  .transitionBackExitActive {
+    transform: translateY(30px);
+    opacity: 0;
+  }
 }
 
-:global .pageSlider-leave.pageSlider-leave-active {
-  transform: translateX(-100%);
+@media (--mobile) {
+  :global body {
+    overflow: hidden;
+  }
+
+  :global .page {
+    transition: transform 0.3s cubic-bezier(0.15, 1, 0.33, 1);
+    width: 100vw;
+    height: 100vh;
+    overflow-y: scroll;
+    position: absolute;
+  }
+
+  .transitionForwardEnter {
+    transform: translateX(100%);
+  }
+
+  .transitionForwardEnterActive {
+    transform: translateX(0);
+  }
+
+  .transitionForwardExit {
+    transform: translateX(0);
+    overflow-y: hidden;
+  }
+
+  .transitionForwardExitActive {
+    transform: translateX(-100%);
+  }
+
+  .transitionBackEnter {
+    transform: translateX(-100%);
+  }
+
+  .transitionBackEnterActive {
+    transform: translateX(0);
+  }
+
+  .transitionBackExit {
+    transform: translateX(0);
+    overflow-y: hidden;
+  }
+
+  .transitionBackExitActive {
+    transform: translateX(100%);
+  }
+}
+
+@each $genre in all, 28, 12, 16, 35, 80, 99, 18, 10751, 14, 36, 27, 10402, 9648,
+  10749, 878, 10770, 53, 10752, 37
+{
+  :global .genre-$(genre) {
+    background-color: var(--color-genre-$(genre));
+  }
+  :global .gradient-genre-$(genre) {
+    background: linear-gradient(
+        135deg,
+        color(var(--color-genre-$(genre)) alpha(40%)) 0,
+        transparent 50%,
+        transparent 100%
+      ),
+      linear-gradient(
+        45deg,
+        transparent 0,
+        transparent 50%,
+        color(var(--color-genre-$(genre)) alpha(20%)) 100%
+      ),
+      linear-gradient(transparent 5%, rgba(0, 0, 0, 0.8) 100%);
+  }
 }
