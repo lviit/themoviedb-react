@@ -2,7 +2,7 @@ import React from "react";
 import { shallow } from "enzyme";
 import Reviews from "./Reviews";
 import { getReviews } from "../../redux/Actions";
-//import { defaultState } from "../../redux/Store";
+import DefaultState from "../../redux/DefaultState";
 import { baseUrl } from "../../services/ApiConnect";
 import configureStore from "redux-mock-store";
 import nock from "nock";
@@ -46,34 +46,7 @@ const request = nock(baseUrl)
   .reply(200, response);
 
 describe("reviews", () => {
-  // @TODO: get initial state
-  const store = mockStore({
-    config: {
-      images: {}
-    },
-    movies: {
-      latest: []
-    },
-    genres: [],
-    movieFullView: {
-      details: {
-        data: [],
-        isLoading: false
-      },
-      similarMovies: {
-        data: [],
-        isLoading: false
-      },
-      reviews: {
-        data: [],
-        isLoading: false
-      },
-      credits: {
-        data: [],
-        isLoading: false
-      }
-    }
-  });
+  const store = mockStore(DefaultState);
 
   it("should dispatch correct actions", async () => {  
     await store.dispatch(getReviews(123));

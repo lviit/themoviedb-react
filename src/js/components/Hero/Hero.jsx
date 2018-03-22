@@ -1,20 +1,20 @@
 import React from "react";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import Slider from "react-slick";
 
 import MovieImage from "../MovieImage";
 import Styles from "./Hero.pcss";
-import "./slick.pcss";
+import "../../../css/slick.pcss";
 
 const HeroPrevArrow = props => (
-  <i {...props} className="slick-arrow slick-prev material-icons">
+  <i onClick={props.onClick} className="slick-arrow slick-prev material-icons">
     chevron_left
   </i>
 );
 const HeroNextArrow = props => (
-  <i {...props} className="slick-arrow slick-next material-icons">
+  <i onClick={props.onClick} className="slick-arrow slick-next material-icons">
     chevron_right
   </i>
 );
@@ -44,9 +44,7 @@ const Hero = ({
         <div className={Styles.info}>
           <h2 className={Styles.title}>{movie.title}</h2>
           <p className={Styles.overview}>
-            <div className={Styles.overview}>
-              {`${movie.overview.substr(0, 150)}...`}
-            </div>
+            {`${movie.overview.substr(0, 150)}...`}
           </p>
           <Link className={Styles.link} to={`/movie/${movie.id}`}>
             Read more
@@ -66,9 +64,7 @@ const Hero = ({
 };
 
 Hero.propTypes = {
-  movies: PropTypes.shape({
-    results: PropTypes.array
-  }),
+  movies: PropTypes.array,
   config: PropTypes.shape({
     images: PropTypes.shape({
       backdrop_sizes: PropTypes.array,

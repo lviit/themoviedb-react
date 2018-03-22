@@ -8,9 +8,6 @@ import MovieList from "./components/MovieList";
 class Front extends React.Component {
   constructor() {
     super();
-    this.state = {
-      movies: []
-    };
   }
 
   componentWillMount() {
@@ -32,7 +29,6 @@ class Front extends React.Component {
 const mapStateToProps = (state, ownProps) => {
   return {
     ...ownProps,
-    config: state.config,
     latestMovies: state.movies.latest
   };
 };
