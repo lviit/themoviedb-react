@@ -1,24 +1,28 @@
-@import "../../../css/colors.pcss";
+@import "../../../css/variables.pcss";
 
 .container {
   width: 100%;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .genre {
-  background: #000;
-  color: #fff;
-  display: inline-block;
-  padding: 0.5em 1em;
-  line-height: 1em;
   font-weight: 400;
   margin: 0 0.5em 0.5em 0;
-  border-radius: 20px;
-  border: 0;
-  font-size: inherit;
-  font-family: inherit;
-  outline: none;
   cursor: pointer;
+}
+
+.link {
+  color: #fff;
   text-decoration: none;
+  display: flex;
+  font-size: 12px;
+  padding: 0.5em 1em;
+
+  @media (--desktop) {
+    font-size: 18px;
+  }
 }
 
 .compact {

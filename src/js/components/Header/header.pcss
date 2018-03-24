@@ -1,4 +1,4 @@
-@import "../../../css/colors.pcss";
+@import "../../../css/variables.pcss";
 
 .header {
   position: fixed;
@@ -11,8 +11,13 @@
 .navigation {
   display: flex;
   justify-content: space-between;
-  line-height: 50px;
-  font-size: 28px;
+  line-height: 40px;
+  font-size: 16px;
+
+  @media (--desktop) {
+    font-size: 28px !important;
+    line-height: 50px;
+  }
 }
 
 .menu {
@@ -43,5 +48,9 @@
   border: none;
   outline: none;
   color: #fff;
-  font-size: 28px !important;
+  font-size: 20px !important;
+
+  @media (--desktop) {
+    font-size: 28px !important;
+  }
 }

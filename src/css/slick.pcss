@@ -1,3 +1,5 @@
+@import "./variables.pcss";
+
 :global .slick-active .container > div {
   transform: translateX(0);
   opacity: 1;
@@ -8,7 +10,11 @@
   z-index: 999;
   top: 40%;
   cursor: pointer;
-  font-size: 80px !important;
+  font-size: 50px !important;
+
+  @media (--desktop) {
+    font-size: 80px !important;
+  }
 }
 
 :global .slick-prev {
@@ -22,8 +28,13 @@
 :global .slick-dots {
   text-align: center;
   position: absolute;
+  display: none !important;
   bottom: 1em;
   width: 100%;
+
+  @media (--desktop) {
+    display: block;
+  }
 }
 
 :global .slick-dots li {

@@ -1,17 +1,15 @@
-@import "./colors.pcss";
-
-@custom-media --mobile (width <= 768px);
-@custom-media --desktop (width > 768px);
+@import "./variables.pcss";
 
 :global body {
-  background: var(--bgcolor);
+  /* background: var(--bgcolor); */
+  background: #f4f7f6;
   margin: 50px 0 0 0;
 }
 
 :global .container {
   max-width: 60em;
   margin: 0 auto;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 :global .container-large {
@@ -146,5 +144,21 @@
         color(var(--color-genre-$(genre)) alpha(20%)) 100%
       ),
       linear-gradient(transparent 5%, rgba(0, 0, 0, 0.8) 100%);
+  }
+
+  :global .gradient-genre-$(genre)--light {
+    background: linear-gradient(
+        135deg,
+        color(var(--color-genre-$(genre)) alpha(40%)) 0,
+        transparent 50%,
+        transparent 100%
+      ),
+      linear-gradient(
+        45deg,
+        transparent 0,
+        transparent 50%,
+        color(var(--color-genre-$(genre)) alpha(20%)) 100%
+      ),
+      linear-gradient(transparent 5%, rgba(0, 0, 0, 0.3) 100%);
   }
 }

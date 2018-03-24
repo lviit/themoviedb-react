@@ -12,13 +12,15 @@ const GenreList = ({ genres, compact }) => {
           {genre.name}
         </span>
       ) : (
-        <Link
-          className={`${Styles.genre} genre-${genre.id}`}
-          key={genre.id}
-          to={`/genres/${genre.id}`}
-        >
-          {genre.name}
-        </Link>
+        <div className={`${Styles.genre} genre-${genre.id}`}>
+          <Link
+            className={`${Styles.link} gradient-genre-${genre.id}--light`}
+            key={genre.id}
+            to={`/genres/${genre.id}`}
+          >
+            {genre.name}
+          </Link>
+        </div>
       )
   );
 

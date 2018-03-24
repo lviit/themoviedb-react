@@ -1,8 +1,14 @@
+@import "../../../css/variables.pcss";
+
 .container {
   display: grid;
   grid-auto-flow: dense;
-  grid-template-columns: 33% 33% 33%;
+  grid-template-columns: 50% 50%;
   grid-template-rows: auto;
+
+  @media (--desktop) {
+    grid-template-columns: 33% 33% 33%;
+  }
 }
 
 .small {
@@ -49,29 +55,53 @@
   position: absolute;
   z-index: 2;
   bottom: 0;
-  padding: 20px;
+  padding: 10px;
   color: #fff;
   text-shadow: 0 0 15px #000;
+
+  @media (--desktop) {
+    padding: 20px;
+  }
 }
 
 .info__big {
-  padding: 40px;
+  padding: 20px;
+
+  @media (--desktop) {
+    padding: 40px;
+  }
 }
 
 .title__big {
   padding: 0.2em 0;
-  font-size: 45px;
+  font-size: 24px;
+
+  @media (--desktop) {
+    font-size: 45px;
+  }
 }
 
 .title {
   padding: 0.2em 0;
-  font-size: 30px;
+  font-size: 16px;
+
+  @media (--desktop) {
+    font-size: 30px;
+  }
 }
 
 .overview__big {
-  font-size: 18px;
+  font-size: 12px;
+
+  @media (--desktop) {
+    font-size: 18px;
+  }
 }
 
 .overview {
-  font-size: 16px;
+  font-size: 0;
+
+  @media (--desktop) {
+    font-size: 16px;
+  }
 }

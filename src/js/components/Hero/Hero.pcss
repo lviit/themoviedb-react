@@ -1,37 +1,57 @@
-.container {
-	position: relative;
-	overflow: hidden;
-	margin-bottom: 4em;
-	color: white;
-	max-height: 40em;
+@import "../../../css/variables.pcss";
 
-	a {
-		color: white;
-	}
+.container {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 4em;
+  color: white;
+  max-height: 40em;
+
+  a {
+    color: white;
+  }
 }
 
 .title {
-	font-size: 60px;
+  font-size: 28px;
+
+  @media (--desktop) {
+    font-size: 60px;
+  }
 }
 
 .overview {
-	font-size: 18px;
-	margin-bottom: 1em;
+  font-size: 14px;
+  margin-bottom: 1em;
+
+  @media (--desktop) {
+    font-size: 18px;
+  }
 }
 
 .link {
-	font-size: 18px;
+  font-size: 14px;
+	color: white;
+
+  @media (--desktop) {
+    font-size: 18px;
+  }
 }
 
 .info {
-	z-index: 1;
-	transition: opacity 0.5s, transform 0.3s ease-in-out;
-	transition-delay: 0.5s;
-	transform: translateX(-50px);
-	position: absolute;
-	opacity: 0;
-	bottom: 10%;
-	width: 30em;
-	padding: 2em;
-	background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  position: absolute;
+  opacity: 0;
+  bottom: 0;
+  padding: 1em;
+  background: rgba(0, 0, 0, 0.5);
+
+  @media (--desktop) {
+    padding: 2em;
+    width: 30em;
+    transform: translateX(-50px);
+    transition: opacity 0.5s, transform 0.3s ease-in-out;
+    transition-delay: 0.5s;
+    bottom: 10%;
+  }
 }
