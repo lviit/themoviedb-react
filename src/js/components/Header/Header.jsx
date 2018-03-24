@@ -24,10 +24,10 @@ class Header extends React.Component {
             <button className={`${Styles.button} material-icons`} onClick={this.props.history.goBack}>arrow_back</button>
             <ul className={Styles.menu}>
               <li className={Styles.menuitem}>
-                <NavLink className={Styles.menulink} activeClassName={Styles.active} to="/">Latest</NavLink>
+                <NavLink exact className={Styles.menulink} activeClassName={Styles.active} to="/">Latest</NavLink>
               </li>
               <li className={Styles.menuitem}>
-                <NavLink className={Styles.menulink} activeClassName={Styles.active} to="/genres/all">Genres</NavLink>
+                <NavLink className={Styles.menulink} activeClassName={Styles.active} to="/genres">Genres</NavLink>
               </li>
               <li className={Styles.menuitem}>
                 <NavLink className={Styles.menulink} activeClassName={Styles.active} to="/about">About</NavLink>

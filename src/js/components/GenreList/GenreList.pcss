@@ -10,6 +10,7 @@
 .genre {
   font-weight: 400;
   margin: 0 0.5em 0.5em 0;
+  position: relative;
   cursor: pointer;
   color: white;
 }
@@ -20,10 +21,27 @@
   display: flex;
   font-size: 12px;
   padding: 0.5em 1em;
+  position: relative;
+  z-index: 2;
 
   @media (--desktop) {
     font-size: 18px;
   }
+}
+
+.genre:hover .gradientBg {
+  opacity: 0;
+}
+
+.gradientBg {
+  content: "";
+  z-index: 1;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  height: 100%;
+  transition: opacity 1s cubic-bezier(0.15, 1, 0.33, 1);
 }
 
 .compact {

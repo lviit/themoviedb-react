@@ -23,8 +23,9 @@ class MoviesByGenre extends React.Component {
   }
 
   render() {
+    console.log(this.props.match.params.id.length);
     const activeGenre =
-      this.props.match.params.id === "all" || this.props.genres.length === 0
+      this.props.match.params.id === "" || this.props.genres.length === 0
         ? "Browse by genre"
         : this.props.genres.filter(
             genre => genre.id == this.props.match.params.id

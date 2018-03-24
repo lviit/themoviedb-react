@@ -11,17 +11,12 @@ import MovieFullView from "./MovieFullView";
 import GenresPage from "./components/GenresPage";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import AboutPage from "./components/AboutPage";
 
 import "../css/global.pcss";
+import "../css/genreColors.pcss";
 import Styles from "../css/layout.pcss";
-import Readme from "../../README.md";
 
-const About = () => (
-  <div
-    className={Styles.readme}
-    dangerouslySetInnerHTML={{ __html: Readme }}
-  />
-);
 const NotFound = () => <h1>404.. Whoops, page not found!</h1>;
 
 class App extends React.Component {
@@ -36,7 +31,6 @@ class App extends React.Component {
 
   render() {
     const { location, history } = this.props;
-    console.log(this.props);
     return (
       <div>
         <Header />
@@ -63,7 +57,7 @@ class App extends React.Component {
           >
             <Switch location={location}>
               <Route exact path="/" component={FrontPage} />
-              <Route exact path="/about" component={About} />
+              <Route exact path="/about" component={AboutPage} />
               <Route
                 path="/movie/:id"
                 render={props => (

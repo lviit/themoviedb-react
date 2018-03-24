@@ -13,12 +13,12 @@ const GenreList = ({ genres, compact, className, ...rest }) => {
         </span>
       ) : (
         <div className={`${Styles.genre} genre-${genre.id}`} key={genre.id}>
-          <Link
-            className={`${Styles.link} gradient-genre-${genre.id}--light`}
-            to={`/genres/${genre.id}`}
-          >
+          <Link className={Styles.link} to={`/genres/${genre.id}`}>
             {genre.name}
           </Link>
+          <div
+            className={`${Styles.gradientBg} gradient-genre-${genre.id}--light`}
+          />
         </div>
       )
   );
@@ -26,7 +26,7 @@ const GenreList = ({ genres, compact, className, ...rest }) => {
   const containerClasses = Classnames({
     [Styles.container]: true,
     [Styles.compact]: compact,
-    [className]: true,
+    [className]: true
   });
 
   return <div className={containerClasses}>{genreList}</div>;
