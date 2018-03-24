@@ -42,6 +42,7 @@ ShallowWrapper {
                   activeClassName="active"
                   ariaCurrent="true"
                   className="menulink"
+                  exact={true}
                   to="/"
                 >
                   Latest
@@ -54,7 +55,7 @@ ShallowWrapper {
                   activeClassName="active"
                   ariaCurrent="true"
                   className="menulink"
-                  to="/genres/all"
+                  to="/genres"
                 >
                   Genres
                 </NavLink>
@@ -113,6 +114,7 @@ ShallowWrapper {
                   activeClassName="active"
                   ariaCurrent="true"
                   className="menulink"
+                  exact={true}
                   to="/"
                 >
                   Latest
@@ -125,7 +127,7 @@ ShallowWrapper {
                   activeClassName="active"
                   ariaCurrent="true"
                   className="menulink"
-                  to="/genres/all"
+                  to="/genres"
                 >
                   Genres
                 </NavLink>
@@ -175,6 +177,7 @@ ShallowWrapper {
                     activeClassName="active"
                     ariaCurrent="true"
                     className="menulink"
+                    exact={true}
                     to="/"
                   >
                     Latest
@@ -187,7 +190,7 @@ ShallowWrapper {
                     activeClassName="active"
                     ariaCurrent="true"
                     className="menulink"
-                    to="/genres/all"
+                    to="/genres"
                   >
                     Genres
                   </NavLink>
@@ -242,6 +245,7 @@ ShallowWrapper {
                       activeClassName="active"
                       ariaCurrent="true"
                       className="menulink"
+                      exact={true}
                       to="/"
                     >
                       Latest
@@ -254,7 +258,7 @@ ShallowWrapper {
                       activeClassName="active"
                       ariaCurrent="true"
                       className="menulink"
-                      to="/genres/all"
+                      to="/genres"
                     >
                       Genres
                     </NavLink>
@@ -285,6 +289,7 @@ ShallowWrapper {
                       activeClassName="active"
                       ariaCurrent="true"
                       className="menulink"
+                      exact={true}
                       to="/"
                     >
                       Latest
@@ -301,6 +306,7 @@ ShallowWrapper {
                       "ariaCurrent": "true",
                       "children": "Latest",
                       "className": "menulink",
+                      "exact": true,
                       "to": "/",
                     },
                     "ref": null,
@@ -318,7 +324,7 @@ ShallowWrapper {
                       activeClassName="active"
                       ariaCurrent="true"
                       className="menulink"
-                      to="/genres/all"
+                      to="/genres"
                     >
                       Genres
                     </NavLink>,
@@ -334,7 +340,7 @@ ShallowWrapper {
                       "ariaCurrent": "true",
                       "children": "Genres",
                       "className": "menulink",
-                      "to": "/genres/all",
+                      "to": "/genres",
                     },
                     "ref": null,
                     "rendered": "Genres",
@@ -440,6 +446,7 @@ ShallowWrapper {
                     activeClassName="active"
                     ariaCurrent="true"
                     className="menulink"
+                    exact={true}
                     to="/"
                   >
                     Latest
@@ -452,7 +459,7 @@ ShallowWrapper {
                     activeClassName="active"
                     ariaCurrent="true"
                     className="menulink"
-                    to="/genres/all"
+                    to="/genres"
                   >
                     Genres
                   </NavLink>
@@ -511,6 +518,7 @@ ShallowWrapper {
                     activeClassName="active"
                     ariaCurrent="true"
                     className="menulink"
+                    exact={true}
                     to="/"
                   >
                     Latest
@@ -523,7 +531,7 @@ ShallowWrapper {
                     activeClassName="active"
                     ariaCurrent="true"
                     className="menulink"
-                    to="/genres/all"
+                    to="/genres"
                   >
                     Genres
                   </NavLink>
@@ -573,6 +581,7 @@ ShallowWrapper {
                       activeClassName="active"
                       ariaCurrent="true"
                       className="menulink"
+                      exact={true}
                       to="/"
                     >
                       Latest
@@ -585,7 +594,7 @@ ShallowWrapper {
                       activeClassName="active"
                       ariaCurrent="true"
                       className="menulink"
-                      to="/genres/all"
+                      to="/genres"
                     >
                       Genres
                     </NavLink>
@@ -640,6 +649,7 @@ ShallowWrapper {
                         activeClassName="active"
                         ariaCurrent="true"
                         className="menulink"
+                        exact={true}
                         to="/"
                       >
                         Latest
@@ -652,7 +662,7 @@ ShallowWrapper {
                         activeClassName="active"
                         ariaCurrent="true"
                         className="menulink"
-                        to="/genres/all"
+                        to="/genres"
                       >
                         Genres
                       </NavLink>
@@ -683,6 +693,7 @@ ShallowWrapper {
                         activeClassName="active"
                         ariaCurrent="true"
                         className="menulink"
+                        exact={true}
                         to="/"
                       >
                         Latest
@@ -699,6 +710,7 @@ ShallowWrapper {
                         "ariaCurrent": "true",
                         "children": "Latest",
                         "className": "menulink",
+                        "exact": true,
                         "to": "/",
                       },
                       "ref": null,
@@ -716,7 +728,7 @@ ShallowWrapper {
                         activeClassName="active"
                         ariaCurrent="true"
                         className="menulink"
-                        to="/genres/all"
+                        to="/genres"
                       >
                         Genres
                       </NavLink>,
@@ -732,7 +744,7 @@ ShallowWrapper {
                         "ariaCurrent": "true",
                         "children": "Genres",
                         "className": "menulink",
-                        "to": "/genres/all",
+                        "to": "/genres",
                       },
                       "ref": null,
                       "rendered": "Genres",
