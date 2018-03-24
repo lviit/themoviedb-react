@@ -3,7 +3,11 @@
 :global body {
   /* background: var(--bgcolor); */
   background: #f4f7f6;
-  margin: 50px 0 0 0;
+  margin: 40px 0 0 0;
+
+  @media (--desktop) {
+    margin: 50px 0 0 0;
+  }
 }
 
 .container {
@@ -129,6 +133,7 @@
     transform: translateX(100%);
   }
 }
+
 .readme {
   composes: container;
 
