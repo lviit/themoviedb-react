@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
 import apiConnect from "../../services/ApiConnect";
@@ -23,13 +23,12 @@ class MoviesByGenre extends React.Component {
   }
 
   render() {
-    const activeGenre = "fuu";
-    /*
-      this.props.match.params.id === "all"
+    const activeGenre =
+      this.props.match.params.id === "all" || this.props.genres.length === 0
         ? "Browse by genre"
         : this.props.genres.filter(
             genre => genre.id == this.props.match.params.id
-          )[0].name; */
+          )[0].name;
 
     return (
       <div>

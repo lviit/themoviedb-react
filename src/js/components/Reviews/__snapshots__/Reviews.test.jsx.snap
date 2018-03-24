@@ -69,7 +69,9 @@ _Final rating:★★ - Definitely not for me, but I sort of get the appeal._",
              
             piyushgupta69
           </h3>
-          <p>
+          <p
+            className="text"
+          >
             Previous 2 parts were much better story wise, however effects are good in this part....
           </p>
         </div>,
@@ -82,7 +84,9 @@ _Final rating:★★ - Definitely not for me, but I sort of get the appeal._",
              
             amanshroff
           </h3>
-          <p>
+          <p
+            className="text"
+          >
             **The 90's Game is back and got even more adventurous !!**
 
 
@@ -98,7 +102,9 @@ When four teenagers in detention discover an old video game console with a game 
              
             Gimly
           </h3>
-          <p>
+          <p
+            className="text"
+          >
             The effects have improved (as you'd hope they would over the course of 22 years), but _Welcome to the Jungle_ didn't really do much for me. It completely lacks the charm of the original movie, but also the worldly scope of the animated series. I sat there patiently as weak joke after weak joke bounc...
           </p>
         </div>,
@@ -119,7 +125,9 @@ When four teenagers in detention discover an old video game console with a game 
                
               piyushgupta69
             </h3>,
-            <p>
+            <p
+              className="text"
+            >
               Previous 2 parts were much better story wise, however effects are good in this part....
             </p>,
           ],
@@ -151,6 +159,7 @@ When four teenagers in detention discover an old video game console with a game 
             "nodeType": "host",
             "props": Object {
               "children": "Previous 2 parts were much better story wise, however effects are good in this part....",
+              "className": "text",
             },
             "ref": null,
             "rendered": "Previous 2 parts were much better story wise, however effects are good in this part....",
@@ -171,7 +180,9 @@ When four teenagers in detention discover an old video game console with a game 
                
               amanshroff
             </h3>,
-            <p>
+            <p
+              className="text"
+            >
               **The 90's Game is back and got even more adventurous !!**
 
 
@@ -209,6 +220,7 @@ When four teenagers in detention discover an old video game console with a game 
 
 
 When four teenagers in detention discover an old video game console with a game they've never heard of, they are immediately thrust into the game's jungle setting, into the bodies of their avatars, played by Dwayne Johnson, Jack Black, ...",
+              "className": "text",
             },
             "ref": null,
             "rendered": "**The 90's Game is back and got even more adventurous !!**
@@ -232,7 +244,9 @@ When four teenagers in detention discover an old video game console with a game 
                
               Gimly
             </h3>,
-            <p>
+            <p
+              className="text"
+            >
               The effects have improved (as you'd hope they would over the course of 22 years), but _Welcome to the Jungle_ didn't really do much for me. It completely lacks the charm of the original movie, but also the worldly scope of the animated series. I sat there patiently as weak joke after weak joke bounc...
             </p>,
           ],
@@ -264,6 +278,7 @@ When four teenagers in detention discover an old video game console with a game 
             "nodeType": "host",
             "props": Object {
               "children": "The effects have improved (as you'd hope they would over the course of 22 years), but _Welcome to the Jungle_ didn't really do much for me. It completely lacks the charm of the original movie, but also the worldly scope of the animated series. I sat there patiently as weak joke after weak joke bounc...",
+              "className": "text",
             },
             "ref": null,
             "rendered": "The effects have improved (as you'd hope they would over the course of 22 years), but _Welcome to the Jungle_ didn't really do much for me. It completely lacks the charm of the original movie, but also the worldly scope of the animated series. I sat there patiently as weak joke after weak joke bounc...",
@@ -291,7 +306,9 @@ When four teenagers in detention discover an old video game console with a game 
                
               piyushgupta69
             </h3>
-            <p>
+            <p
+              className="text"
+            >
               Previous 2 parts were much better story wise, however effects are good in this part....
             </p>
           </div>,
@@ -304,7 +321,9 @@ When four teenagers in detention discover an old video game console with a game 
                
               amanshroff
             </h3>
-            <p>
+            <p
+              className="text"
+            >
               **The 90's Game is back and got even more adventurous !!**
 
 
@@ -320,7 +339,9 @@ When four teenagers in detention discover an old video game console with a game 
                
               Gimly
             </h3>
-            <p>
+            <p
+              className="text"
+            >
               The effects have improved (as you'd hope they would over the course of 22 years), but _Welcome to the Jungle_ didn't really do much for me. It completely lacks the charm of the original movie, but also the worldly scope of the animated series. I sat there patiently as weak joke after weak joke bounc...
             </p>
           </div>,
@@ -341,7 +362,9 @@ When four teenagers in detention discover an old video game console with a game 
                  
                 piyushgupta69
               </h3>,
-              <p>
+              <p
+                className="text"
+              >
                 Previous 2 parts were much better story wise, however effects are good in this part....
               </p>,
             ],
@@ -373,6 +396,7 @@ When four teenagers in detention discover an old video game console with a game 
               "nodeType": "host",
               "props": Object {
                 "children": "Previous 2 parts were much better story wise, however effects are good in this part....",
+                "className": "text",
               },
               "ref": null,
               "rendered": "Previous 2 parts were much better story wise, however effects are good in this part....",
@@ -393,7 +417,9 @@ When four teenagers in detention discover an old video game console with a game 
                  
                 amanshroff
               </h3>,
-              <p>
+              <p
+                className="text"
+              >
                 **The 90's Game is back and got even more adventurous !!**
 
 
@@ -431,6 +457,7 @@ When four teenagers in detention discover an old video game console with a game 
 
 
 When four teenagers in detention discover an old video game console with a game they've never heard of, they are immediately thrust into the game's jungle setting, into the bodies of their avatars, played by Dwayne Johnson, Jack Black, ...",
+                "className": "text",
               },
               "ref": null,
               "rendered": "**The 90's Game is back and got even more adventurous !!**
@@ -454,7 +481,9 @@ When four teenagers in detention discover an old video game console with a game 
                  
                 Gimly
               </h3>,
-              <p>
+              <p
+                className="text"
+              >
                 The effects have improved (as you'd hope they would over the course of 22 years), but _Welcome to the Jungle_ didn't really do much for me. It completely lacks the charm of the original movie, but also the worldly scope of the animated series. I sat there patiently as weak joke after weak joke bounc...
               </p>,
             ],
@@ -486,6 +515,7 @@ When four teenagers in detention discover an old video game console with a game 
               "nodeType": "host",
               "props": Object {
                 "children": "The effects have improved (as you'd hope they would over the course of 22 years), but _Welcome to the Jungle_ didn't really do much for me. It completely lacks the charm of the original movie, but also the worldly scope of the animated series. I sat there patiently as weak joke after weak joke bounc...",
+                "className": "text",
               },
               "ref": null,
               "rendered": "The effects have improved (as you'd hope they would over the course of 22 years), but _Welcome to the Jungle_ didn't really do much for me. It completely lacks the charm of the original movie, but also the worldly scope of the animated series. I sat there patiently as weak joke after weak joke bounc...",

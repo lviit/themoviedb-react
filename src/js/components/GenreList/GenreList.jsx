@@ -4,7 +4,7 @@ import Classnames from "classnames";
 import { Link } from "react-router-dom";
 import Styles from "./GenreList.pcss";
 
-const GenreList = ({ genres, compact }) => {
+const GenreList = ({ genres, compact, className, ...rest }) => {
   const genreList = genres.map(
     genre =>
       compact ? (
@@ -12,10 +12,9 @@ const GenreList = ({ genres, compact }) => {
           {genre.name}
         </span>
       ) : (
-        <div className={`${Styles.genre} genre-${genre.id}`}>
+        <div className={`${Styles.genre} genre-${genre.id}`} key={genre.id}>
           <Link
             className={`${Styles.link} gradient-genre-${genre.id}--light`}
-            key={genre.id}
             to={`/genres/${genre.id}`}
           >
             {genre.name}
@@ -26,7 +25,8 @@ const GenreList = ({ genres, compact }) => {
 
   const containerClasses = Classnames({
     [Styles.container]: true,
-    [Styles.compact]: compact
+    [Styles.compact]: compact,
+    [className]: true,
   });
 
   return <div className={containerClasses}>{genreList}</div>;

@@ -17,29 +17,48 @@
 }
 
 .infocontainer {
-  padding: 0.7em;
+  padding: 0.5em 1em 0.5em 0.5em;
   display: flex;
+  align-items: center;
   flex-wrap: wrap;
   overflow: hidden;
+
+  @media (--desktop) {
+    padding: 0.7em;
+  }
 }
 
 .title {
   font-weight: 400;
-  font-size: 16px;
+  font-size: 14px;
+  margin: 0 0.5em 0.5em 0;
+
+  @media (--desktop) {
+    font-size: 16px;
+  }
 }
 
-.date,
-.genres {
-  margin-left: 0.5em;
+.date {
+  margin-right: 0.5em;
+  font-size: 12px;
+
+  @media (--desktop) {
+    font-size: 16px;
+  }
 }
 
 .overview {
   flex-basis: 100%;
-  font-size: 14px;
+  font-size: 12px;
+  margin-top: 5px;
   text-overflow: ellipsis;
   display: block;
   white-space: nowrap;
   overflow: hidden;
+
+  @media (--desktop) {
+    font-size: 14px;
+  }
 }
 
 .icon {
@@ -47,6 +66,10 @@
   align-self: center;
   margin-right: 0.2em;
   font-size: 30px;
+
+  @media (--mobile) {
+    display: none !important;
+  }
 }
 
 .enter {

@@ -18,7 +18,7 @@ import Readme from "../../README.md";
 
 const About = () => (
   <div
-    className="container readme"
+    className={Styles.readme}
     dangerouslySetInnerHTML={{ __html: Readme }}
   />
 );

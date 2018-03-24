@@ -1,11 +1,26 @@
+@import "../../../css/variables.pcss";
+
 .container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
+
+  @media (--desktop) {
+    justify-content: space-between;
+  }
 }
 
 .item {
-  flex-basis: 28%;
+  margin-bottom: 30px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  @media (--desktop) {
+    marign-bottom: 0;
+    flex-basis: 28%;
+  }
 }
 
 .author {
@@ -18,7 +33,7 @@
   }
 }
 
-.content {
+.text {
   text-align: center;
   font-size: 12px;
 

@@ -6,13 +6,17 @@
 }
 
 .movie {
-  flex-basis: 25%;
+  flex-basis: 33%;
   background: #000;
   position: relative;
   overflow: hidden;
   color: var(--fontcolor);
   overflow: hidden;
   visibility: hidden;
+
+  @media (--desktop) {
+    flex-basis: 25%;
+  }
 }
 
 .movie img {
@@ -33,16 +37,24 @@
   color: #fff;
   position: absolute;
   bottom: 0;
-  padding: 18px;
+  padding: 10px;
   width: 100%;
   transform: translateY(100%);
   display: flex;
   align-items: center;
   text-align: center;
   justify-content: space-between;
+
+  @media (--desktop) {
+    padding: 18px;
+  }
 }
 
 .title {
-  font-size: 25px;
+  font-size: 14px;
   margin: 0 auto;
+
+  @media (--desktop) {
+    font-size: 25px;
+  }
 }

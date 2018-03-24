@@ -11,6 +11,7 @@
   font-weight: 400;
   margin: 0 0.5em 0.5em 0;
   cursor: pointer;
+  color: white;
 }
 
 .link {
@@ -26,9 +27,18 @@
 }
 
 .compact {
-  font-size: 12px;
+  font-size: 10px;
+
+  @media (--desktop) {
+    font-size: 12px;
+  }
 }
 
 .compact .genre {
   padding: 0.3em 0.7em;
+  margin: 0 0.2em 0.2em 0;
+
+  @media (--desktop) {
+    margin: 0 0.5em 0.5em 0;
+  }
 }

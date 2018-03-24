@@ -8,7 +8,7 @@ const Reviews = ({ reviews = [] }) => {
   const reviewsList = reviews.slice(0, 3).map(review => (
     <div className={Styles.item} key={review.id}>
       <h3 className={Styles.author}> {review.author}</h3>
-      <p>
+      <p className={Styles.text}>
         {`${review.content.substr(0, 300)}...`}
       </p>
     </div>

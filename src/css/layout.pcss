@@ -6,6 +6,12 @@
   margin: 50px 0 0 0;
 }
 
+.container {
+  max-width: 60em;
+  margin: 0 auto;
+  /* overflow: hidden; */
+}
+
 :global .container {
   max-width: 60em;
   margin: 0 auto;
@@ -123,6 +129,46 @@
     transform: translateX(100%);
   }
 }
+.readme {
+  composes: container;
+
+  text-align: center;
+
+  @media (--mobile) {
+      margin: 0 20px;
+  }
+
+  @media (--desktop) {
+    text-align: left;
+  }
+
+  & h2 {
+    margin: 20px 0;
+    font-size: 20px;
+
+    @media (--desktop) {
+      font-size: 30px;
+    }
+  }
+
+  & p {
+    font-size: 12px;
+
+    @media (--desktop) {
+      font-size: 18px;
+    }
+  }
+
+  & pre,
+  & code {
+    font-size: 12px;
+
+    @media (--desktop) {
+      font-size: 16px;
+    }    
+  }
+}
+
 
 @each $genre in all, 28, 12, 16, 35, 80, 99, 18, 10751, 14, 36, 27, 10402, 9648,
   10749, 878, 10770, 53, 10752, 37
