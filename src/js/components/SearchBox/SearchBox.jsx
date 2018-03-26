@@ -8,6 +8,7 @@ import enhanceWithClickOutside from 'react-click-outside';
 import SearchResults from '../SearchResults';
 import apiConnect from '../../services/ApiConnect';
 import Styles from './SearchBox.pcss';
+import Container from "@utils/Container";
 
 class SearchBox extends React.Component {
   constructor() {
@@ -52,7 +53,7 @@ class SearchBox extends React.Component {
 
     return (
       <div className={searchBoxClasses}>
-        <div className="container">
+        <Container>
           <form>
             <input
               placeholder="Search for movie..."
@@ -66,7 +67,7 @@ class SearchBox extends React.Component {
             {this.state.searchResults && this.state.genres && this.props.config &&
               <SearchResults {...this.state} {...this.props} />}
           </div>
-        </div>
+        </Container>
       </div>
     );
   }

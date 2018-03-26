@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
-import WithScrollReveal from "../WithScrollReveal";
+import Container from "@utils/Container";
+import WithScrollReveal from "@utils/WithScrollReveal";
 import MovieImage from "../MovieImage";
 import Styles from "./Tiles.pcss";
 
@@ -44,7 +45,7 @@ const Tiles = ({
       </div>
     );
   });
-  return <div className={Styles.container}>{movieList}</div>;
+  return <Container large className={Styles.container}>{movieList}</Container>;
 };
 
 Tiles.propTypes = {

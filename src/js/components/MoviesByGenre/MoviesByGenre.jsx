@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import apiConnect from "../../services/ApiConnect";
 import Tiles from "../Tiles";
 import { mapDispachToProps } from "../../redux/Store";
+import Styles from "./MoviesByGenre.pcss";
 
 class MoviesByGenre extends React.Component {
   constructor() {
@@ -33,7 +34,7 @@ class MoviesByGenre extends React.Component {
 
     return (
       <div>
-        <h1>{activeGenre}</h1>
+        <h1 className={Styles.title}>{activeGenre}</h1>
         <Tiles movies={this.state.moviesByGenre} genre={this.genre} />
       </div>
     );

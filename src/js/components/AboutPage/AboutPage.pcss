@@ -1,8 +1,6 @@
 @import "../../../css/variables.pcss";
 
 .readme {
-  composes: container from "../../../css/layout.pcss";
-
   text-align: center;
 
   @media (--mobile) {
@@ -11,6 +9,11 @@
 
   @media (--desktop) {
     text-align: left;
+  }
+
+  & h1 {
+    font-weight: 700;
+    font-size: 40px;
   }
 
   & h2 {

@@ -18,7 +18,7 @@ class Header extends React.Component {
   }
   render() {
     return (
-      <div className="header-container">
+      <div>
         <div className={Styles.header}>
           <div className={Styles.navigation}>
             <button className={`${Styles.button} material-icons`} onClick={this.props.history.goBack}>arrow_back</button>

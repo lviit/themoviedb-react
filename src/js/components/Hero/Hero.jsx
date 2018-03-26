@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import Slider from "react-slick";
 
 import MovieImage from "../MovieImage";
+import Container from "@utils/Container";
 import Styles from "./Hero.pcss";
 import "../../../css/slick.pcss";
 
@@ -40,7 +41,7 @@ const Hero = ({
 
   const slides = movies.map(movie => (
     <div className={Styles.hero} key={movie.id}>
-      <div className="container">
+      <Container>
         <div className={Styles.info}>
           <h2 className={Styles.title}>{movie.title}</h2>
           <p className={Styles.overview}>
@@ -50,7 +51,7 @@ const Hero = ({
             Read more
           </Link>
         </div>
-      </div>
+      </Container>
       <MovieImage
         backdrop
         size={imageSizes[3]}

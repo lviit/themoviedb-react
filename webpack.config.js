@@ -58,7 +58,11 @@ module.exports = (env, argv) => {
       )
     ]),
     resolve: {
-      extensions: [".js", ".jsx"]
+      extensions: [".js", ".jsx"],
+      alias: {
+        '@utils': path.resolve(__dirname, "src/js/utils"),
+        '@styles': path.resolve(__dirname, "src/css"),
+      },
     },
     module: {
       rules: [

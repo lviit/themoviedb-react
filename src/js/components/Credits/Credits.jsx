@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import { connect } from "react-redux";
-import WithScrollReveal from "../WithScrollReveal";
+import WithScrollReveal from "@utils/WithScrollReveal";
 
 import Styles from "./Credits.pcss";
 

@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 
 import { Link } from "react-router-dom";
 import Styles from "./MovieList.pcss";
-import WithScrollReveal from "../WithScrollReveal";
+import WithScrollReveal from "@utils/WithScrollReveal";
 import MovieImage from "../MovieImage";
 
 const MovieList = ({

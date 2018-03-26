@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from "react-redux";
 import { mapDispachToProps } from "./redux/Store";
 
-import Section from "./components/Section";
+import Section from "@utils/Section";
 import MovieList from "./components/MovieList";
 import FullView from "./components/MovieFull";
 import Reviews from "./components/Reviews";

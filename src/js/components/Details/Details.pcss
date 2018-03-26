@@ -1,9 +1,13 @@
 @import "../../../css/variables.pcss";
 
 .container {
-  flex-basis: 25%;
+  flex-basis: 50%;
   padding-right: 1.5em;
   align-self: center;
+
+  @media (--desktop) {
+    flex-basis: 25%;
+  }
 }
 
 .item {

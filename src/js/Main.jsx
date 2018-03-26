@@ -3,7 +3,7 @@ import { render } from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import Store from "./redux/Store";
-import ScrollToTop from "./components/ScrollToTop";
+import ScrollToTop from "@utils/ScrollToTop";
 
 import App from "./App";
 

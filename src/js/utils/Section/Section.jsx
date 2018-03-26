@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from 'prop-types';
 import Classnames from "classnames";
 import Styles from "./Section.pcss";
+import Container from "@utils/Container";
 
 const Section = ({ title, dark, children }) => {
   const classes = Classnames({
@@ -12,7 +13,7 @@ const Section = ({ title, dark, children }) => {
   return (
     <div className={classes}>
       {title && <h2 className={Styles.title}>{title}</h2>}
-      <div className="container">{children}</div>
+      <Container>{children}</Container>
     </div>
   );
 };

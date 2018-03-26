@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from "react-redux";
 
 import Styles from "./MovieFull.pcss";
+import Container from "@utils/Container";
 import GenreList from "../GenreList";
 import Details from "../Details";
 import MovieImage from "../MovieImage";
@@ -47,7 +48,7 @@ class FullView extends React.Component {
             path={backDropPath}
           />
         </div>
-        <div className="container">
+        <Container>
           <h1 className={Styles.title}>{title}</h1>
           <h2 className={Styles.tagline}>{tagline}</h2>
           <div className={Styles.info}>
@@ -73,7 +74,7 @@ class FullView extends React.Component {
               </svg>
             </div>
           </div>
-        </div>
+        </Container>
       </div>
     );
   }
