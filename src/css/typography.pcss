@@ -1,10 +1,16 @@
+@import "./variables.pcss";
 
 .h-large {
   font-weight: 700;
   margin: 0.5em;
   line-height: 1em;
   text-align: center;
-  font-size: 40px;
+
+  font-size: 30px;
+
+  @media (--desktop) {
+    font-size: 50px;
+  }
 }
 
 .h-medium {
@@ -16,4 +22,3 @@
 .h-small {
   font-weight: 600;
 }
-
