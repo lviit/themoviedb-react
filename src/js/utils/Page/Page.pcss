@@ -1,0 +1,18 @@
+@import "../../../css/variables.pcss";
+
+.page {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+
+  @media (--desktop) {
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  }
+  @media (--mobile) {
+    transition: transform 0.3s cubic-bezier(0.15, 1, 0.33, 1);
+    width: 100vw;
+    height: 100vh;
+    overflow-y: scroll;
+    position: absolute;
+  }
+}

@@ -34,7 +34,7 @@ class App extends React.Component {
     return (
       <div>
         <Header />
-        <TransitionGroup className="page-wrapper">
+        <TransitionGroup className={Styles.wrapper}>
           <CSSTransition
             in={true}
             key={location.key}

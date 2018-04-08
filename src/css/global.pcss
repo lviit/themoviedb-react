@@ -7,6 +7,20 @@
   box-sizing: border-box;
 }
 
+:global body {
+  /* background: var(--bgcolor); */
+  background: #f4f7f6;
+  margin: 40px 0 0 0;
+
+  @media (--desktop) {
+    margin: 50px 0 0 0;
+  }
+
+  @media (--mobile) {
+    overflow: hidden;
+  }
+}
+
 :global *,
 :global *:before,
 :global *:after {
@@ -31,4 +45,3 @@
 :global a {
   color: var(--fontcolor);
 }
-

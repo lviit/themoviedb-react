@@ -1,8 +1,9 @@
 import React from "react";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { mapDispachToProps } from "./redux/Store";
 
+import Page from "@utils/Page";
 import Section from "@utils/Section";
 import MovieList from "./components/MovieList";
 import FullView from "./components/MovieFull";
@@ -26,7 +27,7 @@ class MovieFullView extends React.Component {
     const { similar, isLoading } = this.props;
     if (isLoading) return <div />;
     return (
-      <div className="page">
+      <Page>
         <FullView />
         <Section title="Cast">
           <Credits />
@@ -37,7 +38,7 @@ class MovieFullView extends React.Component {
         <Section title="You might also like">
           <MovieList movies={similar.slice(0, 4)} />
         </Section>
-      </div>
+      </Page>
     );
   }
 }

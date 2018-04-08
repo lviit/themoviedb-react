@@ -1,33 +1,13 @@
 @import "./variables.pcss";
 
-:global body {
-  /* background: var(--bgcolor); */
-  background: #f4f7f6;
-  margin: 40px 0 0 0;
-
-  @media (--desktop) {
-    margin: 50px 0 0 0;
-  }
-}
-
-:global .page-wrapper {
+.wrapper {
   max-width: 90em;
   margin: 0 auto;
   width: 100%;
   position: relative;
 }
 
-:global .page {
-  position: absolute;
-  width: 100%;
-  height: 100vh;
-}
-
 @media (--desktop) {
-  :global .page {
-    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
-  }
-
   .transitionForwardEnter,
   .transitionBackEnter {
     transform: translateY(-30px);
@@ -54,18 +34,6 @@
 }
 
 @media (--mobile) {
-  :global body {
-    overflow: hidden;
-  }
-
-  :global .page {
-    transition: transform 0.3s cubic-bezier(0.15, 1, 0.33, 1);
-    width: 100vw;
-    height: 100vh;
-    overflow-y: scroll;
-    position: absolute;
-  }
-
   .transitionForwardEnter {
     transform: translateX(100%);
   }
