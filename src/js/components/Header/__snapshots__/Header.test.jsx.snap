@@ -86,7 +86,6 @@ ShallowWrapper {
           toggleSearchBox={[Function]}
         />,
       ],
-      "className": "header-container",
     },
     "ref": null,
     "rendered": Array [
@@ -490,7 +489,6 @@ ShallowWrapper {
             toggleSearchBox={[Function]}
           />,
         ],
-        "className": "header-container",
       },
       "ref": null,
       "rendered": Array [
