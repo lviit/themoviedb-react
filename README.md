@@ -2,6 +2,8 @@
 
 Frontend application using [The Movie Database API](https://developers.themoviedb.org). Built with React. Not endorsed or certified by [TMDb](https://www.themoviedb.org).
 
+[![Build Status](https://travis-ci.org/lviit/themoviedb-react.svg?branch=master)](https://travis-ci.org/lviit/themoviedb-react) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/8965036bcb204576a201331580777e8e)](https://www.codacy.com/app/lviit/themoviedb-react?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=lviit/themoviedb-react&amp;utm_campaign=Badge_Grade)
+
 Some of the stuff used:
 * React
 * Redux with Redux thunk
@@ -9,10 +11,6 @@ Some of the stuff used:
 * Webpack 4
 * Jest
 * CSS modules
-
-[![Build Status](https://travis-ci.org/lviit/themoviedb-react.svg?branch=master)](https://travis-ci.org/lviit/themoviedb-react)
-
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/8965036bcb204576a201331580777e8e)](https://www.codacy.com/app/lviit/themoviedb-react?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=lviit/themoviedb-react&amp;utm_campaign=Badge_Grade)
 
 ## getting started
 Install packages:
