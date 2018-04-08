@@ -1,10 +1,9 @@
-import React from "react";
+import * as React from "react";
 import { render } from "react-dom";
 import { Route, Switch, withRouter } from "react-router-dom";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { connect } from "react-redux";
 import { mapDispachToProps } from "./redux/Store";
-
 import Section from "@utils/Section";
 import FrontPage from "./FrontPage";
 import MovieFullView from "./MovieFullView";
@@ -12,23 +11,18 @@ import GenresPage from "./components/GenresPage";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import AboutPage from "./components/AboutPage";
-
 import "../css/global.pcss";
 import "../css/genreColors.pcss";
 import Styles from "../css/layout.pcss";
-
 const NotFound = () => <h1>404.. Whoops, page not found!</h1>;
-
-class App extends React.Component {
+class App extends React.Component<any, any> {
   constructor() {
     super();
   }
-
   componentWillMount() {
     this.props.getConfig();
     this.props.getGenres();
   }
-
   render() {
     const { location, history } = this.props;
     return (
@@ -69,12 +63,8 @@ class App extends React.Component {
             </Switch>
           </CSSTransition>
         </TransitionGroup>
-        {/*<Section dark>
-          <Footer />
-        </Section>*/}
       </div>
     );
   }
 }
-
 export default withRouter(connect(null, mapDispachToProps)(App));

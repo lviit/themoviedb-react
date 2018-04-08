@@ -1,21 +1,18 @@
-import React from "react";
+import * as React from "react";
 import { connect } from "react-redux";
 import { mapDispachToProps } from "./redux/Store";
-
 import Page from "@utils/Page";
 import Container from "@utils/Container";
 import Hero from "./components/Hero";
 import MovieList from "./components/MovieList";
 
-class Front extends React.Component {
+class Front extends React.Component<{}, {}> {
   constructor() {
     super();
   }
-
   componentWillMount() {
     this.props.getLatestMovies();
   }
-
   render() {
     return (
       <Page>
@@ -27,12 +24,10 @@ class Front extends React.Component {
     );
   }
 }
-
 const mapStateToProps = (state, ownProps) => {
   return {
     ...ownProps,
     latestMovies: state.movies.latest
   };
 };
-
 export default connect(mapStateToProps, mapDispachToProps)(Front);

@@ -1,23 +1,30 @@
-import React from "react";
-import PropTypes from "prop-types";
+import * as React from "react";
 import { Link } from "react-router-dom";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
-
 import Styles from "./SearchResults.pcss";
 import GenreList from "../GenreList";
 import MovieImage from "../MovieImage";
-
-const SearchResults = props => {
+type SearchResultsProps = {
+  genres?: object[],
+  searchResults?: {
+    results?: any[]
+  },
+  config?: {
+    images?: {
+      secure_base_url?: string,
+      logo_sizes?: any[]
+    }
+  }
+};
+const SearchResults: React.SFC<SearchResultsProps> = props => {
   const results = props.searchResults.results.map(result => {
     const path = `/movie/${result.id}`;
     const date = new Date(result.release_date);
     const year = date.getFullYear();
-
     const genres = props.genres.filter(genre => {
       const match = result.genre_ids.filter(genreId => genreId === genre.id);
       return match[0] === genre.id;
     });
-
     return (
       <CSSTransition
         key={result.id}
@@ -53,27 +60,11 @@ const SearchResults = props => {
       </CSSTransition>
     );
   });
-
   return <TransitionGroup>{results}</TransitionGroup>;
 };
-
-SearchResults.propTypes = {
-  genres: PropTypes.arrayOf(PropTypes.object),
-  searchResults: PropTypes.shape({
-    results: PropTypes.array
-  }),
-  config: PropTypes.shape({
-    images: PropTypes.shape({
-      secure_base_url: PropTypes.string,
-      logo_sizes: PropTypes.array
-    })
-  })
-};
-
 SearchResults.defaultProps = {
   genres: [],
   searchResults: [],
   config: {}
 };
-
 export default SearchResults;

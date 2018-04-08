@@ -1,32 +1,30 @@
-import React from "react";
-import PropTypes from 'prop-types';
+import * as React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-
 import Container from "@utils/Container";
 import WithScrollReveal from "@utils/WithScrollReveal";
 import MovieImage from "../MovieImage";
 import Styles from "./Tiles.pcss";
-
-const Tiles = ({
+type TilesProps = {
+  movies?: object[],
+  config?: {
+    images?: {
+      backdrop_sizes?: any[],
+      secure_base_url?: string
+    }
+  }
+};
+const Tiles: React.SFC<TilesProps> = ({
   movies = [],
   genre,
-  config: {
-    images: { backdrop_sizes: imageSizes, secure_base_url: imageBaseUrl }
-  }
+  config: { images: { backdrop_sizes: imageSizes, secure_base_url: imageBaseUrl } }
 }) => {
   const movieList = movies.map((movie, index) => {
     const size = index % 7 === 0 ? 2 : 1;
-
     return (
       <div className={size === 1 ? Styles.small : Styles.big} key={movie.id}>
         <Link className={Styles.movie} key={movie.id} to={`/movie/${movie.id}`}>
-          <div
-            className={[
-              Styles.gradientOverlay,
-              `gradient-genre-${genre ? genre : 'all'}`
-            ].join(" ")}
-          />
+          <div className={[Styles.gradientOverlay, `gradient-genre-${genre ? genre : "all"}`].join(" ")} />
           <MovieImage
             backdrop
             size={imageSizes[size]}
@@ -45,24 +43,16 @@ const Tiles = ({
       </div>
     );
   });
-  return <Container large className={Styles.container}>{movieList}</Container>;
+  return (
+    <Container large className={Styles.container}>
+      {movieList}
+    </Container>
+  );
 };
-
-Tiles.propTypes = {
-  movies: PropTypes.arrayOf(PropTypes.object),
-  config: PropTypes.shape({
-    images: PropTypes.shape({
-      backdrop_sizes: PropTypes.array,
-      secure_base_url: PropTypes.string
-    })
-  })
-};
-
 const mapStateToProps = (state, ownProps) => {
   return {
     ...ownProps,
     config: state.config
   };
 };
-
 export default connect(mapStateToProps)(WithScrollReveal(Tiles, Styles.movie));

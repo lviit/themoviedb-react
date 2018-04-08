@@ -9,7 +9,6 @@ export function config(state = [], action) {
       return state;
   }
 }
-
 export function movies(state = [], action) {
   switch (action.type) {
     case "GET_LATEST_MOVIES":
@@ -21,7 +20,6 @@ export function movies(state = [], action) {
       return state;
   }
 }
-
 export function genres(state = [], action) {
   switch (action.type) {
     case "GET_GENRES":
@@ -30,7 +28,6 @@ export function genres(state = [], action) {
       return state;
   }
 }
-
 export function movieFullView(state = [], action) {
   switch (action.type) {
     case "GET_MOVIE_DETAILS_LOADING":

@@ -1,20 +1,27 @@
-import React from "react";
-import PropTypes from "prop-types";
+import * as React from "react";
 import { connect } from "react-redux";
-
 import apiConnect from "../../services/ApiConnect";
 import Tiles from "../Tiles";
 import { mapDispachToProps } from "../../redux/Store";
 import Styles from "./MoviesByGenre.pcss";
-
-class MoviesByGenre extends React.Component {
+type MoviesByGenreProps = {
+  params?: {
+    splat?: string
+  }
+};
+type MoviesByGenreState = {
+  moviesByGenre: undefined[]
+};
+class MoviesByGenre extends React.Component<
+  MoviesByGenreProps,
+  MoviesByGenreState
+> {
   constructor() {
     super();
     this.state = {
       moviesByGenre: []
     };
   }
-
   componentWillMount() {
     this.genre =
       this.props.match.params.id === "all" ? "" : this.props.match.params.id;
@@ -22,16 +29,14 @@ class MoviesByGenre extends React.Component {
       .SearchByGenre(this.genre)
       .then(response => this.setState({ moviesByGenre: response.results }));
   }
-
   render() {
     console.log(this.props.match.params.id.length);
     const activeGenre =
-      this.props.match.params.id === "" || this.props.genres.length === 0
+      this.props.match.params.id === "" || this.props.genres.length === 0
         ? "Browse by genre"
         : this.props.genres.filter(
             genre => genre.id == this.props.match.params.id
           )[0].name;
-
     return (
       <div>
         <h1 className={Styles.title}>{activeGenre}</h1>
@@ -40,13 +45,6 @@ class MoviesByGenre extends React.Component {
     );
   }
 }
-
-MoviesByGenre.propTypes = {
-  params: PropTypes.shape({
-    splat: PropTypes.string
-  })
-};
-
 const mapStateToProps = (state, ownProps) => {
   return {
     ...ownProps,
@@ -54,5 +52,4 @@ const mapStateToProps = (state, ownProps) => {
     genres: state.genres
   };
 };
-
 export default connect(mapStateToProps, mapDispachToProps)(MoviesByGenre);

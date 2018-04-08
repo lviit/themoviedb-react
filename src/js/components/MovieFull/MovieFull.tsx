@@ -1,14 +1,31 @@
-import React from "react";
-import PropTypes from 'prop-types';
+import * as React from "react";
 import { connect } from "react-redux";
-
 import Styles from "./MovieFull.pcss";
 import Container from "@utils/Container";
 import GenreList from "../GenreList";
 import Details from "../Details";
 import MovieImage from "../MovieImage";
-
-class FullView extends React.Component {
+type FullViewProps = {
+  details?: {
+    title?: string,
+    tagline?: string,
+    overview?: string,
+    backDropPath?: string,
+    genres?: any[],
+    voteAverage?: number
+  },
+  config?: {
+    images?: {
+      backdrop_sizes?: any[],
+      secure_base_url?: string
+    }
+  }
+};
+type FullViewState = {
+  animateMeter: boolean,
+  animateMeter: boolean
+};
+class FullView extends React.Component<FullViewProps, FullViewState> {
   constructor() {
     super();
     this.state = { animateMeter: false };
@@ -18,17 +35,9 @@ class FullView extends React.Component {
       this.setState({ animateMeter: true });
     }, 100);
   }
-
   render() {
     const {
-      details: {
-        title,
-        tagline,
-        overview,
-        backDropPath,
-        genres,
-        voteAverage,
-      },
+      details: { title, tagline, overview, backDropPath, genres, voteAverage },
       config: {
         images: {
           backdrop_sizes: imageSizes = [],
@@ -37,7 +46,6 @@ class FullView extends React.Component {
       }
     } = this.props;
     const strokeDash = 339.292;
-
     return (
       <div className={Styles.container}>
         <div className={Styles.imagecontainer}>
@@ -79,24 +87,6 @@ class FullView extends React.Component {
     );
   }
 }
-
-FullView.propTypes = {
-  details: PropTypes.shape({
-    title: PropTypes.string,
-    tagline: PropTypes.string,
-    overview: PropTypes.string,
-    backDropPath: PropTypes.string,
-    genres: PropTypes.array,
-    voteAverage: PropTypes.number
-  }),
-  config: PropTypes.shape({
-    images: PropTypes.shape({
-      backdrop_sizes: PropTypes.array,
-      secure_base_url: PropTypes.string
-    })
-  })
-};
-
 const mapStateToProps = (state, ownProps) => {
   return {
     ...ownProps,
@@ -111,5 +101,4 @@ const mapStateToProps = (state, ownProps) => {
     }
   };
 };
-
 export default connect(mapStateToProps)(FullView);

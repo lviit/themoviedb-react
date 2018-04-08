@@ -1,10 +1,17 @@
-import React from "react";
-import PropTypes from "prop-types";
+import * as React from "react";
 import Classnames from "classnames";
 import { Link } from "react-router-dom";
 import Styles from "./GenreList.pcss";
-
-const GenreList = ({ genres, compact, className, ...rest }) => {
+type GenreListProps = {
+  genres?: object[],
+  compact?: boolean
+};
+const GenreList: React.SFC<GenreListProps> = ({
+  genres,
+  compact,
+  className,
+  ...rest
+}) => {
   const genreList = genres.map(
     genre =>
       compact ? (
@@ -22,24 +29,15 @@ const GenreList = ({ genres, compact, className, ...rest }) => {
         </div>
       )
   );
-
   const containerClasses = Classnames({
     [Styles.container]: true,
     [Styles.compact]: compact,
     [className]: true
   });
-
   return <div className={containerClasses}>{genreList}</div>;
 };
-
-GenreList.propTypes = {
-  genres: PropTypes.arrayOf(PropTypes.object),
-  compact: PropTypes.bool
-};
-
 GenreList.defaultProps = {
   genres: [],
   compact: false
 };
-
 export default GenreList;

@@ -1,6 +1,5 @@
-import React from "react";
+import * as React from "react";
 import ScrollReveal from "scrollreveal";
-
 export default (WrappedComponent, className) => {
   return class WithScrollReveal extends React.Component {
     componentDidMount() {
@@ -17,7 +16,6 @@ export default (WrappedComponent, className) => {
         sr.reveal(`.${className}`, 50);
       }, 1000);
     }
-
     render() {
       return <WrappedComponent {...this.props} />;
     }

@@ -1,9 +1,8 @@
 import Styles from "./AboutPage.pcss";
-import React from "react";
+import * as React from "react";
 import Container from "@utils/Container";
 import Page from "@utils/Page";
 import Readme from "../../../../README.md";
-
 const AboutPage = () => (
   <Page>
     <Container
@@ -12,5 +11,4 @@ const AboutPage = () => (
     />
   </Page>
 );
-
 export default AboutPage;

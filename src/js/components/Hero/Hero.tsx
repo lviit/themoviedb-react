@@ -1,14 +1,11 @@
-import React from "react";
-import PropTypes from "prop-types";
+import * as React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import Slider from "react-slick";
-
 import MovieImage from "../MovieImage";
 import Container from "@utils/Container";
 import Styles from "./Hero.pcss";
 import "../../../css/slick.pcss";
-
 const HeroPrevArrow = props => (
   <i onClick={props.onClick} className="slick-arrow slick-prev material-icons">
     chevron_left
@@ -19,8 +16,16 @@ const HeroNextArrow = props => (
     chevron_right
   </i>
 );
-
-const Hero = ({
+type HeroProps = {
+  movies?: any[],
+  config?: {
+    images?: {
+      backdrop_sizes?: any[],
+      secure_base_url?: string
+    }
+  }
+};
+const Hero: React.SFC<HeroProps> = ({
   movies,
   config: {
     images: { backdrop_sizes: imageSizes, secure_base_url: imageBaseUrl }
@@ -38,7 +43,6 @@ const Hero = ({
     nextArrow: <HeroNextArrow />,
     prevArrow: <HeroPrevArrow />
   };
-
   const slides = movies.map(movie => (
     <div className={Styles.hero} key={movie.id}>
       <Container>
@@ -60,22 +64,9 @@ const Hero = ({
       />
     </div>
   ));
-
   return slides.length > 0 && <Slider {...sliderSettings}>{slides}</Slider>;
 };
-
-Hero.propTypes = {
-  movies: PropTypes.array,
-  config: PropTypes.shape({
-    images: PropTypes.shape({
-      backdrop_sizes: PropTypes.array,
-      secure_base_url: PropTypes.string
-    })
-  })
-};
-
 const mapStateToProps = (state, ownProps) => {
   return { ...ownProps, config: state.config };
 };
-
 export default connect(mapStateToProps)(Hero);

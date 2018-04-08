@@ -1,9 +1,6 @@
 /* eslint no-console: 0 */
-
 import axios from "axios";
-
 export const baseUrl = "https://api.themoviedb.org";
-
 export default {
   getConfig: () =>
     axios
@@ -12,7 +9,6 @@ export default {
       })
       .then(res => res.data)
       .catch(error => console.log(error)),
-
   getLatestMovies: () =>
     axios
       .get(`${baseUrl}/3/discover/movie`, {
@@ -24,7 +20,6 @@ export default {
       })
       .then(res => res.data)
       .catch(error => console.log(error)),
-
   getGenres: () =>
     axios
       .get(`${baseUrl}/3/genre/movie/list`, {
@@ -32,7 +27,6 @@ export default {
       })
       .then(res => res.data.genres)
       .catch(error => console.log(error)),
-
   getMovieDetails: id =>
     axios
       .get(`${baseUrl}/3/movie/${id}`, {
@@ -40,7 +34,6 @@ export default {
       })
       .then(res => res.data)
       .catch(error => console.log(error)),
-
   getReviews: id =>
     axios
       .get(`${baseUrl}/3/movie/${id}/reviews`, {
@@ -48,7 +41,6 @@ export default {
       })
       .then(res => res.data)
       .catch(error => console.log(error)),
-
   getCredits: id =>
     axios
       .get(`${baseUrl}/3/movie/${id}/credits`, {
@@ -56,7 +48,6 @@ export default {
       })
       .then(res => res.data)
       .catch(error => console.log(error)),
-
   getSimilar: id =>
     axios
       .get(`${baseUrl}/3/movie/${id}/similar`, {
@@ -64,7 +55,6 @@ export default {
       })
       .then(res => res.data)
       .catch(error => console.log(error)),
-
   Search: query =>
     axios
       .get(`${baseUrl}/3/search/movie`, {
@@ -72,7 +62,6 @@ export default {
       })
       .then(res => res.data)
       .catch(error => console.log(error)),
-
   SearchByGenre: genre =>
     axios
       .get(`${baseUrl}/3/discover/movie`, {

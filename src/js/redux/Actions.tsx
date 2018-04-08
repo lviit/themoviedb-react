@@ -1,5 +1,4 @@
 import apiConnect from "../services/ApiConnect";
-
 export function getConfig() {
   return async (dispatch, getState) => {
     const response = await apiConnect.getConfig();
@@ -9,7 +8,6 @@ export function getConfig() {
     });
   };
 }
-
 export function getLatestMovies() {
   return async (dispatch, getState) => {
     const response = await apiConnect.getLatestMovies();
@@ -19,7 +17,6 @@ export function getLatestMovies() {
     });
   };
 }
-
 export function getMovieDetails(id) {
   return async (dispatch, getState) => {
     dispatch({ type: "GET_MOVIE_DETAILS_LOADING" });
@@ -30,7 +27,6 @@ export function getMovieDetails(id) {
     });
   };
 }
-
 export function getReviews(id) {
   return async (dispatch, getState) => {
     dispatch({ type: "GET_MOVIE_REVIEWS_LOADING" });
@@ -41,7 +37,6 @@ export function getReviews(id) {
     });
   };
 }
-
 export function getCredits(id) {
   return async (dispatch, getState) => {
     dispatch({ type: "GET_MOVIE_CREDITS_LOADING" });
@@ -52,7 +47,6 @@ export function getCredits(id) {
     });
   };
 }
-
 export function getSimilar(id) {
   return async (dispatch, getState) => {
     dispatch({ type: "GET_MOVIE_SIMILAR_LOADING" });
@@ -63,7 +57,6 @@ export function getSimilar(id) {
     });
   };
 }
-
 export function getGenres() {
   return async (dispatch, getState) => {
     const response = await apiConnect.getGenres();
@@ -73,7 +66,6 @@ export function getGenres() {
     });
   };
 }
-
 export function SearchByGenre() {
   return async (dispatch, getState) => {
     const response = await apiConnect.SearchByGenre();
@@ -83,7 +75,6 @@ export function SearchByGenre() {
     });
   };
 }
-
 export function Search() {
   return async (dispatch, getState) => {
     const response = await apiConnect.Search();

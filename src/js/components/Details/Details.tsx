@@ -1,10 +1,15 @@
-import React from "react";
-import PropTypes from 'prop-types';
+import * as React from "react";
 import { connect } from "react-redux";
-
 import Styles from "./Details.pcss";
-
-const Details = ({
+type DetailsProps = {
+  details?: {
+    release_date?: string,
+    revenue?: number,
+    budget?: number,
+    runtime?: number
+  }
+};
+const Details: React.SFC<DetailsProps> = ({
   releaseDate = "",
   revenue = 0,
   budget = 0,
@@ -19,7 +24,6 @@ const Details = ({
     .toString()
     .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`;
   const formattedRuntime = `${runtime} minutes`;
-
   return (
     <div className={Styles.container}>
       <div className={Styles.item}>
@@ -41,16 +45,6 @@ const Details = ({
     </div>
   );
 };
-
-Details.propTypes = {
-  details: PropTypes.shape({
-    release_date: PropTypes.string,
-    revenue: PropTypes.number,
-    budget: PropTypes.number,
-    runtime: PropTypes.number
-  })
-};
-
 const mapStateToProps = (state, ownProps) => {
   return {
     ...ownProps,
@@ -60,5 +54,4 @@ const mapStateToProps = (state, ownProps) => {
     runtime: state.movieFullView.details.data.runtime
   };
 };
-
 export default connect(mapStateToProps)(Details);

@@ -16,7 +16,7 @@ module.exports = (env, argv) => {
   return {
     devtool: "source-map",
     entry: {
-      app: ["babel-polyfill", APP_DIR + "/Main.jsx"]
+      app: ["babel-polyfill", APP_DIR + "/Main.tsx"]
     },
     output: {
       path: BUILD_DIR,
@@ -58,7 +58,7 @@ module.exports = (env, argv) => {
       )
     ]),
     resolve: {
-      extensions: [".js", ".jsx"],
+      extensions: [".js", ".jsx", ".ts", ".tsx"],
       alias: {
         '@utils': path.resolve(__dirname, "src/js/utils"),
         '@styles': path.resolve(__dirname, "src/css"),
@@ -70,6 +70,10 @@ module.exports = (env, argv) => {
           test: /.jsx?$/,
           loader: "babel-loader",
           include: APP_DIR
+        },
+        {
+          test: /\.ts?$/,
+          loader: 'awesome-typescript-loader'
         },
         {
           test: /\.pcss$/,

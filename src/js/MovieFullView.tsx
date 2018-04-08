@@ -1,20 +1,21 @@
-import React from "react";
-import PropTypes from "prop-types";
+import * as React from "react";
 import { connect } from "react-redux";
 import { mapDispachToProps } from "./redux/Store";
-
 import Page from "@utils/Page";
 import Section from "@utils/Section";
 import MovieList from "./components/MovieList";
 import FullView from "./components/MovieFull";
 import Reviews from "./components/Reviews";
 import Credits from "./components/Credits";
-
-class MovieFullView extends React.Component {
+type MovieFullViewProps = {
+  params?: {
+    splat?: string
+  }
+};
+class MovieFullView extends React.Component<any, any> {
   constructor() {
     super();
   }
-
   componentWillMount() {
     const id = this.props.match.params.id;
     this.props.getMovieDetails(id);
@@ -22,7 +23,6 @@ class MovieFullView extends React.Component {
     this.props.getCredits(id);
     this.props.getSimilar(id);
   }
-
   render() {
     const { similar, isLoading } = this.props;
     if (isLoading) return <div />;
@@ -42,17 +42,9 @@ class MovieFullView extends React.Component {
     );
   }
 }
-
-MovieFullView.propTypes = {
-  params: PropTypes.shape({
-    splat: PropTypes.string
-  })
-};
-
 MovieFullView.defaultProps = {
   params: {}
 };
-
 const mapStateToProps = (state, ownProps) => {
   return {
     ...ownProps,
@@ -65,5 +57,4 @@ const mapStateToProps = (state, ownProps) => {
       state.movieFullView.details.isLoading
   };
 };
-
 export default connect(mapStateToProps, mapDispachToProps)(MovieFullView);

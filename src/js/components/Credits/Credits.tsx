@@ -1,11 +1,16 @@
-import React from "react";
-import PropTypes from 'prop-types';
+import * as React from "react";
 import { connect } from "react-redux";
 import WithScrollReveal from "@utils/WithScrollReveal";
-
 import Styles from "./Credits.pcss";
-
-const Credits = ({
+type CreditsProps = {
+  cast?: any[],
+  config?: {
+    images?: {
+      secure_base_url?: string
+    }
+  }
+};
+const Credits: React.SFC<CreditsProps> = ({
   cast = [],
   config: { images: { secure_base_url: imageBaseUrl } }
 }) => {
@@ -24,19 +29,8 @@ const Credits = ({
       <div className={Styles.character}>{castMember.character}</div>
     </div>
   ));
-
   return <div className={Styles.container}>{castList}</div>;
 };
-
-Credits.propTypes = {
-  cast: PropTypes.array,
-  config: PropTypes.shape({
-    images: PropTypes.shape({
-      secure_base_url: PropTypes.string
-    })
-  })
-};
-
 const mapStateToProps = (state, ownProps) => {
   return {
     ...ownProps,
@@ -44,5 +38,4 @@ const mapStateToProps = (state, ownProps) => {
     cast: state.movieFullView.credits.data.cast
   };
 };
-
 export default connect(mapStateToProps)(WithScrollReveal(Credits, Styles.item));

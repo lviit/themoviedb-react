@@ -1,13 +1,19 @@
-import React from "react";
-import PropTypes from 'prop-types';
+import * as React from "react";
 import { connect } from "react-redux";
-
 import { Link } from "react-router-dom";
 import Styles from "./MovieList.pcss";
 import WithScrollReveal from "@utils/WithScrollReveal";
 import MovieImage from "../MovieImage";
-
-const MovieList = ({
+type MovieListProps = {
+  movies?: object[],
+  config?: {
+    images?: {
+      backdrop_sizes?: any[],
+      secure_base_url?: string
+    }
+  }
+};
+const MovieList: React.SFC<MovieListProps> = ({
   movies,
   config: {
     images: { backdrop_sizes: imageSizes, secure_base_url: imageBaseUrl }
@@ -28,26 +34,13 @@ const MovieList = ({
   ));
   return <div className={Styles.container}>{movieList}</div>;
 };
-
-MovieList.propTypes = {
-  movies: PropTypes.arrayOf(PropTypes.object),
-  config: PropTypes.shape({
-    images: PropTypes.shape({
-      backdrop_sizes: PropTypes.array,
-      secure_base_url: PropTypes.string
-    })
-  })
-};
-
 MovieList.defaultProps = {
   movies: [],
   config: {}
 };
-
 const mapStateToProps = (state, ownProps) => {
   return { ...ownProps, config: state.config };
 };
-
 export default connect(mapStateToProps)(
   WithScrollReveal(MovieList, Styles.movie)
 );
