@@ -7,12 +7,11 @@ type HeaderProps = {
   history?: object
 };
 type HeaderState = {
-  toggleSearchBox: boolean,
   toggleSearchBox: boolean
 };
 class Header extends React.Component<HeaderProps, HeaderState> {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.toggleSearchBox = this.toggleSearchBox.bind(this);
     this.state = {
       toggleSearchBox: false

@@ -22,12 +22,11 @@ type FullViewProps = {
   }
 };
 type FullViewState = {
-  animateMeter: boolean,
   animateMeter: boolean
 };
 class FullView extends React.Component<FullViewProps, FullViewState> {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = { animateMeter: false };
   }
   componentDidMount() {

@@ -16,7 +16,7 @@ type SearchResultsProps = {
     }
   }
 };
-const SearchResults: React.SFC<SearchResultsProps> = props => {
+const SearchResults: React.SFC<any> = props => {
   const results = props.searchResults.results.map(result => {
     const path = `/movie/${result.id}`;
     const date = new Date(result.release_date);

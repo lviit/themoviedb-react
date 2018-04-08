@@ -1,14 +1,13 @@
 import * as React from "react";
-import Classnames from "classnames";
+import * as classnames from "classnames";
 import Styles from "./MovieImage.pcss";
 type MovieImageState = {
   img_error: boolean,
-  img_loaded: boolean,
-  img_error: boolean
+  img_loaded: boolean
 };
-class MovieImage extends React.Component<{}, MovieImageState> {
-  constructor() {
-    super();
+class MovieImage extends React.Component<any, any> {
+  constructor(props) {
+    super(props);
     this.state = {
       img_loaded: false,
       img_error: false
@@ -20,11 +19,11 @@ class MovieImage extends React.Component<{}, MovieImageState> {
     });
   }
   render() {
-    const imageClasses = Classnames({
+    const imageClasses = classnames({
       [Styles.image]: true,
       [Styles.loaded]: this.state.img_loaded
     });
-    const containerClasses = Classnames({
+    const containerClasses = classnames({
       [Styles.container]: true,
       [Styles.large]: this.props.size === "original",
       [Styles.medium]: this.props.size === "w300",

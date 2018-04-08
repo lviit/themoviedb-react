@@ -13,7 +13,7 @@ type MovieListProps = {
     }
   }
 };
-const MovieList: React.SFC<MovieListProps> = ({
+const MovieList: React.SFC<any> = ({
   movies,
   config: {
     images: { backdrop_sizes: imageSizes, secure_base_url: imageBaseUrl }

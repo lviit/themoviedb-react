@@ -1,6 +1,6 @@
 import * as React from "react";
 import { connect } from 'react-redux';
-import Classnames from 'classnames';
+import * as classnames from "classnames";
 import { debounce } from 'throttle-debounce';
 import enhanceWithClickOutside from 'react-click-outside';
 import SearchResults from '../SearchResults';
@@ -14,9 +14,9 @@ type SearchBoxProps = {
 type SearchBoxState = {
   searchResults: null
 };
-class SearchBox extends React.Component<SearchBoxProps, SearchBoxState> {
-  constructor() {
-    super();
+class SearchBox extends React.Component<any, any> {
+  constructor(props) {
+    super(props);
     this.handleChange = this.handleChange.bind(this);
     this.callAjax = debounce(300, this.callAjax);
     this.state = {
@@ -37,11 +37,11 @@ class SearchBox extends React.Component<SearchBoxProps, SearchBoxState> {
   }
   render() {
     this.props.collapsed && this.textInput.focus();
-    const searchBoxClasses = Classnames({
+    const searchBoxClasses = classnames({
       [Styles.searchbox]: true,
       [Styles.collapsed]: this.props.collapsed
     });
-    const resultContainerClasses = Classnames({
+    const resultContainerClasses = classnames({
       [Styles.resultcontainer]: true,
       [Styles.noresults]: !this.state.searchResults,
       [Styles.collapsed]: this.props.collapsed,

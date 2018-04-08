@@ -6,18 +6,18 @@ import { mapDispachToProps } from "../../redux/Store";
 import Styles from "./MoviesByGenre.pcss";
 type MoviesByGenreProps = {
   params?: {
-    splat?: string
-  }
+    splat?: string;
+  };
 };
 type MoviesByGenreState = {
-  moviesByGenre: undefined[]
+  moviesByGenre: undefined[];
 };
-class MoviesByGenre extends React.Component<
-  MoviesByGenreProps,
-  MoviesByGenreState
-> {
-  constructor() {
-    super();
+type MoviesByGenreState = {
+  moviesByGenre: undefined[];
+};
+class MoviesByGenre extends React.Component<any, any> {
+  constructor(props) {
+    super(props);
     this.state = {
       moviesByGenre: []
     };

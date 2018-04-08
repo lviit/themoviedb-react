@@ -1,12 +1,12 @@
 import * as React from "react";
-import Classnames from "classnames";
+import * as classnames from "classnames";
 import { Link } from "react-router-dom";
 import Styles from "./GenreList.pcss";
 type GenreListProps = {
   genres?: object[],
   compact?: boolean
 };
-const GenreList: React.SFC<GenreListProps> = ({
+const GenreList: React.SFC<any> = ({
   genres,
   compact,
   className,
@@ -29,7 +29,7 @@ const GenreList: React.SFC<GenreListProps> = ({
         </div>
       )
   );
-  const containerClasses = Classnames({
+  const containerClasses = classnames({
     [Styles.container]: true,
     [Styles.compact]: compact,
     [className]: true

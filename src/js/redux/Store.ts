@@ -14,6 +14,7 @@ const enhancers = compose(
 //export const history = syncHistoryWithStore(BrowserHistory, store);
 const Store = createStore(rootReducer, DefaultState, enhancers);
 export default Store;
+
 export function mapDispachToProps(dispatch) {
   return bindActionCreators(actionCreators, dispatch);
 }

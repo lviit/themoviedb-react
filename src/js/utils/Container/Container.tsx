@@ -1,8 +1,9 @@
 import * as React from "react";
-import Classnames from "classnames";
+import * as classnames from "classnames";
 import Styles from "./Container.pcss";
 type ContainerProps = {
-  large?: boolean
+  large?: boolean;
+  className?: string;
 };
 const Container: React.SFC<ContainerProps> = ({
   large,
@@ -10,7 +11,7 @@ const Container: React.SFC<ContainerProps> = ({
   className,
   ...rest
 }) => {
-  const classes = Classnames({
+  const classes = classnames({
     [Styles.large]: large,
     [Styles.small]: !large,
     [className]: true

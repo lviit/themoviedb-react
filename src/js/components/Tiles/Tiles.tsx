@@ -14,7 +14,7 @@ type TilesProps = {
     }
   }
 };
-const Tiles: React.SFC<TilesProps> = ({
+const Tiles: React.SFC<any> = ({
   movies = [],
   genre,
   config: { images: { backdrop_sizes: imageSizes, secure_base_url: imageBaseUrl } }
