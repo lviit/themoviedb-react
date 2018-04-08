@@ -1,8 +1,12 @@
 import * as React from "react";
 import Classnames from "classnames";
 import Styles from "./MovieImage.pcss";
-
-class MovieImage extends React.Component {
+type MovieImageState = {
+  img_error: boolean,
+  img_loaded: boolean,
+  img_error: boolean
+};
+class MovieImage extends React.Component<{}, MovieImageState> {
   constructor() {
     super();
     this.state = {
@@ -10,26 +14,22 @@ class MovieImage extends React.Component {
       img_error: false
     };
   }
-
   handleImageError() {
     this.setState({
       img_error: true
     });
   }
-
   render() {
     const imageClasses = Classnames({
       [Styles.image]: true,
       [Styles.loaded]: this.state.img_loaded
     });
-
     const containerClasses = Classnames({
       [Styles.container]: true,
       [Styles.large]: this.props.size === "original",
       [Styles.medium]: this.props.size === "w300",
       [Styles.small]: this.props.size === "w45"
     });
-
     return (
       <div className={containerClasses}>
         {!this.state.img_loaded &&
@@ -53,5 +53,4 @@ class MovieImage extends React.Component {
     );
   }
 }
-
 export default MovieImage;

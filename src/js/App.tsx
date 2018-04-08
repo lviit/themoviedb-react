@@ -16,9 +16,6 @@ import "../css/genreColors.pcss";
 import Styles from "../css/layout.pcss";
 const NotFound = () => <h1>404.. Whoops, page not found!</h1>;
 class App extends React.Component<any, any> {
-  constructor() {
-    super();
-  }
   componentWillMount() {
     this.props.getConfig();
     this.props.getGenres();

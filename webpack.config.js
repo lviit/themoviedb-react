@@ -4,15 +4,12 @@ const { getIfUtils, removeEmpty } = require("webpack-config-utils");
 const Dotenv = require("dotenv-webpack");
 const compressionPlugin = require("compression-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
+const CaseSensitivePathsPlugin = require("case-sensitive-paths-webpack-plugin");
 const path = require("path");
-
 let BUILD_DIR = path.resolve(__dirname, "public");
 let APP_DIR = path.resolve(__dirname, "src/js");
-
 module.exports = (env, argv) => {
   const { ifProduction, ifNotProduction } = getIfUtils(argv.mode);
-
   return {
     devtool: "source-map",
     entry: {
@@ -60,9 +57,9 @@ module.exports = (env, argv) => {
     resolve: {
       extensions: [".js", ".jsx", ".ts", ".tsx"],
       alias: {
-        '@utils': path.resolve(__dirname, "src/js/utils"),
-        '@styles': path.resolve(__dirname, "src/css"),
-      },
+        "@utils": path.resolve(__dirname, "src/js/utils"),
+        "@styles": path.resolve(__dirname, "src/css")
+      }
     },
     module: {
       rules: [
@@ -72,8 +69,8 @@ module.exports = (env, argv) => {
           include: APP_DIR
         },
         {
-          test: /\.ts?$/,
-          loader: 'awesome-typescript-loader'
+          test: /\.ts$|\.tsx$/,
+          loader: "awesome-typescript-loader"
         },
         {
           test: /\.pcss$/,
@@ -83,7 +80,7 @@ module.exports = (env, argv) => {
           test: [/\.pcss$/],
           use: [
             {
-              loader: "css-loader",
+              loader: "typings-for-css-modules-loader",
               options: {
                 modules: true,
                 localIdentName: "[path][name]__[local]--[hash:base64:5]"
