@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as classnames from "classnames";
-import Styles from "./Section.pcss";
+import * as Styles from "./Section.pcss";
 import Container from "@utils/Container";
 type SectionProps = {
   title?: string,

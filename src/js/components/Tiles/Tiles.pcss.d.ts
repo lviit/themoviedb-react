@@ -1,15 +1,11 @@
-export interface ITilesPcss {
-  'container': string;
-  'small': string;
-  'big': string;
-  'movie': string;
-  'gradientOverlay': string;
-  'info': string;
-  'info__big': string;
-  'title__big': string;
-  'title': string;
-  'overview__big': string;
-  'overview': string;
-}
-
-export const locals: ITilesPcss;
+export const container: string;
+export const small: string;
+export const big: string;
+export const movie: string;
+export const gradientOverlay: string;
+export const info: string;
+export const info__big: string;
+export const title__big: string;
+export const title: string;
+export const overview__big: string;
+export const overview: string;

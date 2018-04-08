@@ -1,9 +1,5 @@
-export interface ISearchBoxPcss {
-  'searchbox': string;
-  'input': string;
-  'resultcontainer': string;
-  'collapsed': string;
-  'noresults': string;
-}
-
-export const locals: ISearchBoxPcss;
+export const searchbox: string;
+export const input: string;
+export const resultcontainer: string;
+export const collapsed: string;
+export const noresults: string;

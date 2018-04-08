@@ -6,9 +6,9 @@ import Container from "@utils/Container";
 import Hero from "./components/Hero";
 import MovieList from "./components/MovieList";
 
-class Front extends React.Component<{}, {}> {
-  constructor() {
-    super();
+class Front extends React.Component<any, any> {
+  constructor(props) {
+    super(props);
   }
   componentWillMount() {
     this.props.getLatestMovies();

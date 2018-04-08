@@ -1,7 +1,3 @@
-export interface ISectionPcss {
-  'section': string;
-  'dark': string;
-  'title': string;
-}
-
-export const locals: ISectionPcss;
+export const section: string;
+export const dark: string;
+export const title: string;

@@ -1,9 +1,5 @@
-export interface IGenreListPcss {
-  'container': string;
-  'genre': string;
-  'link': string;
-  'gradientBg': string;
-  'compact': string;
-}
-
-export const locals: IGenreListPcss;
+export const container: string;
+export const genre: string;
+export const link: string;
+export const gradientBg: string;
+export const compact: string;

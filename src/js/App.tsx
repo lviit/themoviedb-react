@@ -13,7 +13,7 @@ import Footer from "./components/Footer";
 import AboutPage from "./components/AboutPage";
 import "../css/global.pcss";
 import "../css/genreColors.pcss";
-import Styles from "../css/layout.pcss";
+import * as Styles from "../css/layout.pcss";
 const NotFound = () => <h1>404.. Whoops, page not found!</h1>;
 class App extends React.Component<any, any> {
   componentWillMount() {

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import MovieImage from "../MovieImage";
 import Container from "@utils/Container";
-import Styles from "./Hero.pcss";
+import * as Styles from "./Hero.pcss";
 import "../../../css/slick.pcss";
 const HeroPrevArrow = props => (
   <i onClick={props.onClick} className="slick-arrow slick-prev material-icons">
@@ -17,13 +17,13 @@ const HeroNextArrow = props => (
   </i>
 );
 type HeroProps = {
-  movies?: any[],
+  movies?: any[];
   config?: {
     images?: {
-      backdrop_sizes?: any[],
-      secure_base_url?: string
-    }
-  }
+      backdrop_sizes?: any[];
+      secure_base_url?: string;
+    };
+  };
 };
 const Hero: React.SFC<HeroProps> = ({
   movies,
@@ -44,7 +44,7 @@ const Hero: React.SFC<HeroProps> = ({
     prevArrow: <HeroPrevArrow />
   };
   const slides = movies.map(movie => (
-    <div className={Styles.hero} key={movie.id}>
+    <div key={movie.id}>
       <Container>
         <div className={Styles.info}>
           <h2 className={Styles.title}>{movie.title}</h2>

@@ -1,11 +1,11 @@
 import * as React from "react";
 import { connect } from "react-redux";
-import Styles from "./Details.pcss";
+import * as Styles from "./Details.pcss";
 type DetailsProps = {
-  releaseDate?: string,
-  revenue?: number,
-  budget?: number,
-  runtime?: number
+  releaseDate?: string;
+  revenue?: number;
+  budget?: number;
+  runtime?: number;
 };
 const Details: React.SFC<DetailsProps> = ({
   releaseDate = "",

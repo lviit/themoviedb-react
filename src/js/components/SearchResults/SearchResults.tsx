@@ -1,20 +1,20 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
-import Styles from "./SearchResults.pcss";
+import * as Styles from "./SearchResults.pcss";
 import GenreList from "../GenreList";
 import MovieImage from "../MovieImage";
 type SearchResultsProps = {
-  genres?: object[],
+  genres?: object[];
   searchResults?: {
-    results?: any[]
-  },
+    results?: any[];
+  };
   config?: {
     images?: {
-      secure_base_url?: string,
-      logo_sizes?: any[]
-    }
-  }
+      secure_base_url?: string;
+      logo_sizes?: any[];
+    };
+  };
 };
 const SearchResults: React.SFC<any> = props => {
   const results = props.searchResults.results.map(result => {

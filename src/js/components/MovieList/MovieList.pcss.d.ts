@@ -1,8 +1,4 @@
-export interface IMovieListPcss {
-  'container': string;
-  'movie': string;
-  'info': string;
-  'title': string;
-}
-
-export const locals: IMovieListPcss;
+export const container: string;
+export const movie: string;
+export const info: string;
+export const title: string;

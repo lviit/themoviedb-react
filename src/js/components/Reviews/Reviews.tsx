@@ -1,8 +1,8 @@
 import * as React from "react";
 import { connect } from "react-redux";
-import Styles from "./Reviews.pcss";
+import * as Styles from "./Reviews.pcss";
 type ReviewsProps = {
-  reviews?: any[]
+  reviews?: any[];
 };
 const Reviews: React.SFC<ReviewsProps> = ({ reviews = [] }) => {
   const reviewsList = reviews.slice(0, 3).map(review => (

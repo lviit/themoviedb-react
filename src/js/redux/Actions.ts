@@ -66,18 +66,18 @@ export function getGenres() {
     });
   };
 }
-export function SearchByGenre() {
+export function SearchByGenre(genre) {
   return async (dispatch, getState) => {
-    const response = await apiConnect.SearchByGenre();
+    const response = await apiConnect.SearchByGenre(genre);
     dispatch({
       type: "SEARCH_BY_GENRE",
       searchByGenre: response
     });
   };
 }
-export function Search() {
+export function Search(query) {
   return async (dispatch, getState) => {
-    const response = await apiConnect.Search();
+    const response = await apiConnect.Search(query);
     dispatch({
       type: "SEARCH",
       search: response

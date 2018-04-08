@@ -1,5 +1,5 @@
 import * as React from "react";
-import Styles from "./footer.pcss";
+import * as Styles  from "./Footer.pcss";
 const tmdbLogo = require("../../../img/408x161-powered-by-rectangle-green.png");
 const Footer = () => (
   <div className={Styles.footer}>

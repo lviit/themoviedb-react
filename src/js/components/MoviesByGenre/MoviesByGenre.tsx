@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import apiConnect from "../../services/ApiConnect";
 import Tiles from "../Tiles";
 import { mapDispachToProps } from "../../redux/Store";
-import Styles from "./MoviesByGenre.pcss";
+import * as Styles from "./MoviesByGenre.pcss";
 type MoviesByGenreProps = {
   params?: {
     splat?: string;
@@ -12,21 +12,18 @@ type MoviesByGenreProps = {
 type MoviesByGenreState = {
   moviesByGenre: undefined[];
 };
-type MoviesByGenreState = {
-  moviesByGenre: undefined[];
-};
 class MoviesByGenre extends React.Component<any, any> {
   constructor(props) {
     super(props);
     this.state = {
-      moviesByGenre: []
+      moviesByGenre: [],
+      activeGenre:
+        this.props.match.params.id === "all" ? "" : this.props.match.params.id
     };
   }
   componentWillMount() {
-    this.genre =
-      this.props.match.params.id === "all" ? "" : this.props.match.params.id;
     apiConnect
-      .SearchByGenre(this.genre)
+      .SearchByGenre(this.state.activeGenre)
       .then(response => this.setState({ moviesByGenre: response.results }));
   }
   render() {
@@ -40,7 +37,10 @@ class MoviesByGenre extends React.Component<any, any> {
     return (
       <div>
         <h1 className={Styles.title}>{activeGenre}</h1>
-        <Tiles movies={this.state.moviesByGenre} genre={this.genre} />
+        <Tiles
+          movies={this.state.moviesByGenre}
+          genre={this.state.activeGenre}
+        />
       </div>
     );
   }

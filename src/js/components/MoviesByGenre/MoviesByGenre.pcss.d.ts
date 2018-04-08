@@ -1,5 +1,1 @@
-export interface IMoviesByGenrePcss {
-  'title': string;
-}
-
-export const locals: IMoviesByGenrePcss;
+export const title: string;

@@ -1,7 +1,7 @@
 import * as React from "react";
 import { connect } from "react-redux";
 import WithScrollReveal from "@utils/WithScrollReveal";
-import Styles from "./Credits.pcss";
+import * as Styles from "./Credits.pcss";
 type CreditsProps = {
   cast?: any[],
   config?: {

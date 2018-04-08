@@ -1,4 +1,4 @@
-import Styles from "./AboutPage.pcss";
+import * as Styles from "./AboutPage.pcss";
 import * as React from "react";
 import Container from "@utils/Container";
 import Page from "@utils/Page";

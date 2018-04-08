@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Container from "@utils/Container";
 import WithScrollReveal from "@utils/WithScrollReveal";
 import MovieImage from "../MovieImage";
-import Styles from "./Tiles.pcss";
+import * as Styles from "./Tiles.pcss";
 type TilesProps = {
   movies?: object[],
   config?: {

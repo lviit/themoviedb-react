@@ -13,8 +13,10 @@ type MovieFullViewProps = {
   }
 };
 class MovieFullView extends React.Component<any, any> {
-  constructor() {
-    super();
+  static defaultProps: any;
+
+  constructor(props) {
+    super(props);
   }
   componentWillMount() {
     const id = this.props.match.params.id;

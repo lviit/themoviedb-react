@@ -1,14 +1,11 @@
-export interface ISearchResultsPcss {
-  'result': string;
-  'infocontainer': string;
-  'title': string;
-  'date': string;
-  'overview': string;
-  'icon': string;
-  'enter': string;
-  'enterActive': string;
-  'exit': string;
-  'exitActive': string;
-}
-
-export const locals: ISearchResultsPcss;
+export const result: string;
+export const infocontainer: string;
+export const title: string;
+export const date: string;
+export const overview: string;
+export const icon: string;
+export const enter: string;
+export const enterActive: string;
+export const exit: string;
+export const exitActive: string;
+export const genres: string;

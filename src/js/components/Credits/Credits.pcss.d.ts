@@ -1,10 +1,6 @@
-export interface ICreditsPcss {
-  'container': string;
-  'item': string;
-  'name': string;
-  'character': string;
-  'image': string;
-  'noimage': string;
-}
-
-export const locals: ICreditsPcss;
+export const container: string;
+export const item: string;
+export const name: string;
+export const character: string;
+export const image: string;
+export const noimage: string;

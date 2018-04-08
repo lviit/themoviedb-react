@@ -1,17 +1,17 @@
 import * as React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import Styles from "./MovieList.pcss";
+import * as Styles from "./MovieList.pcss";
 import WithScrollReveal from "@utils/WithScrollReveal";
 import MovieImage from "../MovieImage";
 type MovieListProps = {
-  movies?: object[],
+  movies?: object[];
   config?: {
     images?: {
-      backdrop_sizes?: any[],
-      secure_base_url?: string
-    }
-  }
+      backdrop_sizes?: any[];
+      secure_base_url?: string;
+    };
+  };
 };
 const MovieList: React.SFC<any> = ({
   movies,

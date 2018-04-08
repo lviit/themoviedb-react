@@ -1,13 +1,9 @@
-export interface IMovieImagePcss {
-  'loader': string;
-  'load8': string;
-  'container': string;
-  'image': string;
-  'loaded': string;
-  'noimage': string;
-  'large': string;
-  'medium': string;
-  'small': string;
-}
-
-export const locals: IMovieImagePcss;
+export const loader: string;
+export const load8: string;
+export const container: string;
+export const image: string;
+export const loaded: string;
+export const noimage: string;
+export const large: string;
+export const medium: string;
+export const small: string;

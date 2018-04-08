@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as classnames from "classnames";
-import Styles from "./Container.pcss";
+import * as Styles from "./Container.pcss";
 type ContainerProps = {
   large?: boolean;
   className?: string;

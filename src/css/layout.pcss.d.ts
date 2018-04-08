@@ -1,13 +1,9 @@
-export interface ILayoutPcss {
-  'wrapper': string;
-  'transitionForwardEnter': string;
-  'transitionBackEnter': string;
-  'transitionForwardEnterActive': string;
-  'transitionBackEnterActive': string;
-  'transitionForwardExit': string;
-  'transitionBackExit': string;
-  'transitionForwardExitActive': string;
-  'transitionBackExitActive': string;
-}
-
-export const locals: ILayoutPcss;
+export const wrapper: string;
+export const transitionForwardEnter: string;
+export const transitionBackEnter: string;
+export const transitionForwardEnterActive: string;
+export const transitionBackEnterActive: string;
+export const transitionForwardExit: string;
+export const transitionBackExit: string;
+export const transitionForwardExitActive: string;
+export const transitionBackExitActive: string;

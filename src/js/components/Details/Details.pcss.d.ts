@@ -1,7 +1,3 @@
-export interface IDetailsPcss {
-  'container': string;
-  'item': string;
-  'label': string;
-}
-
-export const locals: IDetailsPcss;
+export const container: string;
+export const item: string;
+export const label: string;

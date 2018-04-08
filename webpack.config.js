@@ -64,6 +64,17 @@ module.exports = (env, argv) => {
     module: {
       rules: [
         {
+          test: /\.md$/,
+          use: [
+            {
+              loader: "html-loader"
+            },
+            {
+              loader: "markdown-loader"
+            }
+          ]
+        },
+        {
           test: /.jsx?$/,
           loader: "babel-loader",
           include: APP_DIR
@@ -73,17 +84,14 @@ module.exports = (env, argv) => {
           loader: "awesome-typescript-loader"
         },
         {
-          test: /\.pcss$/,
-          use: ["style-loader"]
-        },
-        {
           test: [/\.pcss$/],
           use: [
+            'style-loader',
             {
-              loader: "typings-for-css-modules-loader",
+              loader: 'typings-for-css-modules-loader',
               options: {
                 modules: true,
-                localIdentName: "[path][name]__[local]--[hash:base64:5]"
+                namedExport: true
               }
             }
           ]
@@ -100,17 +108,6 @@ module.exports = (env, argv) => {
               options: {
                 limit: 25000
               }
-            }
-          ]
-        },
-        {
-          test: /\.md$/,
-          use: [
-            {
-              loader: "html-loader"
-            },
-            {
-              loader: "markdown-loader"
             }
           ]
         }

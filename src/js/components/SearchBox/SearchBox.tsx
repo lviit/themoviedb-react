@@ -1,20 +1,23 @@
 import * as React from "react";
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 import * as classnames from "classnames";
-import { debounce } from 'throttle-debounce';
-import enhanceWithClickOutside from 'react-click-outside';
-import SearchResults from '../SearchResults';
-import apiConnect from '../../services/ApiConnect';
-import Styles from './SearchBox.pcss';
-import Container from '@utils/Container';
+import { debounce } from "throttle-debounce";
+import enhanceWithClickOutside from "react-click-outside";
+import SearchResults from "../SearchResults";
+import apiConnect from "../../services/ApiConnect";
+import * as Styles from "./SearchBox.pcss";
+import Container from "@utils/Container";
 type SearchBoxProps = {
-  toggleSearchBox?: (...args: any[]) => any,
-  collapsed?: boolean
+  toggleSearchBox?: (...args: any[]) => any;
+  collapsed?: boolean;
 };
 type SearchBoxState = {
-  searchResults: null
+  searchResults: null;
 };
 class SearchBox extends React.Component<any, any> {
+  static defaultProps: any;
+  private textInput: HTMLInputElement;
+
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
@@ -30,7 +33,9 @@ class SearchBox extends React.Component<any, any> {
     this.callAjax(e.target.value);
   }
   callAjax(value) {
-    apiConnect.Search(value).then(searchResults => this.setState({ searchResults }));
+    apiConnect
+      .Search(value)
+      .then(searchResults => this.setState({ searchResults }));
   }
   handleClickOutside() {
     this.props.collapsed && this.props.toggleSearchBox();
@@ -64,7 +69,9 @@ class SearchBox extends React.Component<any, any> {
           <div className={resultContainerClasses}>
             {this.state.searchResults &&
               this.state.genres &&
-              this.props.config && <SearchResults {...this.state} {...this.props} />}
+              this.props.config && (
+                <SearchResults {...this.state} {...this.props} />
+              )}
           </div>
         </Container>
       </div>

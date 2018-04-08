@@ -1,9 +1,9 @@
 import * as React from "react";
 import * as classnames from "classnames";
-import Styles from "./MovieImage.pcss";
+import * as Styles from "./MovieImage.pcss";
 type MovieImageState = {
-  img_error: boolean,
-  img_loaded: boolean
+  img_error: boolean;
+  img_loaded: boolean;
 };
 class MovieImage extends React.Component<any, any> {
   constructor(props) {

@@ -1,5 +1,1 @@
-export interface IScrollbarPcss {
-  'scrollbar': string;
-}
-
-export const locals: IScrollbarPcss;
+export const scrollbar: string;
