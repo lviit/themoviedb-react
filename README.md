@@ -1,26 +1,47 @@
-# themoviedb-react
+# TMDb React app
 
-React with The Movie Database API. Not endorsed or certified by TMDb.
+Frontend application using [The Movie Database API](https://developers.themoviedb.org). Built with React. Not endorsed or certified by [TMDb](https://www.themoviedb.org).
+
+Some of the stuff used:
+* React
+* Redux with Redux thunk
+* React router v4
+* Webpack 4
+* Jest
+* CSS modules
 
 [![Build Status](https://travis-ci.org/lviit/themoviedb-react.svg?branch=master)](https://travis-ci.org/lviit/themoviedb-react)
 
 ## getting started
-install packages:
+Install packages:
 ```
-npm install
+yarn install
 ```
-Create the settings file and add your api key (You can request an API key by logging in to your account on TMDb and clicking the "API" link in the left hand side bar of your account page):
+Create .env file in the repo root and set your api key as API_KEY variable:
+
 ```
-cp src/js/services/Settings.default.js src/js/services/Settings.js
+// .env
+API_KEY=12345678901234567890
 ```
+You can request an API key by logging in to your account on [TMDb](https://www.themoviedb.org/login) and clicking the "API" link in the left hand side bar of your account page.
 
 Use webpack-dev-server for local development:
 ```
-webpack-dev-server
+yarn dev-server
 ```
-build the app:
+Build the app:
 ```
-webpack
+yarn build:dev
+yarn build:prod
 ```
 
+Run the server:
+```
+yarn serve
+```
+
+Run tests:
+```
+yarn test
+```
 TMdb api documentation can be found at: https://developers.themoviedb.org/3/getting-started
