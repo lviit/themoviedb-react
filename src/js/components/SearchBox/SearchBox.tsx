@@ -85,4 +85,5 @@ SearchBox.defaultProps = {
 const mapStateToProps = (state, ownProps) => {
   return { ...ownProps, config: state.config };
 };
-export default connect(mapStateToProps)(enhanceWithClickOutside(SearchBox));
+//export default connect(mapStateToProps)(enhanceWithClickOutside(SearchBox));
+export default connect(mapStateToProps)(SearchBox);
