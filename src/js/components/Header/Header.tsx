@@ -1,16 +1,10 @@
 import * as React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, withRouter } from "react-router-dom";
 import SearchBox from "../SearchBox";
 import * as Styles from "./header.pcss";
-import { withRouter } from "react-router-dom";
-type HeaderProps = {
-  history?: object;
-};
-type HeaderState = {
-  toggleSearchBox: boolean;
-};
+
 class Header extends React.Component<any, any> {
-  static defaultProps: any;
+  public static defaultProps: any;
 
   constructor(props) {
     super(props);
@@ -19,10 +13,10 @@ class Header extends React.Component<any, any> {
       toggleSearchBox: false
     };
   }
-  toggleSearchBox() {
+  public toggleSearchBox() {
     this.setState({ toggleSearchBox: this.state.toggleSearchBox === false });
   }
-  render() {
+  public render() {
     return (
       <div>
         <div className={Styles.header}>

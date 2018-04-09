@@ -1,11 +1,11 @@
+import Container from "@utils/Container";
 import * as React from "react";
 import { connect } from "react-redux";
-import * as Styles from "./MovieFull.pcss";
-import Container from "@utils/Container";
-import GenreList from "../GenreList";
 import Details from "../Details";
+import GenreList from "../GenreList";
 import MovieImage from "../MovieImage";
-type FullViewProps = {
+import * as Styles from "./MovieFull.pcss";
+interface FullViewProps {
   details?: {
     title?: string;
     tagline?: string;
@@ -20,21 +20,21 @@ type FullViewProps = {
       secure_base_url?: string;
     };
   };
-};
-type FullViewState = {
+}
+interface FullViewState {
   animateMeter: boolean;
-};
+}
 class FullView extends React.Component<FullViewProps, FullViewState> {
   constructor(props) {
     super(props);
     this.state = { animateMeter: false };
   }
-  componentDidMount() {
+  public componentDidMount() {
     setTimeout(() => {
       this.setState({ animateMeter: true });
     }, 100);
   }
-  render() {
+  public render() {
     const {
       details: { title, tagline, overview, backDropPath, genres, voteAverage },
       config: {

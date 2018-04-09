@@ -1,7 +1,7 @@
+import Page from "@utils/Page";
 import * as React from "react";
 import { connect } from "react-redux";
 import { Route } from "react-router-dom";
-import Page from "@utils/Page";
 import GenreList from "../GenreList";
 import MoviesByGenre from "../MoviesByGenre";
 import * as Styles from "./GenresPage.pcss";

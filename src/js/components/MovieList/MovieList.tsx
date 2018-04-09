@@ -1,10 +1,10 @@
+import WithScrollReveal from "@utils/WithScrollReveal";
 import * as React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import * as Styles from "./MovieList.pcss";
-import WithScrollReveal from "@utils/WithScrollReveal";
 import MovieImage from "../MovieImage";
-type MovieListProps = {
+import * as Styles from "./MovieList.pcss";
+interface MovieListProps {
   movies?: object[];
   config?: {
     images?: {
@@ -12,7 +12,7 @@ type MovieListProps = {
       secure_base_url?: string;
     };
   };
-};
+}
 const MovieList: React.SFC<any> = ({
   movies,
   config: {

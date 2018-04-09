@@ -1,11 +1,11 @@
-import * as React from "react";
-import * as classnames from "classnames";
-import * as Styles from "./Section.pcss";
 import Container from "@utils/Container";
-type SectionProps = {
-  title?: string,
-  dark?: boolean
-};
+import * as classnames from "classnames";
+import * as React from "react";
+import * as Styles from "./Section.pcss";
+interface SectionProps {
+  title?: string;
+  dark?: boolean;
+}
 const Section: React.SFC<SectionProps> = ({ title, dark, children }) => {
   const classes = classnames({
     [Styles.dark]: dark,

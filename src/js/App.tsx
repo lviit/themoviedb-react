@@ -1,26 +1,26 @@
+import Section from "@utils/Section";
 import * as React from "react";
 import { render } from "react-dom";
-import { Route, Switch, withRouter } from "react-router-dom";
-import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { connect } from "react-redux";
-import { mapDispachToProps } from "./redux/Store";
-import Section from "@utils/Section";
-import FrontPage from "./FrontPage";
-import MovieFullView from "./MovieFullView";
+import { Route, Switch, withRouter } from "react-router-dom";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
+import "../css/genreColors.pcss";
+import "../css/global.pcss";
+import * as Styles from "../css/layout.pcss";
+import AboutPage from "./components/AboutPage";
+import Footer from "./components/Footer";
 import GenresPage from "./components/GenresPage";
 import Header from "./components/Header";
-import Footer from "./components/Footer";
-import AboutPage from "./components/AboutPage";
-import "../css/global.pcss";
-import "../css/genreColors.pcss";
-import * as Styles from "../css/layout.pcss";
+import FrontPage from "./FrontPage";
+import MovieFullView from "./MovieFullView";
+import { mapDispachToProps } from "./redux/Store";
 const NotFound = () => <h1>404.. Whoops, page not found!</h1>;
 class App extends React.Component<any, any> {
-  componentWillMount() {
+  public componentWillMount() {
     this.props.getConfig();
     this.props.getGenres();
   }
-  render() {
+  public render() {
     const { location, history } = this.props;
     return (
       <div>
@@ -47,8 +47,8 @@ class App extends React.Component<any, any> {
             timeout={300}
           >
             <Switch location={location}>
-              <Route exact path="/" component={FrontPage} />
-              <Route exact path="/about" component={AboutPage} />
+              <Route exact={true} path="/" component={FrontPage} />
+              <Route exact={true} path="/about" component={AboutPage} />
               <Route
                 path="/movie/:id"
                 render={props => (

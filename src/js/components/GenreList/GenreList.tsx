@@ -1,11 +1,11 @@
-import * as React from "react";
 import * as classnames from "classnames";
+import * as React from "react";
 import { Link } from "react-router-dom";
 import * as Styles from "./GenreList.pcss";
-type GenreListProps = {
+interface GenreListProps {
   genres?: object[];
   compact?: boolean;
-};
+}
 const GenreList: React.SFC<any> = ({ genres, compact, className, ...rest }) => {
   const genreList = genres.map(
     genre =>

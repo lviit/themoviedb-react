@@ -1,30 +1,37 @@
+import Container from "@utils/Container";
+import WithScrollReveal from "@utils/WithScrollReveal";
 import * as React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import Container from "@utils/Container";
-import WithScrollReveal from "@utils/WithScrollReveal";
 import MovieImage from "../MovieImage";
 import * as Styles from "./Tiles.pcss";
-type TilesProps = {
-  movies?: object[],
+interface TilesProps {
+  movies?: object[];
   config?: {
     images?: {
-      backdrop_sizes?: any[],
-      secure_base_url?: string
-    }
-  }
-};
+      backdrop_sizes?: any[];
+      secure_base_url?: string;
+    };
+  };
+}
 const Tiles: React.SFC<any> = ({
   movies = [],
   genre,
-  config: { images: { backdrop_sizes: imageSizes, secure_base_url: imageBaseUrl } }
+  config: {
+    images: { backdrop_sizes: imageSizes, secure_base_url: imageBaseUrl }
+  }
 }) => {
   const movieList = movies.map((movie, index) => {
     const size = index % 7 === 0 ? 2 : 1;
     return (
       <div className={size === 1 ? Styles.small : Styles.big} key={movie.id}>
         <Link className={Styles.movie} key={movie.id} to={`/movie/${movie.id}`}>
-          <div className={[Styles.gradientOverlay, `gradient-genre-${genre ? genre : "all"}`].join(" ")} />
+          <div
+            className={[
+              Styles.gradientOverlay,
+              `gradient-genre-${genre ? genre : "all"}`
+            ].join(" ")}
+          />
           <MovieImage
             backdrop
             size={imageSizes[size]}
@@ -32,12 +39,17 @@ const Tiles: React.SFC<any> = ({
             path={movie.backdrop_path}
           />
 
-          <div className={size === 1 ? Styles.info : `${Styles.info} ${Styles.info__big}`}>
-            <h3 className={size === 1 ? Styles.title : Styles.title__big}>{movie.title}</h3>
-            <div className={size === 1 ? Styles.overview : Styles.overview__big}>{`${movie.overview.substr(
-              0,
-              size === 1 ? 50 : 200
-            )}...`}</div>
+          <div
+            className={
+              size === 1 ? Styles.info : `${Styles.info} ${Styles.info__big}`
+            }
+          >
+            <h3 className={size === 1 ? Styles.title : Styles.title__big}>
+              {movie.title}
+            </h3>
+            <div
+              className={size === 1 ? Styles.overview : Styles.overview__big}
+            >{`${movie.overview.substr(0, size === 1 ? 50 : 200)}...`}</div>
           </div>
         </Link>
       </div>

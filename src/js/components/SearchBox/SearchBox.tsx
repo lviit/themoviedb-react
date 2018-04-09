@@ -1,21 +1,21 @@
-import * as React from "react";
-import { connect } from "react-redux";
-import * as classnames from "classnames";
-import { debounce } from "throttle-debounce";
-import enhanceWithClickOutside from "react-click-outside";
-import SearchResults from "../SearchResults";
-import apiConnect from "../../services/ApiConnect";
-import * as Styles from "./SearchBox.pcss";
 import Container from "@utils/Container";
-type SearchBoxProps = {
+import * as classnames from "classnames";
+import * as React from "react";
+import reactClickOutside from "react-click-outside";
+import { connect } from "react-redux";
+import { debounce } from "throttle-debounce";
+import ApiConnect from "../../services/ApiConnect";
+import SearchResults from "../SearchResults";
+import * as Styles from "./SearchBox.pcss";
+interface SearchBoxProps {
   toggleSearchBox?: (...args: any[]) => any;
   collapsed?: boolean;
-};
-type SearchBoxState = {
+}
+interface SearchBoxState {
   searchResults: null;
-};
+}
 class SearchBox extends React.Component<any, any> {
-  static defaultProps: any;
+  public static defaultProps: any;
   private textInput: HTMLInputElement;
 
   constructor(props) {
@@ -26,21 +26,21 @@ class SearchBox extends React.Component<any, any> {
       searchResults: null
     };
   }
-  componentWillMount() {
-    apiConnect.getGenres().then(genres => this.setState({ genres }));
+  public componentWillMount() {
+    ApiConnect.getGenres().then(genres => this.setState({ genres }));
   }
-  handleChange(e) {
+  public handleChange(e) {
     this.callAjax(e.target.value);
   }
-  callAjax(value) {
-    apiConnect
-      .Search(value)
-      .then(searchResults => this.setState({ searchResults }));
+  public callAjax(value) {
+    ApiConnect.Search(value).then(searchResults =>
+      this.setState({ searchResults })
+    );
   }
-  handleClickOutside() {
+  public handleClickOutside() {
     this.props.collapsed && this.props.toggleSearchBox();
   }
-  render() {
+  public render() {
     this.props.collapsed && this.textInput.focus();
     const searchBoxClasses = classnames({
       [Styles.searchbox]: true,
@@ -85,5 +85,5 @@ SearchBox.defaultProps = {
 const mapStateToProps = (state, ownProps) => {
   return { ...ownProps, config: state.config };
 };
-//export default connect(mapStateToProps)(enhanceWithClickOutside(SearchBox));
+// export default connect(mapStateToProps)(enhanceWithClickOutside(SearchBox));
 export default connect(mapStateToProps)(SearchBox);

@@ -1,19 +1,19 @@
+import Container from "@utils/Container";
+import Page from "@utils/Page";
 import * as React from "react";
 import { connect } from "react-redux";
-import { mapDispachToProps } from "./redux/Store";
-import Page from "@utils/Page";
-import Container from "@utils/Container";
 import Hero from "./components/Hero";
 import MovieList from "./components/MovieList";
+import { mapDispachToProps } from "./redux/Store";
 
 class Front extends React.Component<any, any> {
   constructor(props) {
     super(props);
   }
-  componentWillMount() {
+  public componentWillMount() {
     this.props.getLatestMovies();
   }
-  render() {
+  public render() {
     return (
       <Page>
         <Hero movies={this.props.latestMovies.slice(0, 5)} />

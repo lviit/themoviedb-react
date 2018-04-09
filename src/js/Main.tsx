@@ -1,10 +1,10 @@
+import ScrollToTop from "@utils/ScrollToTop";
 import * as React from "react";
 import { render } from "react-dom";
-import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
-import Store from "./redux/Store";
-import ScrollToTop from "@utils/ScrollToTop";
+import { BrowserRouter } from "react-router-dom";
 import App from "./App";
+import Store from "./redux/Store";
 
 render(
   <Provider store={Store}>

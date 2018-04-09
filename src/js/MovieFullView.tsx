@@ -1,40 +1,38 @@
-import * as React from "react";
-import { connect } from "react-redux";
-import { mapDispachToProps } from "./redux/Store";
 import Page from "@utils/Page";
 import Section from "@utils/Section";
-import MovieList from "./components/MovieList";
-import FullView from "./components/MovieFull";
-import Reviews from "./components/Reviews";
+import * as React from "react";
+import { connect } from "react-redux";
 import Credits from "./components/Credits";
-type MovieFullViewProps = {
-  params?: {
-    splat?: string
-  }
-};
+import MovieFull from "./components/MovieFull";
+import MovieList from "./components/MovieList";
+import Reviews from "./components/Reviews";
+import { mapDispachToProps } from "./redux/Store";
+
 class MovieFullView extends React.Component<any, any> {
-  static defaultProps: any;
+  public static defaultProps: any;
 
   constructor(props) {
     super(props);
   }
-  componentWillMount() {
+  public componentWillMount() {
     const id = this.props.match.params.id;
     this.props.getMovieDetails(id);
     this.props.getReviews(id);
     this.props.getCredits(id);
     this.props.getSimilar(id);
   }
-  render() {
+  public render() {
     const { similar, isLoading } = this.props;
-    if (isLoading) return <div />;
+    if (isLoading) {
+      return <div />;
+    }
     return (
       <Page>
-        <FullView />
+        <MovieFull />
         <Section title="Cast">
           <Credits />
         </Section>
-        <Section title="Reviews" dark>
+        <Section title="Reviews" dark={true}>
           <Reviews />
         </Section>
         <Section title="You might also like">
@@ -51,12 +49,12 @@ const mapStateToProps = (state, ownProps) => {
   return {
     ...ownProps,
     config: state.config,
-    similar: state.movieFullView.similarMovies.data,
     isLoading:
       state.movieFullView.similarMovies.isLoading ||
       state.movieFullView.credits.isLoading ||
       state.movieFullView.reviews.isLoading ||
-      state.movieFullView.details.isLoading
+      state.movieFullView.details.isLoading,
+    similar: state.movieFullView.similarMovies.data
   };
 };
 export default connect(mapStateToProps, mapDispachToProps)(MovieFullView);

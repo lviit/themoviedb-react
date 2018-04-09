@@ -1,15 +1,14 @@
-import { createStore, compose, applyMiddleware, combineReducers } from "redux";
-import thunk from "redux-thunk";
 import { routerReducer } from "react-router-redux";
-import { bindActionCreators } from "redux";
-import DefaultState from "./DefaultState";
+import { applyMiddleware, bindActionCreators, combineReducers, compose, createStore } from "redux";
+import reduxThunk from "redux-thunk";
 import * as actionCreators from "./Actions";
+import DefaultState from "./DefaultState";
 import * as reducers from "./Reducers";
 
 const rootReducer = combineReducers({ ...reducers, routing: routerReducer });
 const enhancers = compose(
-  applyMiddleware(thunk),
-  (<any>window).devToolsExtension ? (<any>window).devToolsExtension() : f => f
+  applyMiddleware(reduxThunk),
+  (window as any).devToolsExtension ? (window as any).devToolsExtension() : f => f
 );
 
 const Store = createStore(rootReducer, DefaultState, enhancers);

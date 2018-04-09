@@ -1,7 +1,7 @@
 {
   "license": "CC-BY-4.0",
   "scripts": {
-    "lint": "eslint --ext .js --ext .jsx src",
+    "lint": "tslint src/**/*.ts{,x}",
     "serve": "node server.js",
     "dev-server": "webpack-dev-server --mode development --progress --colors",
     "build:dev": "webpack --mode development --progress --colors",
@@ -49,11 +49,6 @@
     "dotenv-webpack": "^1.5.5",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
-    "eslint": "^3.18.0",
-    "eslint-config-airbnb": "^14.1.0",
-    "eslint-plugin-import": "^2.2.0",
-    "eslint-plugin-jsx-a11y": "^4.0.0",
-    "eslint-plugin-react": "^6.10.3",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.0.6",
     "identity-obj-proxy": "^3.0.0",
@@ -70,6 +65,9 @@
     "source-map-loader": "^0.2.3",
     "style-loader": "^0.20.3",
     "ts-loader": "^4.2.0",
+    "tslint-config-prettier": "^1.10.0",
+    "tslint": "^5.9.1",
+    "tslint-config-airbnb": "^5.8.0",
     "typescript": "^2.8.1",
     "typings-for-css-modules-loader": "^1.7.0",
     "url-loader": "^1.0.1",
@@ -79,26 +77,15 @@
     "webpack-dev-server": "^3.1.1"
   },
   "jest": {
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx}"
-    ],
+    "collectCoverageFrom": ["src/**/*.{js,jsx}"],
     "testEnvironment": "node",
     "testURL": "http://localhost",
-    "setupFiles": [
-      "<rootDir>/test/enzyme-setup.js"
-    ],
-    "modulePaths": [
-      "<rootDir>/src"
-    ],
-    "moduleFileExtensions": [
-      "web.js",
-      "js",
-      "json",
-      "web.jsx",
-      "jsx"
-    ],
+    "setupFiles": ["<rootDir>/test/enzyme-setup.js"],
+    "modulePaths": ["<rootDir>/src"],
+    "moduleFileExtensions": ["web.js", "js", "json", "web.jsx", "jsx"],
     "moduleNameMapper": {
-      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/test/fileMock.js",
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$":
+        "<rootDir>/test/fileMock.js",
       "\\.(css|pcss)$": "identity-obj-proxy",
       "^@utils/(.*)": "<rootDir>/src/js/utils/$1"
     }

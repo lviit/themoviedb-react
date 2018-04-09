@@ -1,22 +1,25 @@
+import Container from "@utils/Container";
 import * as React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import Slider from "react-slick";
-import MovieImage from "../MovieImage";
-import Container from "@utils/Container";
-import * as Styles from "./Hero.pcss";
 import "../../../css/slick.pcss";
+import MovieImage from "../MovieImage";
+import * as Styles from "./Hero.pcss";
+
 const HeroPrevArrow = props => (
   <i onClick={props.onClick} className="slick-arrow slick-prev material-icons">
     chevron_left
   </i>
 );
+
 const HeroNextArrow = props => (
   <i onClick={props.onClick} className="slick-arrow slick-next material-icons">
     chevron_right
   </i>
 );
-type HeroProps = {
+
+interface HeroProps {
   movies?: any[];
   config?: {
     images?: {
@@ -24,7 +27,8 @@ type HeroProps = {
       secure_base_url?: string;
     };
   };
-};
+}
+
 const Hero: React.SFC<HeroProps> = ({
   movies,
   config: {
@@ -32,16 +36,16 @@ const Hero: React.SFC<HeroProps> = ({
   }
 }) => {
   const sliderSettings = {
+    autoplay: true,
+    autoplaySpeed: 5000,
     className: Styles.container,
     dots: true,
     infinite: true,
-    speed: 500,
-    autoplay: true,
-    autoplaySpeed: 5000,
-    slidesToShow: 1,
-    slidesToScroll: 1,
     nextArrow: <HeroNextArrow />,
-    prevArrow: <HeroPrevArrow />
+    prevArrow: <HeroPrevArrow />,
+    slidesToScroll: 1,
+    slidesToShow: 1,
+    speed: 500
   };
   const slides = movies.map(movie => (
     <div key={movie.id}>
@@ -66,7 +70,9 @@ const Hero: React.SFC<HeroProps> = ({
   ));
   return slides.length > 0 && <Slider {...sliderSettings}>{slides}</Slider>;
 };
+
 const mapStateToProps = (state, ownProps) => {
   return { ...ownProps, config: state.config };
 };
+
 export default connect(mapStateToProps)(Hero);
