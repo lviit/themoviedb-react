@@ -1,7 +1,7 @@
 import Container from "@utils/Container";
 import * as classnames from "classnames";
 import * as React from "react";
-import reactClickOutside from "react-click-outside";
+import onClickOutside from "react-onclickoutside";
 import { connect } from "react-redux";
 import { debounce } from "throttle-debounce";
 import ApiConnect from "../../services/ApiConnect";
@@ -85,5 +85,5 @@ SearchBox.defaultProps = {
 const mapStateToProps = (state, ownProps) => {
   return { ...ownProps, config: state.config };
 };
-// export default connect(mapStateToProps)(enhanceWithClickOutside(SearchBox));
-export default connect(mapStateToProps)(SearchBox);
+
+export default connect(mapStateToProps)(onClickOutside(SearchBox));

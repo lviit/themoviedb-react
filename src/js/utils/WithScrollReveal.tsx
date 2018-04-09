@@ -1,9 +1,10 @@
 import * as React from "react";
-// import ScrollReveal from "scrollreveal";
+// TODO: get @types/scrollreveal to work
+//import ScrollReveal from "scrollreveal";
+const ScrollReveal = require("scrollreveal");
 export default (WrappedComponent, className) =>
   class WithScrollReveal extends React.Component {
     public componentDidMount() {
-      /*
       const sr = ScrollReveal({
         origin: "bottom",
         duration: 500,
@@ -15,7 +16,7 @@ export default (WrappedComponent, className) =>
       });
       setTimeout(() => {
         sr.reveal(`.${className}`, 50);
-      }, 1000); */
+      }, 1000);
     }
     public render() {
       return <WrappedComponent {...this.props} />;
