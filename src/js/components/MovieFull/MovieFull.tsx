@@ -75,7 +75,7 @@ class FullView extends React.Component<FullViewProps, FullViewState> {
                       strokeDash -
                       strokeDash *
                         (this.state.animateMeter ? voteAverage / 10 : 0),
-                    strokeDasharray: strokeDash
+                    strokeDasharray: strokeDash.toString()
                   }}
                 />
               </svg>

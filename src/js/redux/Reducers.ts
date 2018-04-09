@@ -28,7 +28,7 @@ export function genres(state = [], action) {
       return state;
   }
 }
-export function movieFullView(state = [], action) {
+export function movieFullView(state: any = [], action) {
   switch (action.type) {
     case "GET_MOVIE_DETAILS_LOADING":
       return {

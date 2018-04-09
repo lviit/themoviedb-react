@@ -24,7 +24,7 @@ class MoviesByGenre extends React.Component<any, any> {
   componentWillMount() {
     apiConnect
       .SearchByGenre(this.state.activeGenre)
-      .then(response => this.setState({ moviesByGenre: response.results }));
+      .then((response: any) => this.setState({ moviesByGenre: response.results }));
   }
   render() {
     console.log(this.props.match.params.id.length);

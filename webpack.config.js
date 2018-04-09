@@ -64,22 +64,6 @@ module.exports = (env, argv) => {
     module: {
       rules: [
         {
-          test: /\.md$/,
-          use: [
-            {
-              loader: "html-loader"
-            },
-            {
-              loader: "markdown-loader"
-            }
-          ]
-        },
-        {
-          test: /.jsx?$/,
-          loader: "babel-loader",
-          include: APP_DIR
-        },
-        {
           test: /\.ts$|\.tsx$/,
           loader: "awesome-typescript-loader"
         },
@@ -110,7 +94,18 @@ module.exports = (env, argv) => {
               }
             }
           ]
-        }
+        },
+        {
+          test: /\.md$/,
+          use: [
+            {
+              loader: "html-loader"
+            },
+            {
+              loader: "markdown-loader"
+            }
+          ]
+        },
       ]
     },
     devServer: {

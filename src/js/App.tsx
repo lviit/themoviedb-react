@@ -64,4 +64,4 @@ class App extends React.Component<any, any> {
     );
   }
 }
-export default withRouter(connect(null, mapDispachToProps)(App));
+export default withRouter(connect(null, mapDispachToProps)(App) as any);

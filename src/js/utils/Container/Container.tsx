@@ -4,8 +4,10 @@ import * as Styles from "./Container.pcss";
 type ContainerProps = {
   large?: boolean;
   className?: string;
+  dangerouslySetInnerHTML?: any;
+  children?: any;
 };
-const Container: React.SFC<ContainerProps> = ({
+const Container: React.SFC<any> = ({
   large,
   children,
   className,
