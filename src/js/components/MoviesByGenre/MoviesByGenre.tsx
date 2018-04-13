@@ -9,9 +9,9 @@ class MoviesByGenre extends React.Component<any, any> {
   constructor(props) {
     super(props);
     this.state = {
-      moviesByGenre: [],
       activeGenre:
-        this.props.match.params.id === "all" ? "" : this.props.match.params.id
+        this.props.match.params.id === "all" ? "" : this.props.match.params.id,
+      moviesByGenre: []
     };
   }
   public componentWillMount() {
@@ -20,15 +20,13 @@ class MoviesByGenre extends React.Component<any, any> {
     );
   }
   public render() {
-    const activeGenre =
-      this.props.match.params.id === "" || this.props.genres.length === 0
-        ? "Browse by genre"
-        : this.props.genres.filter(
-            genre => genre.id === this.props.match.params.id
-          )[0].name;
+    const title =
+      this.props.genres.length > 0 &&
+      this.props.genres.filter(genre => genre.id == this.state.activeGenre)[0]
+        .name;
     return (
       <div>
-        <h1 className={Styles.title}>{activeGenre}</h1>
+        <h1 className={Styles.title}>{title}</h1>
         <Tiles
           movies={this.state.moviesByGenre}
           genre={this.state.activeGenre}

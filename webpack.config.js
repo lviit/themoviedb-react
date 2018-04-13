@@ -11,7 +11,7 @@ let APP_DIR = path.resolve(__dirname, "src/js");
 module.exports = (env, argv) => {
   const { ifProduction, ifNotProduction } = getIfUtils(argv.mode);
   return {
-    devtool: "source-map",
+    devtool: ifNotProduction("source-map"),
     entry: {
       app: ["babel-polyfill", APP_DIR + "/Main.tsx"]
     },
@@ -70,19 +70,16 @@ module.exports = (env, argv) => {
         {
           test: [/\.pcss$/],
           use: [
-            'style-loader',
+            "style-loader",
             {
-              loader: 'typings-for-css-modules-loader',
+              loader: "typings-for-css-modules-loader",
               options: {
                 modules: true,
                 namedExport: true
               }
-            }
+            },
+            "postcss-loader"
           ]
-        },
-        {
-          test: /\.pcss$/,
-          use: ["postcss-loader"]
         },
         {
           test: /\.(jpg|png)$/,
@@ -105,7 +102,7 @@ module.exports = (env, argv) => {
               loader: "markdown-loader"
             }
           ]
-        },
+        }
       ]
     },
     devServer: {
