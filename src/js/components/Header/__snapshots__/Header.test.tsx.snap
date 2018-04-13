@@ -81,7 +81,7 @@ ShallowWrapper {
             </button>
           </div>
         </div>,
-        <Connect(clickOutside(SearchBox))
+        <Connect(OnClickOutside(SearchBox))
           collapsed={false}
           toggleSearchBox={[Function]}
         />,
@@ -484,7 +484,7 @@ ShallowWrapper {
               </button>
             </div>
           </div>,
-          <Connect(clickOutside(SearchBox))
+          <Connect(OnClickOutside(SearchBox))
             collapsed={false}
             toggleSearchBox={[Function]}
           />,

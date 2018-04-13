@@ -1,14 +1,14 @@
-import React from "react";
+import * as React from "react";
 import { shallow } from "enzyme";
 import Reviews from "./Reviews";
 import { getReviews } from "../../redux/Actions";
 import DefaultState from "../../redux/DefaultState";
 import { baseUrl } from "../../services/ApiConnect";
-import configureStore from "redux-mock-store";
-import nock from "nock";
-import thunk from "redux-thunk";
+import * as configureStore from "redux-mock-store";
+import * as nock from "nock";
+import reduxThunk from "redux-thunk";
 
-const middlewares = [thunk];
+const middlewares = [reduxThunk];
 const mockStore = configureStore(middlewares);
 
 const response = {
@@ -48,17 +48,18 @@ const request = nock(baseUrl)
 describe("reviews", () => {
   const store = mockStore(DefaultState);
 
-  it("should dispatch correct actions", async () => {  
+  it("should dispatch correct actions", async () => {
     await store.dispatch(getReviews(123));
-    expect(store.getActions()).toMatchSnapshot(); 
+    expect(store.getActions()).toMatchSnapshot();
   });
 
   it("renders correctly", () => {
     // @TODO: get reviews from state
     // const state = store.getState();
     // const reviews = state.movieFullView.reviews.data;
-    const tree = shallow(<Reviews.WrappedComponent reviews={response.results} />);
-
+    const tree = shallow(
+      <Reviews.WrappedComponent reviews={response.results} />
+    );
 
     expect(tree).toMatchSnapshot();
   });

@@ -41,6 +41,7 @@
     "@types/react-router-dom": "^4.2.6",
     "@types/react-router-redux": "^5.0.13",
     "@types/react-transition-group": "^2.0.7",
+    "@types/redux-mock-store": "^0.0.13",
     "awesome-typescript-loader": "^5.0.0",
     "case-sensitive-paths-webpack-plugin": "^2.1.2",
     "compression-webpack-plugin": "^0.3.2",
@@ -62,6 +63,7 @@
     "prettier-eslint": "^8.8.1",
     "redux-mock-store": "^1.5.1",
     "style-loader": "^0.20.3",
+    "ts-jest": "^22.4.2",
     "tslint": "^5.9.1",
     "tslint-config-airbnb": "^5.8.0",
     "tslint-config-prettier": "^1.10.0",
@@ -74,15 +76,31 @@
     "webpack-dev-server": "^3.1.1"
   },
   "jest": {
-    "collectCoverageFrom": ["src/**/*.{js,jsx}"],
+    "collectCoverageFrom": [
+      "src/**/*.{ts,tsx}"
+    ],
     "testEnvironment": "node",
     "testURL": "http://localhost",
-    "setupFiles": ["<rootDir>/test/enzyme-setup.js"],
-    "modulePaths": ["<rootDir>/src"],
-    "moduleFileExtensions": ["web.js", "js", "json", "web.jsx", "jsx"],
+    "setupFiles": [
+      "<rootDir>/test/enzyme-setup.ts"
+    ],
+    "modulePaths": [
+      "<rootDir>/src"
+    ],
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ],
     "moduleNameMapper": {
-      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$":
-        "<rootDir>/test/fileMock.js",
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/test/fileMock.ts",
       "\\.(css|pcss)$": "identity-obj-proxy",
       "^@utils/(.*)": "<rootDir>/src/js/utils/$1"
     }
