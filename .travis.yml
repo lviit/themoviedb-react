@@ -16,6 +16,6 @@ deploy:
   provider: heroku
   api_key:
     secure: Y4X99/NFSWgIpHf7E4zfan+Nw8I7qjWHeskIlfK3InCBaUjDrq2Y+Kvk2i3PTnzzXYDaf+qxmfVo2xQDdlP11uNZFnKMomuBWP1lYLFMCL2GXky9chFfC7yPfgdp1Ho/Tu5VtUvhTXP+BbMhypXXd7vqvbz5awrICS46UmPnkRP1QlZbUdD2siqxW5EE/se/R8cYzeWi7gCXR+eWmhxOMgdBPnLttIQGfOwJqN7UgbO3LwgLaxb0FAZjJ9ChcEqnD1TC82zS9qJmbmd9KzKovK99JEzmPdcILsA3gFfY7m038cc18PubWPfuhIx2/AyzScJoW4v5bo48Z6aTjvBcSdnJGfwOPvEMlrDeGodLn+2Q3l0ugzTPKnindXqMK+3MsF2Vz7ZomtJv0ba97j0oQj66V4+Qf+DhKOEdtLsctLT0crk8/dsMyG9oreATi5mKT4hcf4+Sva4ziajggrvIewAl12+b+VTDaxE8eD93x/uMLhsWrMiifbBXDqmk0eFtBI/cfbkT1d2gibO+zYi+6+J0hdQ9MF1vz6RFqXyh+WE3cKxwrywIQw+d8y5K2xkjc7xxjMK2ddqnO3cdzz0y4z2xybZ3piS3fCYLLfBNwH0SPAHovFg52WkKLiu/G+x1oFI19xgD/K6K3VThEQJBAowny8o+J2J2WCMYGIDKGPU=
-  app: boiling-caverns-71539
+  app: tmdb-react
   on:
     repo: lviit/themoviedb-react
