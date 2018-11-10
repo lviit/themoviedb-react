@@ -1,12 +1,12 @@
-import React from "react";
+import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from "react-redux";
+import { connect } from 'react-redux';
 
-import Styles from "./MovieFull.pcss";
-import Container from "@utils/Container";
-import GenreList from "../GenreList";
-import Details from "../Details";
-import MovieImage from "../MovieImage";
+import Styles from './MovieFull.pcss';
+import Container from '@utils/Container';
+import GenreList from '../GenreList';
+import Details from '../Details';
+import MovieImage from '../MovieImage';
 
 class FullView extends React.Component {
   constructor() {
@@ -21,32 +21,16 @@ class FullView extends React.Component {
 
   render() {
     const {
-      details: {
-        title,
-        tagline,
-        overview,
-        backDropPath,
-        genres,
-        voteAverage,
-      },
-      config: {
-        images: {
-          backdrop_sizes: imageSizes = [],
-          secure_base_url: imageBaseUrl
-        }
-      }
+      details: { title, tagline, overview, backDropPath, genres, voteAverage },
+      config: { images: { backdrop_sizes = [], secure_base_url: imageBaseUrl } },
     } = this.props;
     const strokeDash = 339.292;
+    const imageSize = window.innerWidth > 780 ? backdrop_sizes[3] : backdrop_sizes[1];
 
     return (
       <div className={Styles.container}>
         <div className={Styles.imagecontainer}>
-          <MovieImage
-            backdrop
-            size={imageSizes[3]}
-            imageBaseUrl={imageBaseUrl}
-            path={backDropPath}
-          />
+          <MovieImage backdrop size={imageSize} imageBaseUrl={imageBaseUrl} path={backDropPath} />
         </div>
         <Container>
           <h1 className={Styles.title}>{title}</h1>
@@ -65,10 +49,8 @@ class FullView extends React.Component {
                   className={Styles.scoreMeterValue}
                   style={{
                     strokeDashoffset:
-                      strokeDash -
-                      strokeDash *
-                        (this.state.animateMeter ? voteAverage / 10 : 0),
-                    strokeDasharray: strokeDash
+                      strokeDash - strokeDash * (this.state.animateMeter ? voteAverage / 10 : 0),
+                    strokeDasharray: strokeDash,
                   }}
                 />
               </svg>
@@ -87,29 +69,27 @@ FullView.propTypes = {
     overview: PropTypes.string,
     backDropPath: PropTypes.string,
     genres: PropTypes.array,
-    voteAverage: PropTypes.number
+    voteAverage: PropTypes.number,
   }),
   config: PropTypes.shape({
     images: PropTypes.shape({
       backdrop_sizes: PropTypes.array,
-      secure_base_url: PropTypes.string
-    })
-  })
+      secure_base_url: PropTypes.string,
+    }),
+  }),
 };
 
-const mapStateToProps = (state, ownProps) => {
-  return {
-    ...ownProps,
-    config: state.config,
-    details: {
-      title: state.movieFullView.details.data.title,
-      tagline: state.movieFullView.details.data.tagline,
-      overview: state.movieFullView.details.data.overview,
-      backDropPath: state.movieFullView.details.data.backdrop_path,
-      voteAverage: state.movieFullView.details.data.vote_average,
-      genres: state.movieFullView.details.data.genres
-    }
-  };
-};
+const mapStateToProps = (state, ownProps) => ({
+  ...ownProps,
+  config: state.config,
+  details: {
+    title: state.movieFullView.details.data.title,
+    tagline: state.movieFullView.details.data.tagline,
+    overview: state.movieFullView.details.data.overview,
+    backDropPath: state.movieFullView.details.data.backdrop_path,
+    voteAverage: state.movieFullView.details.data.vote_average,
+    genres: state.movieFullView.details.data.genres,
+  },
+});
 
 export default connect(mapStateToProps)(FullView);

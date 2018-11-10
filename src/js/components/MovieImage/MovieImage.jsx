@@ -3,7 +3,6 @@ import Classnames from 'classnames';
 import Styles from './MovieImage.pcss';
 
 class MovieImage extends React.Component {
-
   constructor() {
     super();
     this.state = {
@@ -26,7 +25,7 @@ class MovieImage extends React.Component {
 
     const containerClasses = Classnames({
       [Styles.container]: true,
-      [Styles.large]: this.props.size === 'original',
+      [Styles.large]: this.props.size === 'w1280',
       [Styles.medium]: this.props.size === 'w300',
       [Styles.small]: this.props.size === 'w45',
     });
@@ -34,18 +33,21 @@ class MovieImage extends React.Component {
     return (
       <div className={containerClasses}>
         {!this.state.img_loaded && !this.state.img_error && <div className={Styles.loader} />}
-        {!this.state.img_error ?
+        {!this.state.img_error ? (
           <img
-            onLoad={() => this.setState({
-              img_loaded: true,
-            })}
+            onLoad={() =>
+              this.setState({
+                img_loaded: true,
+              })
+            }
             onError={() => this.handleImageError()}
             className={imageClasses}
             src={this.props.imageBaseUrl + this.props.size + this.props.path}
             alt=""
-          /> :
+          />
+        ) : (
           <div className={`${Styles.noimage} material-icons`}>broken_image</div>
-        }
+        )}
       </div>
     );
   }

@@ -42,6 +42,7 @@ module.exports = () => ({
         display: 'standalone',
         start_url: '/',
         background_color: '#F4F7F6',
+        theme_color: '#2B2B2A',
       },
     }),
     new SWPrecacheWebpackPlugin({

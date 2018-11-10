@@ -1,13 +1,13 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
-import { Link } from "react-router-dom";
-import Slider from "react-slick";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import Slider from 'react-slick';
 
-import MovieImage from "../MovieImage";
-import Container from "@utils/Container";
-import Styles from "./Hero.pcss";
-import "../../../css/slick.pcss";
+import MovieImage from '../MovieImage';
+import Container from '@utils/Container';
+import Styles from './Hero.pcss';
+import '../../../css/slick.pcss';
 
 const HeroPrevArrow = props => (
   <i onClick={props.onClick} className="slick-arrow slick-prev material-icons">
@@ -22,9 +22,7 @@ const HeroNextArrow = props => (
 
 const Hero = ({
   movies,
-  config: {
-    images: { backdrop_sizes: imageSizes, secure_base_url: imageBaseUrl }
-  }
+  config: { images: { backdrop_sizes = [], secure_base_url: imageBaseUrl } },
 }) => {
   const sliderSettings = {
     className: Styles.container,
@@ -36,17 +34,16 @@ const Hero = ({
     slidesToShow: 1,
     slidesToScroll: 1,
     nextArrow: <HeroNextArrow />,
-    prevArrow: <HeroPrevArrow />
+    prevArrow: <HeroPrevArrow />,
   };
 
+  const imageSize = window.innerWidth > 780 ? backdrop_sizes[3] : backdrop_sizes[1];
   const slides = movies.map(movie => (
     <div className={Styles.hero} key={movie.id}>
       <Container>
         <div className={Styles.info}>
           <h2 className={Styles.title}>{movie.title}</h2>
-          <p className={Styles.overview}>
-            {`${movie.overview.substr(0, 150)}...`}
-          </p>
+          <p className={Styles.overview}>{`${movie.overview.substr(0, 150)}...`}</p>
           <Link className={Styles.link} to={`/movie/${movie.id}`}>
             Read more
           </Link>
@@ -54,7 +51,7 @@ const Hero = ({
       </Container>
       <MovieImage
         backdrop
-        size={imageSizes[3]}
+        size={imageSize}
         imageBaseUrl={imageBaseUrl}
         path={movie.backdrop_path}
       />
@@ -69,13 +66,11 @@ Hero.propTypes = {
   config: PropTypes.shape({
     images: PropTypes.shape({
       backdrop_sizes: PropTypes.array,
-      secure_base_url: PropTypes.string
-    })
-  })
+      secure_base_url: PropTypes.string,
+    }),
+  }),
 };
 
-const mapStateToProps = (state, ownProps) => {
-  return { ...ownProps, config: state.config };
-};
+const mapStateToProps = (state, ownProps) => ({ ...ownProps, config: state.config });
 
 export default connect(mapStateToProps)(Hero);
