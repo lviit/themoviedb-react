@@ -1,21 +1,21 @@
-import React from "react";
-import { render } from "react-dom";
-import { Route, Switch, withRouter } from "react-router-dom";
-import { TransitionGroup, CSSTransition } from "react-transition-group";
-import { connect } from "react-redux";
-import { mapDispachToProps } from "./redux/Store";
+import React from 'react';
+import { render } from 'react-dom';
+import { Route, Switch, withRouter } from 'react-router-dom';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
+import { connect } from 'react-redux';
+import { mapDispachToProps } from './redux/Store';
 
-import Section from "@utils/Section";
-import FrontPage from "./FrontPage";
-import MovieFullView from "./MovieFullView";
-import GenresPage from "./components/GenresPage";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import AboutPage from "./components/AboutPage";
+import Section from '@utils/Section';
+import FrontPage from './FrontPage';
+import MovieFullView from './MovieFullView';
+import GenresPage from './components/GenresPage';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import AboutPage from './components/AboutPage';
 
-import "../css/global.pcss";
-import "../css/genreColors.pcss";
-import Styles from "../css/layout.pcss";
+import '../css/global.pcss';
+import '../css/genreColors.pcss';
+import Styles from '../css/layout.pcss';
 
 const NotFound = () => <h1>404.. Whoops, page not found!</h1>;
 
@@ -25,6 +25,10 @@ class App extends React.Component {
   }
 
   componentWillMount() {
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/service-worker.js');
+    }
+
     this.props.getConfig();
     this.props.getGenres();
   }
@@ -36,22 +40,22 @@ class App extends React.Component {
         <Header />
         <TransitionGroup className={Styles.wrapper}>
           <CSSTransition
-            in={true}
+            in
             key={location.key}
             classNames={
-              history.action === "POP"
+              history.action === 'POP'
                 ? {
-                    enter: Styles.transitionBackEnter,
-                    enterActive: Styles.transitionBackEnterActive,
-                    exit: Styles.transitionBackExit,
-                    exitActive: Styles.transitionBackExitActive
-                  }
+                  enter: Styles.transitionBackEnter,
+                  enterActive: Styles.transitionBackEnterActive,
+                  exit: Styles.transitionBackExit,
+                  exitActive: Styles.transitionBackExitActive,
+                }
                 : {
-                    enter: Styles.transitionForwardEnter,
-                    enterActive: Styles.transitionForwardEnterActive,
-                    exit: Styles.transitionForwardExit,
-                    exitActive: Styles.transitionForwardExitActive
-                  }
+                  enter: Styles.transitionForwardEnter,
+                  enterActive: Styles.transitionForwardEnterActive,
+                  exit: Styles.transitionForwardExit,
+                  exitActive: Styles.transitionForwardExitActive,
+                }
             }
             timeout={300}
           >
@@ -60,16 +64,14 @@ class App extends React.Component {
               <Route exact path="/about" component={AboutPage} />
               <Route
                 path="/movie/:id"
-                render={props => (
-                  <MovieFullView {...props} key={props.match.params.id} />
-                )}
+                render={props => <MovieFullView {...props} key={props.match.params.id} />}
               />
               <Route path="/genres" component={GenresPage} />
               <Route component={NotFound} />
             </Switch>
           </CSSTransition>
         </TransitionGroup>
-        {/*<Section dark>
+        {/* <Section dark>
           <Footer />
         </Section>*/}
       </div>
