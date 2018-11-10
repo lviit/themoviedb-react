@@ -5,6 +5,7 @@ const WebpackPwaManifest = require('webpack-pwa-manifest');
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
+const CompressionPlugin = require('compression-webpack-plugin');
 const path = require('path');
 
 const BUILD_DIR = path.resolve(__dirname, 'public');
@@ -72,6 +73,9 @@ module.exports = () => ({
         removeComments: true,
         removeRedundantAttributes: true,
       },
+    }),
+    new CompressionPlugin({
+      test: /\.js(\?.*)?$/i,
     }),
   ]),
   resolve: {
