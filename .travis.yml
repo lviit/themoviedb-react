@@ -2,16 +2,16 @@ language: node_js
 dist: trusty
 sudo: required
 node_js:
-- node
+  - "8"
 cache:
   yarn: true
   directories:
-  - node_modules
+    - node_modules
 install:
-- yarn install
+  - yarn install
 script:
-- yarn build:prod
-- yarn test
+  - yarn build:prod
+  - yarn test
 deploy:
   provider: heroku
   api_key:
