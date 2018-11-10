@@ -1,5 +1,5 @@
 import React from "react";
-import Styles from "./footer.pcss";
+import Styles from "./Footer.pcss";
 
 const tmdbLogo = require("../../../img/408x161-powered-by-rectangle-green.png");
 

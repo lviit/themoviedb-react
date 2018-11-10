@@ -65,18 +65,30 @@
     "webpack": "^4.1.1",
     "webpack-cli": "^2.0.11",
     "webpack-config-utils": "^2.3.0",
-    "webpack-dev-server": "^3.1.1"
+    "webpack-dev-server": "^3.1.1",
+    "webpack-manifest-plugin": "^2.0.4"
   },
   "jest": {
-    "collectCoverageFrom": ["src/**/*.{js,jsx}"],
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}"
+    ],
     "testEnvironment": "node",
     "testURL": "http://localhost",
-    "setupFiles": ["<rootDir>/test/enzyme-setup.js"],
-    "modulePaths": ["<rootDir>/src"],
-    "moduleFileExtensions": ["web.js", "js", "json", "web.jsx", "jsx"],
+    "setupFiles": [
+      "<rootDir>/test/enzyme-setup.js"
+    ],
+    "modulePaths": [
+      "<rootDir>/src"
+    ],
+    "moduleFileExtensions": [
+      "web.js",
+      "js",
+      "json",
+      "web.jsx",
+      "jsx"
+    ],
     "moduleNameMapper": {
-      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$":
-        "<rootDir>/test/fileMock.js",
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/test/fileMock.js",
       "\\.(css|pcss)$": "identity-obj-proxy",
       "^@utils/(.*)": "<rootDir>/src/js/utils/$1"
     }

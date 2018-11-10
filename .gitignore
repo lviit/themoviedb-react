@@ -3,3 +3,5 @@ settings.js
 public
 .env
 yarn-error.log
+.vscode
+.DS_Store
