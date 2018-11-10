@@ -92,5 +92,8 @@
       "\\.(css|pcss)$": "identity-obj-proxy",
       "^@utils/(.*)": "<rootDir>/src/js/utils/$1"
     }
+  },
+  "engines": {
+    "node": "8.11.4"
   }
 }
