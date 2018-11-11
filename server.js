@@ -1,11 +1,16 @@
 const express = require('express');
 const path = require('path');
-const sslRedirect = require('heroku-ssl-redirect');
+const compression = require('compression');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-app.use(sslRedirect());
+app.use('*', (req, res) => {
+  if (process.env.NODE_ENV === 'production') {
+    res.redirect(`https://${req.headers.host}${req.path}`);
+  }
+});
+app.use(compression());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('*', (req, res) => {
   res.sendFile(`${__dirname}/public/index.html`);
