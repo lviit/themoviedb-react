@@ -6,7 +6,7 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 app.use('*', (req, res) => {
-  if (process.env.NODE_ENV === 'production') {
+  if (!req.secure && process.env.NODE_ENV === 'production') {
     res.redirect(`https://${req.headers.host}${req.path}`);
   }
 });
