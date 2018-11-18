@@ -94,23 +94,11 @@ module.exports = () => ({
       },
       {
         test: /\.pcss$/,
-        use: ['style-loader'],
-      },
-      {
-        test: [/\.pcss$/],
         use: [
-          {
-            loader: 'css-loader',
-            options: {
-              modules: true,
-              localIdentName: '[path][name]__[local]--[hash:base64:5]',
-            },
-          },
+          'style-loader',
+          { loader: 'css-loader', options: { importLoaders: 1, modules: true } },
+          'postcss-loader',
         ],
-      },
-      {
-        test: /\.pcss$/,
-        use: ['postcss-loader'],
       },
       {
         test: /\.(jpg|png)$/,

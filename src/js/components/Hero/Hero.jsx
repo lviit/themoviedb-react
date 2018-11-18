@@ -25,6 +25,7 @@ const Hero = ({
   config: { images: { backdrop_sizes = [], secure_base_url: imageBaseUrl } },
 }) => {
   const sliderSettings = {
+    lazyLoad: true,
     className: Styles.container,
     dots: true,
     infinite: true,
