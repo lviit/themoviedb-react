@@ -1,9 +1,35 @@
+@import "../../../css/variables.pcss";
+
 .footer {
-  text-align: center;
+  position: fixed;
+  bottom: 0;
+  background: var(--bgalt);
+  width: 100%;
+  display: flex;
+  padding: 7px 0 0;
+  justify-content: center;
+  align-items: center;
+
+  @media (--desktop) {
+    padding: 10px 0 5;
+  }
 }
 
-.logo {
+.tmdb {
   display: block;
-  margin: 0 auto 2em auto;
-  width: 150px;
+  width: 70px;
+  margin-right: 20px;
+
+  @media (--desktop) {
+    width: 100px;
+  }
+}
+
+.github {
+  display: block;
+  width: 60px;
+
+  @media (--desktop) {
+    width: 80px;
+  }
 }

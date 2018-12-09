@@ -71,9 +71,7 @@ class App extends React.Component {
             </Switch>
           </CSSTransition>
         </TransitionGroup>
-        {/* <Section dark>
-          <Footer />
-        </Section>*/}
+        <Footer />
       </div>
     );
   }
