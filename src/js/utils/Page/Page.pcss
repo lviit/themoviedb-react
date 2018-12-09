@@ -4,12 +4,13 @@
   position: absolute;
   width: 100%;
   height: 100vh;
+  -webkit-overflow-scrolling: touch;
 
   @media (--desktop) {
     transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
   }
   @media (--mobile) {
-    transition: transform 0.3s --decelerateEasing;
+    transition: transform 0.3s var(--decelerateEasing);
     width: 100vw;
     height: 100vh;
     overflow-y: scroll;

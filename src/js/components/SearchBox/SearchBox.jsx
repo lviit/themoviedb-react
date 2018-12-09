@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from "react-redux";
+import { connect } from 'react-redux';
 import Classnames from 'classnames';
 import { debounce } from 'throttle-debounce';
 import enhanceWithClickOutside from 'react-click-outside';
@@ -8,7 +8,7 @@ import enhanceWithClickOutside from 'react-click-outside';
 import SearchResults from '../SearchResults';
 import apiConnect from '../../services/ApiConnect';
 import Styles from './SearchBox.pcss';
-import Container from "@utils/Container";
+import Container from '@utils/Container';
 
 class SearchBox extends React.Component {
   constructor() {
@@ -53,19 +53,22 @@ class SearchBox extends React.Component {
 
     return (
       <div className={searchBoxClasses}>
-        <Container>
+        <Container className={Styles.searchContainer}>
           <form>
             <input
               placeholder="Search for movie..."
               className={Styles.input}
               type="text"
               onChange={this.handleChange}
-              ref={(input) => { this.textInput = input; }}
+              ref={(input) => {
+                this.textInput = input;
+              }}
             />
           </form>
           <div className={resultContainerClasses}>
-            {this.state.searchResults && this.state.genres && this.props.config &&
-              <SearchResults {...this.state} {...this.props} />}
+            {this.state.searchResults &&
+              this.state.genres &&
+              this.props.config && <SearchResults {...this.state} {...this.props} />}
           </div>
         </Container>
       </div>
@@ -83,8 +86,6 @@ SearchBox.defaultProps = {
   toggleSearchBox: () => null,
 };
 
-const mapStateToProps = (state, ownProps) => {
-  return { ...ownProps, config: state.config };
-};
+const mapStateToProps = (state, ownProps) => ({ ...ownProps, config: state.config });
 
 export default connect(mapStateToProps)(enhanceWithClickOutside(SearchBox));
