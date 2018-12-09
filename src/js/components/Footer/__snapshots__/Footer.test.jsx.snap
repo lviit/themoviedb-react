@@ -18,16 +18,23 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
-        <img
-          alt=""
-          className="logo"
-          src="test-file-stub"
+        <div
+          className="tmdb"
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "test-file-stub",
+            }
+          }
         />,
         <a
+          className="github"
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "test-file-stub",
+            }
+          }
           href="https://github.com/lviit/themoviedb-react/"
-        >
-          https://github.com/lviit/themoviedb-react/
-        </a>,
+        />,
       ],
       "className": "footer",
     },
@@ -38,24 +45,28 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "alt": "",
-          "className": "logo",
-          "src": "test-file-stub",
+          "className": "tmdb",
+          "dangerouslySetInnerHTML": Object {
+            "__html": "test-file-stub",
+          },
         },
         "ref": null,
         "rendered": null,
-        "type": "img",
+        "type": "div",
       },
       Object {
         "instance": null,
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": "https://github.com/lviit/themoviedb-react/",
+          "className": "github",
+          "dangerouslySetInnerHTML": Object {
+            "__html": "test-file-stub",
+          },
           "href": "https://github.com/lviit/themoviedb-react/",
         },
         "ref": null,
-        "rendered": "https://github.com/lviit/themoviedb-react/",
+        "rendered": null,
         "type": "a",
       },
     ],
@@ -68,16 +79,23 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          <img
-            alt=""
-            className="logo"
-            src="test-file-stub"
+          <div
+            className="tmdb"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "test-file-stub",
+              }
+            }
           />,
           <a
+            className="github"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "test-file-stub",
+              }
+            }
             href="https://github.com/lviit/themoviedb-react/"
-          >
-            https://github.com/lviit/themoviedb-react/
-          </a>,
+          />,
         ],
         "className": "footer",
       },
@@ -88,24 +106,28 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "alt": "",
-            "className": "logo",
-            "src": "test-file-stub",
+            "className": "tmdb",
+            "dangerouslySetInnerHTML": Object {
+              "__html": "test-file-stub",
+            },
           },
           "ref": null,
           "rendered": null,
-          "type": "img",
+          "type": "div",
         },
         Object {
           "instance": null,
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": "https://github.com/lviit/themoviedb-react/",
+            "className": "github",
+            "dangerouslySetInnerHTML": Object {
+              "__html": "test-file-stub",
+            },
             "href": "https://github.com/lviit/themoviedb-react/",
           },
           "ref": null,
-          "rendered": "https://github.com/lviit/themoviedb-react/",
+          "rendered": null,
           "type": "a",
         },
       ],
