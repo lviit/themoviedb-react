@@ -79,7 +79,7 @@ module.exports = () => ({
     })
   ]),
   resolve: {
-    extensions: [".ts", ".tsx"],
+    extensions: [".js", ".jsx", ".ts", ".tsx"],
     alias: {
       "@utils": path.resolve(__dirname, "src/js/utils"),
       "@styles": path.resolve(__dirname, "src/css")
