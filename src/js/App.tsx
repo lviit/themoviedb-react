@@ -1,22 +1,34 @@
-import Section from "@utils/Section";
 import * as React from "react";
 import { render } from "react-dom";
-import { connect } from "react-redux";
 import { Route, Switch, withRouter } from "react-router-dom";
-import { CSSTransition, TransitionGroup } from "react-transition-group";
-import "../css/genreColors.pcss";
-import "../css/global.pcss";
-import * as Styles from "../css/layout.pcss";
-import AboutPage from "./components/AboutPage";
-import Footer from "./components/Footer";
-import GenresPage from "./components/GenresPage";
-import Header from "./components/Header";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
+import { connect } from "react-redux";
+import { mapDispachToProps } from "./redux/Store";
+
+import Section from "@utils/Section";
 import FrontPage from "./FrontPage";
 import MovieFullView from "./MovieFullView";
-import { mapDispachToProps } from "./redux/Store";
+import GenresPage from "./components/GenresPage";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import AboutPage from "./components/AboutPage";
+
+import "../css/global.pcss";
+import "../css/genreColors.pcss";
+import Styles from "../css/layout.pcss";
+
 const NotFound = () => <h1>404.. Whoops, page not found!</h1>;
+
 class App extends React.Component<any, any> {
-  public componentWillMount() {
+  constructor() {
+    super();
+  }
+
+  componentWillMount() {
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("/service-worker.js");
+    }
+
     this.props.getConfig();
     this.props.getGenres();
   }
@@ -27,7 +39,7 @@ class App extends React.Component<any, any> {
         <Header />
         <TransitionGroup className={Styles.wrapper}>
           <CSSTransition
-            in={true}
+            in
             key={location.key}
             classNames={
               history.action === "POP"
@@ -60,6 +72,7 @@ class App extends React.Component<any, any> {
             </Switch>
           </CSSTransition>
         </TransitionGroup>
+        <Footer />
       </div>
     );
   }

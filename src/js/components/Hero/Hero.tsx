@@ -1,11 +1,13 @@
-import Container from "@utils/Container";
 import * as React from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import Slider from "react-slick";
-import "../../../css/slick.pcss";
+
 import MovieImage from "../MovieImage";
+import Container from "@utils/Container";
 import * as Styles from "./Hero.pcss";
+import "../../../css/slick.pcss";
 
 const HeroPrevArrow = props => (
   <i onClick={props.onClick} className="slick-arrow slick-prev material-icons">
@@ -31,30 +33,28 @@ interface HeroProps {
 
 const Hero: React.SFC<HeroProps> = ({
   movies,
-  config: {
-    images: { backdrop_sizes: imageSizes, secure_base_url: imageBaseUrl }
-  }
+  config: { images: { backdrop_sizes = [], secure_base_url: imageBaseUrl } }
 }) => {
   const sliderSettings = {
-    autoplay: true,
-    autoplaySpeed: 5000,
+    lazyLoad: true,
     className: Styles.container,
     dots: true,
     infinite: true,
     nextArrow: <HeroNextArrow />,
-    prevArrow: <HeroPrevArrow />,
-    slidesToScroll: 1,
-    slidesToShow: 1,
-    speed: 500
+    prevArrow: <HeroPrevArrow />
   };
+
+  const imageSize =
+    window.innerWidth > 780 ? backdrop_sizes[3] : backdrop_sizes[1];
   const slides = movies.map(movie => (
     <div key={movie.id}>
       <Container>
         <div className={Styles.info}>
           <h2 className={Styles.title}>{movie.title}</h2>
-          <p className={Styles.overview}>
-            {`${movie.overview.substr(0, 150)}...`}
-          </p>
+          <p className={Styles.overview}>{`${movie.overview.substr(
+            0,
+            150
+          )}...`}</p>
           <Link className={Styles.link} to={`/movie/${movie.id}`}>
             Read more
           </Link>
@@ -62,7 +62,7 @@ const Hero: React.SFC<HeroProps> = ({
       </Container>
       <MovieImage
         backdrop
-        size={imageSizes[3]}
+        size={imageSize}
         imageBaseUrl={imageBaseUrl}
         path={movie.backdrop_path}
       />

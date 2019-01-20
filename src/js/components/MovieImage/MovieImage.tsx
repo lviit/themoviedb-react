@@ -25,7 +25,7 @@ class MovieImage extends React.Component<any, any> {
     });
     const containerClasses = classnames({
       [Styles.container]: true,
-      [Styles.large]: this.props.size === "original",
+      [Styles.large]: this.props.size === "w1280",
       [Styles.medium]: this.props.size === "w300",
       [Styles.small]: this.props.size === "w45"
     });

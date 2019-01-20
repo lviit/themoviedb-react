@@ -13,7 +13,7 @@
 }
 
 .title {
-  font-size: 28px;
+  font-size: 24px;
   margin: 0;
 
   @media (--desktop) {
@@ -23,16 +23,21 @@
 
 .overview {
   font-size: 14px;
-  margin-bottom: 1em;
+  margin: 0.5em 0;
+
+  @media (--mobile) {
+    display: none;
+  }
 
   @media (--desktop) {
     font-size: 18px;
+    margin: 1em 0;
   }
 }
 
 .link {
   font-size: 14px;
-	color: white;
+  color: white;
 
   @media (--desktop) {
     font-size: 18px;
@@ -47,12 +52,16 @@
   padding: 1em;
   background: rgba(0, 0, 0, 0.5);
 
+  @media (--mobile) {
+    width: 100%;
+  }
+
   @media (--desktop) {
     padding: 2em;
     width: 30em;
     transform: translateX(-50px);
     transition: opacity 0.5s, transform 0.3s ease-in-out;
     transition-delay: 0.5s;
-    bottom: 10%;
+    bottom: 17%;
   }
 }

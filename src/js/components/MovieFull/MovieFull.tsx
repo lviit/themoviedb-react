@@ -21,9 +21,11 @@ interface FullViewProps {
     };
   };
 }
+
 interface FullViewState {
   animateMeter: boolean;
 }
+
 class FullView extends React.Component<FullViewProps, FullViewState> {
   constructor(props) {
     super(props);
@@ -37,20 +39,18 @@ class FullView extends React.Component<FullViewProps, FullViewState> {
   public render() {
     const {
       details: { title, tagline, overview, backDropPath, genres, voteAverage },
-      config: {
-        images: {
-          backdrop_sizes: imageSizes = [],
-          secure_base_url: imageBaseUrl
-        }
-      }
+      config: { images: { backdrop_sizes = [], secure_base_url: imageBaseUrl } }
     } = this.props;
     const strokeDash = 339.292;
+    const imageSize =
+      window.innerWidth > 780 ? backdrop_sizes[3] : backdrop_sizes[1];
+
     return (
       <div className={Styles.container}>
         <div className={Styles.imagecontainer}>
           <MovieImage
             backdrop
-            size={imageSizes[3]}
+            size={imageSize}
             imageBaseUrl={imageBaseUrl}
             path={backDropPath}
           />
@@ -75,7 +75,7 @@ class FullView extends React.Component<FullViewProps, FullViewState> {
                       strokeDash -
                       strokeDash *
                         (this.state.animateMeter ? voteAverage / 10 : 0),
-                    strokeDasharray: strokeDash.toString()
+                    strokeDasharray: strokeDash
                   }}
                 />
               </svg>
