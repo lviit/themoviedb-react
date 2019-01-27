@@ -3,7 +3,7 @@ import { NavLink, withRouter } from "react-router-dom";
 import SearchBox from "../SearchBox";
 import * as Styles from "./header.pcss";
 
-class Header extends React.Component<any, any> {
+export class Header extends React.Component<any, any> {
   public static defaultProps: any;
 
   constructor(props) {
