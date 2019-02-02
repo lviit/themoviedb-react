@@ -22,9 +22,11 @@ class MovieFullView extends React.Component<any, any> {
     this.props.getSimilar(id);
   }
 
-  render() {
+  public render() {
     const { similar, isLoading, reviews } = this.props;
-    if (isLoading) return <div />;
+    if (isLoading) {
+      return <div />;
+    }
     return (
       <Page>
         <MovieFull />
@@ -32,7 +34,7 @@ class MovieFullView extends React.Component<any, any> {
           <Credits />
         </Section>
         {reviews.length > 0 && (
-          <Section title="Reviews" dark>
+          <Section title="Reviews" dark={true}>
             <Reviews />
           </Section>
         )}
@@ -51,13 +53,13 @@ MovieFullView.defaultProps = {
 const mapStateToProps = (state, ownProps) => ({
   ...ownProps,
   config: state.config,
-  similar: state.movieFullView.similarMovies.data,
-  reviews: state.movieFullView.reviews.data,
   isLoading:
     state.movieFullView.similarMovies.isLoading ||
     state.movieFullView.credits.isLoading ||
     state.movieFullView.reviews.isLoading ||
-    state.movieFullView.details.isLoading
+    state.movieFullView.details.isLoading,
+  reviews: state.movieFullView.reviews.data,
+  similar: state.movieFullView.similarMovies.data
 });
 
 export default connect(mapStateToProps, mapDispachToProps)(MovieFullView);

@@ -4,5 +4,9 @@
     "tslint-react",
     "tslint:latest",
     "tslint-config-prettier"
-  ]
+  ],
+  "rules": {
+    "no-implicit-dependencies": [true, ["@utils", "@styles", "@img"]],
+    "jsx-no-lambda": false
+  }
 }

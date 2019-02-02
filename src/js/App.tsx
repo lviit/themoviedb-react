@@ -1,20 +1,20 @@
 import * as React from "react";
 import { render } from "react-dom";
-import { Route, Switch, withRouter } from "react-router-dom";
-import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { connect } from "react-redux";
+import { Route, Switch, withRouter } from "react-router-dom";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
+
 import { mapDispachToProps } from "./redux/Store";
 
-import Section from "@utils/Section";
-import FrontPage from "./FrontPage";
-import MovieFullView from "./MovieFullView";
+import AboutPage from "./components/AboutPage";
+import Footer from "./components/Footer";
 import GenresPage from "./components/GenresPage";
 import Header from "./components/Header";
-import Footer from "./components/Footer";
-import AboutPage from "./components/AboutPage";
+import FrontPage from "./FrontPage";
+import MovieFullView from "./MovieFullView";
 
-import "../css/global.pcss";
 import "../css/genreColors.pcss";
+import "../css/global.pcss";
 import * as Styles from "../css/layout.pcss";
 
 const NotFound = () => <h1>404.. Whoops, page not found!</h1>;
@@ -24,7 +24,7 @@ class App extends React.Component<any, any> {
     super(props);
   }
 
-  componentWillMount() {
+  public componentWillMount() {
     if ("serviceWorker" in navigator) {
       navigator.serviceWorker.register("/service-worker.js");
     }
@@ -39,7 +39,6 @@ class App extends React.Component<any, any> {
         <Header />
         <TransitionGroup className={Styles.wrapper}>
           <CSSTransition
-            in
             key={location.key}
             classNames={
               history.action === "POP"
