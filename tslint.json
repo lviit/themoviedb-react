@@ -6,7 +6,7 @@
     "tslint-config-prettier"
   ],
   "rules": {
-    "no-implicit-dependencies": [true, ["@utils", "@styles", "@img"]],
+    "no-implicit-dependencies": [true, ["@utils", "@styles", "@img", "@types"]],
     "jsx-no-lambda": false
   }
 }

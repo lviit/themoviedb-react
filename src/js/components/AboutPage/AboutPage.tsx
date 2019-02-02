@@ -1,16 +1,15 @@
-import * as Styles from "./AboutPage.pcss";
 import * as React from "react";
+import * as Styles from "./AboutPage.pcss";
+
 import Container from "@utils/Container";
 import Page from "@utils/Page";
-// Typescript doesn't like this?
-//import Readme from "../../../../README.md";
-const Readme = require("../../../../README.md");
+import READMEMd from "../../../../README.md";
 
-const AboutPage = () => (
+const AboutPage: React.SFC = () => (
   <Page>
     <Container
       className={Styles.readme}
-      dangerouslySetInnerHTML={{ __html: Readme }}
+      dangerouslySetInnerHTML={{ __html: READMEMd }}
     />
   </Page>
 );

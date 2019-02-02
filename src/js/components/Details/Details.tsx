@@ -1,13 +1,10 @@
 import * as React from "react";
 import { connect } from "react-redux";
 import * as Styles from "./Details.pcss";
-interface DetailsProps {
-  releaseDate?: string;
-  revenue?: number;
-  budget?: number;
-  runtime?: number;
-}
-const Details: React.SFC<DetailsProps> = ({
+
+import { ImovieDetails } from "../../types";
+
+const Details: React.SFC<ImovieDetails> = ({
   releaseDate = "",
   revenue = 0,
   budget = 0,
@@ -43,6 +40,7 @@ const Details: React.SFC<DetailsProps> = ({
     </div>
   );
 };
+
 const mapStateToProps = (state, ownProps) => {
   return {
     ...ownProps,
@@ -52,4 +50,5 @@ const mapStateToProps = (state, ownProps) => {
     runtime: state.movieFullView.details.data.runtime
   };
 };
+
 export default connect(mapStateToProps)(Details);

@@ -8,6 +8,20 @@ import Container from "@utils/Container";
 import * as Styles from "./Hero.pcss";
 import "../../../css/slick.pcss";
 
+import { Iconfig } from "../../types";
+
+interface Imovie {
+  id: number;
+  overview: string;
+  title: string;
+  backdrop_path: string;
+}
+
+interface IHeroProps {
+  movies: Imovie[];
+  config: Iconfig;
+}
+
 const HeroPrevArrow = props => (
   <i onClick={props.onClick} className="slick-arrow slick-prev material-icons">
     chevron_left
@@ -20,25 +34,15 @@ const HeroNextArrow = props => (
   </i>
 );
 
-interface HeroProps {
-  movies?: any[];
-  config?: {
-    images?: {
-      backdrop_sizes?: any[];
-      secure_base_url?: string;
-    };
-  };
-}
-
-const Hero: React.SFC<HeroProps> = ({
+const Hero: React.SFC<IHeroProps> = ({
   movies,
   config: { images: { backdrop_sizes = [], secure_base_url: imageBaseUrl } }
 }) => {
   const sliderSettings = {
-    lazyLoad: true,
     className: Styles.container,
     dots: true,
     infinite: true,
+    lazyLoad: true,
     nextArrow: <HeroNextArrow />,
     prevArrow: <HeroPrevArrow />
   };
@@ -60,7 +64,7 @@ const Hero: React.SFC<HeroProps> = ({
         </div>
       </Container>
       <MovieImage
-        backdrop
+        backdrop={true}
         size={imageSize}
         imageBaseUrl={imageBaseUrl}
         path={movie.backdrop_path}

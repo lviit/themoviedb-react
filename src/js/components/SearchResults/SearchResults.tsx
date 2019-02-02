@@ -42,7 +42,6 @@ const SearchResults: React.SFC<any> = props => {
           onClick={() => props.toggleSearchBox()}
         >
           <MovieImage
-            poster
             size={props.config.images.logo_sizes[0]}
             imageBaseUrl={props.config.images.secure_base_url}
             path={result.poster_path}

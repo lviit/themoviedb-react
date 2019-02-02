@@ -2,15 +2,24 @@ import WithScrollReveal from "@utils/WithScrollReveal";
 import * as React from "react";
 import { connect } from "react-redux";
 import * as Styles from "./Credits.pcss";
-interface CreditsProps {
-  cast?: any[];
-  config?: {
-    images?: {
-      secure_base_url?: string;
+
+interface IcastMember {
+  id: string;
+  profile_path: string;
+  name: string;
+  character: string;
+}
+
+interface ICreditsProps {
+  cast: IcastMember[];
+  config: {
+    images: {
+      secure_base_url: string;
     };
   };
 }
-const Credits: React.SFC<CreditsProps> = ({
+
+const Credits: React.SFC<ICreditsProps> = ({
   cast = [],
   config: { images: { secure_base_url: imageBaseUrl } }
 }) => {

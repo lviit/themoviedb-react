@@ -2,11 +2,20 @@ import * as classnames from "classnames";
 import * as React from "react";
 import { Link } from "react-router-dom";
 import * as Styles from "./GenreList.pcss";
-interface GenreListProps {
-  genres?: object[];
+
+import { Igenre } from "../../types";
+
+interface IgenreListProps {
+  className?: string;
   compact?: boolean;
+  genres: Igenre[];
 }
-const GenreList: React.SFC<any> = ({ genres, compact, className, ...rest }) => {
+
+const GenreList: React.SFC<IgenreListProps> = ({
+  genres,
+  compact,
+  className
+}) => {
   const genreList = genres.map(
     genre =>
       compact ? (
@@ -32,7 +41,7 @@ const GenreList: React.SFC<any> = ({ genres, compact, className, ...rest }) => {
   return <div className={containerClasses}>{genreList}</div>;
 };
 GenreList.defaultProps = {
-  genres: [],
-  compact: false
+  compact: false,
+  genres: []
 };
 export default GenreList;

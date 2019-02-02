@@ -1,24 +1,33 @@
 import * as React from "react";
 import * as classnames from "classnames";
 import * as Styles from "./MovieImage.pcss";
-type MovieImageState = {
+
+interface IMovieImageProps {
+  backdrop?: boolean;
+  imageBaseUrl: string;
+  path: string;
+  size: string;
+}
+
+interface IMovieImageState {
   img_error: boolean;
   img_loaded: boolean;
-};
-class MovieImage extends React.Component<any, any> {
+}
+
+class MovieImage extends React.Component<IMovieImageProps, IMovieImageState> {
   constructor(props) {
     super(props);
     this.state = {
-      img_loaded: false,
-      img_error: false
+      img_error: false,
+      img_loaded: false
     };
   }
-  handleImageError() {
+  public handleImageError() {
     this.setState({
       img_error: true
     });
   }
-  render() {
+  public render() {
     const imageClasses = classnames({
       [Styles.image]: true,
       [Styles.loaded]: this.state.img_loaded

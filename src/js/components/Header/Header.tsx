@@ -1,9 +1,13 @@
 import * as React from "react";
-import { NavLink, withRouter } from "react-router-dom";
+import { NavLink, RouteComponentProps, withRouter } from "react-router-dom";
 import SearchBox from "../SearchBox";
 import * as Styles from "./header.pcss";
 
-export class Header extends React.Component<any, any> {
+interface Istate {
+  toggleSearchBox: boolean;
+}
+
+export class Header extends React.Component<RouteComponentProps, Istate> {
   public static defaultProps: any;
 
   constructor(props) {
@@ -30,7 +34,7 @@ export class Header extends React.Component<any, any> {
             <ul className={Styles.menu}>
               <li className={Styles.menuitem}>
                 <NavLink
-                  exact
+                  exact={true}
                   className={Styles.menulink}
                   activeClassName={Styles.active}
                   to="/"

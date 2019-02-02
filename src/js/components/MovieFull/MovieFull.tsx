@@ -5,28 +5,19 @@ import Details from "../Details";
 import GenreList from "../GenreList";
 import MovieImage from "../MovieImage";
 import * as Styles from "./MovieFull.pcss";
-interface FullViewProps {
-  details?: {
-    title?: string;
-    tagline?: string;
-    overview?: string;
-    backDropPath?: string;
-    genres?: any[];
-    voteAverage?: number;
-  };
-  config?: {
-    images?: {
-      backdrop_sizes?: any[];
-      secure_base_url?: string;
-    };
-  };
+
+import { Iconfig, ImovieDetails } from "../../types";
+
+interface IfullViewProps {
+  details: ImovieDetails;
+  config: Iconfig;
 }
 
-interface FullViewState {
+interface IfullViewState {
   animateMeter: boolean;
 }
 
-class FullView extends React.Component<FullViewProps, FullViewState> {
+class FullView extends React.Component<IfullViewProps, IfullViewState> {
   constructor(props) {
     super(props);
     this.state = { animateMeter: false };
@@ -49,7 +40,7 @@ class FullView extends React.Component<FullViewProps, FullViewState> {
       <div className={Styles.container}>
         <div className={Styles.imagecontainer}>
           <MovieImage
-            backdrop
+            backdrop={true}
             size={imageSize}
             imageBaseUrl={imageBaseUrl}
             path={backDropPath}
@@ -71,11 +62,11 @@ class FullView extends React.Component<FullViewProps, FullViewState> {
                 <circle
                   className={Styles.scoreMeterValue}
                   style={{
+                    strokeDasharray: strokeDash.toString(),
                     strokeDashoffset:
                       strokeDash -
                       strokeDash *
-                        (this.state.animateMeter ? voteAverage / 10 : 0),
-                    strokeDasharray: strokeDash.toString()
+                        (this.state.animateMeter ? voteAverage / 10 : 0)
                   }}
                 />
               </svg>
@@ -91,12 +82,12 @@ const mapStateToProps = (state, ownProps) => {
     ...ownProps,
     config: state.config,
     details: {
-      title: state.movieFullView.details.data.title,
-      tagline: state.movieFullView.details.data.tagline,
-      overview: state.movieFullView.details.data.overview,
       backDropPath: state.movieFullView.details.data.backdrop_path,
-      voteAverage: state.movieFullView.details.data.vote_average,
-      genres: state.movieFullView.details.data.genres
+      genres: state.movieFullView.details.data.genres,
+      overview: state.movieFullView.details.data.overview,
+      tagline: state.movieFullView.details.data.tagline,
+      title: state.movieFullView.details.data.title,
+      voteAverage: state.movieFullView.details.data.vote_average
     }
   };
 };

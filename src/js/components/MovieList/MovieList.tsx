@@ -4,16 +4,15 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import MovieImage from "../MovieImage";
 import * as Styles from "./MovieList.pcss";
-interface MovieListProps {
-  movies?: object[];
-  config?: {
-    images?: {
-      backdrop_sizes?: any[];
-      secure_base_url?: string;
-    };
-  };
+
+import { Iconfig, Imovie } from "../../types";
+
+interface IMovieListProps {
+  movies: Imovie[];
+  config: Iconfig;
 }
-const MovieList: React.SFC<any> = ({
+
+const MovieList: React.SFC<IMovieListProps> = ({
   movies,
   config: {
     images: { backdrop_sizes: imageSizes, secure_base_url: imageBaseUrl }
@@ -22,7 +21,6 @@ const MovieList: React.SFC<any> = ({
   const movieList = movies.map(movie => (
     <Link className={Styles.movie} key={movie.id} to={`/movie/${movie.id}`}>
       <MovieImage
-        poster
         size={imageSizes[0]}
         imageBaseUrl={imageBaseUrl}
         path={movie.poster_path}
@@ -34,10 +32,11 @@ const MovieList: React.SFC<any> = ({
   ));
   return <div className={Styles.container}>{movieList}</div>;
 };
+
 MovieList.defaultProps = {
-  movies: [],
-  config: {}
+  movies: []
 };
+
 const mapStateToProps = (state, ownProps) => {
   return { ...ownProps, config: state.config };
 };
