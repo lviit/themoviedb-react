@@ -1,11 +1,7 @@
 export interface Iconfig {
   images: {
-    backdrop_sizes: {
-      0: string;
-      1: string;
-      2: string;
-      3: string;
-    };
+    backdrop_sizes: string[];
+    logo_sizes: string[];
     secure_base_url: string;
   };
 }
@@ -42,4 +38,11 @@ export interface ImovieDetails {
 export interface Igenre {
   id: number;
   name: string;
+}
+
+export interface Ireview {
+  author: string;
+  content: string;
+  id: string;
+  url: string;
 }

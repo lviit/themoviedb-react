@@ -1,10 +1,14 @@
 import * as React from "react";
 import { connect } from "react-redux";
 import * as Styles from "./Reviews.pcss";
-type ReviewsProps = {
-  reviews?: any[];
-};
-const Reviews: React.SFC<ReviewsProps> = ({ reviews = [] }) => {
+
+import { Ireview } from "../../types";
+
+interface IreviewsProps {
+  reviews: Ireview[];
+}
+
+const Reviews: React.SFC<IreviewsProps> = ({ reviews = [] }) => {
   const reviewsList = reviews.slice(0, 3).map(review => (
     <div className={Styles.item} key={review.id}>
       <h3 className={Styles.author}> {review.author}</h3>

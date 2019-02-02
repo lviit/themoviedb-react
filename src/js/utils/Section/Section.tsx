@@ -2,11 +2,14 @@ import Container from "@utils/Container";
 import * as classnames from "classnames";
 import * as React from "react";
 import * as Styles from "./Section.pcss";
-interface SectionProps {
-  title?: string;
+
+interface IsectionProps {
+  title: string;
   dark?: boolean;
+  children: React.ReactNode;
 }
-const Section: React.SFC<SectionProps> = ({ title, dark, children }) => {
+
+const Section: React.SFC<IsectionProps> = ({ title, dark, children }) => {
   const classes = classnames({
     [Styles.dark]: dark,
     [Styles.section]: true

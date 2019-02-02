@@ -1,4 +1,4 @@
-/* eslint no-console: 0 */
+/* tslint:disable:no-console */
 import axios from "axios";
 export const baseUrl = "https://api.themoviedb.org";
 export default {
@@ -58,7 +58,7 @@ export default {
   Search: query =>
     axios
       .get(`${baseUrl}/3/search/movie`, {
-        params: { api_key: process.env.API_KEY, query: query }
+        params: { query, api_key: process.env.API_KEY }
       })
       .then(res => res.data)
       .catch(error => console.log(error)),

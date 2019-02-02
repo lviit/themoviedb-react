@@ -1,11 +1,27 @@
 import * as React from "react";
 import { connect } from "react-redux";
+import { RouteComponentProps } from "react-router-dom";
+
 import { mapDispachToProps } from "../../redux/Store";
 import ApiConnect from "../../services/ApiConnect";
 import Tiles from "../Tiles";
 import * as Styles from "./MoviesByGenre.pcss";
 
-class MoviesByGenre extends React.Component<any, any> {
+import { Igenre, Imovie } from "../../types";
+
+interface IMoviesByGenreProps extends RouteComponentProps {
+  genres: Igenre[];
+}
+
+interface IMoviesByGenreState {
+  activeGenre: string;
+  moviesByGenre: Imovie[];
+}
+
+class MoviesByGenre extends React.Component<
+  IMoviesByGenreProps,
+  IMoviesByGenreState
+> {
   constructor(props) {
     super(props);
     this.state = {
@@ -35,11 +51,12 @@ class MoviesByGenre extends React.Component<any, any> {
     );
   }
 }
+
 const mapStateToProps = (state, ownProps) => {
   return {
     ...ownProps,
-    config: state.config,
     genres: state.genres
   };
 };
+
 export default connect(mapStateToProps, mapDispachToProps)(MoviesByGenre);

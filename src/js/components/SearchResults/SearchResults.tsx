@@ -1,22 +1,23 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
-import { TransitionGroup, CSSTransition } from "react-transition-group";
-import * as Styles from "./SearchResults.pcss";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
+
 import GenreList from "../GenreList";
 import MovieImage from "../MovieImage";
-type SearchResultsProps = {
-  genres?: object[];
+import * as Styles from "./SearchResults.pcss";
+
+import { Iconfig, Igenre, Imovie } from "../../types";
+
+interface IsearchResultsProps {
+  toggleSearchBox: () => void;
+  genres: Igenre[];
   searchResults?: {
-    results?: any[];
+    results?: Imovie[];
   };
-  config?: {
-    images?: {
-      secure_base_url?: string;
-      logo_sizes?: any[];
-    };
-  };
-};
-const SearchResults: React.SFC<any> = props => {
+  config: Iconfig;
+}
+
+const SearchResults: React.SFC<IsearchResultsProps> = props => {
   const results = props.searchResults.results.map(result => {
     const path = `/movie/${result.id}`;
     const date = new Date(result.release_date);
@@ -50,7 +51,7 @@ const SearchResults: React.SFC<any> = props => {
             <span className={Styles.title}>{result.title}</span>
             <span className={Styles.date}>{`(${year})`}</span>
             <span className={Styles.genres}>
-              {genres && <GenreList genres={genres} compact />}
+              {genres && <GenreList genres={genres} compact={true} />}
             </span>
             <span className={Styles.overview}>{result.overview}</span>
           </div>
@@ -61,9 +62,10 @@ const SearchResults: React.SFC<any> = props => {
   });
   return <TransitionGroup>{results}</TransitionGroup>;
 };
+
 SearchResults.defaultProps = {
   genres: [],
-  searchResults: [],
-  config: {}
+  searchResults: []
 };
+
 export default SearchResults;

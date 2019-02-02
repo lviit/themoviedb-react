@@ -1,7 +1,11 @@
 import * as React from "react";
-import { render } from "react-dom";
 import { connect } from "react-redux";
-import { Route, Switch, withRouter } from "react-router-dom";
+import {
+  Route,
+  RouteComponentProps,
+  Switch,
+  withRouter
+} from "react-router-dom";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 import { mapDispachToProps } from "./redux/Store";
@@ -19,7 +23,12 @@ import * as Styles from "../css/layout.pcss";
 
 const NotFound = () => <h1>404.. Whoops, page not found!</h1>;
 
-class App extends React.Component<any, any> {
+interface IappProps extends RouteComponentProps {
+  getConfig: () => null;
+  getGenres: () => null;
+}
+
+class App extends React.Component<IappProps> {
   constructor(props) {
     super(props);
   }
@@ -76,4 +85,5 @@ class App extends React.Component<any, any> {
     );
   }
 }
-export default withRouter(connect(null, mapDispachToProps)(App) as any);
+
+export default withRouter(connect(null, mapDispachToProps)(App));

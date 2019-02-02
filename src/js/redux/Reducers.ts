@@ -1,3 +1,5 @@
+import DefaultState, { ImovieFullViewDefaultState } from "./DefaultState";
+
 export function config(state = [], action) {
   switch (action.type) {
     case "GET_CONFIG":
@@ -28,7 +30,7 @@ export function genres(state = [], action) {
       return state;
   }
 }
-export function movieFullView(state: any = [], action) {
+export function movieFullView(state: ImovieFullViewDefaultState = [], action) {
   switch (action.type) {
     case "GET_MOVIE_DETAILS_LOADING":
       return {

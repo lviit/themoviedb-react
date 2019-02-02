@@ -5,16 +5,16 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import MovieImage from "../MovieImage";
 import * as Styles from "./Tiles.pcss";
-interface TilesProps {
-  movies?: object[];
-  config?: {
-    images?: {
-      backdrop_sizes?: any[];
-      secure_base_url?: string;
-    };
-  };
+
+import { Iconfig, Imovie } from "../../types";
+
+interface ItilesProps {
+  movies: Imovie[];
+  config: Iconfig;
+  genre: string;
 }
-const Tiles: React.SFC<any> = ({
+
+const Tiles: React.SFC<ItilesProps> = ({
   movies = [],
   genre,
   config: {
@@ -33,7 +33,7 @@ const Tiles: React.SFC<any> = ({
             ].join(" ")}
           />
           <MovieImage
-            backdrop
+            backdrop={true}
             size={imageSizes[size]}
             imageBaseUrl={imageBaseUrl}
             path={movie.backdrop_path}
@@ -56,7 +56,7 @@ const Tiles: React.SFC<any> = ({
     );
   });
   return (
-    <Container large className={Styles.container}>
+    <Container large={true} className={Styles.container}>
       {movieList}
     </Container>
   );

@@ -6,7 +6,14 @@ import Hero from "./components/Hero";
 import MovieList from "./components/MovieList";
 import { mapDispachToProps } from "./redux/Store";
 
-class Front extends React.Component<any, any> {
+import { Imovie } from "./types";
+
+interface IfrontProps {
+  latestMovies: Imovie[];
+  getLatestMovies: () => null;
+}
+
+class Front extends React.Component<IfrontProps> {
   constructor(props) {
     super(props);
   }

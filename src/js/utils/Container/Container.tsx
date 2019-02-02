@@ -1,13 +1,19 @@
 import * as classnames from "classnames";
 import * as React from "react";
 import * as Styles from "./Container.pcss";
-interface ContainerProps {
+
+interface IcontainerProps {
   large?: boolean;
   className?: string;
-  dangerouslySetInnerHTML?: any;
-  children?: any;
+  children: React.ReactNode;
 }
-const Container: React.SFC<any> = ({ large, children, className, ...rest }) => {
+
+const Container: React.SFC<IcontainerProps> = ({
+  large,
+  children,
+  className,
+  ...rest
+}) => {
   const classes = classnames({
     [Styles.large]: large,
     [Styles.small]: !large,

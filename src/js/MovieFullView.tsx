@@ -2,13 +2,27 @@ import Page from "@utils/Page";
 import Section from "@utils/Section";
 import * as React from "react";
 import { connect } from "react-redux";
+import { RouteComponentProps } from "react-router-dom";
+
 import Credits from "./components/Credits";
 import MovieFull from "./components/MovieFull";
 import MovieList from "./components/MovieList";
 import Reviews from "./components/Reviews";
 import { mapDispachToProps } from "./redux/Store";
 
-class MovieFullView extends React.Component<any, any> {
+import { Imovie, Ireview } from "./types";
+
+interface ImovieFullViewProps extends RouteComponentProps {
+  getMovieDetails: (id: string) => void;
+  getReviews: (id: string) => void;
+  getCredits: (id: string) => void;
+  getSimilar: (id: string) => void;
+  similar: Imovie[];
+  isLoading: boolean;
+  reviews: Ireview[];
+}
+
+class MovieFullView extends React.Component<ImovieFullViewProps> {
   public static defaultProps: any;
 
   constructor(props) {

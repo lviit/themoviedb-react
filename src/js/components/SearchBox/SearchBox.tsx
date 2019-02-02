@@ -7,14 +7,28 @@ import { debounce } from "throttle-debounce";
 import ApiConnect from "../../services/ApiConnect";
 import SearchResults from "../SearchResults";
 import * as Styles from "./SearchBox.pcss";
-interface SearchBoxProps {
-  toggleSearchBox?: (...args: any[]) => any;
-  collapsed?: boolean;
+
+import { Iconfig, Igenre, Imovie } from "../../types";
+
+interface IsearchResult {
+  page: number;
+  total_pages: number;
+  total_results: number;
+  results: Imovie[];
 }
-interface SearchBoxState {
-  searchResults: null;
+
+interface ISearchBoxProps {
+  toggleSearchBox: () => void;
+  collapsed: boolean;
+  config: Iconfig;
 }
-class SearchBox extends React.Component<any, any> {
+
+interface IsearchBoxState {
+  genres?: Igenre[];
+  searchResults?: IsearchResult;
+}
+
+class SearchBox extends React.Component<ISearchBoxProps, IsearchBoxState> {
   public static defaultProps: any;
   private textInput: HTMLInputElement;
 
