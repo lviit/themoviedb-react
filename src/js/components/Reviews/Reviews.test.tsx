@@ -49,7 +49,7 @@ describe("reviews", () => {
   const store = mockStore(DefaultState);
 
   it("should dispatch correct actions", async () => {
-    await store.dispatch(getReviews(123));
+    await store.dispatch<any>(getReviews("123"));
     expect(store.getActions()).toMatchSnapshot();
   });
 
