@@ -4,7 +4,7 @@ import Reviews from "./Reviews";
 import { getReviews } from "../../redux/Actions";
 import DefaultState from "../../redux/DefaultState";
 import { baseUrl } from "../../services/ApiConnect";
-import * as configureStore from "redux-mock-store";
+import configureStore from "redux-mock-store";
 import * as nock from "nock";
 import reduxThunk from "redux-thunk";
 
