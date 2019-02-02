@@ -79,10 +79,11 @@ module.exports = () => ({
     })
   ]),
   resolve: {
-    extensions: [".js", ".jsx", ".ts", ".tsx"],
+    extensions: [".js", ".jsx", ".ts", ".tsx", ".svg"],
     alias: {
       "@utils": path.resolve(__dirname, "src/js/utils"),
-      "@styles": path.resolve(__dirname, "src/css")
+      "@styles": path.resolve(__dirname, "src/css"),
+      "@img": path.resolve(__dirname, "src/img")
     }
   },
   module: {
@@ -107,7 +108,7 @@ module.exports = () => ({
       },
       {
         test: /\.svg$/,
-        loader: "svg-inline-loader"
+        use: ["@svgr/webpack", "url-loader"]
       },
       {
         test: /\.md$/,

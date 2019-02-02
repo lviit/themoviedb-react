@@ -10,6 +10,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "@svgr/webpack": "^4.1.0",
     "axios": "^0.14.0",
     "babel-polyfill": "^6.23.0",
     "classnames": "^2.2.5",
@@ -30,7 +31,6 @@
     "redux": "^3.6.0",
     "redux-thunk": "^2.2.0",
     "scrollreveal": "3.4.0",
-    "svg-inline-loader": "^0.8.0",
     "throttle-debounce": "^1.0.1"
   },
   "devDependencies": {

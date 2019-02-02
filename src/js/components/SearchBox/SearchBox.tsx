@@ -54,7 +54,7 @@ class SearchBox extends React.Component<any, any> {
     });
     return (
       <div className={searchBoxClasses}>
-        <Container>
+        <Container className={Styles.searchContainer}>
           <form>
             <input
               placeholder="Search for movie..."
