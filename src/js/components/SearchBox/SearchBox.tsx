@@ -70,10 +70,14 @@ class SearchBox extends React.Component<ISearchBoxProps, IsearchBoxState> {
       <div className={searchBoxClasses}>
         <Container className={Styles.searchContainer}>
           <form>
+            <label htmlFor="searcbox" className={Styles.label}>
+              Search for movie
+            </label>
             <input
               placeholder="Search for movie..."
               className={Styles.input}
               type="text"
+              id="searchbox"
               onChange={this.handleChange}
               ref={input => {
                 this.textInput = input;
