@@ -1,541 +1,61 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`reviews renders correctly 1`] = `
-ShallowWrapper {
-  "length": 1,
-  Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <Reviews
-    reviews={
-      Array [
-        Object {
-          "author": "piyushgupta69",
-          "content": "Previous 2 parts were much better story wise, however effects are good in this part.",
-          "id": "5a4ff969c3a3681bca00082a",
-          "url": "https://www.themoviedb.org/review/5a4ff969c3a3681bca00082a",
-        },
-        Object {
-          "author": "amanshroff",
-          "content": "**The 90's Game is back and got even more adventurous !!**
-
-
-When four teenagers in detention discover an old video game console with a game they've never heard of, they are immediately thrust into the game's jungle setting, into the bodies of their avatars, played by Dwayne Johnson, Jack Black, Kevin Hart, and Karen Gillan. What they discover is that you don't just play Jumanji -Jumanji plays you. They'll have to go on the most dangerous adventure of their lives, or they'll be stuck in the game forever.
-
-
-
-In the age of Hollywood's obsession with franchise-building and reboots, the idea for a sequel to 1995's 'Jumanji' came across as another eye-roll worthy project. However, the combination of charming actors Dwayne Johnson, Jack Black, Karen Gillian and Kevin Hart, made it evident that this would wind up either being a complete trainwreck, or total mindless fun. Fortunately, 'Welcome to the Jungle' falls solidly into the latter category. The chemistry between the lead cast is evident and the script makes the most of this by giving each actor moments to shine and showcase their skills while they clearly enjoy playing their characters.
-
-Johnson's younger persona Spencer is a nerdy guy who has lived a sheltered life and is afraid of the world. When he enters the game he takes on the avatar of a hunk with no discernible physical weakness. Johnson has fun with this switch of persona and watching him go back and forth doesn't get old. The same goes for Jack Black who plays a self-absorbed, social media addicted teenage girl Bethany. Her switch into Black's trademark rotund shape is the most extreme and ends up being hilarious. While Black and Johnson are engaging as they are completely cast against their typical selves, Gillian and Hart aren't too far behind playing an awkward, insecure but intelligent girl, and an all-star jock boy trapped in a less-than-stellar body respectively.
-
-
-
-This entire body-switch premise works on slapstick humour that's not crass and moves quickly with ample action to ensure that the 2-hour runtime doesn't feel bulky at any point. Granted there's a villain problem with Bobby Cannavale's Van Pelt being as one-dimensional as they come. It's conveniently explained away as this is all a video game, and the same rules apply for its lack of depth. 
-
-
-
-_Overall_, 'Jumanji: Welcome To The Jungle' ends up being a fun, holiday film that will keep you entertained enough to make it worth your time and money.",
-          "id": "5a5c7031c3a3686d7c007302",
-          "url": "https://www.themoviedb.org/review/5a5c7031c3a3686d7c007302",
-        },
-        Object {
-          "author": "Gimly",
-          "content": "The effects have improved (as you'd hope they would over the course of 22 years), but _Welcome to the Jungle_ didn't really do much for me. It completely lacks the charm of the original movie, but also the worldly scope of the animated series. I sat there patiently as weak joke after weak joke bounced off of me ineffectually, but the person I watched it with seemed to be having a great time, so maybe I'm just dead inside?
-
-_Final rating:★★ - Definitely not for me, but I sort of get the appeal._",
-          "id": "5aa49b0dc3a3687c0c0197a7",
-          "url": "https://www.themoviedb.org/review/5aa49b0dc3a3687c0c0197a7",
-        },
-      ]
-    }
-  />,
-  Symbol(enzyme.__renderer__): Object {
-    "batchedUpdates": [Function],
-    "getNode": [Function],
-    "render": [Function],
-    "simulateEvent": [Function],
-    "unmount": [Function],
-  },
-  Symbol(enzyme.__node__): Object {
-    "instance": null,
-    "key": undefined,
-    "nodeType": "host",
-    "props": Object {
-      "children": Array [
-        <div
-          className="item"
-        >
-          <h3
-            className="author"
-          >
-             
-            piyushgupta69
-          </h3>
-          <p
-            className="text"
-          >
-            Previous 2 parts were much better story wise, however effects are good in this part....
-          </p>
-        </div>,
-        <div
-          className="item"
-        >
-          <h3
-            className="author"
-          >
-             
-            amanshroff
-          </h3>
-          <p
-            className="text"
-          >
-            **The 90's Game is back and got even more adventurous !!**
+<div
+  className="container"
+>
+  <div
+    className="item"
+    key="5a4ff969c3a3681bca00082a"
+  >
+    <h3
+      className="author"
+    >
+       
+      piyushgupta69
+    </h3>
+    <p
+      className="text"
+    >
+      Previous 2 parts were much better story wise, however effects are good in this part....
+    </p>
+  </div>
+  <div
+    className="item"
+    key="5a5c7031c3a3686d7c007302"
+  >
+    <h3
+      className="author"
+    >
+       
+      amanshroff
+    </h3>
+    <p
+      className="text"
+    >
+      **The 90's Game is back and got even more adventurous !!**
 
 
 When four teenagers in detention discover an old video game console with a game they've never heard of, they are immediately thrust into the game's jungle setting, into the bodies of their avatars, played by Dwayne Johnson, Jack Black, ...
-          </p>
-        </div>,
-        <div
-          className="item"
-        >
-          <h3
-            className="author"
-          >
-             
-            Gimly
-          </h3>
-          <p
-            className="text"
-          >
-            The effects have improved (as you'd hope they would over the course of 22 years), but _Welcome to the Jungle_ didn't really do much for me. It completely lacks the charm of the original movie, but also the worldly scope of the animated series. I sat there patiently as weak joke after weak joke bounc...
-          </p>
-        </div>,
-      ],
-      "className": "container",
-    },
-    "ref": null,
-    "rendered": Array [
-      Object {
-        "instance": null,
-        "key": "5a4ff969c3a3681bca00082a",
-        "nodeType": "host",
-        "props": Object {
-          "children": Array [
-            <h3
-              className="author"
-            >
-               
-              piyushgupta69
-            </h3>,
-            <p
-              className="text"
-            >
-              Previous 2 parts were much better story wise, however effects are good in this part....
-            </p>,
-          ],
-          "className": "item",
-        },
-        "ref": null,
-        "rendered": Array [
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "children": Array [
-                " ",
-                "piyushgupta69",
-              ],
-              "className": "author",
-            },
-            "ref": null,
-            "rendered": Array [
-              " ",
-              "piyushgupta69",
-            ],
-            "type": "h3",
-          },
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "children": "Previous 2 parts were much better story wise, however effects are good in this part....",
-              "className": "text",
-            },
-            "ref": null,
-            "rendered": "Previous 2 parts were much better story wise, however effects are good in this part....",
-            "type": "p",
-          },
-        ],
-        "type": "div",
-      },
-      Object {
-        "instance": null,
-        "key": "5a5c7031c3a3686d7c007302",
-        "nodeType": "host",
-        "props": Object {
-          "children": Array [
-            <h3
-              className="author"
-            >
-               
-              amanshroff
-            </h3>,
-            <p
-              className="text"
-            >
-              **The 90's Game is back and got even more adventurous !!**
-
-
-When four teenagers in detention discover an old video game console with a game they've never heard of, they are immediately thrust into the game's jungle setting, into the bodies of their avatars, played by Dwayne Johnson, Jack Black, ...
-            </p>,
-          ],
-          "className": "item",
-        },
-        "ref": null,
-        "rendered": Array [
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "children": Array [
-                " ",
-                "amanshroff",
-              ],
-              "className": "author",
-            },
-            "ref": null,
-            "rendered": Array [
-              " ",
-              "amanshroff",
-            ],
-            "type": "h3",
-          },
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "children": "**The 90's Game is back and got even more adventurous !!**
-
-
-When four teenagers in detention discover an old video game console with a game they've never heard of, they are immediately thrust into the game's jungle setting, into the bodies of their avatars, played by Dwayne Johnson, Jack Black, ...",
-              "className": "text",
-            },
-            "ref": null,
-            "rendered": "**The 90's Game is back and got even more adventurous !!**
-
-
-When four teenagers in detention discover an old video game console with a game they've never heard of, they are immediately thrust into the game's jungle setting, into the bodies of their avatars, played by Dwayne Johnson, Jack Black, ...",
-            "type": "p",
-          },
-        ],
-        "type": "div",
-      },
-      Object {
-        "instance": null,
-        "key": "5aa49b0dc3a3687c0c0197a7",
-        "nodeType": "host",
-        "props": Object {
-          "children": Array [
-            <h3
-              className="author"
-            >
-               
-              Gimly
-            </h3>,
-            <p
-              className="text"
-            >
-              The effects have improved (as you'd hope they would over the course of 22 years), but _Welcome to the Jungle_ didn't really do much for me. It completely lacks the charm of the original movie, but also the worldly scope of the animated series. I sat there patiently as weak joke after weak joke bounc...
-            </p>,
-          ],
-          "className": "item",
-        },
-        "ref": null,
-        "rendered": Array [
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "children": Array [
-                " ",
-                "Gimly",
-              ],
-              "className": "author",
-            },
-            "ref": null,
-            "rendered": Array [
-              " ",
-              "Gimly",
-            ],
-            "type": "h3",
-          },
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "children": "The effects have improved (as you'd hope they would over the course of 22 years), but _Welcome to the Jungle_ didn't really do much for me. It completely lacks the charm of the original movie, but also the worldly scope of the animated series. I sat there patiently as weak joke after weak joke bounc...",
-              "className": "text",
-            },
-            "ref": null,
-            "rendered": "The effects have improved (as you'd hope they would over the course of 22 years), but _Welcome to the Jungle_ didn't really do much for me. It completely lacks the charm of the original movie, but also the worldly scope of the animated series. I sat there patiently as weak joke after weak joke bounc...",
-            "type": "p",
-          },
-        ],
-        "type": "div",
-      },
-    ],
-    "type": "div",
-  },
-  Symbol(enzyme.__nodes__): Array [
-    Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "host",
-      "props": Object {
-        "children": Array [
-          <div
-            className="item"
-          >
-            <h3
-              className="author"
-            >
-               
-              piyushgupta69
-            </h3>
-            <p
-              className="text"
-            >
-              Previous 2 parts were much better story wise, however effects are good in this part....
-            </p>
-          </div>,
-          <div
-            className="item"
-          >
-            <h3
-              className="author"
-            >
-               
-              amanshroff
-            </h3>
-            <p
-              className="text"
-            >
-              **The 90's Game is back and got even more adventurous !!**
-
-
-When four teenagers in detention discover an old video game console with a game they've never heard of, they are immediately thrust into the game's jungle setting, into the bodies of their avatars, played by Dwayne Johnson, Jack Black, ...
-            </p>
-          </div>,
-          <div
-            className="item"
-          >
-            <h3
-              className="author"
-            >
-               
-              Gimly
-            </h3>
-            <p
-              className="text"
-            >
-              The effects have improved (as you'd hope they would over the course of 22 years), but _Welcome to the Jungle_ didn't really do much for me. It completely lacks the charm of the original movie, but also the worldly scope of the animated series. I sat there patiently as weak joke after weak joke bounc...
-            </p>
-          </div>,
-        ],
-        "className": "container",
-      },
-      "ref": null,
-      "rendered": Array [
-        Object {
-          "instance": null,
-          "key": "5a4ff969c3a3681bca00082a",
-          "nodeType": "host",
-          "props": Object {
-            "children": Array [
-              <h3
-                className="author"
-              >
-                 
-                piyushgupta69
-              </h3>,
-              <p
-                className="text"
-              >
-                Previous 2 parts were much better story wise, however effects are good in this part....
-              </p>,
-            ],
-            "className": "item",
-          },
-          "ref": null,
-          "rendered": Array [
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": Array [
-                  " ",
-                  "piyushgupta69",
-                ],
-                "className": "author",
-              },
-              "ref": null,
-              "rendered": Array [
-                " ",
-                "piyushgupta69",
-              ],
-              "type": "h3",
-            },
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": "Previous 2 parts were much better story wise, however effects are good in this part....",
-                "className": "text",
-              },
-              "ref": null,
-              "rendered": "Previous 2 parts were much better story wise, however effects are good in this part....",
-              "type": "p",
-            },
-          ],
-          "type": "div",
-        },
-        Object {
-          "instance": null,
-          "key": "5a5c7031c3a3686d7c007302",
-          "nodeType": "host",
-          "props": Object {
-            "children": Array [
-              <h3
-                className="author"
-              >
-                 
-                amanshroff
-              </h3>,
-              <p
-                className="text"
-              >
-                **The 90's Game is back and got even more adventurous !!**
-
-
-When four teenagers in detention discover an old video game console with a game they've never heard of, they are immediately thrust into the game's jungle setting, into the bodies of their avatars, played by Dwayne Johnson, Jack Black, ...
-              </p>,
-            ],
-            "className": "item",
-          },
-          "ref": null,
-          "rendered": Array [
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": Array [
-                  " ",
-                  "amanshroff",
-                ],
-                "className": "author",
-              },
-              "ref": null,
-              "rendered": Array [
-                " ",
-                "amanshroff",
-              ],
-              "type": "h3",
-            },
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": "**The 90's Game is back and got even more adventurous !!**
-
-
-When four teenagers in detention discover an old video game console with a game they've never heard of, they are immediately thrust into the game's jungle setting, into the bodies of their avatars, played by Dwayne Johnson, Jack Black, ...",
-                "className": "text",
-              },
-              "ref": null,
-              "rendered": "**The 90's Game is back and got even more adventurous !!**
-
-
-When four teenagers in detention discover an old video game console with a game they've never heard of, they are immediately thrust into the game's jungle setting, into the bodies of their avatars, played by Dwayne Johnson, Jack Black, ...",
-              "type": "p",
-            },
-          ],
-          "type": "div",
-        },
-        Object {
-          "instance": null,
-          "key": "5aa49b0dc3a3687c0c0197a7",
-          "nodeType": "host",
-          "props": Object {
-            "children": Array [
-              <h3
-                className="author"
-              >
-                 
-                Gimly
-              </h3>,
-              <p
-                className="text"
-              >
-                The effects have improved (as you'd hope they would over the course of 22 years), but _Welcome to the Jungle_ didn't really do much for me. It completely lacks the charm of the original movie, but also the worldly scope of the animated series. I sat there patiently as weak joke after weak joke bounc...
-              </p>,
-            ],
-            "className": "item",
-          },
-          "ref": null,
-          "rendered": Array [
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": Array [
-                  " ",
-                  "Gimly",
-                ],
-                "className": "author",
-              },
-              "ref": null,
-              "rendered": Array [
-                " ",
-                "Gimly",
-              ],
-              "type": "h3",
-            },
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": "The effects have improved (as you'd hope they would over the course of 22 years), but _Welcome to the Jungle_ didn't really do much for me. It completely lacks the charm of the original movie, but also the worldly scope of the animated series. I sat there patiently as weak joke after weak joke bounc...",
-                "className": "text",
-              },
-              "ref": null,
-              "rendered": "The effects have improved (as you'd hope they would over the course of 22 years), but _Welcome to the Jungle_ didn't really do much for me. It completely lacks the charm of the original movie, but also the worldly scope of the animated series. I sat there patiently as weak joke after weak joke bounc...",
-              "type": "p",
-            },
-          ],
-          "type": "div",
-        },
-      ],
-      "type": "div",
-    },
-  ],
-  Symbol(enzyme.__options__): Object {
-    "adapter": ReactSixteenAdapter {
-      "options": Object {
-        "enableComponentDidUpdateOnSetState": true,
-      },
-    },
-  },
-}
+    </p>
+  </div>
+  <div
+    className="item"
+    key="5aa49b0dc3a3687c0c0197a7"
+  >
+    <h3
+      className="author"
+    >
+       
+      Gimly
+    </h3>
+    <p
+      className="text"
+    >
+      The effects have improved (as you'd hope they would over the course of 22 years), but _Welcome to the Jungle_ didn't really do much for me. It completely lacks the charm of the original movie, but also the worldly scope of the animated series. I sat there patiently as weak joke after weak joke bounc...
+    </p>
+  </div>
+</div>
 `;
 
 exports[`reviews should dispatch correct actions 1`] = `
