@@ -8,7 +8,7 @@ import Container from "@utils/Container";
 import * as Styles from "./Hero.pcss";
 import "../../../css/slick.pcss";
 
-import { Iconfig } from "../../types";
+import { Iconfig } from "@types";
 
 interface Imovie {
   id: number;

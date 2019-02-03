@@ -8,7 +8,7 @@ import ApiConnect from "../../services/ApiConnect";
 import SearchResults from "../SearchResults";
 import * as Styles from "./SearchBox.pcss";
 
-import { Iconfig, Igenre, Imovie } from "../../types";
+import { Iconfig, Igenre, Imovie } from "@types";
 
 interface IsearchResult {
   page: number;

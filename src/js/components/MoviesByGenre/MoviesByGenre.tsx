@@ -7,7 +7,7 @@ import ApiConnect from "../../services/ApiConnect";
 import Tiles from "../Tiles";
 import * as Styles from "./MoviesByGenre.pcss";
 
-import { Igenre, Imovie } from "../../types";
+import { Igenre, Imovie } from "@types";
 
 type IMoviesByGenreProps = RouteComponentProps & {
   genres: Igenre[];

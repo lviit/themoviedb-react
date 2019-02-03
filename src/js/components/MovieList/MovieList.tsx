@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import MovieImage from "../MovieImage";
 import * as Styles from "./MovieList.pcss";
 
-import { Iconfig, Imovie } from "../../types";
+import { Iconfig, Imovie } from "@types";
 
 interface IMovieListProps {
   movies: Imovie[];

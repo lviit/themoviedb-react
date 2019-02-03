@@ -2,7 +2,7 @@ import * as React from "react";
 import { connect } from "react-redux";
 import * as Styles from "./Details.pcss";
 
-import { ImovieDetails } from "../../types";
+import { ImovieDetails } from "@types";
 
 const Details: React.SFC<ImovieDetails> = ({
   releaseDate = "",

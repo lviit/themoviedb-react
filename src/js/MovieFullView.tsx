@@ -10,7 +10,7 @@ import MovieList from "./components/MovieList";
 import Reviews from "./components/Reviews";
 import { mapDispachToProps } from "./redux/Store";
 
-import { Imovie, Ireview } from "./types";
+import { Imovie, Ireview } from "@types";
 
 type ImovieFullViewProps = RouteComponentProps & {
   getMovieDetails: (id: string) => void;
