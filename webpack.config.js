@@ -1,11 +1,12 @@
 const webpack = require("webpack");
-const { getIfUtils, removeEmpty } = require("webpack-config-utils");
+const { removeEmpty } = require("webpack-config-utils");
 const Dotenv = require("dotenv-webpack");
 const WebpackPwaManifest = require("webpack-pwa-manifest");
 const SWPrecacheWebpackPlugin = require("sw-precache-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CaseSensitivePathsPlugin = require("case-sensitive-paths-webpack-plugin");
 const CompressionPlugin = require("compression-webpack-plugin");
+const RobotstxtPlugin = require("robotstxt-webpack-plugin");
 const path = require("path");
 
 const BUILD_DIR = path.resolve(__dirname, "public");
@@ -36,6 +37,7 @@ module.exports = () => ({
   },
   plugins: removeEmpty([
     new CaseSensitivePathsPlugin(),
+    new RobotstxtPlugin(),
     new Dotenv({ systemvars: true }),
     new WebpackPwaManifest({
       name: "TMDb React app",
