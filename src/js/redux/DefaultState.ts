@@ -1,18 +1,18 @@
 export interface ImovieFullViewDefaultState {
   details: {
-    data: [];
+    data: any[];
     isLoading: boolean;
   };
   similarMovies: {
-    data: [];
+    data: any[];
     isLoading: boolean;
   };
   reviews: {
-    data: [];
+    data: any[];
     isLoading: boolean;
   };
   credits: {
-    data: [];
+    data: any[];
     isLoading: boolean;
   };
 }

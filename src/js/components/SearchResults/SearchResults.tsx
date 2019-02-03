@@ -64,8 +64,7 @@ const SearchResults: React.SFC<IsearchResultsProps> = props => {
 };
 
 SearchResults.defaultProps = {
-  genres: [],
-  searchResults: []
+  genres: []
 };
 
 export default SearchResults;

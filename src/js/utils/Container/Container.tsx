@@ -5,7 +5,8 @@ import * as Styles from "./Container.pcss";
 interface IcontainerProps {
   large?: boolean;
   className?: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
+  dangerouslySetInnerHTML?: { __html: string };
 }
 
 const Container: React.SFC<IcontainerProps> = ({

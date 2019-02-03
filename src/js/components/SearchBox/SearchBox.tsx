@@ -41,13 +41,13 @@ class SearchBox extends React.Component<ISearchBoxProps, IsearchBoxState> {
     };
   }
   public componentWillMount() {
-    ApiConnect.getGenres().then(genres => this.setState({ genres }));
+    ApiConnect.getGenres().then((genres: any) => this.setState({ genres }));
   }
   public handleChange(e) {
     this.callAjax(e.target.value);
   }
   public callAjax(value) {
-    ApiConnect.Search(value).then(searchResults =>
+    ApiConnect.Search(value).then((searchResults: any) =>
       this.setState({ searchResults })
     );
   }
@@ -84,7 +84,12 @@ class SearchBox extends React.Component<ISearchBoxProps, IsearchBoxState> {
             {this.state.searchResults &&
               this.state.genres &&
               this.props.config && (
-                <SearchResults {...this.state} {...this.props} />
+                <SearchResults
+                  genres={this.state.genres}
+                  searchResults={this.state.searchResults}
+                  config={this.props.config}
+                  toggleSearchBox={this.props.toggleSearchBox}
+                />
               )}
           </div>
         </Container>

@@ -3,7 +3,10 @@ import * as Styles from "./AboutPage.pcss";
 
 import Container from "@utils/Container";
 import Page from "@utils/Page";
-import READMEMd from "../../../../README.md";
+
+// Typescript doesn't like this?
+// import READMEMd from "../../../../README.md";
+const READMEMd = require("../../../../README.md");
 
 const AboutPage: React.SFC = () => (
   <Page>

@@ -8,7 +8,7 @@ export interface Iconfig {
 
 export interface Imovie {
   backdrop_path: string;
-  genre_ids: Igenre[];
+  genre_ids: number[];
   id: number;
   original_language: string;
   original_title: string;

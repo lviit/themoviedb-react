@@ -9,9 +9,10 @@ import * as Styles from "./MoviesByGenre.pcss";
 
 import { Igenre, Imovie } from "../../types";
 
-interface IMoviesByGenreProps extends RouteComponentProps {
+type IMoviesByGenreProps = RouteComponentProps & {
   genres: Igenre[];
-}
+  match: { params: { id: string } };
+};
 
 interface IMoviesByGenreState {
   activeGenre: string;
@@ -24,9 +25,9 @@ class MoviesByGenre extends React.Component<
 > {
   constructor(props) {
     super(props);
+    const id = this.props.match.params.id;
     this.state = {
-      activeGenre:
-        this.props.match.params.id === "all" ? "" : this.props.match.params.id,
+      activeGenre: id === "all" ? "" : id,
       moviesByGenre: []
     };
   }
@@ -38,8 +39,9 @@ class MoviesByGenre extends React.Component<
   public render() {
     const title =
       this.props.genres.length > 0 &&
-      this.props.genres.filter(genre => genre.id == this.state.activeGenre)[0]
-        .name;
+      this.props.genres.filter(
+        genre => genre.id.toString() === this.state.activeGenre
+      )[0].name;
     return (
       <div>
         <h1 className={Styles.title}>{title}</h1>

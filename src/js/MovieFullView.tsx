@@ -12,7 +12,7 @@ import { mapDispachToProps } from "./redux/Store";
 
 import { Imovie, Ireview } from "./types";
 
-interface ImovieFullViewProps extends RouteComponentProps {
+type ImovieFullViewProps = RouteComponentProps & {
   getMovieDetails: (id: string) => void;
   getReviews: (id: string) => void;
   getCredits: (id: string) => void;
@@ -20,7 +20,8 @@ interface ImovieFullViewProps extends RouteComponentProps {
   similar: Imovie[];
   isLoading: boolean;
   reviews: Ireview[];
-}
+  match: { params: { id: string } };
+};
 
 class MovieFullView extends React.Component<ImovieFullViewProps> {
   public static defaultProps: any;
