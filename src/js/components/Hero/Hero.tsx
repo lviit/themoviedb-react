@@ -47,17 +47,13 @@ const Hero: React.SFC<IHeroProps> = ({
     prevArrow: <HeroPrevArrow />
   };
 
-  const imageSize =
-    window.innerWidth > 780 ? backdrop_sizes[3] : backdrop_sizes[1];
+  const imageSize = window.innerWidth > 780 ? backdrop_sizes[3] : backdrop_sizes[1];
   const slides = movies.map(movie => (
     <div key={movie.id}>
       <Container>
         <div className={Styles.info}>
           <h2 className={Styles.title}>{movie.title}</h2>
-          <p className={Styles.overview}>{`${movie.overview.substr(
-            0,
-            150
-          )}...`}</p>
+          <p className={Styles.overview}>{`${movie.overview.substr(0, 150)}...`}</p>
           <Link className={Styles.link} to={`/movie/${movie.id}`}>
             Read more
           </Link>
@@ -71,7 +67,7 @@ const Hero: React.SFC<IHeroProps> = ({
       />
     </div>
   ));
-  return slides.length > 0 && <Slider {...sliderSettings}>{slides}</Slider>;
+  return slides.length > 0 ? <Slider {...sliderSettings}>{slides}</Slider> : null;
 };
 
 const mapStateToProps = (state, ownProps) => {

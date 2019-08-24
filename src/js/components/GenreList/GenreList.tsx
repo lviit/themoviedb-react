@@ -11,11 +11,7 @@ interface IgenreListProps {
   genres: Igenre[];
 }
 
-const GenreList: React.SFC<IgenreListProps> = ({
-  genres,
-  compact,
-  className
-}) => {
+const GenreList: React.SFC<IgenreListProps> = ({ genres, compact, className }) => {
   const genreList = genres.map(
     genre =>
       compact ? (
@@ -27,16 +23,13 @@ const GenreList: React.SFC<IgenreListProps> = ({
           <Link className={Styles.link} to={`/genres/${genre.id}`}>
             {genre.name}
           </Link>
-          <div
-            className={`${Styles.gradientBg} gradient-genre-${genre.id}--light`}
-          />
+          <div className={`${Styles.gradientBg} gradient-genre-${genre.id}--light`} />
         </div>
       )
   );
-  const containerClasses = classnames({
+  const containerClasses = classnames(className, {
     [Styles.container]: true,
-    [Styles.compact]: compact,
-    [className]: true
+    [Styles.compact]: compact
   });
   return <div className={containerClasses}>{genreList}</div>;
 };

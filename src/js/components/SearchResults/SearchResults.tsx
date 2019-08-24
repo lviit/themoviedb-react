@@ -11,14 +11,12 @@ import { Iconfig, Igenre, Imovie } from "@types";
 interface IsearchResultsProps {
   toggleSearchBox: () => void;
   genres: Igenre[];
-  searchResults?: {
-    results?: Imovie[];
-  };
+  searchResults: Imovie[];
   config: Iconfig;
 }
 
 const SearchResults: React.SFC<IsearchResultsProps> = props => {
-  const results = props.searchResults.results.map(result => {
+  const results = props.searchResults.map(result => {
     const path = `/movie/${result.id}`;
     const date = new Date(result.release_date);
     const year = date.getFullYear();
@@ -37,11 +35,7 @@ const SearchResults: React.SFC<IsearchResultsProps> = props => {
         }}
         timeout={300}
       >
-        <Link
-          to={path}
-          className={Styles.result}
-          onClick={() => props.toggleSearchBox()}
-        >
+        <Link to={path} className={Styles.result} onClick={() => props.toggleSearchBox()}>
           <MovieImage
             size={props.config.images.logo_sizes[0]}
             imageBaseUrl={props.config.images.secure_base_url}

@@ -9,16 +9,10 @@ interface IcontainerProps {
   dangerouslySetInnerHTML?: { __html: string };
 }
 
-const Container: React.SFC<IcontainerProps> = ({
-  large,
-  children,
-  className,
-  ...rest
-}) => {
-  const classes = classnames({
+const Container: React.SFC<IcontainerProps> = ({ large, children, className, ...rest }) => {
+  const classes = classnames(className, {
     [Styles.large]: large,
-    [Styles.small]: !large,
-    [className]: true
+    [Styles.small]: !large
   });
   return (
     <div className={classes} {...rest}>

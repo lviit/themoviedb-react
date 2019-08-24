@@ -10,13 +10,6 @@ import * as Styles from "./SearchBox.pcss";
 
 import { Iconfig, Igenre, Imovie } from "@types";
 
-interface IsearchResult {
-  page: number;
-  total_pages: number;
-  total_results: number;
-  results: Imovie[];
-}
-
 interface ISearchBoxProps {
   toggleSearchBox: () => void;
   collapsed: boolean;
@@ -25,7 +18,7 @@ interface ISearchBoxProps {
 
 interface IsearchBoxState {
   genres?: Igenre[];
-  searchResults?: IsearchResult;
+  searchResults: Imovie[];
 }
 
 class SearchBox extends React.Component<ISearchBoxProps, IsearchBoxState> {
@@ -37,7 +30,7 @@ class SearchBox extends React.Component<ISearchBoxProps, IsearchBoxState> {
     this.handleChange = this.handleChange.bind(this);
     this.callAjax = debounce(300, this.callAjax);
     this.state = {
-      searchResults: null
+      searchResults: []
     };
   }
   public componentWillMount() {
@@ -47,8 +40,8 @@ class SearchBox extends React.Component<ISearchBoxProps, IsearchBoxState> {
     this.callAjax(e.target.value);
   }
   public callAjax(value) {
-    ApiConnect.Search(value).then((searchResults: any) =>
-      this.setState({ searchResults })
+    ApiConnect.Search(value).then((response: any) =>
+      this.setState({ searchResults: response.results })
     );
   }
   public handleClickOutside() {
@@ -80,7 +73,7 @@ class SearchBox extends React.Component<ISearchBoxProps, IsearchBoxState> {
               id="searchbox"
               onChange={this.handleChange}
               ref={input => {
-                this.textInput = input;
+                this.textInput = input as HTMLInputElement;
               }}
             />
           </form>

@@ -1,11 +1,6 @@
 import * as React from "react";
 import { connect } from "react-redux";
-import {
-  Route,
-  RouteComponentProps,
-  Switch,
-  withRouter
-} from "react-router-dom";
+import { Route, RouteComponentProps, Switch, withRouter } from "react-router-dom";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 import { mapDispachToProps } from "./redux/Store";
@@ -24,8 +19,8 @@ import * as Styles from "../css/layout.pcss";
 const NotFound = () => <h1>404.. Whoops, page not found!</h1>;
 
 interface IappProps extends RouteComponentProps {
-  getConfig: () => null;
-  getGenres: () => null;
+  getConfig: () => (dispatch: any, getState: any) => Promise<void>;
+  getGenres: () => (dispatch: any, getState: any) => Promise<void>;
 }
 
 class App extends React.Component<IappProps> {
@@ -71,9 +66,7 @@ class App extends React.Component<IappProps> {
               <Route exact={true} path="/about" component={AboutPage} />
               <Route
                 path="/movie/:id"
-                render={props => (
-                  <MovieFullView {...props} key={props.match.params.id} />
-                )}
+                render={props => <MovieFullView {...props} key={props.match.params.id} />}
               />
               <Route path="/genres" component={GenresPage} />
               <Route component={NotFound} />

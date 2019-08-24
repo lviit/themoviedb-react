@@ -22,7 +22,7 @@ const Section: React.SFC<IsectionProps> = ({ title, dark, children }) => {
   );
 };
 Section.defaultProps = {
-  title: null,
+  title: "",
   dark: false
 };
 export default Section;
