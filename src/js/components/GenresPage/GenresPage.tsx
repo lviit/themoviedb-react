@@ -21,7 +21,7 @@ const GenresPage: React.SFC<IProps> = ({ genres }) => (
   </Page>
 );
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state: Istate, ownProps: IProps) => {
   return {
     ...ownProps,
     genres: state.genres

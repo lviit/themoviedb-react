@@ -27,42 +27,42 @@ export default {
       })
       .then(res => res.data.genres)
       .catch(error => console.log(error)),
-  getMovieDetails: id =>
+  getMovieDetails: (id: string) =>
     axios
       .get(`${baseUrl}/3/movie/${id}`, {
         params: { api_key: process.env.API_KEY }
       })
       .then(res => res.data)
       .catch(error => console.log(error)),
-  getReviews: id =>
+  getReviews: (id: string) =>
     axios
       .get(`${baseUrl}/3/movie/${id}/reviews`, {
         params: { api_key: process.env.API_KEY }
       })
       .then(res => res.data)
       .catch(error => console.log(error)),
-  getCredits: id =>
+  getCredits: (id: string) =>
     axios
       .get(`${baseUrl}/3/movie/${id}/credits`, {
         params: { api_key: process.env.API_KEY }
       })
       .then(res => res.data)
       .catch(error => console.log(error)),
-  getSimilar: id =>
+  getSimilar: (id: string) =>
     axios
       .get(`${baseUrl}/3/movie/${id}/similar`, {
         params: { api_key: process.env.API_KEY }
       })
       .then(res => res.data)
       .catch(error => console.log(error)),
-  Search: query =>
+  Search: (query: string) =>
     axios
       .get(`${baseUrl}/3/search/movie`, {
         params: { query, api_key: process.env.API_KEY }
       })
       .then(res => res.data)
       .catch(error => console.log(error)),
-  SearchByGenre: genre =>
+  SearchByGenre: (genre: string) =>
     axios
       .get(`${baseUrl}/3/discover/movie`, {
         params: { api_key: process.env.API_KEY, with_genres: genre }

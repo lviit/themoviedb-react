@@ -12,12 +12,8 @@ const Details: React.SFC<ImovieDetails> = ({
 }) => {
   const date = new Date(releaseDate);
   const formattedDate = `${date.getDay()}.${date.getMonth()}.${date.getFullYear()}`;
-  const formattedRevenue = `$${revenue
-    .toString()
-    .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`;
-  const formattedBudget = `$${budget
-    .toString()
-    .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`;
+  const formattedRevenue = `$${revenue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`;
+  const formattedBudget = `$${budget.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`;
   const formattedRuntime = `${runtime} minutes`;
   return (
     <div className={Styles.container}>
@@ -41,7 +37,7 @@ const Details: React.SFC<ImovieDetails> = ({
   );
 };
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state: Istate, ownProps: any) => {
   return {
     ...ownProps,
     releaseDate: state.movieFullView.details.data.release_date,

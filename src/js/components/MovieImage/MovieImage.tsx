@@ -15,7 +15,7 @@ interface IMovieImageState {
 }
 
 class MovieImage extends React.Component<IMovieImageProps, IMovieImageState> {
-  constructor(props) {
+  constructor(props: IMovieImageProps) {
     super(props);
     this.state = {
       img_error: false,
@@ -40,8 +40,7 @@ class MovieImage extends React.Component<IMovieImageProps, IMovieImageState> {
     });
     return (
       <div className={containerClasses}>
-        {!this.state.img_loaded &&
-          !this.state.img_error && <div className={Styles.loader} />}
+        {!this.state.img_loaded && !this.state.img_error && <div className={Styles.loader} />}
         {!this.state.img_error ? (
           <img
             onLoad={() =>

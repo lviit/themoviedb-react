@@ -10,7 +10,7 @@ interface Istate {
 export class Header extends React.Component<RouteComponentProps, Istate> {
   public static defaultProps: any;
 
-  constructor(props) {
+  constructor(props: RouteComponentProps) {
     super(props);
     this.toggleSearchBox = this.toggleSearchBox.bind(this);
     this.state = {
@@ -43,36 +43,22 @@ export class Header extends React.Component<RouteComponentProps, Istate> {
                 </NavLink>
               </li>
               <li className={Styles.menuitem}>
-                <NavLink
-                  className={Styles.menulink}
-                  activeClassName={Styles.active}
-                  to="/genres"
-                >
+                <NavLink className={Styles.menulink} activeClassName={Styles.active} to="/genres">
                   Genres
                 </NavLink>
               </li>
               <li className={Styles.menuitem}>
-                <NavLink
-                  className={Styles.menulink}
-                  activeClassName={Styles.active}
-                  to="/about"
-                >
+                <NavLink className={Styles.menulink} activeClassName={Styles.active} to="/about">
                   About
                 </NavLink>
               </li>
             </ul>
-            <button
-              className={`${Styles.button} material-icons`}
-              onClick={this.toggleSearchBox}
-            >
+            <button className={`${Styles.button} material-icons`} onClick={this.toggleSearchBox}>
               search
             </button>
           </div>
         </div>
-        <SearchBox
-          collapsed={this.state.toggleSearchBox}
-          toggleSearchBox={this.toggleSearchBox}
-        />
+        <SearchBox collapsed={this.state.toggleSearchBox} toggleSearchBox={this.toggleSearchBox} />
       </div>
     );
   }

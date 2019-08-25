@@ -22,13 +22,13 @@ interface IHeroProps {
   config: Iconfig;
 }
 
-const HeroPrevArrow = props => (
+const HeroPrevArrow = (props: any) => (
   <i onClick={props.onClick} className="slick-arrow slick-prev material-icons">
     chevron_left
   </i>
 );
 
-const HeroNextArrow = props => (
+const HeroNextArrow = (props: any) => (
   <i onClick={props.onClick} className="slick-arrow slick-next material-icons">
     chevron_right
   </i>
@@ -70,7 +70,7 @@ const Hero: React.SFC<IHeroProps> = ({
   return slides.length > 0 ? <Slider {...sliderSettings}>{slides}</Slider> : null;
 };
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state: Istate, ownProps: any) => {
   return { ...ownProps, config: state.config };
 };
 

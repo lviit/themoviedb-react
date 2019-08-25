@@ -3,7 +3,7 @@
     "baseUrl": ".",
     "outDir": "./public/",
     "sourceMap": true,
-    //"noImplicitAny": true,
+    "noImplicitAny": true,
     "strictNullChecks": true,
     "module": "commonjs",
     "target": "es5",

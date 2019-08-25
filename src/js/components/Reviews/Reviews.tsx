@@ -17,7 +17,7 @@ const Reviews: React.SFC<IreviewsProps> = ({ reviews = [] }) => {
   ));
   return <div className={Styles.container}>{reviewsList}</div>;
 };
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state: Istate, ownProps: any) => {
   return {
     ...ownProps,
     reviews: state.movieFullView.reviews.data

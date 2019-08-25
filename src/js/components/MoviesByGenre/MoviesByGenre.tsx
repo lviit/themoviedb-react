@@ -19,11 +19,8 @@ interface IMoviesByGenreState {
   moviesByGenre: Imovie[];
 }
 
-class MoviesByGenre extends React.Component<
-  IMoviesByGenreProps,
-  IMoviesByGenreState
-> {
-  constructor(props) {
+class MoviesByGenre extends React.Component<IMoviesByGenreProps, IMoviesByGenreState> {
+  constructor(props: IMoviesByGenreProps) {
     super(props);
     const id = this.props.match.params.id;
     this.state = {
@@ -39,22 +36,17 @@ class MoviesByGenre extends React.Component<
   public render() {
     const title =
       this.props.genres.length > 0 &&
-      this.props.genres.filter(
-        genre => genre.id.toString() === this.state.activeGenre
-      )[0].name;
+      this.props.genres.filter(genre => genre.id.toString() === this.state.activeGenre)[0].name;
     return (
       <div>
         <h1 className={Styles.title}>{title}</h1>
-        <Tiles
-          movies={this.state.moviesByGenre}
-          genre={this.state.activeGenre}
-        />
+        <Tiles movies={this.state.moviesByGenre} genre={this.state.activeGenre} />
       </div>
     );
   }
 }
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state: Istate, ownProps: IMoviesByGenreProps) => {
   return {
     ...ownProps,
     genres: state.genres

@@ -26,7 +26,7 @@ type ImovieFullViewProps = RouteComponentProps & {
 class MovieFullView extends React.Component<ImovieFullViewProps> {
   public static defaultProps: any;
 
-  constructor(props) {
+  constructor(props: ImovieFullViewProps) {
     super(props);
   }
   public componentWillMount() {
@@ -65,7 +65,7 @@ MovieFullView.defaultProps = {
   params: {}
 };
 
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = (state: Istate, ownProps: ImovieFullViewProps) => ({
   ...ownProps,
   config: state.config,
   isLoading:

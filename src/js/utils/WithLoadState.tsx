@@ -1,10 +1,6 @@
 import * as React from "react";
 
-export default (WrappedComponent, className) => {
-  return (props, isLoading) =>
-    isLoading ? (
-      <div className="load-state-wrapper" />
-    ) : (
-      <WrappedComponent {...props} />
-    );
+export default (WrappedComponent: React.ReactType) => {
+  return (props: any, isLoading: boolean) =>
+    isLoading ? <div className="load-state-wrapper" /> : <WrappedComponent {...props} />;
 };

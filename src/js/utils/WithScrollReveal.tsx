@@ -1,7 +1,7 @@
 import * as React from "react";
 const scrollreveal = require("scrollreveal");
 
-export default (WrappedComponent, className) =>
+export default (WrappedComponent: React.ReactType, className: string) =>
   class WithScrollReveal extends React.Component {
     public componentDidMount() {
       const sr = scrollreveal({

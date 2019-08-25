@@ -1,22 +1,3 @@
-export interface ImovieFullViewDefaultState {
-  details: {
-    data: any[];
-    isLoading: boolean;
-  };
-  similarMovies: {
-    data: any[];
-    isLoading: boolean;
-  };
-  reviews: {
-    data: any[];
-    isLoading: boolean;
-  };
-  credits: {
-    data: any[];
-    isLoading: boolean;
-  };
-}
-
 export default {
   config: {
     images: {}
@@ -39,7 +20,7 @@ export default {
       isLoading: false
     },
     credits: {
-      data: [],
+      data: {},
       isLoading: false
     }
   }

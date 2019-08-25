@@ -1,6 +1,6 @@
-import DefaultState, { ImovieFullViewDefaultState } from "./DefaultState";
+import DefaultState from "./DefaultState";
 
-export function config(state = DefaultState.config, action) {
+export function config(state = DefaultState.config, action: any) {
   switch (action.type) {
     case "GET_CONFIG":
       return {
@@ -11,7 +11,7 @@ export function config(state = DefaultState.config, action) {
       return state;
   }
 }
-export function movies(state = DefaultState.movies, action) {
+export function movies(state = DefaultState.movies, action: any) {
   switch (action.type) {
     case "GET_LATEST_MOVIES":
       return {
@@ -22,7 +22,7 @@ export function movies(state = DefaultState.movies, action) {
       return state;
   }
 }
-export function genres(state = DefaultState.genres, action) {
+export function genres(state = DefaultState.genres, action: any) {
   switch (action.type) {
     case "GET_GENRES":
       return [...action.genres];
@@ -30,10 +30,7 @@ export function genres(state = DefaultState.genres, action) {
       return state;
   }
 }
-export function movieFullView(
-  state: ImovieFullViewDefaultState = DefaultState.movieFullView,
-  action
-) {
+export function movieFullView(state: ImovieFullView = DefaultState.movieFullView, action: any) {
   switch (action.type) {
     case "GET_MOVIE_DETAILS_LOADING":
       return {

@@ -17,9 +17,7 @@ interface ItilesProps {
 const Tiles: React.SFC<ItilesProps> = ({
   movies = [],
   genre,
-  config: {
-    images: { backdrop_sizes: imageSizes, secure_base_url: imageBaseUrl }
-  }
+  config: { images: { backdrop_sizes: imageSizes, secure_base_url: imageBaseUrl } }
 }) => {
   const movieList = movies.map((movie, index) => {
     const size = index % 7 === 0 ? 2 : 1;
@@ -27,10 +25,9 @@ const Tiles: React.SFC<ItilesProps> = ({
       <div className={size === 1 ? Styles.small : Styles.big} key={movie.id}>
         <Link className={Styles.movie} key={movie.id} to={`/movie/${movie.id}`}>
           <div
-            className={[
-              Styles.gradientOverlay,
-              `gradient-genre-${genre ? genre : "all"}`
-            ].join(" ")}
+            className={[Styles.gradientOverlay, `gradient-genre-${genre ? genre : "all"}`].join(
+              " "
+            )}
           />
           <MovieImage
             backdrop={true}
@@ -39,14 +36,8 @@ const Tiles: React.SFC<ItilesProps> = ({
             path={movie.backdrop_path}
           />
 
-          <div
-            className={
-              size === 1 ? Styles.info : `${Styles.info} ${Styles.info__big}`
-            }
-          >
-            <h3 className={size === 1 ? Styles.title : Styles.title__big}>
-              {movie.title}
-            </h3>
+          <div className={size === 1 ? Styles.info : `${Styles.info} ${Styles.info__big}`}>
+            <h3 className={size === 1 ? Styles.title : Styles.title__big}>{movie.title}</h3>
             <div
               className={size === 1 ? Styles.overview : Styles.overview__big}
             >{`${movie.overview.substr(0, size === 1 ? 50 : 200)}...`}</div>
@@ -61,7 +52,7 @@ const Tiles: React.SFC<ItilesProps> = ({
     </Container>
   );
 };
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state: Istate, ownProps: any) => {
   return {
     ...ownProps,
     config: state.config

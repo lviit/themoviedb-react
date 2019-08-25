@@ -18,7 +18,7 @@ interface IfullViewState {
 }
 
 class FullView extends React.Component<IfullViewProps, IfullViewState> {
-  constructor(props) {
+  constructor(props: IfullViewProps) {
     super(props);
     this.state = { animateMeter: false };
   }
@@ -33,8 +33,7 @@ class FullView extends React.Component<IfullViewProps, IfullViewState> {
       config: { images: { backdrop_sizes = [], secure_base_url: imageBaseUrl } }
     } = this.props;
     const strokeDash = 339.292;
-    const imageSize =
-      window.innerWidth > 780 ? backdrop_sizes[3] : backdrop_sizes[1];
+    const imageSize = window.innerWidth > 780 ? backdrop_sizes[3] : backdrop_sizes[1];
 
     return (
       <div className={Styles.container}>
@@ -64,9 +63,7 @@ class FullView extends React.Component<IfullViewProps, IfullViewState> {
                   style={{
                     strokeDasharray: strokeDash.toString(),
                     strokeDashoffset:
-                      strokeDash -
-                      strokeDash *
-                        (this.state.animateMeter ? voteAverage / 10 : 0)
+                      strokeDash - strokeDash * (this.state.animateMeter ? voteAverage / 10 : 0)
                   }}
                 />
               </svg>
@@ -77,17 +74,26 @@ class FullView extends React.Component<IfullViewProps, IfullViewState> {
     );
   }
 }
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state: Istate, ownProps: any) => {
+  const {
+    backdrop_path: backDropPath,
+    genres,
+    overview,
+    tagline,
+    title,
+    vote_average: voteAverage
+  } = state.movieFullView.details.data;
+
   return {
     ...ownProps,
     config: state.config,
     details: {
-      backDropPath: state.movieFullView.details.data.backdrop_path,
-      genres: state.movieFullView.details.data.genres,
-      overview: state.movieFullView.details.data.overview,
-      tagline: state.movieFullView.details.data.tagline,
-      title: state.movieFullView.details.data.title,
-      voteAverage: state.movieFullView.details.data.vote_average
+      backDropPath,
+      genres,
+      overview,
+      tagline,
+      title,
+      voteAverage
     }
   };
 };

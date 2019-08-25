@@ -14,7 +14,7 @@ interface IfrontProps {
 }
 
 class Front extends React.Component<IfrontProps> {
-  constructor(props) {
+  constructor(props: IfrontProps) {
     super(props);
   }
   public componentWillMount() {
@@ -31,7 +31,7 @@ class Front extends React.Component<IfrontProps> {
     );
   }
 }
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state: Istate, ownProps: IfrontProps) => {
   return {
     ...ownProps,
     latestMovies: state.movies.latest

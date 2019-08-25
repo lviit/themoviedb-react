@@ -40,7 +40,7 @@ const Credits: React.SFC<ICreditsProps> = ({
   ));
   return <div className={Styles.container}>{castList}</div>;
 };
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state: Istate, ownProps: any) => {
   return {
     ...ownProps,
     config: state.config,

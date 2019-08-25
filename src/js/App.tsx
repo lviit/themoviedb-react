@@ -24,7 +24,7 @@ interface IappProps extends RouteComponentProps {
 }
 
 class App extends React.Component<IappProps> {
-  constructor(props) {
+  constructor(props: IappProps & RouteComponentProps) {
     super(props);
   }
 

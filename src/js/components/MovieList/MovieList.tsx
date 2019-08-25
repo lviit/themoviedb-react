@@ -14,17 +14,11 @@ interface IMovieListProps {
 
 const MovieList: React.SFC<IMovieListProps> = ({
   movies,
-  config: {
-    images: { backdrop_sizes: imageSizes, secure_base_url: imageBaseUrl }
-  }
+  config: { images: { backdrop_sizes: imageSizes, secure_base_url: imageBaseUrl } }
 }) => {
   const movieList = movies.map(movie => (
     <Link className={Styles.movie} key={movie.id} to={`/movie/${movie.id}`}>
-      <MovieImage
-        size={imageSizes[0]}
-        imageBaseUrl={imageBaseUrl}
-        path={movie.poster_path}
-      />
+      <MovieImage size={imageSizes[0]} imageBaseUrl={imageBaseUrl} path={movie.poster_path} />
       <div className={Styles.info}>
         <h3 className={Styles.title}>{movie.title}</h3>
       </div>
@@ -37,9 +31,7 @@ MovieList.defaultProps = {
   movies: []
 };
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state: Istate, ownProps: any) => {
   return { ...ownProps, config: state.config };
 };
-export default connect(mapStateToProps)(
-  WithScrollReveal(MovieList, Styles.movie)
-);
+export default connect(mapStateToProps)(WithScrollReveal(MovieList, Styles.movie));
