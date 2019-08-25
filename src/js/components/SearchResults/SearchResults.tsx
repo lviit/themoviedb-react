@@ -6,8 +6,6 @@ import GenreList from "../GenreList";
 import MovieImage from "../MovieImage";
 import * as Styles from "./SearchResults.pcss";
 
-import { Iconfig, Igenre, Imovie } from "@types";
-
 interface IsearchResultsProps {
   toggleSearchBox: () => void;
   genres: Igenre[];

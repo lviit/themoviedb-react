@@ -1,8 +1,8 @@
-import { Dispatch } from "redux";
+import { AnyAction, Dispatch } from "redux";
 import ApiConnect from "../services/ApiConnect";
 
 export function getConfig() {
-  return async (dispatch: Dispatch<any>): Promise<void> => {
+  return async (dispatch: Dispatch<AnyAction>): Promise<void> => {
     const response: any = await ApiConnect.getConfig();
     dispatch({
       type: "GET_CONFIG",
@@ -12,7 +12,7 @@ export function getConfig() {
 }
 
 export function getLatestMovies() {
-  return async (dispatch: Dispatch<any>): Promise<void> => {
+  return async (dispatch: Dispatch<AnyAction>): Promise<void> => {
     const response: any = await ApiConnect.getLatestMovies();
     dispatch({
       type: "GET_LATEST_MOVIES",
@@ -21,7 +21,7 @@ export function getLatestMovies() {
   };
 }
 export function getMovieDetails(id: string) {
-  return async (dispatch: Dispatch<any>): Promise<void> => {
+  return async (dispatch: Dispatch<AnyAction>): Promise<void> => {
     dispatch({ type: "GET_MOVIE_DETAILS_LOADING" });
     const response: any = await ApiConnect.getMovieDetails(id);
     dispatch({
@@ -31,7 +31,7 @@ export function getMovieDetails(id: string) {
   };
 }
 export function getReviews(id: string) {
-  return async (dispatch: Dispatch<any>): Promise<void> => {
+  return async (dispatch: Dispatch<AnyAction>): Promise<void> => {
     dispatch({ type: "GET_MOVIE_REVIEWS_LOADING" });
     const response: any = await ApiConnect.getReviews(id);
     dispatch({
@@ -41,7 +41,7 @@ export function getReviews(id: string) {
   };
 }
 export function getCredits(id: string) {
-  return async (dispatch: Dispatch<any>): Promise<void> => {
+  return async (dispatch: Dispatch<AnyAction>): Promise<void> => {
     dispatch({ type: "GET_MOVIE_CREDITS_LOADING" });
     const response: any = await ApiConnect.getCredits(id);
     dispatch({
@@ -51,7 +51,7 @@ export function getCredits(id: string) {
   };
 }
 export function getSimilar(id: string) {
-  return async (dispatch: Dispatch<any>): Promise<void> => {
+  return async (dispatch: Dispatch<AnyAction>): Promise<void> => {
     dispatch({ type: "GET_MOVIE_SIMILAR_LOADING" });
     const response: any = await ApiConnect.getSimilar(id);
     dispatch({
@@ -61,7 +61,7 @@ export function getSimilar(id: string) {
   };
 }
 export function getGenres() {
-  return async (dispatch: Dispatch<any>): Promise<void> => {
+  return async (dispatch: Dispatch<AnyAction>): Promise<void> => {
     const response: any = await ApiConnect.getGenres();
     dispatch({
       type: "GET_GENRES",
@@ -70,7 +70,7 @@ export function getGenres() {
   };
 }
 export function SearchByGenre(genre: string) {
-  return async (dispatch: Dispatch<any>): Promise<void> => {
+  return async (dispatch: Dispatch<AnyAction>): Promise<void> => {
     const response: any = await ApiConnect.SearchByGenre(genre);
     dispatch({
       type: "SEARCH_BY_GENRE",
@@ -79,7 +79,7 @@ export function SearchByGenre(genre: string) {
   };
 }
 export function Search(query: string) {
-  return async (dispatch: Dispatch<any>): Promise<void> => {
+  return async (dispatch: Dispatch<AnyAction>): Promise<void> => {
     const response: any = await ApiConnect.Search(query);
     dispatch({
       type: "SEARCH",

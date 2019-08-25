@@ -1,6 +1,7 @@
 import { routerReducer } from "react-router-redux";
 
 import {
+  AnyAction,
   applyMiddleware,
   bindActionCreators,
   combineReducers,
@@ -23,6 +24,6 @@ const enhancers = compose(
 const Store = createStore(rootReducer, DefaultState, enhancers);
 export default Store;
 
-export function mapDispachToProps(dispatch: Dispatch<any>) {
+export function mapDispachToProps(dispatch: Dispatch<AnyAction>) {
   return bindActionCreators(actionCreators, dispatch);
 }

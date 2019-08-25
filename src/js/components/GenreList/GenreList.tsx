@@ -3,8 +3,6 @@ import * as React from "react";
 import { Link } from "react-router-dom";
 import * as Styles from "./GenreList.pcss";
 
-import { Igenre } from "@types";
-
 interface IgenreListProps {
   className?: string;
   compact?: boolean;

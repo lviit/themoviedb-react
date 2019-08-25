@@ -6,8 +6,6 @@ import { Link } from "react-router-dom";
 import MovieImage from "../MovieImage";
 import * as Styles from "./Tiles.pcss";
 
-import { Iconfig, Imovie } from "@types";
-
 interface ItilesProps {
   movies: Imovie[];
   config: Iconfig;

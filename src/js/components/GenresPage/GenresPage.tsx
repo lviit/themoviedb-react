@@ -6,8 +6,6 @@ import GenreList from "../GenreList";
 import MoviesByGenre from "../MoviesByGenre";
 import * as Styles from "./GenresPage.pcss";
 
-import { Igenre } from "@types";
-
 interface IProps {
   genres: Igenre[];
 }

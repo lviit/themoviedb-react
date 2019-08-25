@@ -6,8 +6,6 @@ import GenreList from "../GenreList";
 import MovieImage from "../MovieImage";
 import * as Styles from "./MovieFull.pcss";
 
-import { Iconfig, ImovieDetails } from "@types";
-
 interface IfullViewProps {
   details: ImovieDetails;
   config: Iconfig;

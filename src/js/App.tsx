@@ -2,6 +2,8 @@ import * as React from "react";
 import { connect } from "react-redux";
 import { Route, RouteComponentProps, Switch, withRouter } from "react-router-dom";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
+import { AnyAction } from "redux";
+import { ThunkAction } from "redux-thunk";
 
 import { mapDispachToProps } from "./redux/Store";
 
@@ -19,8 +21,8 @@ import * as Styles from "../css/layout.pcss";
 const NotFound = () => <h1>404.. Whoops, page not found!</h1>;
 
 interface IappProps extends RouteComponentProps {
-  getConfig: () => (dispatch: any, getState: any) => Promise<void>;
-  getGenres: () => (dispatch: any, getState: any) => Promise<void>;
+  getConfig: () => ThunkAction<Promise<void>, {}, {}, AnyAction>;
+  getGenres: () => ThunkAction<Promise<void>, {}, {}, AnyAction>;
 }
 
 class App extends React.Component<IappProps> {

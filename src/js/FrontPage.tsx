@@ -6,8 +6,6 @@ import Hero from "./components/Hero";
 import MovieList from "./components/MovieList";
 import { mapDispachToProps } from "./redux/Store";
 
-import { Imovie } from "@types";
-
 interface IfrontProps {
   latestMovies: Imovie[];
   getLatestMovies: () => null;
@@ -34,7 +32,7 @@ class Front extends React.Component<IfrontProps> {
 const mapStateToProps = (state: Istate, ownProps: IfrontProps) => {
   return {
     ...ownProps,
-    latestMovies: state.movies.latest
+    latestMovies: state.latestMovies
   };
 };
 export default connect(mapStateToProps, mapDispachToProps)(Front);

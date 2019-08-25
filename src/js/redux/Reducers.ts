@@ -11,12 +11,12 @@ export function config(state = DefaultState.config, action: any) {
       return state;
   }
 }
-export function movies(state = DefaultState.movies, action: any) {
+export function latestMovies(state = DefaultState.latestMovies, action: any) {
   switch (action.type) {
     case "GET_LATEST_MOVIES":
       return {
         ...state,
-        latest: action.movies
+        latestMovies: action.movies.latest
       };
     default:
       return state;
@@ -60,7 +60,7 @@ export function movieFullView(state: ImovieFullView = DefaultState.movieFullView
       return {
         ...state,
         credits: {
-          data: action.credits,
+          cast: action.credits.cast,
           isLoading: false
         }
       };

@@ -3,20 +3,9 @@ import * as React from "react";
 import { connect } from "react-redux";
 import * as Styles from "./Credits.pcss";
 
-interface IcastMember {
-  id: string;
-  profile_path: string;
-  name: string;
-  character: string;
-}
-
 interface ICreditsProps {
   cast: IcastMember[];
-  config: {
-    images: {
-      secure_base_url: string;
-    };
-  };
+  config: Iconfig;
 }
 
 const Credits: React.SFC<ICreditsProps> = ({
@@ -44,7 +33,7 @@ const mapStateToProps = (state: Istate, ownProps: any) => {
   return {
     ...ownProps,
     config: state.config,
-    cast: state.movieFullView.credits.data.cast
+    cast: state.movieFullView.credits.cast
   };
 };
 export default connect(mapStateToProps)(WithScrollReveal(Credits, Styles.item));

@@ -2,9 +2,7 @@ export default {
   config: {
     images: {}
   },
-  movies: {
-    latest: []
-  },
+  latestMovies: [],
   genres: [],
   movieFullView: {
     details: {
@@ -20,7 +18,7 @@ export default {
       isLoading: false
     },
     credits: {
-      data: {},
+      cast: [],
       isLoading: false
     }
   }
