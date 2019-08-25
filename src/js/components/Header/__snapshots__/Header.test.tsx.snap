@@ -62,7 +62,7 @@ exports[`renders correctly 1`] = `
       </button>
     </div>
   </div>
-  <Connect(OnClickOutside(SearchBox))
+  <React.Memo
     collapsed={false}
     toggleSearchBox={[Function]}
   />

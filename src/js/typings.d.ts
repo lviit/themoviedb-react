@@ -9,6 +9,7 @@ declare module "*.md" {
 }
 
 declare module "enzyme";
+declare module "enzyme-adapter-react-16";
 declare module "nock";
 declare module "react-slick";
 declare module "react-onclickoutside";
