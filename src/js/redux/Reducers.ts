@@ -14,10 +14,7 @@ export function config(state = DefaultState.config, action: any) {
 export function latestMovies(state = DefaultState.latestMovies, action: any) {
   switch (action.type) {
     case "GET_LATEST_MOVIES":
-      return {
-        ...state,
-        latestMovies: action.movies.latest
-      };
+      return action.movies;
     default:
       return state;
   }
@@ -25,7 +22,7 @@ export function latestMovies(state = DefaultState.latestMovies, action: any) {
 export function genres(state = DefaultState.genres, action: any) {
   switch (action.type) {
     case "GET_GENRES":
-      return [...action.genres];
+      return action.genres;
     default:
       return state;
   }

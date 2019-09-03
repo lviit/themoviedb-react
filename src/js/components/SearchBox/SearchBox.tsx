@@ -21,10 +21,11 @@ interface IsearchBoxState {
 
 class SearchBox extends React.Component<ISearchBoxProps, IsearchBoxState> {
   public static defaultProps: any;
-  private textInput: HTMLInputElement;
+  private textInput: React.RefObject<HTMLInputElement>;
 
   constructor(props: ISearchBoxProps) {
     super(props);
+    this.textInput = React.createRef();
     this.handleChange = this.handleChange.bind(this);
     this.callAjax = debounce(300, this.callAjax);
     this.state = {
@@ -46,7 +47,7 @@ class SearchBox extends React.Component<ISearchBoxProps, IsearchBoxState> {
     this.props.collapsed && this.props.toggleSearchBox();
   }
   public render() {
-    this.props.collapsed && this.textInput.focus();
+    this.props.collapsed && this.textInput.current && this.textInput.current.focus();
     const searchBoxClasses = classnames({
       [Styles.searchbox]: true,
       [Styles.collapsed]: this.props.collapsed
@@ -70,9 +71,7 @@ class SearchBox extends React.Component<ISearchBoxProps, IsearchBoxState> {
               type="text"
               id="searchbox"
               onChange={this.handleChange}
-              ref={input => {
-                this.textInput = input as HTMLInputElement;
-              }}
+              ref={this.textInput}
             />
           </form>
           <div className={resultContainerClasses}>
